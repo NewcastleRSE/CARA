@@ -124,6 +124,24 @@ angular.module('rcaApp')
             return value;
           })(value.items);
         });
+      },
+
+      generateImagePaths : function() {
+
+        var charMap = ['a', 'b', 'c', 'd'];
+
+
+
+        angular.forEach(Assessment.questions.get('sentence-part-1').items, function (item, key) {
+          angular.forEach(item.answers, function(answer, i){
+            Assessment.questions.get('sentence-part-1').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer + '.jpg'}
+          });
+        });
+        angular.forEach(Assessment.questions.get('sentence-part-2').items, function (item, key) {
+          angular.forEach(item.answers, function(answer, i){
+            Assessment.questions.get('sentence-part-2').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer + '.jpg'}
+          });
+        });
       }
     };
 
@@ -151,6 +169,7 @@ angular.module('rcaApp')
       }).then(function successCallback(response) {
 
         Assessment.questions.set(response.data);
+        Assessment.questions.generateImagePaths();
         Assessment.questions.shuffle();
         Assessment.answers.shuffle();
         Assessment.questions.current.reset();

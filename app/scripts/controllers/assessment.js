@@ -8,7 +8,9 @@
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('AssessmentCtrl', function ($scope, Assessment, $state) {
+  .controller('AssessmentCtrl', function ($scope, $rootScope, Assessment, $state) {
+
+    $rootScope.navBarVis = false;
 
     if (Assessment.started !== true) {
       $state.go('home');
@@ -46,18 +48,21 @@ angular.module('rcaApp')
       return new Date().toString();
     };
 
-    $scope.setAnswer = function($item, $answer) {
+    $scope.setAnswer = function($item, $answer, $index) {
 
       $item.finish = new Date().toString();
       $item.answerGiven = $answer;
+      $item.answerPosition = $index;
 
-      if ($scope.pages.eq([$scope.currentPage]).length > 0) {
+      if ($scope.pages.eq($scope.currentPage+1).length > 0) {
         $scope.setWaiting(true);
         $scope.currentPage++;
       } else {
         // Show finshed page
         $scope.started = false;
         $scope.complete = true;
+        $scope.pages.hide();
+        console.log($scope.questions);
       }
       //item.answerGiven = answer;item.finish = newTimestamp(); setWaiting(true);
     };
@@ -92,7 +97,6 @@ angular.module('rcaApp')
 
       $scope.setWaiting(false);
 
-      console.log($scope.questions);
 
     };
 

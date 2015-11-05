@@ -42,13 +42,13 @@
     "items" : [
       {
         "question": "the thin boy",
-        "pictures": "Ai 5",
+        "pictures": "Part1Pictures/ai 5",
         "answers": ["the thin boy", "the fat boy", "the thin girl", "the fat girl"],
         "correctAnswer": "the thin boy"
       },
       {
         "question": "grate the cheese",
-        "pictures": "B 11",
+        "pictures": "Part1Pictures/b 11",
         "answers": ["grate the cheese", "slice the cheese", "grate the carrot", "slice the carrot"],
         "correctAnswer": "grate the cheese"
       }
@@ -59,12 +59,14 @@
     "items" : [
       {
         "question": "The guard who John Lennon is chasing has a black jacket",
+        "pictures" : "Part2Pictures/U 77",
         "answers": ["The guard who John Lennon is chasing has a black jacket", "The guard who is chasing John Lennon has a black jacket", "John Lennon who the guard is chasing has a black jacket", "John Lennon who is chasing the guard has a black jacket"],
         "correctAnswer": "The guard who John Lennon is chasing has a black jacket"
       },
       {
         "question": "The player who kicks the referee is hearing the music",
-        "answers": ["The player who kicks the referee is hearing the music", "The player is kicking the referee who hears the music", ". The referee is kicking the player who hears the music", "The referee who kicks the player is hearing the music"],
+        "pictures" : "Part2Pictures/R 68",
+        "answers": ["The player who kicks the referee is hearing the music", "The player is kicking the referee who hears the music", "The referee is kicking the player who hears the music", "The referee who kicks the player is hearing the music"],
         "correctAnswer": "The player who kicks the referee is hearing the music"
       }
     ]
