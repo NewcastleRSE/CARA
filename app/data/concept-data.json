@@ -1,0 +1,117 @@
+{
+  "singleWord-part-1": {
+    "assessmentType" : "single",
+    "items" : [
+      {
+        "question": "anger",
+        "answers": ["temper", "direction", "service"],
+        "correctAnswer": "temper",
+        "part": "Noun",
+        "type": "Abstract"
+      },
+      {
+        "question": "paint",
+        "answers": ["draw", "shiver", "alter"],
+        "correctAnswer": "draw",
+        "part": "Verb",
+        "type": "Concrete"
+      }
+    ]
+  },
+  "singleWord-part-2": {
+    "assessmentType" : "single",
+    "items" : [
+      {
+        "question": "carpet",
+        "answers": ["floor", "slipper", "tea"],
+        "correctAnswer": "floor",
+        "part": "Noun",
+        "type": "Concrete"
+      },
+      {
+        "question": "flee",
+        "answers": ["escape", "go", "cheer"],
+        "correctAnswer": "escape",
+        "part": "Verb",
+        "type": "Abstract"
+      }
+    ]
+  },
+  "sentence-part-1": {
+    "assessmentType" : "sentence",
+    "items" : [
+      {
+        "question": "the thin boy",
+        "pictures": "Ai 5",
+        "answers": ["the thin boy", "the fat boy", "the thin girl", "the fat girl"],
+        "correctAnswer": "the thin boy"
+      },
+      {
+        "question": "grate the cheese",
+        "pictures": "B 11",
+        "answers": ["grate the cheese", "slice the cheese", "grate the carrot", "slice the carrot"],
+        "correctAnswer": "grate the cheese"
+      }
+    ]
+  },
+  "sentence-part-2": {
+    "assessmentType" : "sentence",
+    "items" : [
+      {
+        "question": "The guard who John Lennon is chasing has a black jacket",
+        "answers": ["The guard who John Lennon is chasing has a black jacket", "The guard who is chasing John Lennon has a black jacket", "John Lennon who the guard is chasing has a black jacket", "John Lennon who is chasing the guard has a black jacket"],
+        "correctAnswer": "The guard who John Lennon is chasing has a black jacket"
+      },
+      {
+        "question": "The player who kicks the referee is hearing the music",
+        "answers": ["The player who kicks the referee is hearing the music", "The player is kicking the referee who hears the music", ". The referee is kicking the player who hears the music", "The referee who kicks the player is hearing the music"],
+        "correctAnswer": "The player who kicks the referee is hearing the music"
+      }
+    ]
+  },
+  "paragraph": {
+    "assessmentType" : "paragraph",
+    "items" : [
+      {
+        "paragraph": "Sarah and Adam packed their suitcases. The taxi took them to the airport. They had plenty of time. They went to check in. The person said they were really early. Their flight was the next day!",
+        "questions": [
+          {
+            "question": "Sarah and Adam were",
+            "answers": ["early", "late", "on time"],
+            "correctAnswer": "early"
+          },
+          {
+            "question": "They went to the airport by",
+            "answers": ["taxi", "bus", "train"],
+            "correctAnswer": "taxi"
+          }
+        ]
+      },
+      {
+        "paragraph": "Aisha and Mary often visited Scotland. They liked the scenery, walking and the tranquillity. This year they booked for a fortnight in a small cottage. It was beautiful. They had a great holiday. They came back relaxed and happy. They immediately booked again for next year.",
+        "questions": [
+          {
+            "question": "Aisha and Mary went away for",
+            "answers": ["a fortnight", "a week", "a day"],
+            "correctAnswer": "a fortnight"
+          },
+          {
+            "question": "They enjoyed",
+            "answers": ["the outdoors", "museums", "the night life"],
+            "correctAnswer": "the outdoors"
+          },
+          {
+            "question": "Their holiday was",
+            "answers": ["relaxing", "unpleasant", "boring"],
+            "correctAnswer": "relaxing"
+          },
+          {
+            "question": "Next year they will go to",
+            "answers": ["Scotland", "Wales", "Spain"],
+            "correctAnswer": "Scotland"
+          }
+        ]
+      }
+    ]
+  }
+}

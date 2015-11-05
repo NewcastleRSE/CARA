@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name rcaApp.controller:AboutCtrl
+ * @name rcaApp.controller:SetupCtrl
  * @description
- * # AboutCtrl
+ * # SetupCtrl
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('AboutCtrl', function ($scope, $rootScope) {
+  .controller('SetupCtrl', function ($scope, $rootScope) {
     $rootScope.navBarVis = true;
   });

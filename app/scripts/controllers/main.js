@@ -8,10 +8,10 @@
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $rootScope, Assessment) {
+    $rootScope.navBarVis = true;
+
+    $scope.startAssessment = function() {
+      Assessment.start();
+    };
   });
