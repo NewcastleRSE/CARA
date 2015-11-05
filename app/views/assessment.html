@@ -30,8 +30,9 @@
     </div>
     <div ng-if="q.assessmentType === 'sentence'">
       <div ng-repeat="item in q.items" id="page-{{$id}}">
-          <h2>{{item.question}}</h2>
+
         <div class="answers">
+          <h2>{{item.question}}</h2>
           <img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" width="400px" ng-src="/images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text);" />
         </div>
       </div>

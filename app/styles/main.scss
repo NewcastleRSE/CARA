@@ -94,8 +94,17 @@ body {
     height : 500px;
   }
 
-  .answers img {
+  .answers img, .answers h2 {
     position: absolute;
+  }
+
+  .answers h2 {
+    top: 210px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    text-align: center;
   }
 
   .answers img:hover {
