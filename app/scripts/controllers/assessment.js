@@ -45,12 +45,16 @@ angular.module('rcaApp')
     $scope.currentPage = 0;
 
     $scope.newTimestamp = function() {
-      return new Date().toString();
+      return new Date();
     };
 
     $scope.setAnswer = function($item, $answer, $index) {
 
-      $item.finish = new Date().toString();
+      $item.finished = new Date();
+      $item.timeTaken = $item.finished - $item.started;
+      $item.finished = $item.finished.toString();
+      $item.started = $item.started.toString();
+
       $item.answerGiven = $answer;
       $item.answerPosition = $index;
 
@@ -68,7 +72,11 @@ angular.module('rcaApp')
     };
 
     $scope.acceptParagraph = function($item){
-      $item.finish = new Date().toString();
+      $item.finished = new Date();
+      $item.timeTaken = $item.finished - $item.started;
+      $item.finished = $item.finished.toString();
+      $item.started = $item.started.toString();
+
       $scope.currentPage++;
       $scope.setWaiting(true);
       //setWaiting(true);item.finish = newTimestamp(); currentPage++
@@ -84,9 +92,9 @@ angular.module('rcaApp')
       if ($scope.pages.eq([$scope.currentPage]).length > 0) {
 
         if ($scope.pages.eq([$scope.currentPage]).scope().question) {
-          $scope.pages.eq([$scope.currentPage]).scope().question.started = new Date().toString();
+          $scope.pages.eq([$scope.currentPage]).scope().question.started = new Date();
         } else {
-          $scope.pages.eq([$scope.currentPage]).scope().item.started = new Date().toString();
+          $scope.pages.eq([$scope.currentPage]).scope().item.started = new Date();
         }
         $scope.pages.eq([$scope.currentPage]).show();
       } else {
