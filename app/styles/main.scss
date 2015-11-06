@@ -14,6 +14,11 @@ body {
   padding: 0;
 }
 
+body.home {
+  background-image: url('../images/home-bg.jpg');
+  background-size: 100% auto;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -131,4 +136,29 @@ body {
     right: 0;
     bottom: 0;
   }
+
+  .btn.ok-ready {
+    margin-top: 150px;
+    height: 200px;
+    width: 200px;
+    font-size: 8em;
+  }
+
+  .paragraph-text {
+    font-size: 2em;
+  }
+
+  .btn.answer-option {
+    font-size: 1.5em;
+  }
+
+  .btn.start-assessment {
+    font-size: 1.5em;
+  }
+
+  .btn {
+    font-size: 1.5em;
+  }
+
+
 }

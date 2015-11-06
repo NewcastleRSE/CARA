@@ -175,7 +175,7 @@ angular.module('rcaApp')
 
       $http({
         method: 'GET',
-        url: '/data/concept-data.json'
+        url: 'data/concept-data.json'
       }).then(function successCallback(response) {
 
         Assessment.questions.set(response.data);
