@@ -160,5 +160,15 @@ body.home {
     font-size: 1.5em;
   }
 
+  td.correct {
+    background-color: green;
+    color: white;
+  }
+
+  td.incorrect {
+    background-color: red;
+    color: white;
+  }
+
 
 }

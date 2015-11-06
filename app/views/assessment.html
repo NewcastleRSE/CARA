@@ -33,7 +33,7 @@
 
         <div class="answers">
           <h2>{{item.question}}</h2>
-          <img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" width="400px" ng-src="images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text);" />
+          <img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" width="400px" ng-src="images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text, $index);" />
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
         </div>
         <div class="questions">
           <div ng-repeat="question in item.questions" id="page-{{$id}}">
-            <p><strong>{{question.question}}</strong></p>
+            <p class="paragraph-text"><strong>{{question.question}}</strong></p>
             <div class="row">
               <div class="col-md-4" ng-repeat="answer in question.answers">
                 <button class="btn btn-default btn-block" ng-click="setAnswer(question, answer, $index)">{{answer}}</button>
@@ -59,7 +59,119 @@
   </div>
 
   <div ng-show="complete">
-    Thank you for completing the assessment.
+    <p class="paragraph-text">Thank you for completing the assessment.</p>
     <button class="btn btn-primary btn-block" ui-sref="home">Back to home</button>
+    <textarea ng-hide="true">{{questions | json}}</textarea>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Single Word 1</h3>
+        <table class="table">
+          <tr>
+            <th>Question</th>
+            <th>Correct Answer</th>
+            <th>Answer Given</th>
+            <th>Time taken</th>
+            <th>Answer Position</th>
+          </tr>
+          <tr ng-repeat="item in results['singleWord-part-1'].items">
+            <td>{{item.question}}</td>
+            <td>{{item.correctAnswer}}</td>
+            <td ng-class="{correct : item.correctAnswer === item.answerGiven, incorrect: item.correctAnswer !== item.answerGiven}">{{item.answerGiven}}</td>
+            <td>{{item.timeTaken}}</td>
+            <td>{{item.answerPosition}}</td>
+          </tr>
+        </table>
+
+        <h3>Single Word 2</h3>
+        <table class="table">
+          <tr>
+            <th>Question</th>
+            <th>Correct Answer</th>
+            <th>Answer Given</th>
+            <th>Time taken</th>
+            <th>Answer Position</th>
+          </tr>
+          <tr ng-repeat="item in results['singleWord-part-2'].items">
+            <td>{{item.question}}</td>
+            <td>{{item.correctAnswer}}</td>
+            <td ng-class="{correct : item.correctAnswer === item.answerGiven, incorrect: item.correctAnswer !== item.answerGiven}">{{item.answerGiven}}</td>
+            <td>{{item.timeTaken}}</td>
+            <td>{{item.answerPosition}}</td>
+          </tr>
+        </table>
+
+        <h3>Sentence 1</h3>
+
+        <table class="table">
+          <tr>
+            <th>Question</th>
+            <th>Correct Answer</th>
+            <th>Answer Given</th>
+            <th>Time taken</th>
+            <th>Answer Position</th>
+          </tr>
+          <tr ng-repeat="item in results['sentence-part-1'].items">
+            <td>{{item.question}}</td>
+            <td>{{item.correctAnswer}}</td>
+            <td ng-class="{correct : item.correctAnswer === item.answerGiven, incorrect: item.correctAnswer !== item.answerGiven}">{{item.answerGiven}}</td>
+            <td>{{item.timeTaken}}</td>
+            <td>{{item.answerPosition}}</td>
+          </tr>
+        </table>
+
+        <h3>Sentence 2</h3>
+
+        <table class="table">
+          <tr>
+            <th>Question</th>
+            <th>Correct Answer</th>
+            <th>Answer Given</th>
+            <th>Time taken</th>
+            <th>Answer Position</th>
+          </tr>
+          <tr ng-repeat="item in results['sentence-part-2'].items">
+            <td>{{item.question}}</td>
+            <td>{{item.correctAnswer}}</td>
+            <td  ng-class="{correct : item.correctAnswer === item.answerGiven, incorrect: item.correctAnswer !== item.answerGiven}">{{item.answerGiven}}</td>
+            <td>{{item.timeTaken}}</td>
+            <td>{{item.answerPosition}}</td>
+          </tr>
+        </table>
+
+        <h3>Paragraphs</h3>
+
+        <div ng-repeat="item in results['paragraph'].items">
+
+          <table class="table">
+            <tr>
+              <th>Paragraph</th>
+              <th>Time taken</th>
+            </tr>
+            <tr>
+              <td>{{item.paragraph}}</td>
+              <td>{{item.timeTaken}}</td>
+            </tr>
+          </table>
+
+          <table class="table">
+            <tr>
+              <th>Question</th>
+              <th>Correct Answer</th>
+              <th>Answer Given</th>
+              <th>Time taken</th>
+              <th>Answer Position</th>
+            </tr>
+            <tr ng-repeat="q in item.questions">
+              <td>{{q.question}}</td>
+              <td>{{q.correctAnswer}}</td>
+              <td ng-class="{correct : q.correctAnswer === q.answerGiven, incorrect: q.correctAnswer !== q.answerGiven}">{{q.answerGiven}}</td>
+              <td>{{q.timeTaken}}</td>
+              <td>{{q.answerPosition}}</td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>

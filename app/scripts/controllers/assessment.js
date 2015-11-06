@@ -67,6 +67,9 @@ angular.module('rcaApp')
         $scope.complete = true;
         $scope.pages.hide();
         console.log($scope.questions);
+        console.log(JSON.stringify($scope.questions));
+        $scope.results = {};
+        angular.copy($scope.questions, $scope.results);
       }
       //item.answerGiven = answer;item.finish = newTimestamp(); setWaiting(true);
     };
@@ -101,6 +104,8 @@ angular.module('rcaApp')
         // Show finshed page
         $scope.started = false;
         $scope.complete = true;
+        $scope.results = {};
+        angular.copy($scope.questions, $scope.results);
       }
 
       $scope.setWaiting(false);
