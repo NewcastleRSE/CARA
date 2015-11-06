@@ -134,12 +134,12 @@ angular.module('rcaApp')
 
         angular.forEach(Assessment.questions.get('sentence-part-1').items, function (item, key) {
           angular.forEach(item.answers, function(answer, i){
-            Assessment.questions.get('sentence-part-1').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer + '.jpg'}
+            Assessment.questions.get('sentence-part-1').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer + '.jpg'};
           });
         });
         angular.forEach(Assessment.questions.get('sentence-part-2').items, function (item, key) {
           angular.forEach(item.answers, function(answer, i){
-            Assessment.questions.get('sentence-part-2').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer + '.jpg'}
+            Assessment.questions.get('sentence-part-2').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer + '.jpg'};
           });
         });
       }
@@ -156,6 +156,16 @@ angular.module('rcaApp')
               })(value.answers);
             });
           }
+          if (value.assessmentType === 'paragraph') {
+            angular.forEach(Assessment.questions.get(key).items, function(value, itemkey) {
+              angular.forEach(value.questions, function(question, k){
+                Assessment.questions.get(key).items[itemkey].questions[k].answers = (function(value){
+                  for(var j, x, i = value.length; i; j = Math.floor(Math.random() * i), x = value[--i], value[i] = value[j], value[j] = x){}
+                  return value;
+                })(question.answers);
+              });
+            });
+          }
         });
       }
     };
@@ -170,7 +180,6 @@ angular.module('rcaApp')
 
         Assessment.questions.set(response.data);
         Assessment.questions.generateImagePaths();
-        Assessment.questions.shuffle();
         Assessment.answers.shuffle();
         Assessment.questions.current.reset();
         Assessment.isWaiting = true;
