@@ -9,7 +9,7 @@
  */
 angular.module('rcaApp')
   .controller('MainCtrl', function ($scope, $rootScope, Assessment) {
-    $rootScope.navBarVis = true;
+    $rootScope.navBarVis = false;
 
     $scope.startAssessment = function() {
       Assessment.start();

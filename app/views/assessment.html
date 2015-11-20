@@ -1,12 +1,64 @@
-<div ng-show="waiting" class="row">
+<div ng-show="waiting" class="row" ng-cloak>
   <div class="col-md-12" style="text-align: center;">
     <p ng-show="newSection && sectionType === 'single'"><!--You will be shown a word, select the answer that relates to that word--></p>
     <p ng-show="newSection && sectionType === 'sentence'"><!--Select the image that is described by the sentence.--></p>
     <p ng-show="newSection && sectionType === 'paragraph'"><!--Read the following paragraph. You will be asked questions about the content.--></p>
     <p ng-show="newSection && sectionType === 'paragraph-2'"><!--Answer the following question about the paragraph you just read.--></p>
-    <p><button class="ok-ready btn btn-primary" ng-click="showNextPage()">X</button></p>
+    <p><button class="ok-ready btn btn-success" ng-click="showNextPage()">X</button></p>
   </div>
 </div>
+
+<div ng-hide="waiting" class="row">
+  <div ng-repeat="q in questions" id="section-{{$id}}">
+    <div ng-if="q.assessmentType === 'single'">
+      <div ng-repeat="item in q.items" id="page-{{$id}}">
+        <h2 style="text-align: center;margin-bottom: 40px;font-size:3.5em;">{{item.question}}</h2>
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">
+          <div class="container">
+            <div class="row answers">
+              <div class="col-md-4" ng-repeat="answer in item.answers">
+                <button class="btn btn-default btn-block answer-option" ng-click="setAnswer(item, answer, $index)">{{answer}}</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div ng-if="q.assessmentType === 'sentence'">
+      <div ng-repeat="item in q.items" id="page-{{$id}}">
+
+        <div class="answers">
+          <h2>{{item.question}}</h2>
+          <img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" width="500px" ng-src="images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text, $index);" />
+        </div>
+      </div>
+    </div>
+    <div ng-if="q.assessmentType === 'paragraph'">
+      <div ng-repeat="item in q.items">
+        <div id="page-{{$id}}">
+          <p class="paragraph-text-small"><strong>{{item.paragraph}}</strong></p>
+          <div style="text-align: center;"><button class="btn btn-primary okbutton" ng-click="acceptParagraph(item)">Ok</button></div>
+        </div>
+        <div class="questions">
+          <div ng-repeat="question in item.questions" id="page-{{$id}}">
+            <p class="paragraph-text"><strong>{{question.question}}</strong></p>
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4" ng-repeat="answer in question.answers">
+                    <button class="btn btn-default btn-block" ng-click="setAnswer(question, answer, $index)">{{answer}}</button>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <div ng-hide="waiting" class="row">
 
   <!--<div class="col-md-12">
@@ -17,52 +69,13 @@
     <p><button ng-hide="hasNext" >Finish</button></p>
   </div>-->
 
-  <div ng-repeat="q in questions" id="section-{{$id}}">
-    <div ng-if="q.assessmentType === 'single'">
-      <div ng-repeat="item in q.items" id="page-{{$id}}">
-        <h2 style="text-align: center;margin-bottom: 40px;">{{item.question}}</h2>
-        <div class="row answers">
-          <div class="col-md-4" ng-repeat="answer in item.answers">
-            <button class="btn btn-default btn-block answer-option" ng-click="setAnswer(item, answer, $index)">{{answer}}</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div ng-if="q.assessmentType === 'sentence'">
-      <div ng-repeat="item in q.items" id="page-{{$id}}">
 
-        <div class="answers">
-          <h2>{{item.question}}</h2>
-          <img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" width="400px" ng-src="images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text, $index);" />
-        </div>
-      </div>
-    </div>
-    <div ng-if="q.assessmentType === 'paragraph'">
-      <div ng-repeat="item in q.items">
-        <div id="page-{{$id}}">
-          <p class="paragraph-text"><strong>{{item.paragraph}}</strong></p>
-          <div style="text-align: center;"><button class="btn btn-primary" ng-click="acceptParagraph(item)">Ok</button></div>
-        </div>
-        <div class="questions">
-          <div ng-repeat="question in item.questions" id="page-{{$id}}">
-            <p class="paragraph-text"><strong>{{question.question}}</strong></p>
-            <div class="row">
-              <div class="col-md-4" ng-repeat="answer in question.answers">
-                <button class="btn btn-default btn-block" ng-click="setAnswer(question, answer, $index)">{{answer}}</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
 
   <div ng-show="complete">
     <p class="paragraph-text">Thank you for completing the assessment.</p>
     <button class="btn btn-primary btn-block" ui-sref="home">Back to home</button>
     <textarea ng-hide="true">{{questions | json}}</textarea>
-    <div class="row">
+    <div class="row" ng-show="showAssessmentResults">
       <div class="col-md-12">
         <h3>Single Word 1</h3>
         <table class="table">

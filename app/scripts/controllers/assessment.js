@@ -25,8 +25,6 @@ angular.module('rcaApp')
         if ($scope.pages.eq([$scope.currentPage+1]).scope().question) {
           $scope.sectionType = $scope.sectionType + '-2';
         }
-
-
       }
 
       $scope.waiting = value;
@@ -113,16 +111,4 @@ angular.module('rcaApp')
 
     };
 
-
-
-
-    /*$scope.getNext = function() {
-
-      $scope.waiting = Assessment.isWaiting = true;
-      $scope.question = Assessment.questions.getNext();
-      $scope.questionType = Assessment.questionType;
-      $scope.hasNext = Assessment.questions.hasNext();
-    };
-
-    $scope.getNext();*/
   });
