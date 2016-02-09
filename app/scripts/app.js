@@ -19,7 +19,14 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch'
-  ]).config(function($stateProvider, $urlRouterProvider) {
+  ]).config( [
+  '$compileProvider',
+  function( $compileProvider )
+  {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|chrome-extension-resource):/);
+    // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+  }
+]).config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise('/');

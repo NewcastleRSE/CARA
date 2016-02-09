@@ -8,7 +8,10 @@
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('AssessmentCtrl', function ($scope, $rootScope, Assessment, $state) {
+  .controller('AssessmentCtrl', function ($scope, $rootScope, Assessment, $state, $timeout, $window) {
+
+    angular.element('.vcenter').height($window.$( window ).height() - $window.$('.navbar-fixed-bottom').height());
+    angular.element('.vcenter').width($window.$('.container').width());
 
     $rootScope.navBarVis = false;
 
@@ -92,21 +95,39 @@ angular.module('rcaApp')
 
       if ($scope.pages.eq([$scope.currentPage]).length > 0) {
 
-        if ($scope.pages.eq([$scope.currentPage]).scope().question) {
-          $scope.pages.eq([$scope.currentPage]).scope().question.started = new Date();
+        if ($scope.pages.eq([$scope.currentPage]).data('selected') !== false) {
+
+
+          if ($scope.pages.eq([$scope.currentPage]).scope().question) {
+            $scope.pages.eq([$scope.currentPage]).scope().question.started = new Date();
+          } else {
+            $scope.pages.eq([$scope.currentPage]).scope().item.started = new Date();
+          }
+          console.log($scope.pages.eq([$scope.currentPage]).scope());
+          $scope.pages.eq([$scope.currentPage]).show();
+          $scope.setWaiting(false);
         } else {
-          $scope.pages.eq([$scope.currentPage]).scope().item.started = new Date();
+          $scope.setWaiting(true);
+          $scope.currentPage++;
+          $scope.showNextPage();
         }
-        $scope.pages.eq([$scope.currentPage]).show();
       } else {
         // Show finshed page
         $scope.started = false;
         $scope.complete = true;
+        $scope.setWaiting(false);
         $scope.results = {};
         angular.copy($scope.questions, $scope.results);
       }
 
-      $scope.setWaiting(false);
+
+
+      $timeout(function () {
+        //DOM has finished rendering
+        console.log('show');
+        angular.element('.vcenter').height($window.$( window ).height() - $window.$('.navbar-fixed-bottom').height());
+        angular.element('.vcenter').width($window.$('.container').width());
+      });
 
 
     };

@@ -8,7 +8,7 @@
  * Service in the rcaApp.
  */
 angular.module('rcaApp')
-  .service('Assessment', function ($http, $state) {
+  .service('Assessment', function ($http, $state, $rootScope) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     var Assessment = {};
@@ -35,9 +35,23 @@ angular.module('rcaApp')
       },
 
       set : function(newQuestions) {
+        var x;
         Assessment.questions.questions = newQuestions;
-        return Assessment.questions.questions;
+
+        for(x in Assessment.questions.questions) {
+          Assessment.questions.questions[x].selected = true;
+        }
+
+        return Assessment.questions;
       },
+
+      reset : function(){
+        return Assessment.questions;
+      },
+
+/*      filter : function(propertyArray) {
+
+      },*/
 
       current : {
         current: {
@@ -128,20 +142,30 @@ angular.module('rcaApp')
 
       generateImagePaths : function() {
 
-        var charMap = ['a', 'b', 'c', 'd'];
-
-
-
         angular.forEach(Assessment.questions.get('sentence-part-1').items, function (item, key) {
           angular.forEach(item.answers, function(answer, i){
-            Assessment.questions.get('sentence-part-1').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer + '.jpg'};
+            Assessment.questions.get('sentence-part-1').items[key].answers[i] = {'text' : answer, 'image' : item.pictures[i]};
           });
         });
         angular.forEach(Assessment.questions.get('sentence-part-2').items, function (item, key) {
           angular.forEach(item.answers, function(answer, i){
-            Assessment.questions.get('sentence-part-2').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer + '.jpg'};
+            Assessment.questions.get('sentence-part-2').items[key].answers[i] = {'text' : answer, 'image' : item.pictures[i]};
           });
         });
+
+
+
+/*        var charMap = ['a', 'b', 'c', 'd'];
+        angular.forEach(Assessment.questions.get('sentence-part-1').items, function (item, key) {
+          angular.forEach(item.answers, function(answer, i){
+            Assessment.questions.get('sentence-part-1').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer.replace(/\ \(.*\)/gi, '') + '.jpg'};
+          });
+        });
+        angular.forEach(Assessment.questions.get('sentence-part-2').items, function (item, key) {
+          angular.forEach(item.answers, function(answer, i){
+            Assessment.questions.get('sentence-part-2').items[key].answers[i] = {'text' : answer, 'image' : item.pictures + charMap[i] + ' ' + answer.replace(/\ \(.*\)/gi, '') + '.jpg'};
+          });
+        });*/
       }
     };
 
@@ -173,18 +197,27 @@ angular.module('rcaApp')
     Assessment.start = function() {
       console.log('Starting');
 
+      $state.go('assessment');
+
+
+      Assessment.answers.shuffle();
+      Assessment.questions.current.reset();
+      Assessment.isWaiting = true;
+      Assessment.started = true;
+
+    };
+
+    Assessment.load = function() {
       $http({
         method: 'GET',
-        url: 'data/concept-data.json'
+        url: 'data/exercise-data.json'
       }).then(function successCallback(response) {
 
         Assessment.questions.set(response.data);
+
         Assessment.questions.generateImagePaths();
-        Assessment.answers.shuffle();
-        Assessment.questions.current.reset();
-        Assessment.isWaiting = true;
-        Assessment.started = true;
-        $state.go('assessment');
+
+        $rootScope.$emit('assessment-loaded');
 
 
       }, function errorCallback(response) {

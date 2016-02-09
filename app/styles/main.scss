@@ -138,7 +138,6 @@ body.home {
   }
 
   .btn.ok-ready {
-    margin-top: 150px;
     height: 200px;
     width: 200px;
     font-size: 8em;
@@ -153,12 +152,12 @@ body.home {
   }
 
   .btn.answer-option {
-    font-size: 1.8em;
+    font-size: 3.0em;
   }
 
   .btn.start-assessment {
-    margin-top: 80%;
-    font-size: 1.5em;
+    //margin-top: 80%;
+    font-size: 3.5em;
   }
 
   .btn {
@@ -180,5 +179,61 @@ body.home {
     color: white;
   }
 
+
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    width: 1200px;
+  }
+
+  .answers {
+    height: 850px;
+  }
+
+  .answers h2 {
+    top: 370px;
+    font-size: 3em;
+  }
+
+  .answers img {
+    width: 50em;
+    height: auto;
+  }
+
+  .answers .col-md-6 {
+    min-height: 30em;
+  }
+
+  .vcenter {
+    height: 850px;
+    width: 1200px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .vcenter {
+    height: 850px;
+    width: 768px;
+  }
+
+  .answers .col-md-6 {
+    min-height: 30em;
+  }
+
+
+}
+
+.vcenter .paragraph-text {
+  margin-top: -150px;
+}
+
+.vcenter {
+  float:none;
+  text-align: center;
+  display:table-cell;
+  vertical-align:middle;
+  margin-right:-4px;
 
 }
