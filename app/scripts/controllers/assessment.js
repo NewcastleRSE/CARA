@@ -19,6 +19,25 @@ angular.module('rcaApp')
       $state.go('home');
     }
 
+    $scope.createIndex = function() {
+      var section;
+
+      for(section in $scope.questions) {
+        if ($scope.questions[section].selected){
+          console.log(section);
+        }
+      }
+    };
+
+    $scope.setCurrentPageIndex = function (index) {
+      $scope.currentIndex = index;
+    };
+
+    $scope.isCurrentPageIndex = function (index) {
+      console.log(index);
+      return $scope.currentIndex === index;
+    };
+
     $scope.setWaiting = function(value) {
 
       if (value === true && $scope.pages.eq([$scope.currentPage+1]).scope()) {
@@ -86,12 +105,22 @@ angular.module('rcaApp')
       //setWaiting(true);item.finish = newTimestamp(); currentPage++
     };
 
+/*    $scope.showNextPage = function() {
+      console.log($scope.questions);
+      $scope.currentPage = 1;
+      $scope.setWaiting(false);
+    };*/
+
+
     $scope.showNextPage = function() {
+
       if (! $scope.pages) {
         $scope.pages = angular.element('[id^="page-"]');
       }
 
       $scope.pages.hide();
+
+      $window.$('.vcenter').css('color', '#fff');
 
       if ($scope.pages.eq([$scope.currentPage]).length > 0) {
 
@@ -103,7 +132,7 @@ angular.module('rcaApp')
           } else {
             $scope.pages.eq([$scope.currentPage]).scope().item.started = new Date();
           }
-          console.log($scope.pages.eq([$scope.currentPage]).scope());
+
           $scope.pages.eq([$scope.currentPage]).show();
           $scope.setWaiting(false);
         } else {
@@ -124,9 +153,14 @@ angular.module('rcaApp')
 
       $timeout(function () {
         //DOM has finished rendering
-        console.log('show');
-        angular.element('.vcenter').height($window.$( window ).height() - $window.$('.navbar-fixed-bottom').height());
-        angular.element('.vcenter').width($window.$('.container').width());
+        $timeout(function(){
+          angular.element('.vcenter').height($window.$( window ).height() - $window.$('.navbar-fixed-bottom').height());
+          angular.element('.vcenter').width($window.$('.container').width());
+        });
+
+        $timeout(function(){
+          $window.$('.vcenter').css('color', '#000');
+        })
       });
 
 

@@ -39,6 +39,8 @@ module.exports = function(config) {
       'bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js',
       'bower_components/lodash/lodash.js',
       'bower_components/chroma-js/chroma.js',
+      'bower_components/bootstrap-switch/dist/js/bootstrap-switch.js',
+      'bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

@@ -49,6 +49,16 @@ angular.module('rcaApp')
         return Assessment.questions;
       },
 
+      setIndex : function() {
+        console.log('All', Assessment.questions.get());
+
+        var section;
+
+        for(section in Assessment.questions.get()){
+          console.log(Assessment.questions.get(section));
+        }
+      },
+
 /*      filter : function(propertyArray) {
 
       },*/

@@ -16,15 +16,27 @@ angular.module('rcaApp')
 
     Assessment.load();
 
-    $scope.questionSets = {};
-
     $rootScope.$on('assessment-loaded', function(){
       $scope.questions = Assessment.questions.get();
+      console.log($scope.questions);
     });
+
+    $scope.createIndex = function() {
+      var section;
+
+      for(section in $scope.questions) {
+        if ($scope.questions[section].selected){
+          console.log(section);
+          console.log($scope.questions[section].assessmentType);
+          console.log($scope.questions[section].items.$index);
+        }
+      }
+    };
 
 
     $scope.saveAssessmentChanges = function() {
-      Assessment.questions.set($scope.questions);
+      //Assessment.questions.set($scope.questions);
+      Assessment.questions.setIndex();
     };
 
     $scope.startAssessment = function() {

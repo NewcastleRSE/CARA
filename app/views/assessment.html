@@ -11,7 +11,7 @@
 </div>
 
 <div ng-hide="waiting" class="row">
-  <div ng-repeat="q in questions" id="section-{{$id}}">
+  <div ng-if="q.selected" ng-repeat="q in questions" id="section-{{$id}}">
     <div ng-if="q.assessmentType === 'single'">
       <div class="vcenter" ng-repeat="item in q.items" id="page-{{$id}}" data-selected="{{q.selected}}">
         <h2 style="text-align: center;margin-bottom: 40px;font-size:7.5em;margin-top: -150px;">{{item.question}}</h2>
@@ -33,7 +33,7 @@
           <h2>{{item.question}}</h2>
           <div class="row">
             <div class="col-md-6" ng-repeat="answer in item.answers">
-              <p style="display: none;">{{answer.text}}</p>
+              <p style="display: block;">{{answer.text}}</p>
               <img class="img-responsive" ng-src="images/assessment-images/{{answer.image}}" ng-click="setAnswer(item, answer.text, $index);" />
             </div>
           </div>
@@ -58,7 +58,7 @@
           </nav>
         </div>
         <div class="questions">
-          <div class="vcenter" ng-repeat="question in item.questions" id="page-{{$id}}" data-selected="{{q.selected}}>
+          <div class="vcenter" ng-repeat="question in item.questions" id="page-{{$id}}" data-selected="{{q.selected}}">
             <p class="paragraph-text"><strong>{{question.question}}</strong></p>
             <nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">
               <div class="container">

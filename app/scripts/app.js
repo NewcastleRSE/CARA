@@ -18,7 +18,8 @@ angular
     'ui.router',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'frapontillo.bootstrap-switch'
   ]).config( [
   '$compileProvider',
   function( $compileProvider )
