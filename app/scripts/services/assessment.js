@@ -8,7 +8,7 @@
  * Service in the rcaApp.
  */
 angular.module('rcaApp')
-  .service('Assessment', function ($http, $state, $rootScope) {
+  .service('Assessment', function ($http, $state, $rootScope, Storage, $q) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     var Assessment = {};
@@ -25,6 +25,19 @@ angular.module('rcaApp')
 
       questions : [],
 
+      setup : function() {
+
+        var x;
+
+        for(x in Assessment.questions.questions) {
+          Assessment.questions.questions[x].selected = true;
+        }
+        Assessment.questions.generateImagePaths();
+
+        Assessment.answers.shuffle();
+
+      },
+
       get : function(key) {
         if (key) {
           return Assessment.questions.questions[key];
@@ -35,12 +48,7 @@ angular.module('rcaApp')
       },
 
       set : function(newQuestions) {
-        var x;
         Assessment.questions.questions = newQuestions;
-
-        for(x in Assessment.questions.questions) {
-          Assessment.questions.questions[x].selected = true;
-        }
 
         return Assessment.questions;
       },
@@ -204,35 +212,76 @@ angular.module('rcaApp')
       }
     };
 
+    Assessment.createAssessment = function() {
+      return $q(function(resolve, reject){
+        $http({
+          method: 'GET',
+          url: 'data/exercise-data.json'
+        }).then(function successCallback(response) {
+
+          Assessment.questions.set(response.data).setup();
+          Storage.save(response.data, {status: 'Not Started', name : Assessment.makeID()}).then(function(){
+            resolve();
+          });
+
+
+
+
+        }, function errorCallback(response) {
+          reject(response);
+        });
+      });
+    };
+
+    Assessment.load = function() {
+
+      var assessment = Storage.load('rca-assessment-' + Storage.currentSlot);
+
+      Assessment.name = assessment.name;
+      Assessment.modified = assessment.modified;
+      Assessment.status = assessment.status;
+      Assessment.questions.set(assessment.questions);
+
+      $rootScope.$emit('assessment-loaded');
+    };
+
     Assessment.start = function() {
       console.log('Starting');
-
       $state.go('assessment');
-
-
-      Assessment.answers.shuffle();
       Assessment.questions.current.reset();
       Assessment.isWaiting = true;
       Assessment.started = true;
 
     };
 
-    Assessment.load = function() {
-      $http({
-        method: 'GET',
-        url: 'data/exercise-data.json'
-      }).then(function successCallback(response) {
+    Assessment.continue = function() {
+      var report = Storage.load('rca-assessment-' + Storage.currentSlot);
 
-        Assessment.questions.set(response.data);
+      Assessment.load(report);
+      Assessment.start();
+    };
 
-        Assessment.questions.generateImagePaths();
+    Assessment.makeID = function() {
+        var text = [];
+        var possible = 'ABCDEFGHIJKLMNPQRTUVWXYZ';
+        var idLength = 6;
+        var numberPosition = Math.floor(Math.random() * idLength);
 
-        $rootScope.$emit('assessment-loaded');
+        for( var i=0; i < idLength; i++ ){
+          if (i === numberPosition) {
+            text.push(Storage.currentSlot);
+          } else {
+            text.push( possible.charAt(Math.floor(Math.random() * possible.length)) );
+          }
+        }
 
 
-      }, function errorCallback(response) {
-        console.log(response);
-      });
+
+        return text.join('');
+    };
+
+    Assessment.save = function(questions){
+      return Storage.save(questions, {name: Assessment.name, status: Assessment.status});
     };
 
     return Assessment;

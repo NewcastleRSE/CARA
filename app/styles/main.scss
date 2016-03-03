@@ -161,8 +161,7 @@ body.home {
   }
 
   .btn {
-    font-size: 1.6em;
-    height: 80px;
+    //font-size: 1.6em;
   }
 
   .btn.okbutton {
@@ -225,6 +224,11 @@ body.home {
 
 }
 
+button i {
+  top: 2px !important;
+  //margin-right: 5px;
+}
+
 .vcenter .paragraph-text {
   margin-top: -150px;
 }
@@ -248,4 +252,69 @@ h4.modal-title {
 
 .modal-footer .btn {
   width: 100px;
+}
+
+.save-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1em;
+  line-height: 1em;
+  height: 2em;
+  width: 150px;
+  background-color: transparent;
+  color: #555;
+  border-color: #555;
+}
+
+.backtohome-button {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  font-size: 1em;
+  line-height: 1em;
+  height: 2em;
+  width: 150px;
+  background-color: transparent;
+  color: #555;
+  border-color: #555;
+}
+
+.save-slot {
+
+  &.empty {
+    border-color: rgba(221,221,221, 0.5);
+
+    .panel-heading {
+      border-color: rgba(221,221,221, 0.5);
+
+      h4 {
+        color: rgba(100,100,100, 0.5);
+      }
+    }
+  }
+
+  &.active {
+    .panel-footer {
+      visibility: visible;
+    }
+
+    .panel-body {
+      background-color: rgba(240,240,240, 1);;
+    }
+
+  }
+
+  .panel-body {
+    min-height: 90px;
+  }
+
+  .panel-footer {
+    visibility: hidden;
+    padding: 0;
+
+    button {
+      border-color: transparent;
+    }
+  }
 }

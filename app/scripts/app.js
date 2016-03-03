@@ -19,7 +19,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'frapontillo.bootstrap-switch'
+    'frapontillo.bootstrap-switch',
+    'angularMoment'
   ]).config( [
   '$compileProvider',
   function( $compileProvider )

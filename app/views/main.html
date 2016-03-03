@@ -1,9 +1,108 @@
 <div class="home-page-container">
   <div class="row">
-    <div class="col-md-12 vcenter">
-      <button ng-click="startAssessment()" class="start-assessment btn btn-primary">Start Assessment</button>
+<!--    <div class="col-sm-3" ng-repeat="(key, assessment) in assessments | orderObjectBy:'modified':true">-->
+    <div class="col-sm-3" ng-repeat="(key, assessment) in assessments">
+      <div class="save-slot panel panel-default" ng-click="selectAssessment(assessment, $index)" ng-class="{'active' : selectedAssessment === $index, 'empty' : assessment === null}">
+        <div class="panel-heading">
+          <h4 ng-if="assessment === null" class="panel-title">Empty</h4>
+          <h4 ng-if="assessment !== null" class="panel-title">{{assessment.name}}<span ng-if="assessment !== null" class="pull-right label label-primary">{{assessment.status || 'In Progress'}}</span></h4>
+
+        </div>
+        <div class="panel-body">
+          <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | amCalendar}}</p>
+
+        </div>
+        <div class="panel-footer">
+
+          <!-- Empty Slot Button Group -->
+
+          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment === null">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-primary" ng-click="createAssessment()">
+                Create Assessment
+              </button>
+            </div>
+          </div>
+
+          <!-- New Report Button Group -->
+
+          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null && assessment.status === 'Not Started'">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="continueAssessment()">
+                <i class="glyphicon glyphicon-play"></i> Start
+              </button>
+            </div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#customiseAssessment" data-dismiss="modal" ng-click="customiseAssessment()">
+                <i class="glyphicon glyphicon-cog"></i> Edit
+              </button>
+            </div>
+
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" ng-click="clearSlot()">
+                <i class="glyphicon glyphicon-remove"></i> Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- In Progress Button Group -->
+          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null && assessment.status === 'In Progress'">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="continueAssessment()">
+                <i class="glyphicon glyphicon-play"></i> Continue
+              </button>
+            </div>
+
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" ng-click="clearSlot()">
+                <i class="glyphicon glyphicon-remove"></i> Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- Assessment Complete Button Group -->
+          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null && assessment.status === 'Complete'">
+            <div class="btn-group" role="group">
+              <button class="btn btn-default" ng-click="viewReport($index, assessment)"><i class="glyphicon glyphicon-stats"></i> View Report</button>
+            </div>
+
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" ng-click="clearSlot()">
+                <i class="glyphicon glyphicon-remove"></i> Clear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+<!--  <div class="row">
+    <div class="col-md-12">
+      <div class="">
+
+        <table class="table table-hover">
+          <thead>
+          <th>Slot</th>
+          <th>Status</th>
+          <th>Last Modified</th>
+          </thead>
+          <tr ng-repeat="assessment in assessments" ng-click="selectAssessment(assessment, $index)" ng-class="{'active' : selectedAssessment === $index}">
+            <td ng-if="assessment === null" colspan="3">Empty Slot</td>
+            <td ng-if="assessment !== null">{{assessment.name}}</td>
+            <td ng-if="assessment !== null">{{assessment.status || 'In Progress'}}</td>
+            <td ng-if="assessment !== null">{{assessment.modified}}</td>
+          </tr>
+        </table>
+
+
+
+      </div>
+
+    </div>
+  </div>-->
+
+  <!-- Assessment Customise Modal -->
+
   <div id="customiseAssessment" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -13,15 +112,18 @@
         </div>
         <div class="modal-body">
           <div ng-repeat="set in questions">
-            <label><input bs-switch ng-model="set.selected" type="checkbox" switch-label="" switch-on-text="ON" switch-off-text=" "> {{set.name}}</label>
+            <label><input bs-switch data-size="small" ng-model="set.selected" type="checkbox" switch-label="" switch-on-text="Include" switch-off-text="Exclude"> {{set.name}}</label>
           </div>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveSetup()">OK</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div>
+
+
+
 </div>
 

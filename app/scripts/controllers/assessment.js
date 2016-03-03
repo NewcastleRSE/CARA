@@ -15,6 +15,8 @@ angular.module('rcaApp')
 
     $rootScope.navBarVis = false;
 
+    $scope.debug = localStorage.getItem('rca-debug');
+
     if (Assessment.started !== true) {
       $state.go('home');
     }
@@ -42,7 +44,11 @@ angular.module('rcaApp')
 
       if (value === true && $scope.pages.eq([$scope.currentPage+1]).scope()) {
 
-        $scope.sectionType = $scope.pages.eq([$scope.currentPage+1]).scope().$parent.$parent.q.assessmentType;
+        var nextSectionType = $scope.pages.eq([$scope.currentPage+1]).scope().$parent.$parent.q.assessmentType;
+
+        $scope.nextSectionNew = nextSectionType !== $scope.sectionType;
+
+        $scope.sectionType = nextSectionType;
 
         if ($scope.pages.eq([$scope.currentPage+1]).scope().question) {
           $scope.sectionType = $scope.sectionType + '-2';
@@ -52,9 +58,9 @@ angular.module('rcaApp')
       $scope.waiting = value;
     };
 
-    $scope.showNext = function(){
+/*    $scope.showNext = function(){
       $scope.waiting = false;
-    };
+    };*/
 
     $scope.questions = Assessment.questions.get();
 
@@ -84,14 +90,18 @@ angular.module('rcaApp')
       } else {
         // Show finshed page
         $scope.started = false;
+        Assessment.status = 'Complete';
+        Assessment.save($scope.questions);
         $scope.complete = true;
         $scope.pages.hide();
-        console.log($scope.questions);
-        console.log(JSON.stringify($scope.questions));
         $scope.results = {};
         angular.copy($scope.questions, $scope.results);
       }
       //item.answerGiven = answer;item.finish = newTimestamp(); setWaiting(true);
+
+
+      //console.log($scope.pages.eq([$scope.currentPage]).scope().$parent.$parent.$parent.$parent.q);
+      //console.log($scope.pages.eq([$scope.currentPage]).prev().scope().$parent.$parent.$parent.$parent.q);
     };
 
     $scope.acceptParagraph = function($item){
@@ -126,7 +136,6 @@ angular.module('rcaApp')
 
         if ($scope.pages.eq([$scope.currentPage]).data('selected') !== false) {
 
-
           if ($scope.pages.eq([$scope.currentPage]).scope().question) {
             $scope.pages.eq([$scope.currentPage]).scope().question.started = new Date();
           } else {
@@ -144,12 +153,12 @@ angular.module('rcaApp')
         // Show finshed page
         $scope.started = false;
         $scope.complete = true;
+        Assessment.status = 'Complete';
+        Assessment.save($scope.questions);
         $scope.setWaiting(false);
         $scope.results = {};
         angular.copy($scope.questions, $scope.results);
       }
-
-
 
       $timeout(function () {
         //DOM has finished rendering
@@ -160,10 +169,22 @@ angular.module('rcaApp')
 
         $timeout(function(){
           $window.$('.vcenter').css('color', '#000');
-        })
+        });
       });
 
+    };
 
+    $scope.savedProgressText = 'Save Progress';
+    $scope.saveProgress = function() {
+
+      Assessment.status = 'In Progress';
+      Assessment.save($scope.questions).then(function(){
+        $scope.savedProgressText = 'Saved';
+
+        $timeout(function(){
+          $scope.savedProgressText = 'Save Progress';
+        }, 1000)
+      });
     };
 
   });
