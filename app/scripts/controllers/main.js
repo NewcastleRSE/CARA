@@ -8,7 +8,7 @@
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('MainCtrl', function ($scope, $rootScope, Assessment, $window, Storage) {
+  .controller('MainCtrl', function ($scope, $rootScope, Assessment, $window, Storage, Report) {
     $rootScope.navBarVis = false;
 
     angular.element('.vcenter').height($window.$( window ).height() - 50);
@@ -81,7 +81,10 @@ angular.module('rcaApp')
     };
 
     $scope.viewReport = function($index, assessment) {
-      console.log($index, assessment);
+
+        Report(assessment);
+
+        //console.log($index, assessment);
     };
   });
 
