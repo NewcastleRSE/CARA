@@ -89,7 +89,6 @@ angular.module('rcaApp').service('Report', function ($window) {
                 time: response.timeTaken / 1000,
                 answer: response.answerGiven
             });
-
         });
 
         assessment.questions['sentence-part-1'].items.forEach(function(response, index){
@@ -152,80 +151,160 @@ angular.module('rcaApp').service('Report', function ($window) {
 
         });
 
+        var singleWord1CorrectAnswers = $window._.filter(tableRows.singleWord1, function(data){return data.answer === data.targetWord;}),
+            singleWord1IncorrectAnswers = $window._.filter(tableRows.singleWord1, function(data){return data.answer !== data.targetWord;}),
+            singleWord2CorrectAnswers = $window._.filter(tableRows.singleWord2, function(data){return data.answer === data.targetWord;}),
+            singleWord2IncorrectAnswers = $window._.filter(tableRows.singleWord2, function(data){return data.answer !== data.targetWord;});
 
-        var data = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+        var singleWord1Correct = {
+            total: $window._(singleWord1CorrectAnswers).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            nouns: $window._(singleWord1CorrectAnswers).filter({ nounVerb: 'Noun' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            verbs: $window._(singleWord1CorrectAnswers).filter({ nounVerb: 'Verb' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            abstractNouns: $window._(singleWord1CorrectAnswers).filter({ nounVerb: 'Noun' }).filter({ concreteAbstract: 'Abstract' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            concreteNouns: $window._(singleWord1CorrectAnswers).filter({ nounVerb: 'Noun' }).filter({ concreteAbstract: 'Concrete' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            abstractVerbs: $window._(singleWord1CorrectAnswers).filter({ nounVerb: 'Verb' }).filter({ concreteAbstract: 'Abstract' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            concreteVerbs: $window._(singleWord1CorrectAnswers).filter({ nounVerb: 'Verb' }).filter({ concreteAbstract: 'Concrete' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0)
+        };
+
+        var singleWord1Incorrect = {
+            total: $window._(singleWord1IncorrectAnswers).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            nouns: $window._(singleWord1IncorrectAnswers).filter({ nounVerb: 'Noun' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            verbs: $window._(singleWord1IncorrectAnswers).filter({ nounVerb: 'Verb' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            abstractNouns: $window._(singleWord1IncorrectAnswers).filter({ nounVerb: 'Noun' }).filter({ concreteAbstract: 'Abstract' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            concreteNouns: $window._(singleWord1IncorrectAnswers).filter({ nounVerb: 'Noun' }).filter({ concreteAbstract: 'Concrete' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            abstractVerbs: $window._(singleWord1IncorrectAnswers).filter({ nounVerb: 'Verb' }).filter({ concreteAbstract: 'Abstract' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            concreteVerbs: $window._(singleWord1IncorrectAnswers).filter({ nounVerb: 'Verb' }).filter({ concreteAbstract: 'Concrete' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0)
+        };
+
+        var singleWord2Correct = {
+            total: $window._(singleWord2CorrectAnswers).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            nouns: $window._(singleWord2CorrectAnswers).filter({ nounVerb: 'Noun' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            verbs: $window._(singleWord2CorrectAnswers).filter({ nounVerb: 'Verb' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            abstractNouns: $window._(singleWord2CorrectAnswers).filter({ nounVerb: 'Noun' }).filter({ concreteAbstract: 'Abstract' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            concreteNouns: $window._(singleWord2CorrectAnswers).filter({ nounVerb: 'Noun' }).filter({ concreteAbstract: 'Concrete' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            abstractVerbs: $window._(singleWord2CorrectAnswers).filter({ nounVerb: 'Verb' }).filter({ concreteAbstract: 'Abstract' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            concreteVerbs: $window._(singleWord2CorrectAnswers).filter({ nounVerb: 'Verb' }).filter({ concreteAbstract: 'Concrete' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0)
+        };
+
+        var singleWord2Incorrect = {
+            total: $window._(singleWord2IncorrectAnswers).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            nouns: $window._(singleWord2IncorrectAnswers).filter({ nounVerb: 'Noun' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            verbs: $window._(singleWord2IncorrectAnswers).filter({ nounVerb: 'Verb' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            abstractNouns: $window._(singleWord2IncorrectAnswers).filter({ nounVerb: 'Noun' }).filter({ concreteAbstract: 'Abstract' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            concreteNouns: $window._(singleWord2IncorrectAnswers).filter({ nounVerb: 'Noun' }).filter({ concreteAbstract: 'Concrete' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            abstractVerbs: $window._(singleWord2IncorrectAnswers).filter({ nounVerb: 'Verb' }).filter({ concreteAbstract: 'Abstract' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0),
+            concreteVerbs: $window._(singleWord2IncorrectAnswers).filter({ nounVerb: 'Verb' }).filter({ concreteAbstract: 'Concrete' }).reduce(function(a,m,i,p) { return a + m.time/p.length; },0)
+        };
+
+        var singleWord1data = {
+            labels: ['Total', 'Nouns', 'Verbs', 'Abstract Nouns', 'Concrete Nouns', 'Abstract Verbs', 'Concrete Verbs'],
             datasets: [
                 {
-                    label: "My First dataset",
+                    label: 'Correct',
                     fill: true,
-                    backgroundColor: "rgba(220,220,220,0.8)",
-                    borderColor: "rgba(220,220,220,0.8)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(220,220,220,1)",
-                    hoverBorderColor: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
+                    fillColor: 'rgba(102, 189, 125, 1)',
+                    data: [
+                        singleWord1Correct.total,
+                        singleWord1Correct.nouns,
+                        singleWord1Correct.verbs,
+                        singleWord1Correct.abstractNouns,
+                        singleWord1Correct.concreteNouns,
+                        singleWord1Correct.abstractVerbs,
+                        singleWord1Correct.concreteVerbs
+                    ]
                 },
                 {
-                    label: "My Second dataset",
-                    backgroundColor: "rgba(151,187,205,0.8)",
-                    borderColor: "rgba(151,187,205,0.8)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(151,187,205,1)",
-                    hoverBorderColor: "rgba(151,187,205,1)",
-                    data: [28, 48, 40, 19, 86, 27, 90]
+                    label: 'Incorrect',
+                    fillColor: 'rgba(247, 104, 108, 1)',
+                    data: [
+                        singleWord1Incorrect.total,
+                        singleWord1Incorrect.nouns,
+                        singleWord1Incorrect.verbs,
+                        singleWord1Incorrect.abstractNouns,
+                        singleWord1Incorrect.concreteNouns,
+                        singleWord1Incorrect.abstractVerbs,
+                        singleWord1Incorrect.concreteVerbs
+                    ]
                 }
             ]
         };
 
-        var ctx = document.getElementById('chart').getContext("2d");
-
-        console.log(ctx);
-
-        var myBarChart = new $window.Chart(ctx, {
-            type: 'bar',
-            data: data,
-            options: {
-                responsiveAnimationDuration: 0,
-                animation : false
-            }
-        }, {});
-
-        myBarChart.onComplete = function() {
-            console.log('animation complete');
+        var singleWord2data = {
+            labels: ['Total', 'Nouns', 'Verbs', 'Abstract Nouns', 'Concrete Nouns', 'Abstract Verbs', 'Concrete Verbs'],
+            datasets: [
+                {
+                    label: 'Correct',
+                    fill: true,
+                    fillColor: 'rgba(102, 189, 125, 1)',
+                    data: [
+                        singleWord2Correct.total,
+                        singleWord2Correct.nouns,
+                        singleWord2Correct.verbs,
+                        singleWord2Correct.abstractNouns,
+                        singleWord2Correct.concreteNouns,
+                        singleWord2Correct.abstractVerbs,
+                        singleWord2Correct.concreteVerbs
+                    ]
+                },
+                {
+                    label: 'Incorrect',
+                    fillColor: 'rgba(247, 104, 108, 1)',
+                    data: [
+                        singleWord2Incorrect.total,
+                        singleWord2Incorrect.nouns,
+                        singleWord2Incorrect.verbs,
+                        singleWord2Incorrect.abstractNouns,
+                        singleWord2Incorrect.concreteNouns,
+                        singleWord2Incorrect.abstractVerbs,
+                        singleWord2Incorrect.concreteVerbs
+                    ]
+                }
+            ]
         };
+
+        var singleWord1BarChart = new $window.Chart(document.getElementById('singleWord1BarChart').getContext("2d")).Bar(singleWord1data, {
+            responsiveAnimationDuration: 0,
+            animation : false,
+            barStrokeWidth: 0,
+        });
+
+        var singleWord2BarChart = new $window.Chart(document.getElementById('singleWord2BarChart').getContext("2d")).Bar(singleWord2data, {
+            responsiveAnimationDuration: 0,
+            animation : false,
+            barStrokeWidth: 0
+        });
 
         //Setting up color scale for use in ranking repsonse times
         var singleWord1TimeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(tableRows.singleWord1), function(row){
-            return row.time !== ''
+            return row.time !== '';
         }, 'time'), 'time'));
 
         var singleWord2TimeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(tableRows.singleWord2), function(row){
-            return row.time !== ''
+            return row.time !== '';
         }, 'time'), 'time'));
 
         var sentence1TimeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(tableRows.sentence1), function(row){
-            return row.time !== ''
+            return row.time !== '';
         }, 'time'), 'time'));
 
         var sentence2TimeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(tableRows.sentence2), function(row){
-            return row.time !== ''
+            return row.time !== '';
         }, 'time'), 'time'));
 
         var paragraphTimeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(tableRows.paragraph), function(row){
-            return row.time !== ''
+            return row.time !== '';
         }, 'time'), 'time'));
 
         var paragraphReadingTimeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(tableRows.paragraph), function(row){
-            return row.readingTime !== ''
+            return row.readingTime !== '';
         }, 'readingTime'), 'readingTime'));
 
-        var singleWord1Colors = chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(singleWord1TimeRanked.length);
-        var singleWord2Colors = chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(singleWord2TimeRanked.length);
-        var sentence1Colors = chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(sentence1TimeRanked.length);
-        var sentence2Colors = chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(sentence2TimeRanked.length);
-        var paragraphColors = chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraphTimeRanked.length);
-        var paragraphReadingColors = chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraphReadingTimeRanked.length);
+        var singleWord1Colors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(singleWord1TimeRanked.length);
+        var singleWord2Colors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(singleWord2TimeRanked.length);
+        var sentence1Colors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(sentence1TimeRanked.length);
+        var sentence2Colors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(sentence2TimeRanked.length);
+        var paragraphColors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraphTimeRanked.length);
+        var paragraphReadingColors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraphReadingTimeRanked.length);
 
         // Only pt supported (not mm or in)
         var doc = new jsPDF('p', 'pt');
@@ -282,6 +361,8 @@ angular.module('rcaApp').service('Report', function ($window) {
             }
         });
 
+        doc.addImage(singleWord1BarChart.toBase64Image("image/png", 1.0), 'PNG', 40, 480, 512, 340);
+
         doc.addPage();
         doc.text(20, 30, 'Single Word Comprehension: Part 2');
 
@@ -336,6 +417,8 @@ angular.module('rcaApp').service('Report', function ($window) {
             }
         });
 
+        doc.addImage(singleWord2BarChart.toBase64Image("image/png", 1.0), 'PNG', 40, 480, 512, 340);
+
         doc.addPage();
         doc.text(20, 30, 'Sentence Comprehension: Part 1');
 
@@ -384,6 +467,7 @@ angular.module('rcaApp').service('Report', function ($window) {
                             cell.styles.fillColor = $window.chroma.hex(sentence1Colors[sentence1TimeRanked.indexOf(cell.raw)]).alpha(0.5).rgb();
                             cell.styles.textColor = [0,0,0];
                         }
+                        break;
                     case 'answer':
                         break;
                 }
