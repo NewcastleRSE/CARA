@@ -174,6 +174,12 @@ angular.module('rcaApp').service('Report', function ($window) {
             }),
             sentence2IncorrectAnswers = $window._.filter(tableRows.sentence2, function (data) {
                 return data.answer !== data.targetPicture;
+            }),
+            paragraphCorrectAnswers = $window._.filter(tableRows.paragraph, function (data) {
+                return data.answer === data.target;
+            }),
+            paragraphIncorrectAnswers = $window._.filter(tableRows.paragraph, function (data) {
+                return data.answer !== data.target;
             });
 
         var singleWord1 = {
@@ -412,7 +418,22 @@ angular.module('rcaApp').service('Report', function ($window) {
             }
         };
 
-        console.log(singleWord2);
+        var paragraph = {
+            total: {
+                correct: {
+                    time: $window._(paragraphCorrectAnswers).reduce(function (a, m, i, p) {
+                        return a + m.time / p.length;
+                    }, 0),
+                    count: paragraphCorrectAnswers.length
+                },
+                incorrect: {
+                    time: $window._(paragraphIncorrectAnswers).reduce(function (a, m, i, p) {
+                        return a + m.time / p.length;
+                    }, 0),
+                    count: paragraphIncorrectAnswers.length
+                }
+            }
+        };
 
         var singleWord1ResponseTimes = new CanvasJS.Chart('singleWord1BarChart', {
             title:{
@@ -840,6 +861,27 @@ angular.module('rcaApp').service('Report', function ($window) {
             ]
         });
 
+        var paragraphTotals = new CanvasJS.Chart('paragraphPie1', {
+            title:{
+                text: 'Paragraph All Answers',
+                fontSize: 16
+            },
+            legend: {
+                maxWidth: 180,
+                itemWidth: 100
+            },
+            data: [
+                {
+                    type: 'pie',
+                    showInLegend: true,
+                    dataPoints: [
+                        { legendText: 'Correct', y: paragraph.total.correct.count, indexLabel: paragraph.total.correct.count.toString(), color: '#66BD7D'},
+                        { legendText: 'Incorrect', y: paragraph.total.incorrect.count, indexLabel: paragraph.total.incorrect.count.toString(), color: '#f7686c'}
+                    ]
+                }
+            ]
+        });
+
         singleWord1ResponseTimes.render();
         singleWord1Totals.render();
         singleWord1Nouns.render();
@@ -859,7 +901,10 @@ angular.module('rcaApp').service('Report', function ($window) {
         singleWord2ConcreteVerbs.render();
 
         sentence1Totals.render();
+
         sentence2Totals.render();
+
+        paragraphTotals.render();
 
         //Setting up color scale for use in ranking repsonse times
         var singleWord1TimeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(tableRows.singleWord1), function(row){
@@ -892,6 +937,8 @@ angular.module('rcaApp').service('Report', function ($window) {
         var sentence2Colors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(sentence2TimeRanked.length);
         var paragraphColors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraphTimeRanked.length);
         var paragraphReadingColors = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraphReadingTimeRanked.length);
+
+        console.log(tableRows);
 
         // Only pt supported (not mm or in)
         var doc = new jsPDF('p', 'pt');
@@ -1235,6 +1282,10 @@ angular.module('rcaApp').service('Report', function ($window) {
                 }
             }
         });
+
+        doc.addPage();
+
+        doc.addImage(document.getElementById('paragraphPie1').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 40, 250, 333);
 
         //doc.addImage(myBarChart.toBase64Image('image/png', 1.0), 'PNG', 40, 160, 515 ,257);
         doc.save('table.pdf');
