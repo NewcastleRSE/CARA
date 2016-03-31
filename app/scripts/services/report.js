@@ -162,6 +162,18 @@ angular.module('rcaApp').service('Report', function ($window) {
             }),
             singleWord2IncorrectAnswers = $window._.filter(tableRows.singleWord2, function (data) {
                 return data.answer !== data.targetWord;
+            }),
+            sentence1CorrectAnswers = $window._.filter(tableRows.sentence1, function (data) {
+                return data.answer === data.targetPicture;
+            }),
+            sentence1IncorrectAnswers = $window._.filter(tableRows.sentence1, function (data) {
+                return data.answer !== data.targetPicture;
+            }),
+            sentence2CorrectAnswers = $window._.filter(tableRows.sentence2, function (data) {
+                return data.answer === data.targetPicture;
+            }),
+            sentence2IncorrectAnswers = $window._.filter(tableRows.sentence2, function (data) {
+                return data.answer !== data.targetPicture;
             });
 
         var singleWord1 = {
@@ -362,6 +374,40 @@ angular.module('rcaApp').service('Report', function ($window) {
                         return a + m.time / p.length;
                     }, 0),
                     count: $window._.filter($window._.filter(singleWord2IncorrectAnswers, {nounVerb: 'Verb'}), {concreteAbstract: 'Concrete'}).length
+                }
+            }
+        };
+
+        var sentence1 = {
+            total: {
+                correct: {
+                    time: $window._(sentence1CorrectAnswers).reduce(function (a, m, i, p) {
+                        return a + m.time / p.length;
+                    }, 0),
+                    count: sentence1CorrectAnswers.length
+                },
+                incorrect: {
+                    time: $window._(sentence1IncorrectAnswers).reduce(function (a, m, i, p) {
+                        return a + m.time / p.length;
+                    }, 0),
+                    count: sentence1IncorrectAnswers.length
+                }
+            }
+        };
+
+        var sentence2 = {
+            total: {
+                correct: {
+                    time: $window._(sentence2CorrectAnswers).reduce(function (a, m, i, p) {
+                        return a + m.time / p.length;
+                    }, 0),
+                    count: sentence2CorrectAnswers.length
+                },
+                incorrect: {
+                    time: $window._(sentence2IncorrectAnswers).reduce(function (a, m, i, p) {
+                        return a + m.time / p.length;
+                    }, 0),
+                    count: sentence2IncorrectAnswers.length
                 }
             }
         };
@@ -752,6 +798,48 @@ angular.module('rcaApp').service('Report', function ($window) {
             ]
         });
 
+        var sentence1Totals = new CanvasJS.Chart('sentence1Pie1', {
+            title:{
+                text: 'Sentence Part 1 All Answers',
+                fontSize: 16
+            },
+            legend: {
+                maxWidth: 180,
+                itemWidth: 100
+            },
+            data: [
+                {
+                    type: 'pie',
+                    showInLegend: true,
+                    dataPoints: [
+                        { legendText: 'Correct', y: sentence1.total.correct.count, indexLabel: sentence1.total.correct.count.toString(), color: '#66BD7D'},
+                        { legendText: 'Incorrect', y: sentence1.total.incorrect.count, indexLabel: sentence1.total.incorrect.count.toString(), color: '#f7686c'}
+                    ]
+                }
+            ]
+        });
+
+        var sentence2Totals = new CanvasJS.Chart('sentence2Pie1', {
+            title:{
+                text: 'Sentence Part 1 All Answers',
+                fontSize: 16
+            },
+            legend: {
+                maxWidth: 180,
+                itemWidth: 100
+            },
+            data: [
+                {
+                    type: 'pie',
+                    showInLegend: true,
+                    dataPoints: [
+                        { legendText: 'Correct', y: sentence2.total.correct.count, indexLabel: sentence2.total.correct.count.toString(), color: '#66BD7D'},
+                        { legendText: 'Incorrect', y: sentence2.total.incorrect.count, indexLabel: sentence2.total.incorrect.count.toString(), color: '#f7686c'}
+                    ]
+                }
+            ]
+        });
+
         singleWord1ResponseTimes.render();
         singleWord1Totals.render();
         singleWord1Nouns.render();
@@ -769,6 +857,9 @@ angular.module('rcaApp').service('Report', function ($window) {
         singleWord2ConcreteNouns.render();
         singleWord2AbstractVerbs.render();
         singleWord2ConcreteVerbs.render();
+
+        sentence1Totals.render();
+        sentence2Totals.render();
 
         //Setting up color scale for use in ranking repsonse times
         var singleWord1TimeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(tableRows.singleWord1), function(row){
@@ -997,6 +1088,10 @@ angular.module('rcaApp').service('Report', function ($window) {
         });
 
         doc.addPage();
+
+        doc.addImage(document.getElementById('sentence1Pie1').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 40, 250, 333);
+
+        doc.addPage();
         doc.text(20, 30, 'Sentence Comprehension: Part 2');
 
         doc.autoTable(sentenceColumns, tableRows.sentence2, {
@@ -1051,6 +1146,10 @@ angular.module('rcaApp').service('Report', function ($window) {
                 }
             }
         });
+
+        doc.addPage();
+
+        doc.addImage(document.getElementById('sentence2Pie1').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 40, 250, 333);
 
         doc.addPage();
         doc.text(20, 30, 'Paragraph Comprehension: Part 2');
