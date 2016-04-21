@@ -66,7 +66,15 @@ angular.module('rcaApp')
       });
     };
 
-    $scope.customiseAssessment = function() {
+    $scope.customiseAssessment = function($event) {
+
+      console.log($event);
+
+      if ($event.type === 'touchend') {
+        console.log('touched');
+      $("#customiseAssessment").modal("show");
+      }
+
       Assessment.load();
     };
 
