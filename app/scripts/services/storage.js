@@ -25,7 +25,7 @@ angular.module('rcaApp')
 
           } else {
             // Load all
-            for (i=0; i < 12; i++) {
+            for (i=0; i < 8; i++) {
 
               assessments['rca-assessment-' + i] = JSON.parse(localStorage.getItem('rca-assessment-' + i));
             }
