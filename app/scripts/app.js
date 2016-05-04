@@ -45,9 +45,19 @@ angular
       templateUrl: 'views/about.html',
       controller: 'AboutCtrl'
     })
+    .state('slotSummary', {
+      url: '/:slotId',
+      templateUrl: 'views/slot-summary.html',
+      controller: 'SlotSummaryCtrl'
+    })
     .state('assessment', {
-      url: '/assessment',
-      templateUrl: 'views/assessment.html',
+      url: '/:slotId/:section',
+      templateUrl: 'views/assessment-intro.html',
+      controller: 'SectionIntroCtrl'
+    })
+    .state('assessmentQuestions', {
+      url: '/:slotId/:section/{itemIndex:int}',
+      templateUrl: 'views/assessment-2.html',
       controller: 'AssessmentCtrl'
     })
     .state('report', {

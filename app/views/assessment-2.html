@@ -1,0 +1,33 @@
+<div class="container">
+
+
+
+  <div class="row">
+    <div ng-repeat="(sectionkey, section) in questions">
+
+      <div ng-if="sectionkey === currentSection">
+
+        <div ng-if="section.assessmentType === 'single'">
+          <strong>{{section.assessmentType}}</strong>
+          <div ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
+            <div ng-hide="item.started" style="width:500px;height:500px;position:absolute;top:0;left:0;background: white;">
+              <button class="btn btn-default" ng-click="item.started = newTimestamp()">go</button>
+            </div>
+            <span>{{item.question}}</span>
+            <ul>
+              <li ng-repeat="answer in item.answers">
+                <a ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: currentItemIndex+1})">{{answer}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div ng-if="section.assessmentType === 'sentence'">
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

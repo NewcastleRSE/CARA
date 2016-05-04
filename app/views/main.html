@@ -5,14 +5,14 @@
       <div class="save-slot panel panel-default" ng-click="selectAssessment(assessment, $index)" ng-class="{'active' : selectedAssessment === $index, 'empty' : assessment === null}">
         <div class="panel-heading">
           <h4 ng-if="assessment === null" class="panel-title">Empty</h4>
-          <h4 ng-if="assessment !== null" class="panel-title">{{assessment.name}}<span ng-if="assessment !== null" class="pull-right label label-primary">{{assessment.status || 'In Progress'}}</span></h4>
+          <h4 ng-if="assessment !== null" class="panel-title">{{assessment.name}}<span ng-if="assessment !== null" class="pull-right label label-default" ng-class="{'label-success' : assessment.status === 'Complete', 'label-warning' : assessment.status === 'In Progress'}">{{assessment.status || 'In Progress'}}</span></h4>
 
         </div>
         <div class="panel-body">
           <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | amCalendar}}</p>
 
 
-          <button class="btn btn-block" ng-repeat="q in assessment.questions" ng-if="q.selected">{{q.name}}</button>
+          <a class="btn btn-block" ng-repeat="(sectionKey, section) in assessment.questions" ui-sref="assessment({slotId: key, section: sectionKey})">{{section.name}}</a>
 
           <!--<textarea name="gm" ng-model="assessment | json" id="" cols="30" rows="10"></textarea>-->
 

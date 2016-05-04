@@ -8,7 +8,7 @@
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('AssessmentCtrl', function ($scope, $rootScope, Assessment, $state, $timeout, $window) {
+  .controller('AssessmentCtrl', function ($scope, $rootScope, Assessment, $state, $timeout, $window, $stateParams) {
 
     angular.element('.vcenter').height($window.$( window ).height() - $window.$('.navbar-fixed-bottom').height());
     angular.element('.vcenter').width($window.$('.container').width());
@@ -17,8 +17,13 @@ angular.module('rcaApp')
 
     $scope.debug = localStorage.getItem('rca-debug');
 
+    console.log($stateParams);
+
+
+
     if (Assessment.started !== true) {
-      $state.go('home');
+      //$state.go('home');
+      console.log($state);
     }
 
     $scope.createIndex = function() {
@@ -64,9 +69,14 @@ angular.module('rcaApp')
 
     $scope.questions = Assessment.questions.get();
 
+
     $scope.waiting = Assessment.isWaiting;
 
-    $scope.sectionType = 'single';
+    $scope.currentAssessmentType = $scope.questions[$stateParams.section].assessmentType;
+
+    $scope.currentSection = $stateParams.section;
+    $scope.currentSlot = $stateParams.slotId;
+    $scope.currentItemIndex = $stateParams.itemIndex;
     $scope.newSection = true;
     $scope.currentPage = 0;
 
