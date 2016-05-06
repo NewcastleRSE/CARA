@@ -1,24 +1,74 @@
+<style>
+  html, body, #a {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  #a {
+    display: table;
+  }
+
+  #b {
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  #content {
+    border: 5px solid red;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    max-width: 1000px;
+  }
+</style>
+
+<div id="a">
+  <div id="b">
+    <div id="content"></div>
+  </div>
+</div>
+<!--
 <div class="container">
-
-
 
   <div class="row">
     <div ng-repeat="(sectionkey, section) in questions">
 
       <div ng-if="sectionkey === currentSection">
 
+         Create all Single Items
+        <div class="row">
+          <div class="col-xs-6 col-md-4 col-lg-2 vcenter">
+            <div style="height:10em;border:1px solid #000">Big</div>
+          </div><!--
+<div class="col-xs-6 col-md-8 col-lg-10 vcenter">
+          <div style="height:3em;border:1px solid #F00">Small</div>
+        </div>
+        </div>
+<!--
         <div ng-if="section.assessmentType === 'single'">
           <strong>{{section.assessmentType}}</strong>
-          <div ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
+          <div class="" ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
             <div ng-hide="item.started" style="width:500px;height:500px;position:absolute;top:0;left:0;background: white;">
               <button class="btn btn-default" ng-click="item.started = newTimestamp()">go</button>
             </div>
-            <span>{{item.question}}</span>
-            <ul>
-              <li ng-repeat="answer in item.answers">
-                <a ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: currentItemIndex+1})">{{answer}}</a>
-              </li>
-            </ul>
+            <h2>{{item.question}}</h2>
+            <!--<div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="">
+              <div class="container">
+                <div class="row answers">
+                  <div class="col-md-4" ng-repeat="answer in item.answers">
+                    <a ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: currentItemIndex+1})">{{answer}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -27,7 +77,7 @@
         </div>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 
 

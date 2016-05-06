@@ -30,7 +30,7 @@ angular
   }
 ]).config(function($stateProvider, $urlRouterProvider) {
   //
-  // For any unmatched url, redirect to /state1
+  // For any unmatched url, redirect to /
   $urlRouterProvider.otherwise('/');
   //
   // Now set up the states
@@ -72,6 +72,13 @@ angular
         $scope.things = ['A', 'Set', 'Of', 'Things'];
       }
     });
+}).run(function($rootScope){
+
+  $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
+    $rootScope.containerClass = toState.name;
+    //console.log(toState.name);
+  });
+
 });
 
   /*.config(function ($routeProvider) {

@@ -206,14 +206,14 @@ body.home {
   }
 
   .vcenter {
-    height: 850px;
+    height: 100%;
     width: 1200px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .vcenter {
-    height: 850px;
+    height: 100%;
     width: 768px;
   }
 
@@ -307,6 +307,9 @@ h4.modal-title {
 
   .panel-body {
     min-height: 90px;
+    .label-default {
+      background-color: #CCC;
+    }
   }
 
   .panel-footer {
@@ -317,4 +320,11 @@ h4.modal-title {
       border-color: transparent;
     }
   }
+}
+
+html.assessmentQuestions,
+html.assessmentQuestions body,
+html.assessmentQuestions body div.container-fluid,
+html.assessmentQuestions body div.container-fluid div[ui-view]{
+  height: 100%;
 }
