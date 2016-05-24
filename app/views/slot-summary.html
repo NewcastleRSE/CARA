@@ -1,10 +1,15 @@
 <div class="container">
 
-  <p>Summary of Saved Slot</p>
-  <div ng-repeat="section in questions">
-    <h2>{{section.name}}</h2>
-  </div>
-  <textarea name="" id="" cols="80" rows="100">{{questions | json}}</textarea>
+  <h1>Section Complete</h1>
+  <a ui-sref="home"><< Home</a>
+  <ul class="list-unstyled">
+    <li ng-repeat="(key, section) in questions">
+      <a ng-if="!section.completed" ui-sref="assessment.practice({slotId: slotId, section: key})" class="">{{section.name}}</a>
+      <span ng-show="section.completed">{{section.name}} <i class="glyphicon glyphicon-ok text-success"></i></span>
+    </li>
+  </ul>
+
+  <!--<textarea name="" id="" cols="80" rows="100">{{questions | json}}</textarea>-->
 
 
 </div>

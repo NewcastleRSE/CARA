@@ -55,9 +55,19 @@ angular
       templateUrl: 'views/assessment-intro.html',
       controller: 'SectionIntroCtrl'
     })
+    .state('assessment.practice', {
+      url: '/practice',
+      templateUrl: 'views/assessment-practice-intro.html',
+      controller: function($scope) {}
+    })
+    .state('assessment.begin', {
+      url: '/begin',
+      templateUrl: 'views/assessment-begin-test.html',
+      controller: function($scope) {}
+    })
     .state('assessmentQuestions', {
       url: '/:slotId/:section/{itemIndex:int}',
-      templateUrl: 'views/assessment-2.html',
+      templateUrl: 'views/assessment.html',
       controller: 'AssessmentCtrl'
     })
     .state('report', {

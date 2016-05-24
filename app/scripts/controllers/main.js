@@ -28,6 +28,19 @@ angular.module('rcaApp')
       $rootScope.assessmentLoaded = true;
     });
 
+    $scope.goFullScreen = function() {
+      var elem = document.getElementById('main-contain');
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      }
+    };
+
     $scope.createIndex = function() {
       var section;
 
@@ -49,21 +62,37 @@ angular.module('rcaApp')
     };
 
     $scope.selectAssessment = function(assessment, $index) {
-      Storage.currentSlot = $index;
+      //Storage.currentSlot = $index;
       $scope.selectedAssessment = $index;
     };
 
-    $scope.clearSlot = function() {
-      $scope.assessments['rca-assessment-' + Storage.currentSlot] = null;
+    $scope.clearSlot = function(key) {
+      Storage.currentSlot = key;
+      $scope.assessments[Storage.currentSlot] = null;
       Storage.clearSlot();
     };
 
-    $scope.createAssessment = function() {
+    $scope.createAssessment = function(key) {
+      Storage.currentSlot = key;
+      console.log('currentkey', key);
       Assessment.createAssessment().then(function(){
         Assessment.load();
       },function(response){
         console.log(response);
       });
+    };
+
+    $scope.hasCompleteSection = function(assessment){
+
+      var hasCompleteSection = false;
+
+      angular.forEach(assessment.questions, function(item){
+        if (item.completed == true) {
+          hasCompleteSection = true;
+        }
+      });
+
+      return hasCompleteSection;
     };
 
     $scope.customiseAssessment = function($event) {

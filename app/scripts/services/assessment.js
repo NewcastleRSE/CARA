@@ -272,7 +272,7 @@ angular.module('rcaApp')
 
         for( var i=0; i < idLength; i++ ){
           if (i === numberPosition) {
-            text.push(Storage.currentSlot);
+            text.push(Storage.currentSlot.match(/[0-9]/g)[0]);
           } else {
             text.push( possible.charAt(Math.floor(Math.random() * possible.length)) );
           }

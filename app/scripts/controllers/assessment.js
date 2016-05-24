@@ -10,31 +10,95 @@
 angular.module('rcaApp')
   .controller('AssessmentCtrl', function ($scope, $rootScope, Assessment, $state, $timeout, $window, $stateParams) {
 
-    angular.element('.vcenter').height($window.$( window ).height() - $window.$('.navbar-fixed-bottom').height());
-    angular.element('.vcenter').width($window.$('.container').width());
-
     $rootScope.navBarVis = false;
 
     $scope.debug = localStorage.getItem('rca-debug');
 
-    console.log($stateParams);
+    if (Assessment.questions.get().length < 1) {
+      $state.go('home');
+    } else {
 
+      $scope.questions = Assessment.questions.get();
 
+      $scope.currentAssessmentType = $scope.questions[$stateParams.section].assessmentType;
 
-    if (Assessment.started !== true) {
-      //$state.go('home');
-      console.log($state);
+      $scope.currentSection = $stateParams.section;
+      $scope.currentSlot = $stateParams.slotId;
+      $scope.currentItemIndex = $stateParams.itemIndex;
+      $scope.newSection = true;
+      $scope.currentPage = 0;
+
+      $scope.newTimestamp = function() {
+        return new Date();
+      };
+
+      $scope.setAnswer = function($item, $answer, $index) {
+
+        $item.finished = new Date();
+        $item.timeTaken = $item.finished - $item.started;
+        $item.finished = $item.finished.toString();
+        $item.started = $item.started.toString();
+
+        $item.answerGiven = $answer;
+        $item.answerPosition = $index;
+
+        // check we have another question
+        if ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1]) {
+
+          // check if we are finishing the practice section
+          var finishingPractice = ($scope.questions[$stateParams.section].items[$scope.currentItemIndex].practice === true && $scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === false)
+
+          if (finishingPractice) {
+            // Show Start test screen
+            $state.go('assessment.begin',{slotId:$scope.currentSlot, section: $scope.currentSection})
+          } else {
+            //Show next question
+            $state.go('assessmentQuestions',{slotId:$scope.currentSlot, section: $scope.currentSection, itemIndex: $scope.currentItemIndex+1})
+          }
+
+        } else {
+          // Section Completed
+          $scope.questions[$stateParams.section].completed = true;
+          Assessment.save($scope.questions).then(function(){
+            $state.go('slotSummary', {slotId:$scope.currentSlot});
+          });
+
+        }
+
+        //if ($scope.pages.eq($scope.currentPage+1).length > 0) {
+        //  $scope.setWaiting(true);
+        //  $scope.currentPage++;
+        //} else {
+        //  // Show finshed page
+        //  $scope.started = false;
+        //  Assessment.status = 'Complete';
+        //  Assessment.save($scope.questions);
+        //  $scope.complete = true;
+        //  $scope.results = {};
+        //  angular.copy($scope.questions, $scope.results);
+        //}
+
+      };
+
+      $scope.getNextQuestion = function() {
+
+      }
+
     }
 
-    $scope.createIndex = function() {
-      var section;
+    //angular.element('.vcenter').height($window.$( window ).height() - $window.$('.navbar-fixed-bottom').height());
+    //angular.element('.vcenter').width($window.$('.container').width());
 
-      for(section in $scope.questions) {
-        if ($scope.questions[section].selected){
-          console.log(section);
-        }
-      }
-    };
+
+    //$scope.createIndex = function() {
+    //  var section;
+    //
+    //  for(section in $scope.questions) {
+    //    if ($scope.questions[section].selected){
+    //      console.log(section);
+    //    }
+    //  }
+    //};
 
     $scope.setCurrentPageIndex = function (index) {
       $scope.currentIndex = index;
@@ -67,52 +131,44 @@ angular.module('rcaApp')
       $scope.waiting = false;
     };*/
 
-    $scope.questions = Assessment.questions.get();
 
 
-    $scope.waiting = Assessment.isWaiting;
 
-    $scope.currentAssessmentType = $scope.questions[$stateParams.section].assessmentType;
-
-    $scope.currentSection = $stateParams.section;
-    $scope.currentSlot = $stateParams.slotId;
-    $scope.currentItemIndex = $stateParams.itemIndex;
-    $scope.newSection = true;
-    $scope.currentPage = 0;
-
-    $scope.newTimestamp = function() {
-      return new Date();
-    };
-
-    $scope.setAnswer = function($item, $answer, $index) {
-
-      $item.finished = new Date();
-      $item.timeTaken = $item.finished - $item.started;
-      $item.finished = $item.finished.toString();
-      $item.started = $item.started.toString();
-
-      $item.answerGiven = $answer;
-      $item.answerPosition = $index;
-
-      if ($scope.pages.eq($scope.currentPage+1).length > 0) {
-        $scope.setWaiting(true);
-        $scope.currentPage++;
-      } else {
-        // Show finshed page
-        $scope.started = false;
-        Assessment.status = 'Complete';
-        Assessment.save($scope.questions);
-        $scope.complete = true;
-        $scope.pages.hide();
-        $scope.results = {};
-        angular.copy($scope.questions, $scope.results);
-      }
-      //item.answerGiven = answer;item.finish = newTimestamp(); setWaiting(true);
+    //$scope.waiting = Assessment.isWaiting;
 
 
-      //console.log($scope.pages.eq([$scope.currentPage]).scope().$parent.$parent.$parent.$parent.q);
-      //console.log($scope.pages.eq([$scope.currentPage]).prev().scope().$parent.$parent.$parent.$parent.q);
-    };
+
+
+
+    //$scope.setAnswer = function($item, $answer, $index) {
+    //
+    //  $item.finished = new Date();
+    //  $item.timeTaken = $item.finished - $item.started;
+    //  $item.finished = $item.finished.toString();
+    //  $item.started = $item.started.toString();
+    //
+    //  $item.answerGiven = $answer;
+    //  $item.answerPosition = $index;
+    //
+    //  if ($scope.pages.eq($scope.currentPage+1).length > 0) {
+    //    $scope.setWaiting(true);
+    //    $scope.currentPage++;
+    //  } else {
+    //    // Show finshed page
+    //    $scope.started = false;
+    //    Assessment.status = 'Complete';
+    //    Assessment.save($scope.questions);
+    //    $scope.complete = true;
+    //    $scope.pages.hide();
+    //    $scope.results = {};
+    //    angular.copy($scope.questions, $scope.results);
+    //  }
+    //  //item.answerGiven = answer;item.finish = newTimestamp(); setWaiting(true);
+    //
+    //
+    //  //console.log($scope.pages.eq([$scope.currentPage]).scope().$parent.$parent.$parent.$parent.q);
+    //  //console.log($scope.pages.eq([$scope.currentPage]).prev().scope().$parent.$parent.$parent.$parent.q);
+    //};
 
     $scope.acceptParagraph = function($item){
       $item.finished = new Date();

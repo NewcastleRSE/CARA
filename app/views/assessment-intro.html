@@ -6,5 +6,6 @@
   <p ng-show="currentSection === 'sentence-part-1' || currentSection === 'sentence-part-2'">Select the image that is described by the sentence.</p>
   <p ng-show="currentSection === 'paragraph'">Read the following paragraph. You will be asked questions about the content.</p>
   <!--<p ng-show="newSection && sectionType === 'paragraph-2'">Answer the following question about the paragraph you just read.</p>-->
-  <a ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: 0})" class="btn btn-default">OK</a>
+  <ui-view></ui-view>
+
 </div>

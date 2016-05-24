@@ -11,5 +11,7 @@ angular.module('rcaApp')
   .controller('SlotSummaryCtrl', function ($scope, Assessment, $stateParams) {
     Assessment.load($stateParams.slotId);
 
+    $scope.slotId = $stateParams.slotId;
+
     $scope.questions = Assessment.questions.get();
   });
