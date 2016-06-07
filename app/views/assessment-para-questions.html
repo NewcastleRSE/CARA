@@ -1,0 +1,19 @@
+<div class="" ng-repeat="question in item.questions" ng-show="$index === paragraphQIndex">
+  <div class="next-screen" ng-hide="question.started">
+    <button class="btn btn-default" ng-click="question.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
+  </div>
+  <div ng-show="question.started">
+    <p class="paragraph-text"><strong>{{question.question}}</strong></p>
+    <nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" ng-repeat="answer in question.answers">
+            <button class="btn btn-default btn-block answer-option"
+                    ng-click="setAnswer(question, answer, $index)">{{answer}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

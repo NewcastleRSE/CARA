@@ -19,13 +19,71 @@
                 <a class="btn btn-block btn-default" ng-click="setAnswer(item, answer, $index)">{{answer}}</a>
               </div>
             </div>
-
-          </div>
-
-          <div ng-if="section.assessmentType === 'sentence'">
-
           </div>
         </div>
+        <div ng-if="section.assessmentType === 'sentence'">
+
+          <div ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
+            <div class="next-screen" ng-hide="item.started">
+              <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
+            </div>
+            <div class="answers">
+              <h2>{{item.question}}</h2>
+              <div class="row">
+                <div class="col-md-6" ng-repeat="answer in item.answers">
+                  <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                  <img class="img-responsive" ng-src="images/assessment-images/{{answer.image}}" ng-click="setAnswer(item, answer.text, $index);" />
+                </div>
+              </div>
+              <!--<img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" ng-src="images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text, $index);" />-->
+            </div>
+          </div>
+        </div>
+        <div ng-if="section.assessmentType === 'paragraph'">
+
+          <div ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
+            <div ng-hide="item.finished" class="paragraphTextContainer">
+              <div class="next-screen" ng-hide="item.started">
+                <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
+              </div>
+              <p class="paragraph-text-small"><strong>{{item.paragraph}}</strong></p>
+              <p><button ng-click="acceptParagraph(item)">OK</button></p>
+            </div>
+            <div ng-show="item.finished" class="paragraphQuestionsContainer">
+              <ui-view></ui-view>
+            </div>
+            <!--<div ng-if="item.finished === null">-->
+              <!--<div class="vcenter">-->
+                <!--<p class="paragraph-text-small"><strong>{{item.paragraph}}</strong></p>-->
+              <!--</div>-->
+              <!--<nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">-->
+                <!--<div class="container">-->
+                  <!--<div class="row">-->
+                    <!--<div class="col-md-12">-->
+                      <!--<div style="text-align: center;"><button class="btn btn-primary okbutton btn-lg" ng-click="acceptParagraph(item)">OK</button></div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</nav>-->
+            <!--</div>-->
+            <!--<div class="questions">-->
+              <!--<div class="vcenter" ng-repeat="question in item.questions" id="page-{{$id}}" ng-if="question.answerGiven === null"data-selected="{{q.selected}}">-->
+                <!--<p class="paragraph-text"><strong>{{question.question}}</strong></p>-->
+                <!--<nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">-->
+                  <!--<div class="container">-->
+                    <!--<div class="row">-->
+                      <!--<div class="col-md-4" ng-repeat="answer in question.answers">-->
+                        <!--<button class="btn btn-default btn-block answer-option" ng-click="setAnswer(question, answer, $index)">{{answer}}</button>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</nav>-->
+              <!--</div>-->
+            <!--</div>-->
+          </div>
+
+        </div>
+
       </div>
 
     </div>

@@ -70,6 +70,11 @@ angular
       templateUrl: 'views/assessment.html',
       controller: 'AssessmentCtrl'
     })
+    .state('assessmentQuestions.paragraph', {
+      url: '/{paragraphQIndex:int}',
+      templateUrl: 'views/assessment-para-questions.html',
+      controller: 'AssessmentCtrl'
+    })
     .state('report', {
       url: '/report',
       templateUrl: 'views/report.html',
