@@ -373,6 +373,30 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
 
 }
 
+.section-intro {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  max-height: 500px;
+  max-width: 500px;
+
+  p {
+    font-size: 2em;
+  }
+
+  .btn {
+    font-size: 1.5em;
+    margin-top: 20px;
+  }
+}
+
 .next-screen {
   width:200%;height:200%;position:absolute;top:0;left:0;background: white; z-index: 10;
 
