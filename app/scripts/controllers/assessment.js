@@ -25,7 +25,7 @@ angular.module('rcaApp')
       $scope.currentSection = $stateParams.section;
       $scope.currentSlot = $stateParams.slotId;
       $scope.currentItemIndex = $stateParams.itemIndex;
-      $scope.paragraphQIndex = $stateParams.paragraphQIndex !== null ? $stateParams.paragraphQIndex : false;
+      $scope.paragraphQIndex = $stateParams.paragraphQIndex !== undefined ? $stateParams.paragraphQIndex : false;
       $scope.newSection = true;
       $scope.currentPage = 0;
 
@@ -85,6 +85,10 @@ angular.module('rcaApp')
 
     $scope.currentItemIsPractice = function(){
       return $scope.questions[$stateParams.section].items[$scope.currentItemIndex].practice;
+    };
+
+    $scope.isParagraph = function() {
+      return $stateParams.section === 'paragraph' && $state.current.name === "assessmentQuestions"
     };
 
     $scope.acceptParagraph = function($item){

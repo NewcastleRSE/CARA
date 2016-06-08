@@ -315,7 +315,6 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   min-height: 200px;
   max-height: calc(100% - 100px);
   max-width: 1200px;
-  overflow: scroll;
 
   .question-text.btn.btn-block {
     text-align: center;
@@ -327,6 +326,12 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   .answers a.btn {
     font-size: 2.7em;
   }
+
+  &.paragraph {
+    overflow: auto;
+  }
+
+
 }
 
 .practice-marker {

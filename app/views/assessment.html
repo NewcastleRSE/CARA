@@ -1,5 +1,5 @@
 <div class="practice-marker text-primary" ng-if="currentItemIsPractice()">P</div>
-<div class="assessment-content">
+<div class="assessment-content" ng-class="{'paragraph' : isParagraph()}">
     <div ng-repeat="(sectionkey, section) in questions">
 
       <div ng-if="sectionkey === currentSection">
