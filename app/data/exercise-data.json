@@ -821,7 +821,7 @@
           "the clean boots",
           "the dirty shoes"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the shoes are clean",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -845,7 +845,7 @@
           "the girl is drinking",
           "the boy is eating"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The boy is not eating",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -869,7 +869,7 @@
           "the girl is playing the piano",
           "the children are playing cards"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the children are playing the piano",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -879,6 +879,7 @@
         "type": ""
       },
       {
+        "practice": false,
         "question": "the blue van",
         "pictures": [
           "ai 2a the blue van.jpg",
@@ -892,7 +893,7 @@
           "the blue car",
           "the red car"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the blue van",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -902,6 +903,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "the dirty boots",
         "pictures": [
           "ai 4a the dirty boots.jpg",
@@ -915,7 +917,7 @@
           "the dirty shoes",
           "the clean shoes"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the dirty boots",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -925,6 +927,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "the thin boy",
         "pictures": [
           "ai 5a the thin boy.jpg",
@@ -938,7 +941,7 @@
           "the thin girl",
           "the fat girl"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the thin boy",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -948,6 +951,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "the rabbit is not white (the rabbit is black)",
         "pictures": [
           "aii 7a the rabbit is not white.jpg",
@@ -961,7 +965,7 @@
           "the cat is not white (the cat is black)",
           "the cat is white"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the rabbit is not white (the rabbit is black)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -971,6 +975,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the bag is not large (the bag is small)",
         "pictures": [
           "aii 8a the bag is not large.jpg",
@@ -984,7 +989,7 @@
           "the box is not large (the box is small)",
           "the box is large"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the bag is not large (the bag is small)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -994,6 +999,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the man is not young (the man is old)",
         "pictures": [
           "aii 9a the man is not young.jpg",
@@ -1007,7 +1013,7 @@
           "the woman is not young (the woman is old)",
           "the woman is young"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the man is not young (the man is old)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1017,6 +1023,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "grate the cheese",
         "pictures": [
           "b 11a grate the cheese.jpg",
@@ -1030,7 +1037,7 @@
           "grate the carrot",
           "slice the carrot"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "grate the cheese",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1040,6 +1047,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "cut the paper",
         "pictures": [
           "b 14a cut the paper.jpg",
@@ -1053,7 +1061,7 @@
           "cut the fabric",
           "fold the fabric"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "cut the paper",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1063,6 +1071,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "peel the potato",
         "pictures": [
           "b 15a peel the potato.jpg",
@@ -1076,7 +1085,7 @@
           "peel the banana",
           "cut the banana"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "peel the potato",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1086,6 +1095,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "the grandmother is knitting",
         "pictures": [
           "ci 18a the grandmother is knitting.jpg",
@@ -1099,7 +1109,7 @@
           "the boy is knitting",
           "the boy is sewing"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the grandmother is knitting",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1109,6 +1119,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the children are painting",
         "pictures": [
           "ci 19a the children are painting.jpg",
@@ -1122,7 +1133,7 @@
           "the girl is painting",
           "the girl is drawing"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the children are painting",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1132,6 +1143,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the boy is running",
         "pictures": [
           "ci 20a the boy is running.jpg",
@@ -1145,7 +1157,7 @@
           "the boys are running",
           "the boys are jumping"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the boy is running",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1155,6 +1167,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The judge is not writing (the judge is reading)",
         "pictures": [
           "cii 22a the judge is not writing.jpg",
@@ -1168,7 +1181,7 @@
           "The judge is writing",
           "The doctor is writing"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The judge is not writing (the judge is reading)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1178,6 +1191,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the girl is not drinking (the girl is eating)",
         "pictures": [
           "cii 23a the girl is not drinking.jpg",
@@ -1191,7 +1205,7 @@
           "the girl is drinking",
           "the boy is drinking"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the girl is not drinking (the girl is eating)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1201,6 +1215,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The cat is not sleeping (the cat is sitting)",
         "pictures": [
           "cii 24a the cat is not sleeping.jpg",
@@ -1214,7 +1229,7 @@
           "The cat is sleeping",
           "the dog is sleeping"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The cat is not sleeping (the cat is sitting)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1224,6 +1239,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the child is climbing the ladder",
         "pictures": [
           "d 25a the child is climbing the ladder.jpg",
@@ -1237,7 +1253,7 @@
           "the fireman is climbing the ladder",
           "the fireman is climbing the tree"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the child is climbing the ladder",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1247,6 +1263,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the children are washing the car",
         "pictures": [
           "d 27a the children are washing the car.jpg",
@@ -1260,7 +1277,7 @@
           "the girl is washing the car",
           "the girl is washing the boat"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the children are washing the car",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1270,6 +1287,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the boy is riding the bike",
         "pictures": [
           "d 29a the boy is riding the bike.jpg",
@@ -1283,7 +1301,7 @@
           "the boys are riding the bike",
           "the boys are riding the horse"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the boy is riding the bike",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1293,6 +1311,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "she (the girl) is writing the letter",
         "pictures": [
           "e 31a she is writing the letter.jpg",
@@ -1306,7 +1325,7 @@
           "he (the man) is writing the letter",
           "he (the man) is writing the card"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "she (the girl) is writing the letter",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1316,6 +1335,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "they (the boys) are washing their faces",
         "pictures": [
           "e 32a they are washing their faces.jpg",
@@ -1329,7 +1349,7 @@
           "he (the boy) is washing his hands",
           "he (the boy) is washing his face"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "they (the boys) are washing their faces",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1339,6 +1359,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "she (the girl) is playing cards",
         "pictures": [
           "e 33a she is playing cards.jpg",
@@ -1352,7 +1373,7 @@
           "they (the children) are playing cards",
           "they (the children) are playing the piano"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "she (the girl) is playing cards",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1362,6 +1383,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the car is hitting him (the policeman)",
         "pictures": [
           "f 34a the car is hitting him.jpg",
@@ -1375,7 +1397,7 @@
           "the car is hitting her (the girl)",
           "the ball is hitting her (the girl)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the car is hitting him (the policeman)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1385,6 +1407,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the snake is biting her (the woman)",
         "pictures": [
           "f 35a the snake is biting her.jpg",
@@ -1398,7 +1421,7 @@
           "the snake is biting him (the boy)",
           "the shark is biting him (the boy)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the snake is biting her (the woman)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1408,6 +1431,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the lion is chasing them (the children)",
         "pictures": [
           "f 36a the lion is chasing them.jpg",
@@ -1421,7 +1445,7 @@
           "the lion is chasing him (the boy)",
           "the dog is chasing him (the boy)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the lion is chasing them (the children)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1431,6 +1455,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "he is drying the dishes",
         "pictures": [
           "g 37a he is drying the dishes.jpg",
@@ -1444,7 +1469,7 @@
           "they are drying the dishes",
           "they are washing the dishes"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "he is drying the dishes",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1454,6 +1479,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "he is kicking the ball",
         "pictures": [
           "g 38a he is kicking the ball.jpg",
@@ -1467,7 +1493,7 @@
           "she is kicking the ball",
           "she is catching the ball"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "he is kicking the ball",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1477,6 +1503,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "they are washing their hands",
         "pictures": [
           "g 39a they are washing their hands.jpg",
@@ -1490,7 +1517,7 @@
           "she is washing her hands",
           "she is clapping her hands"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "they are washing their hands",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1500,6 +1527,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the dog is licking her (the woman)",
         "pictures": [
           "h 40a the dog is licking her.jpg",
@@ -1513,7 +1541,7 @@
           "the dog is licking him (the man)",
           "the dog is biting him (the man)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the dog is licking her (the woman)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1523,6 +1551,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the man is hitting them (the children)",
         "pictures": [
           "h 41a the man is hitting them.jpg",
@@ -1536,7 +1565,7 @@
           "the man is hitting her (the girl)",
           "the man is hugging her (the girl)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the man is hitting them (the children)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1546,6 +1575,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the monkey is chasing him (the man)",
         "pictures": [
           "h 42a the monkey is chasing him.jpg",
@@ -1559,7 +1589,7 @@
           "the monkey is chasing them (the couple)",
           "the monkey is watching them (the couple)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the monkey is chasing him (the man)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1569,6 +1599,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the boy is giving the flowers to the girl",
         "pictures": [
           "i 43a the boy is giving the flowers to the girl.jpg",
@@ -1582,7 +1613,7 @@
           "the boy is giving the flowers to the man",
           "the boy is giving the gift to the man"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the boy is giving the flowers to the girl",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1592,6 +1623,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the girl is throwing the ball to the boy",
         "pictures": [
           "i 44a the girl is throwing the ball to the boy.jpg",
@@ -1605,7 +1637,7 @@
           "the girl is giving the ball to the boy",
           "the man is giving the ball to the boy"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the girl is throwing the ball to the boy",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1615,6 +1647,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the girl is putting the book on the shelf",
         "pictures": [
           "i 45a the girl is putting the book on the shelf.jpg",
@@ -1628,7 +1661,7 @@
           "the girl is putting the book on the table",
           "the girl is putting the cup on the table"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the girl is putting the book on the shelf",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1638,6 +1671,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the woman is cutting the wood with a saw",
         "pictures": [
           "i 47a the woman is cutting the wood with a saw.jpg",
@@ -1651,7 +1685,7 @@
           "the woman is cutting the wood with an axe",
           "the man is cutting the wood with an axe"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the woman is cutting the wood with a saw",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1682,7 +1716,7 @@
           "the woman is hugging the man",
           "the man is hugging the woman"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the woman is kissing the man",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1706,7 +1740,7 @@
           "the girl is playing the piano",
           "the children are playing cards"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the children are playing the piano",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1730,7 +1764,7 @@
           "the child who dries the lady is reading a book ",
           "child is drying the lady who reads a book"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "the lady is drying the child who reads a book",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1740,6 +1774,7 @@
         "type": ""
       },
       {
+        "practice": false,
         "question": "The woman is drawing the child",
         "pictures": [
           "L 49a the woman is drawing the child.jpg",
@@ -1753,7 +1788,7 @@
           "The child is drawing the woman",
           "The child is painting the woman"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The woman is drawing the child",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1763,6 +1798,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The nurses are weighing the soldiers",
         "pictures": [
           "L 50a The nurses are weighing the soldiers.jpg",
@@ -1776,7 +1812,7 @@
           "The soldiers are weighing the nurses",
           "The soldiers are measuring the nurses"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The nurses are weighing the soldiers",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1786,6 +1822,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The singer is hitting the chil",
         "pictures": [
           "L 51a the singer is hitting the child.jpg",
@@ -1799,7 +1836,7 @@
           "The child is hitting the singer",
           "The child is touching the singer"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The singer is hitting the chil",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1809,6 +1846,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "They (the children) are applauding the teacher",
         "pictures": [
           "m 52a they are applauding the teacher.jpg",
@@ -1822,7 +1860,7 @@
           "The teacher is applauding them (the children)",
           "The teacher is applauding him (the boy)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "They (the children) are applauding the teacher",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1832,6 +1870,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "He (the boy) is watching the woman (woman)",
         "pictures": [
           "M 53a He is watching the woman.jpg",
@@ -1845,7 +1884,7 @@
           "The woman (woman) is watching him (the boy)",
           "The woman (woman)  is watching her (the girl)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "He (the boy) is watching the woman (woman)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1855,6 +1894,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "She (the girl) is pushing the teacher",
         "pictures": [
           "m 54a she is pushing the teacher.jpg",
@@ -1868,7 +1908,7 @@
           "The teacher is pushing her (the girl)",
           "The teacher is pushing them (the boys)"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "She (the girl) is pushing the teacher",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1878,6 +1918,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The teacher is pulling her (the girl)",
         "pictures": [
           "n 55a the teacher is pulling her.jpg",
@@ -1891,7 +1932,7 @@
           "She (the girl) is pulling the teacher",
           "They (the children) are pulling the teacher"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The teacher is pulling her (the girl)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1901,6 +1942,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The grandmother is dressing him (the boy)",
         "pictures": [
           "n 56a the grandmother is dressing him.jpg",
@@ -1914,7 +1956,7 @@
           "He (the boy) is dressing the grandmother",
           "She (the girl) is dressing the grandmother"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The grandmother is dressing him (the boy)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1924,6 +1966,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The grandfather is helping them (the children)",
         "pictures": [
           "n 57a the grandfather is helping them.jpg",
@@ -1937,7 +1980,7 @@
           "They (the children) are helping the grandfather",
           "He (the boy) is helping the grandfather"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The grandfather is helping them (the children)",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1947,6 +1990,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The player was pushed by the referee",
         "pictures": [
           "o 58a the player was pushed by the referee.jpg",
@@ -1960,7 +2004,7 @@
           "The referee was pushed by the player",
           "The referee was pulled by the player"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The player was pushed by the referee",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1970,6 +2014,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The girl was weighed by the boy",
         "pictures": [
           "o 60a the girl was weighed by the boy.jpg",
@@ -1983,7 +2028,7 @@
           "The boy was weighed by the girl",
           "The boy was measured by the girl"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The girl was weighed by the boy",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -1993,6 +2038,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The policeman was kicked by the driver",
         "pictures": [
           "p 62a the policeman was kicked.jpg",
@@ -2006,7 +2052,7 @@
           "The driver was kicked by the policeman",
           "The driver was hit by the policeman"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The policeman was kicked by the driver",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2016,6 +2062,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The runner was pushed by the spectator",
         "pictures": [
           "p 63a the runner was pushed.jpg",
@@ -2029,7 +2076,7 @@
           "The spectator was pushed by the runner",
           "d.The spectator was pulled by the runner"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The runner was pushed by the spectator",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2039,6 +2086,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The boy is kissing the athlete who wears a medal",
         "pictures": [
           "Q 64a The boy is kissing the athlete who wears a medal.jpg",
@@ -2052,7 +2100,7 @@
           "The athlete is kissing the boy who wears a medal",
           "The athlete who wears the medal is kissing the boy"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The boy is kissing the athlete who wears a medal",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2062,6 +2110,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The fireman is pushing the boy who rides the motorbike",
         "pictures": [
           "Q 65a The fireman is pushing the boy who rides the motorbike.jpg",
@@ -2075,7 +2124,7 @@
           "The boy is pushing the fireman who rides the motorbike",
           "The boy who rides the motorbike is pushing the fireman"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The fireman is pushing the boy who rides the motorbike",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2085,6 +2134,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The player who kicks the referee is hearing the music",
         "pictures": [
           "R 68a The player who kicks the referee is hearing the music.jpg",
@@ -2098,7 +2148,7 @@
           "The player is kicking the referee who hears the music",
           "The referee who kicks the player is hearing the music"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The player who kicks the referee is hearing the music",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2108,6 +2158,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The woman who kisses the man is tall",
         "pictures": [
           "R 69a The woman who kisses the man is tall.jpg",
@@ -2121,7 +2172,7 @@
           "The woman is kissing the man who is tall",
           "The man who kisses the woman is tall"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The woman who kisses the man is tall",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2131,6 +2182,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The ladies who the man draws are baking a cake",
         "pictures": [
           "S 71a The ladies who the man draws are baking a cake.jpg",
@@ -2144,7 +2196,7 @@
           "The ladies who draw the man are baking a cake",
           "The man who draws the ladies is baking a cake"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The ladies who the man draws are baking a cake",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2154,6 +2206,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The runners who the assistant watches are drinking water",
         "pictures": [
           "S 72a The runners who the assistant watches are drinking water.jpg",
@@ -2167,7 +2220,7 @@
           "The runners who watch the assistant are drinking water",
           "The assistant who watches the runners is drinking water"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The runners who the assistant watches are drinking water",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2177,6 +2230,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The fireman who she is calling is carrying a ladder",
         "pictures": [
           "T 73a The fireman who she is calling is carrying a ladder.jpg",
@@ -2190,7 +2244,7 @@
           "The fireman who is calling her is carrying a ladder",
           "The woman who is calling him is carrying the ladder"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The fireman who she is calling is carrying a ladder",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2200,6 +2254,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The teacher who he is hitting is holding a book",
         "pictures": [
           "T 75a The teacher who he is hitting is holding a book.jpg",
@@ -2213,7 +2268,7 @@
           "The teacher who is hitting him is holding a book",
           "The man who is hitting her is holding a book"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The teacher who he is hitting is holding a book",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2223,6 +2278,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The policeman who Queen Elizabeth is visiting has a big hat",
         "pictures": [
           "U 76a The policeman who Queen Elizabeth is visiting has a big hat.jpg",
@@ -2236,7 +2292,7 @@
           "The policeman who is visiting Queen Elizabeth has a big hat",
           "Queen Elizabeth who is visiting the policeman has a big hat"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The policeman who Queen Elizabeth is visiting has a big hat",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2246,6 +2302,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The guard who John Lennon is chasing has a black jacket",
         "pictures": [
           "U 77a The guard who John Lennon is chasing has a black jacket.jpg",
@@ -2259,7 +2316,7 @@
           "The guard who is chasing John Lennon has a black jacket",
           "John Lennon who is chasing the guard has a black jacket"
         ],
-        "correctAnswer": 0,
+        "correctAnswer": "The guard who John Lennon is chasing has a black jacket",
         "started": null,
         "finished": null,
         "timeTaken": null,
@@ -2462,7 +2519,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Sarah needed to do some shopping. She made a long list. She did not want to go on her own. She asked Adam if he would come. They set off together. They shopped for two hours but there was still a lot to buy. It was busy and tiring. They went to a caf�. They were feeling hungry.",
+        "paragraph": "Sarah needed to do some shopping. She made a long list. She did not want to go on her own. She asked Adam if he would come. They set off together. They shopped for two hours but there was still a lot to buy. It was busy and tiring. They went to a cafè. They were feeling hungry.",
         "practice": false,
         "questions": [
           {
