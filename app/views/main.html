@@ -1,77 +1,60 @@
 <div class="home-page-container">
   <div class="row">
 <!--    <div class="col-sm-3" ng-repeat="(key, assessment) in assessments | orderObjectBy:'modified':true">-->
-    <div class="col-sm-3" ng-repeat="(key, assessment) in assessments">
-      <div class="save-slot panel panel-default" ng-click="selectAssessment(assessment, $index)" ng-class="{'active' : selectedAssessment === $index, 'empty' : assessment === null}">
+    <div class="col-sm-4" ng-repeat="(key, assessment) in assessments">
+      <div class="save-slot panel panel-info" ng-class="{'active' : selectedAssessment === $index, 'empty' : assessment === null}">
         <div class="panel-heading">
           <h4 ng-if="assessment === null" class="panel-title">Empty</h4>
-          <h4 ng-if="assessment !== null" class="panel-title">{{assessment.name}}<span ng-if="assessment !== null" class="pull-right label label-primary">{{assessment.status || 'In Progress'}}</span></h4>
+          <h4 ng-if="assessment !== null" class="panel-title">Participant ID: {{assessment.name}}<span ng-if="assessment !== null && false" class="pull-right label label-default" ng-class="{'label-success' : assessment.status === 'Complete', 'label-warning' : assessment.status === 'In Progress'}">{{assessment.status || 'In Progress'}}</span></h4>
 
         </div>
         <div class="panel-body">
-          <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | amCalendar}}</p>
+          <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | date : 'dd/MM/yyyy HH:mm'}}</p>
+
+          <div class="list-group">
+            <button class="list-group-item" ng-repeat="(sectionKey, section) in assessment.questions">
+              <span ng-if="section.completed" class=""><i class="glyphicon glyphicon-ok text-success pull-right"></i></span>
+              <span ng-if="sectionKey !== 'singleWord-part-2'"><a class="" ui-sref="assessment.practice({slotId: key, section: sectionKey})">{{section.name}}</a></span>
+              <span ng-if="sectionKey === 'singleWord-part-2'"><a class="" ui-sref="assessment.begin({slotId: key, section: sectionKey})">{{section.name}}</a></span>
+
+
+            </button>
+          </div>
+
+          <div ng-if="assessment === null" class="create-slot">
+            <i ng-click="createAssessment(key)" class="glyphicon glyphicon-plus-sign"></i>
+            <p>Add new</p>
+          </div>
 
         </div>
         <div class="panel-footer">
 
-          <!-- Empty Slot Button Group -->
+          <!-- Empty Slot dummy Button Group -->
 
-          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment === null">
+          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment === null" style="visibility: hidden;">
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-primary" ng-click="createAssessment()">
+              <button type="button" class="btn btn-primary">
                 Create Assessment
               </button>
             </div>
           </div>
 
-          <!-- New Report Button Group -->
-
-          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null && assessment.status === 'Not Started'">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="continueAssessment()">
-                <i class="glyphicon glyphicon-play"></i> Start
-              </button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#customiseAssessment" data-dismiss="modal" ng-click="customiseAssessment($event)">
-                <i class="glyphicon glyphicon-cog"></i> Edit
-              </button>
-            </div>
-
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" ng-click="clearSlot()">
-                <i class="glyphicon glyphicon-remove"></i> Clear
-              </button>
-            </div>
-          </div>
 
           <!-- In Progress Button Group -->
-          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null && assessment.status === 'In Progress'">
+          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null">
+
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="continueAssessment()">
-                <i class="glyphicon glyphicon-play"></i> Continue
+              <button type="button" class="btn btn-default" ng-click="clearSlot(key)">
+                <i class="glyphicon glyphicon-trash"></i> Remove
               </button>
             </div>
 
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" ng-click="clearSlot()">
-                <i class="glyphicon glyphicon-remove"></i> Clear
-              </button>
+              <button ng-disabled="hasCompleteSection(assessment) !== true" class="btn btn-default" ng-click="viewReport($index, assessment)"><i class="glyphicon glyphicon-stats"></i> View Report</button>
             </div>
+
           </div>
 
-          <!-- Assessment Complete Button Group -->
-          <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null && assessment.status === 'Complete'">
-            <div class="btn-group" role="group">
-              <button class="btn btn-default" ng-click="viewReport($index, assessment)"><i class="glyphicon glyphicon-stats"></i> View Report</button>
-            </div>
-
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" ng-click="clearSlot()">
-                <i class="glyphicon glyphicon-remove"></i> Clear
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>

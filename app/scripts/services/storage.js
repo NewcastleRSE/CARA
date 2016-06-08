@@ -12,7 +12,7 @@ angular.module('rcaApp')
 
         var Storage = {};
 
-        Storage.currentSlot = 0;
+        Storage.currentSlot = 'rca-assessment-0';
 
         Storage.load = function(item){
           var assessments = {},
@@ -25,7 +25,7 @@ angular.module('rcaApp')
 
           } else {
             // Load all
-            for (i=0; i < 12; i++) {
+            for (i=0; i < 6; i++) {
 
               assessments['rca-assessment-' + i] = JSON.parse(localStorage.getItem('rca-assessment-' + i));
             }
@@ -50,7 +50,9 @@ angular.module('rcaApp')
 
               savedItem = angular.extend(savedItem, meta);
 
-              localStorage.setItem('rca-assessment-' + Storage.currentSlot, JSON.stringify(savedItem));
+              console.log('saving',Storage.currentSlot);
+
+              localStorage.setItem(Storage.currentSlot, JSON.stringify(savedItem));
 
               $rootScope.$emit('storage-updated');
 
@@ -60,7 +62,7 @@ angular.module('rcaApp')
         };
 
     Storage.clearSlot = function() {
-      localStorage.removeItem('rca-assessment-' + Storage.currentSlot);
+      localStorage.removeItem(Storage.currentSlot);
     };
 
         return Storage;

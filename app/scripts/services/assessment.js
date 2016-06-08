@@ -233,9 +233,11 @@ angular.module('rcaApp')
       });
     };
 
-    Assessment.load = function() {
+    Assessment.load = function(storageSlot) {
 
-      var assessment = Storage.load('rca-assessment-' + Storage.currentSlot);
+      Storage.currentSlot = storageSlot;
+
+      var assessment = Storage.load(Storage.currentSlot);
 
       Assessment.name = assessment.name;
       Assessment.modified = assessment.modified;
@@ -247,7 +249,8 @@ angular.module('rcaApp')
 
     Assessment.start = function() {
       console.log('Starting');
-      $state.go('assessment');
+      //$state.go('assessment', {'slotId': Storage.currentSlot});
+      //console.log('Poost');
       Assessment.questions.current.reset();
       Assessment.isWaiting = true;
       Assessment.started = true;
@@ -269,7 +272,7 @@ angular.module('rcaApp')
 
         for( var i=0; i < idLength; i++ ){
           if (i === numberPosition) {
-            text.push(Storage.currentSlot);
+            text.push(Storage.currentSlot.match(/[0-9]/g)[0]);
           } else {
             text.push( possible.charAt(Math.floor(Math.random() * possible.length)) );
           }

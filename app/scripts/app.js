@@ -30,13 +30,17 @@ angular
   }
 ]).config(function($stateProvider, $urlRouterProvider) {
   //
-  // For any unmatched url, redirect to /state1
+  // For any unmatched url, redirect to /
   $urlRouterProvider.otherwise('/');
   //
   // Now set up the states
   $stateProvider
-    .state('home', {
+    .state('welcome', {
       url: '/',
+      templateUrl: 'views/welcome.html'
+    })
+    .state('home', {
+      url: '/home',
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
@@ -45,9 +49,34 @@ angular
       templateUrl: 'views/about.html',
       controller: 'AboutCtrl'
     })
+    .state('slotSummary', {
+      url: '/:slotId',
+      templateUrl: 'views/slot-summary.html',
+      controller: 'SlotSummaryCtrl'
+    })
     .state('assessment', {
-      url: '/assessment',
+      url: '/:slotId/:section',
+      templateUrl: 'views/assessment-intro.html',
+      controller: 'SectionIntroCtrl'
+    })
+    .state('assessment.practice', {
+      url: '/practice',
+      templateUrl: 'views/assessment-practice-intro.html',
+      controller: function($scope) {}
+    })
+    .state('assessment.begin', {
+      url: '/begin',
+      templateUrl: 'views/assessment-begin-test.html',
+      controller: function($scope) {}
+    })
+    .state('assessmentQuestions', {
+      url: '/:slotId/:section/{itemIndex:int}',
       templateUrl: 'views/assessment.html',
+      controller: 'AssessmentCtrl'
+    })
+    .state('assessmentQuestions.paragraph', {
+      url: '/{paragraphQIndex:int}',
+      templateUrl: 'views/assessment-para-questions.html',
       controller: 'AssessmentCtrl'
     })
     .state('report', {
@@ -62,6 +91,13 @@ angular
         $scope.things = ['A', 'Set', 'Of', 'Things'];
       }
     });
+}).run(function($rootScope){
+
+  $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
+    $rootScope.containerClass = toState.name;
+    //console.log(toState.name);
+  });
+
 });
 
   /*.config(function ($routeProvider) {
