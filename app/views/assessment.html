@@ -30,11 +30,11 @@
             <div class="answers" ng-show="item.started">
               <div class="row">
                 <div class="col-md-6">
-                  <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                  <p ng-show="debug === 'yes'">{{item.answers[0].text}}</p>
                   <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[0].image}}" ng-click="setAnswer(item, answer.text, $index);" />
                 </div>
                 <div class="col-md-6">
-                  <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                  <p ng-show="debug === 'yes'">{{item.answers[1].text}}</p>
                   <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[1].image}}" ng-click="setAnswer(item, answer.text, $index);" />
                 </div>
               </div>
@@ -43,11 +43,11 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                  <p ng-show="debug === 'yes'">{{item.answers[2].text}}</p>
                   <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[2].image}}" ng-click="setAnswer(item, answer.text, $index);" />
                 </div>
                 <div class="col-md-6">
-                  <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                  <p ng-show="debug === 'yes'">{{item.answers[3].text}}</p>
                   <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[3].image}}" ng-click="setAnswer(item, answer.text, $index);" />
                 </div>
               </div>
