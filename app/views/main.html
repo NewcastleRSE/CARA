@@ -9,7 +9,7 @@
 
         </div>
         <div class="panel-body">
-          <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | amCalendar}}</p>
+          <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | date : 'dd/MM/yyyy HH:mm'}}</p>
 
           <div class="list-group">
             <button class="list-group-item" ng-repeat="(sectionKey, section) in assessment.questions">
