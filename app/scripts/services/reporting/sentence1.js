@@ -43,8 +43,6 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
         },
         calculate: function(data){
 
-            console.log(data);
-
             //Data for colour coded response time table
             data.forEach(function (response, index) {
 

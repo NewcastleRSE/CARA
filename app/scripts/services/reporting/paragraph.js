@@ -15,6 +15,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
             {title: 'Paragraphs', dataKey: 'paragraphs'},
             {title: '', dataKey: 'lengthScore'},
             {title: 'Question Type', dataKey: 'questionType'},
+            {title: '', dataKey: 'lengthType'},
             {title: '', dataKey: 'typeScore'}
         ],
         columns: [
@@ -35,6 +36,46 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
         correctAnswers: [],
         incorrectAnswers: [],
         total: {
+            correct: {
+                time: null,
+                count: null
+            },
+            incorrect: {
+                time: null,
+                count: null
+            }
+        },
+        mainIdeasStated: {
+            correct: {
+                time: null,
+                count: null
+            },
+            incorrect: {
+                time: null,
+                count: null
+            }
+        },
+        mainIdeasImplied: {
+            correct: {
+                time: null,
+                count: null
+            },
+            incorrect: {
+                time: null,
+                count: null
+            }
+        },
+        detailsStated: {
+            correct: {
+                time: null,
+                count: null
+            },
+            incorrect: {
+                time: null,
+                count: null
+            }
+        },
+        detailsImplied: {
             correct: {
                 time: null,
                 count: null
@@ -71,7 +112,8 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                         distractor2: distractors[1],
                         time: question.timeTaken / 1000,
                         answer: question.answerGiven,
-                        readingTime: readingTime
+                        readingTime: readingTime,
+                        type: question.type
                     });
 
                     rowCounter++;
@@ -80,11 +122,11 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
 
             //Separate correct and incorrect answers
             paragraph.correctAnswers = $window._.filter(paragraph.rows, function (data) {
-                return data.answer === data.targetPicture;
+                return data.answer === data.target;
             });
 
             paragraph.incorrectAnswers = $window._.filter(paragraph.rows, function (data) {
-                return data.answer !== data.targetPicture;
+                return data.answer !== data.target;
             });
 
 
@@ -93,7 +135,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 return a + m.time / p.length;
             }, 0);
 
-            paragraph.total.correct.count = paragraph.incorrectAnswers.length;
+            paragraph.total.correct.count = paragraph.correctAnswers.length;
 
             paragraph.total.incorrect.time = $window._(paragraph.incorrectAnswers).reduce(function (a, m, i, p) {
                 return a + m.time / p.length;
@@ -101,12 +143,67 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
 
             paragraph.total.incorrect.count = paragraph.incorrectAnswers.length;
 
+
+            //MIS Performance
+            paragraph.mainIdeasStated.correct.time = $window._(paragraph.correctAnswers).filter({type: 'MIS'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.mainIdeasStated.correct.count = $window._.filter(paragraph.correctAnswers, {type: 'MIS'}).length;
+
+            paragraph.mainIdeasStated.incorrect.time = $window._(paragraph.incorrectAnswers).filter({type: 'MIS'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.mainIdeasStated.incorrect.count = $window._.filter(paragraph.incorrectAnswers, {type: 'MIS'}).length;
+
+            //MII Performance
+            paragraph.mainIdeasImplied.correct.time = $window._(paragraph.correctAnswers).filter({type: 'MII'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.mainIdeasImplied.correct.count = $window._.filter(paragraph.correctAnswers, {type: 'MII'}).length;
+
+            paragraph.mainIdeasImplied.incorrect.time = $window._(paragraph.incorrectAnswers).filter({type: 'MII'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.mainIdeasImplied.incorrect.count = $window._.filter(paragraph.incorrectAnswers, {type: 'MII'}).length;
+
+            //DS Performance
+            paragraph.detailsStated.correct.time = $window._(paragraph.correctAnswers).filter({type: 'DS'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.detailsStated.correct.count = $window._.filter(paragraph.correctAnswers, {type: 'DS'}).length;
+
+            paragraph.detailsStated.incorrect.time = $window._(paragraph.incorrectAnswers).filter({type: 'DS'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.detailsStated.incorrect.count = $window._.filter(paragraph.incorrectAnswers, {type: 'DS'}).length;
+
+            //DI Performance
+            paragraph.detailsImplied.correct.time = $window._(paragraph.correctAnswers).filter({type: 'DI'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.detailsImplied.correct.count = $window._.filter(paragraph.correctAnswers, {type: 'DI'}).length;
+
+            paragraph.detailsImplied.incorrect.time = $window._(paragraph.incorrectAnswers).filter({type: 'DI'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.detailsImplied.incorrect.count = $window._.filter(paragraph.incorrectAnswers, {type: 'DI'}).length;
+
+
             paragraph.summaryRows.push({
                 length: '< 40 Words',
                 paragraphs: 'Paragraphs 1 & 2',
                 lengthScore: '/4',
                 questionType: 'Main ideas stated',
-                typeScore: '/15'
+                lengthType: '/15',
+                typeScore: paragraph.mainIdeasStated.correct.count
             });
 
             paragraph.summaryRows.push({
@@ -114,7 +211,8 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: 'Paragraph 3-7',
                 lengthScore: '/20',
                 questionType: 'Main ideas implied',
-                typeScore: '/13'
+                lengthType: '/13',
+                typeScore: paragraph.mainIdeasImplied.correct.count
             });
 
             paragraph.summaryRows.push({
@@ -122,7 +220,8 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: 'Paragraphs 8-13',
                 lengthScore: '/24',
                 questionType: 'Details stated',
-                typeScore: '/15'
+                lengthType: '/15',
+                typeScore: paragraph.detailsStated.correct.count
             });
 
             paragraph.summaryRows.push({
@@ -130,7 +229,8 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: 'Paragraph 14',
                 lengthScore: '/4',
                 questionType: 'Details implied',
-                typeScore: '/13'
+                lengthType: '/13',
+                typeScore: paragraph.detailsImplied.correct.count
             });
 
             paragraph.summaryRows.push({
@@ -138,7 +238,8 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: 'Paragraph 15',
                 lengthScore: '/4',
                 questionType: 'Gist',
-                typeScore: '/9'
+                lengthType: '/9',
+                typeScore: 0
             });
 
             paragraph.summaryRows.push({
@@ -146,7 +247,8 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: '',
                 lengthScore: '',
                 questionType: 'Total',
-                typeScore: '/65'
+                lengthType: '/65',
+                typeScore: paragraph.total.correct.count
             });
 
             paragraph.timeRank = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(paragraph.rows), function(row){

@@ -30,7 +30,8 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         }
 
         if(assessment.questions['paragraph'].completed) {
-            Paragraph.calculate(assessment.questions['paragraph'].items);
+            Paragraph.calculate($window._.filter(assessment.questions['paragraph'].items, {practice: false}));
+            console.log(Paragraph);
         }
 
         /*var singleWord1ResponseTimes = new CanvasJS.Chart('singleWord1BarChart', {

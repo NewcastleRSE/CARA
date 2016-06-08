@@ -127,8 +127,6 @@ angular.module('rcaApp').service('SingleWord2', function ($window) {
 
             });
 
-            console.log(singleWord.rows);
-
             //Separate correct and incorrect answers
             singleWord.correctAnswers = $window._.filter(singleWord.rows, function (data) {
                 return data.answer === data.targetWord;
