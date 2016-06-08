@@ -1,3 +1,4 @@
+<div class="practice-marker text-primary" ng-if="currentItemIsPractice()">P</div>
 <div class="assessment-content">
     <div ng-repeat="(sectionkey, section) in questions">
 
@@ -8,7 +9,6 @@
             <div class="next-screen" ng-hide="item.started">
               <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
-            <!--<h2>{{item.practice}}</h2>-->
             <div class="row">
               <div class="col-md-2 col-md-offset-5">
                 <p class="btn btn-block question-text">{{item.question}}</p>

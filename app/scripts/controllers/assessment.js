@@ -88,6 +88,10 @@ angular.module('rcaApp')
       return $scope.currentIndex === index;
     };
 
+    $scope.currentItemIsPractice = function(){
+      return $scope.questions[$stateParams.section].items[$scope.currentItemIndex].practice;
+    };
+
     $scope.acceptParagraph = function($item){
       $item.finished = new Date();
       $item.timeTaken = $item.finished - $item.started;

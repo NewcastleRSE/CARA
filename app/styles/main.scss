@@ -354,14 +354,19 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   .answers a.btn {
     font-size: 3.5em;
   }
+}
 
+.practice-marker {
+  position: fixed;
+  left: 10px;
+  top: -5px;
+  font-size: 4em;
 }
 
 .section-complete {
   position: fixed;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
   -moz-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -377,7 +382,6 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   position: fixed;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
   -moz-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
