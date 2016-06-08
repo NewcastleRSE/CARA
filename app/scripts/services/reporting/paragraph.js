@@ -13,10 +13,9 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
         summaryColumns: [
             {title: 'Length', dataKey: 'length'},
             {title: 'Paragraphs', dataKey: 'paragraphs'},
-            {title: '', dataKey: 'lengthScore'},
+            {title: 'Total', dataKey: 'lengthScore'},
             {title: 'Question Type', dataKey: 'questionType'},
-            {title: '', dataKey: 'lengthType'},
-            {title: '', dataKey: 'typeScore'}
+            {title: 'Total', dataKey: 'typeScore'}
         ],
         columns: [
             {title: '', dataKey: 'rowNumber'},
@@ -202,8 +201,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: 'Paragraphs 1 & 2',
                 lengthScore: '/4',
                 questionType: 'Main ideas stated',
-                lengthType: '/15',
-                typeScore: paragraph.mainIdeasStated.correct.count
+                typeScore: paragraph.mainIdeasStated.correct.count + ' / 15'
             });
 
             paragraph.summaryRows.push({
@@ -211,8 +209,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: 'Paragraph 3-7',
                 lengthScore: '/20',
                 questionType: 'Main ideas implied',
-                lengthType: '/13',
-                typeScore: paragraph.mainIdeasImplied.correct.count
+                typeScore: paragraph.mainIdeasImplied.correct.count + ' / 13'
             });
 
             paragraph.summaryRows.push({
@@ -220,8 +217,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: 'Paragraphs 8-13',
                 lengthScore: '/24',
                 questionType: 'Details stated',
-                lengthType: '/15',
-                typeScore: paragraph.detailsStated.correct.count
+                typeScore: paragraph.detailsStated.correct.count + ' / 15'
             });
 
             paragraph.summaryRows.push({
@@ -229,8 +225,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: 'Paragraph 14',
                 lengthScore: '/4',
                 questionType: 'Details implied',
-                lengthType: '/13',
-                typeScore: paragraph.detailsImplied.correct.count
+                typeScore: paragraph.detailsImplied.correct.count + ' / 13'
             });
 
             paragraph.summaryRows.push({
@@ -247,8 +242,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 paragraphs: '',
                 lengthScore: '',
                 questionType: 'Total',
-                lengthType: '/65',
-                typeScore: paragraph.total.correct.count
+                typeScore: paragraph.total.correct.count + ' / 65'
             });
 
             paragraph.timeRank = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(paragraph.rows), function(row){

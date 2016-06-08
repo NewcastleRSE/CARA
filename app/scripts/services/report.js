@@ -127,6 +127,35 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         singleWord1ResponseTimes.render();
         singleWord2ResponseTimes.render();*/
 
+
+        /****** Override to merge Sentence Scores *******/
+
+        console.log(Sentence1);
+
+        var sentenceSummaryTotals = [{
+            type: 'Phrases',
+            nonReversible: Sentence1.nonReversiblePhrases.correct.count + Sentence2.nonReversiblePhrases.correct.count + ' / 6',
+            reversible: '',
+            total: Sentence1.phrases.correct.count + Sentence2.phrases.correct.count + ' / 6'
+        },{
+            type: 'Simple',
+            nonReversible: Sentence1.nonReversibleSimple.correct.count + Sentence2.nonReversibleSimple.correct.count + ' / 28',
+            reversible: Sentence1.phrases.correct.count + Sentence2.phrases.correct.count + ' / 9',
+            total: Sentence1.reversibleSimple.correct.count + Sentence2.reversibleSimple.correct.count + ' / 37'
+        },{
+            type: 'Complex',
+            nonReversible: '',
+            nonReversibleScore: '',
+            reversible: Sentence1.reversibleComplex.correct.count + Sentence2.reversibleComplex.correct.count + ' / 14',
+            total: Sentence1.complex.correct.count + Sentence2.complex.correct.count + ' / 14'
+        },{
+            type: 'Total',
+            nonReversible: Sentence1.nonReversibleTotal.correct.count + Sentence2.nonReversibleTotal.correct.count + ' / 34',
+            reversible: Sentence1.reversibleTotal.correct.count + Sentence2.reversibleTotal.correct.count + ' / 23',
+            total: Sentence1.total.correct.count + Sentence2.total.correct.count + ' / 57'
+        }];
+
+
         // Only pt supported (not mm or in)
         var doc = new $window.jsPDF('p', 'pt');
         doc.page = 1;
@@ -202,7 +231,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         doc.text(50, 75, '2. Sentence Comprehension');
         doc.setFontSize(12);
 
-        doc.autoTable(Sentence1.summaryColumns, Sentence1.summaryRows, {
+        doc.autoTable(Sentence1.summaryColumns, sentenceSummaryTotals, {
             theme: 'grid',
             margin: [100, 50, 50, 50],
             styles: {
