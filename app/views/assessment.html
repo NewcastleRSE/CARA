@@ -27,12 +27,28 @@
             <div class="next-screen" ng-hide="item.started">
               <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
-            <div class="answers">
-              <h2>{{item.question}}</h2>
+            <div class="answers" ng-show="item.started">
               <div class="row">
-                <div class="col-md-6" ng-repeat="answer in item.answers">
+                <div class="col-md-6">
                   <p ng-show="debug === 'yes'">{{answer.text}}</p>
-                  <img class="img-responsive" ng-src="images/assessment-images/{{answer.image}}" ng-click="setAnswer(item, answer.text, $index);" />
+                  <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[0].image}}" ng-click="setAnswer(item, answer.text, $index);" />
+                </div>
+                <div class="col-md-6">
+                  <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                  <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[1].image}}" ng-click="setAnswer(item, answer.text, $index);" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">{{item.question}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                  <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[2].image}}" ng-click="setAnswer(item, answer.text, $index);" />
+                </div>
+                <div class="col-md-6">
+                  <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                  <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[3].image}}" ng-click="setAnswer(item, answer.text, $index);" />
                 </div>
               </div>
               <!--<img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" ng-src="images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text, $index);" />-->
