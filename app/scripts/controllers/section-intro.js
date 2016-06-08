@@ -22,7 +22,7 @@ angular.module('rcaApp')
     function getFirstRealQuestion() {
       var firstIndex = 0;
       $scope.questions[$scope.currentSection].items.forEach(function(item){
-        if (item.practice === false) {
+        if (item.practice === false || item.practice === undefined) {
           return firstIndex;
         }
         firstIndex++;

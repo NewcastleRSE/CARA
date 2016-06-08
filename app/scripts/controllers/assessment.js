@@ -56,7 +56,7 @@ angular.module('rcaApp')
         else if ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1]) {
 
           // check if we are finishing the practice section
-          var finishingPractice = ($scope.questions[$stateParams.section].items[$scope.currentItemIndex].practice === true && $scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === false)
+          var finishingPractice = ($scope.questions[$stateParams.section].items[$scope.currentItemIndex].practice === true && ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === false || $scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === undefined));
 
           if (finishingPractice) {
             // Show Start test screen
@@ -102,4 +102,10 @@ angular.module('rcaApp')
 
     };
 
+  });
+
+angular.module('rcaApp').filter('removeBracketedText', function () {
+    return function (input) {
+      return input.replace(/\([a-z ]+\)/gi, ' ');
+    };
   });
