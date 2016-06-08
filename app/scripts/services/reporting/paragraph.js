@@ -199,7 +199,9 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
             paragraph.summaryRows.push({
                 length: '< 40 Words',
                 paragraphs: 'Paragraphs 1 & 2',
-                lengthScore: '/4',
+                lengthScore: $window._.filter(paragraph.rows, function (data) {
+                    return data.answer === data.target && (data.item === 'P1' || data.item === 'P2' );
+                }).length + ' / 4',
                 questionType: 'Main ideas stated',
                 typeScore: paragraph.mainIdeasStated.correct.count + ' / 15'
             });
@@ -207,7 +209,9 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
             paragraph.summaryRows.push({
                 length: '41-60 Words',
                 paragraphs: 'Paragraph 3-7',
-                lengthScore: '/20',
+                lengthScore: $window._.filter(paragraph.rows, function (data) {
+                    return data.answer === data.target && (data.item === 'P3' || data.item === 'P4' || data.item === 'P5' || data.item === 'P6'  || data.item === 'P7');
+                }).length + ' / 20',
                 questionType: 'Main ideas implied',
                 typeScore: paragraph.mainIdeasImplied.correct.count + ' / 13'
             });
@@ -215,7 +219,9 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
             paragraph.summaryRows.push({
                 length: '61-80 Words',
                 paragraphs: 'Paragraphs 8-13',
-                lengthScore: '/24',
+                lengthScore: $window._.filter(paragraph.rows, function (data) {
+                    return data.answer === data.target && (data.item === 'P8' || data.item === 'P9' || data.item === 'P10' || data.item === 'P11'  || data.item === 'P12'  || data.item === 'P13');
+                }).length + ' / 24',
                 questionType: 'Details stated',
                 typeScore: paragraph.detailsStated.correct.count + ' / 15'
             });
@@ -223,7 +229,9 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
             paragraph.summaryRows.push({
                 length: '100 Words',
                 paragraphs: 'Paragraph 14',
-                lengthScore: '/4',
+                lengthScore: $window._.filter(paragraph.rows, function (data) {
+                    return data.answer === data.target && (data.item === 'P14');
+                }).length + ' / 4',
                 questionType: 'Details implied',
                 typeScore: paragraph.detailsImplied.correct.count + ' / 13'
             });
@@ -231,7 +239,9 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
             paragraph.summaryRows.push({
                 length: '> 200 Words',
                 paragraphs: 'Paragraph 15',
-                lengthScore: '/4',
+                lengthScore: $window._.filter(paragraph.rows, function (data) {
+                    return data.answer === data.target && (data.item === 'P15');
+                }).length + ' / 4',
                 questionType: 'Gist',
                 lengthType: '/9',
                 typeScore: 0
