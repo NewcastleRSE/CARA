@@ -3,17 +3,17 @@
     <button class="btn btn-default" ng-click="question.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
   </div>
   <div ng-show="question.started">
-    <p class="paragraph-text"><strong>{{question.question}}</strong></p>
-    <nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4" ng-repeat="answer in question.answers">
-            <button class="btn btn-default btn-block answer-option"
-                    ng-click="setAnswer(question, answer, $index)">{{answer}}
-            </button>
-          </div>
-        </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="btn btn-block question-text">{{question.question}}</p>
       </div>
-    </nav>
+    </div>
+    <div class="row answers">
+      <div class="col-md-4" ng-repeat="answer in question.answers">
+        <a class="btn btn-block btn-default" ng-click="setAnswer(item, answer, $index)">{{answer}}</a>
+      </div>
+    </div>
+
   </div>
 </div>

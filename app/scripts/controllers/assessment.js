@@ -35,9 +35,6 @@ angular.module('rcaApp')
 
       $scope.setAnswer = function($item, $answer, $index) {
 
-        //console.log($item, $answer, $index);
-        //console.log($scope.currentSection);
-
         $item.finished = new Date();
         $item.timeTaken = $item.finished - $item.started;
         $item.finished = $item.finished.toString();
@@ -46,10 +43,8 @@ angular.module('rcaApp')
         $item.answerGiven = $answer;
         $item.answerPosition = $index;
 
-        //console.log($scope.paragraphQIndex, $scope.questions[$stateParams.section].items[$scope.currentItemIndex].questions[$scope.paragraphQIndex + 1])
-
         // Check if this a question for a paragraph and we have another question
-        if ($scope.paragraphQIndex && $scope.paragraphQIndex !== false && $scope.questions[$stateParams.section].items[$scope.currentItemIndex].questions[$scope.paragraphQIndex + 1]) {
+        if ($scope.paragraphQIndex !== undefined && $scope.paragraphQIndex !== false && $scope.questions[$stateParams.section].items[$scope.currentItemIndex].questions[$scope.paragraphQIndex + 1]) {
           $state.go('assessmentQuestions.paragraph', {"paragraphQIndex" : ($scope.paragraphQIndex + 1)})
         }
         // check we have another question

@@ -63,7 +63,7 @@
                 <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
               </div>
               <p class="paragraph-text-small"><strong>{{item.paragraph}}</strong></p>
-              <p><button ng-click="acceptParagraph(item)">OK</button></p>
+              <p class="text-center"><button class="btn btn-default btn-primary continue-button" ng-click="acceptParagraph(item)">Continue</button></p>
             </div>
             <div ng-show="item.finished" class="paragraphQuestionsContainer">
               <ui-view></ui-view>

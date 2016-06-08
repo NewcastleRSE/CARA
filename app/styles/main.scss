@@ -139,7 +139,7 @@ body.home {
   }
 
   .paragraph-text-small {
-    font-size: 3em;
+    font-size: 2em;
   }
 
   .btn.answer-option {
@@ -311,20 +311,21 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 100%;
-  max-height: 800px;
+  width: 90%;
+  min-height: 200px;
+  max-height: calc(100% - 100px);
   max-width: 1200px;
+  overflow: scroll;
 
   .question-text.btn.btn-block {
     text-align: center;
     margin-top: 100px;
     margin-bottom: 250px;
-    font-size: 3.5em;
+    font-size: 3.1em;
   }
 
   .answers a.btn {
-    font-size: 3.5em;
+    font-size: 2.7em;
   }
 }
 
@@ -366,11 +367,11 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   p {
     font-size: 2em;
   }
+}
 
-  .btn {
-    font-size: 1.5em;
-    margin-top: 20px;
-  }
+.btn.continue-button {
+  font-size: 1.5em;
+  margin-top: 20px;
 }
 
 .next-screen {
