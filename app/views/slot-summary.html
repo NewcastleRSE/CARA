@@ -1,15 +1,16 @@
 <div class="section-complete">
-  <div class="save-slot panel panel-info" ng-class="{'active' : selectedAssessment === $index, 'empty' : assessment === null}">
+  <div class="save-slot panel panel-info">
     <div class="panel-heading">
       <h4 ng-if="assessment === null" class="panel-title">Empty</h4>
-      <h4 ng-if="assessment !== null" class="panel-title">Participant ID: {{participantId}}<span ng-if="assessment !== null && false" class="pull-right label label-default" ng-class="{'label-success' : assessment.status === 'Complete', 'label-warning' : assessment.status === 'In Progress'}">{{assessment.status || 'In Progress'}}</span></h4>
+      <h4 ng-if="assessment !== null" class="panel-title">Participant ID: {{assessment.name}}<span ng-if="assessment !== null && false" class="pull-right label label-default" ng-class="{'label-success' : assessment.status === 'Complete', 'label-warning' : assessment.status === 'In Progress'}">{{assessment.status || 'In Progress'}}</span></h4>
 
     </div>
     <div class="panel-body">
+      <!--<textarea name="" id="" cols="30" rows="10">{{assessment}}</textarea>-->
       <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | amCalendar}}</p>
 
       <div class="list-group">
-        <button class="list-group-item" ng-repeat="(sectionKey, section) in questions">
+        <button class="list-group-item" ng-repeat="(sectionKey, section) in assessment.questions">
           <span ng-if="section.completed" class=""><i class="glyphicon glyphicon-ok text-success pull-right"></i></span>
           <span ng-click="goFullScreen()" ng-if="sectionKey !== 'singleWord-part-2' && section.completed !== true"><a class="btn-block" ui-sref="assessment.practice({slotId: slotId, section: sectionKey})">{{section.name}}</a></span>
           <span ng-click="goFullScreen()" ng-if="sectionKey === 'singleWord-part-2' && section.completed !== true"><a class="btn-block" ui-sref="assessment.begin({slotId: slotId, section: sectionKey})">{{section.name}}</a></span>
@@ -24,7 +25,7 @@
 
 
       <!-- In Progress Button Group -->
-      <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null">
+      <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="questions !== null">
 
         <div class="btn-group" role="group">
           <button ng-click="document.webkitCancelFullScreen()" class="btn btn-default" ui-sref="home"><i class="glyphicon glyphicon-home"></i> Home</button>

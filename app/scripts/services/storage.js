@@ -18,20 +18,28 @@ angular.module('rcaApp')
           var assessments = {},
               i;
 
-          if (item) {
-            // Load Item
-            return JSON.parse(localStorage.getItem(item));
+          return $q(function(resolve) {
+
+            setTimeout(function() {
+              if (item) {
+                // Load Item
+                assessments = JSON.parse(localStorage.getItem(item));
 
 
-          } else {
-            // Load all
-            for (i=0; i < 6; i++) {
+              } else {
+                // Load all
+                for (i=0; i < 6; i++) {
 
-              assessments['rca-assessment-' + i] = JSON.parse(localStorage.getItem('rca-assessment-' + i));
-            }
+                  assessments['rca-assessment-' + i] = JSON.parse(localStorage.getItem('rca-assessment-' + i));
+                }
+              }
 
-            return assessments;
-          }
+
+              resolve(assessments);
+            }, 0);
+          });
+
+
         };
 
         Storage.save = function(questions, meta) {
@@ -54,9 +62,16 @@ angular.module('rcaApp')
 
               localStorage.setItem(Storage.currentSlot, JSON.stringify(savedItem));
 
-              $rootScope.$emit('storage-updated');
+              if (localStorage.getItem(Storage.currentSlot) === JSON.stringify(savedItem)) {
+                resolve();
+                $rootScope.$emit('storage-updated');
+              } else {
+                reject();
+              }
 
-              resolve();
+
+
+
             }, 0);
           });
         };

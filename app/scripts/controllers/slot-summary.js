@@ -8,31 +8,33 @@
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('SlotSummaryCtrl', function ($scope, Assessment, $stateParams) {
-    Assessment.load($stateParams.slotId);
+  .controller('SlotSummaryCtrl', function ($scope, Assessment, $stateParams, $rootScope, Report, Storage) {
+    Storage.load($stateParams.slotId).then(function(assessment){
+      $scope.slotId = $stateParams.slotId;
 
-    $scope.slotId = $stateParams.slotId;
+      $scope.assessment = assessment;
 
-    $scope.questions = Assessment.questions.get();
+      $scope.viewReport = function($index, assessment) {
 
-    $scope.participantId = Assessment.name;
+        new Report(assessment);
 
-    $scope.viewReport = function($index, assessment) {
+      };
 
-      Report(assessment);
+      $scope.hasCompleteSection = function(assessment){
 
-    };
+        var hasCompleteSection = false;
 
-    $scope.hasCompleteSection = function(assessment){
+        angular.forEach(assessment.questions, function(item){
+          if (item.completed === true) {
+            hasCompleteSection = true;
+          }
+        });
 
-      var hasCompleteSection = false;
+        return hasCompleteSection;
+      };
+    });
 
-      angular.forEach(assessment.questions, function(item){
-        if (item.completed == true) {
-          hasCompleteSection = true;
-        }
-      });
 
-      return hasCompleteSection;
-    };
+
+
   });

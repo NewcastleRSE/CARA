@@ -237,14 +237,16 @@ angular.module('rcaApp')
 
       Storage.currentSlot = storageSlot;
 
-      var assessment = Storage.load(Storage.currentSlot);
+      return Storage.load(Storage.currentSlot).then(function(assessment){
+        Assessment.name = assessment.name;
+        Assessment.modified = assessment.modified;
+        Assessment.status = assessment.status;
+        Assessment.questions.set(assessment.questions);
 
-      Assessment.name = assessment.name;
-      Assessment.modified = assessment.modified;
-      Assessment.status = assessment.status;
-      Assessment.questions.set(assessment.questions);
+        $rootScope.$emit('assessment-loaded');
+      });
 
-      $rootScope.$emit('assessment-loaded');
+
     };
 
     Assessment.start = function() {

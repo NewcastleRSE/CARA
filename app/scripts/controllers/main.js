@@ -11,15 +11,16 @@ angular.module('rcaApp')
   .controller('MainCtrl', function ($scope, $rootScope, Assessment, $window, Storage, Report) {
     $rootScope.navBarVis = false;
 
-    angular.element('.vcenter').height($window.$( window ).height() - 50);
-    angular.element('.vcenter').width($window.$('.container').width() - 50);
-
     $rootScope.assessmentLoaded = false;
 
-    $scope.assessments = Storage.load();
+    Storage.load().then(function(assessments){
+      $scope.assessments = assessments;
+    });
 
     $rootScope.$on('storage-updated', function(){
-      $scope.assessments = Storage.load();
+      Storage.load().then(function(assessments){
+        $scope.assessments = assessments;
+      });
     });
 
     $rootScope.$on('assessment-loaded', function(){
