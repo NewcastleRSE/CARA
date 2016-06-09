@@ -66,8 +66,8 @@ angular.module('rcaApp')
       $scope.selectedAssessment = $index;
     };
 
-    $scope.clearSlot = function(key) {
-      Storage.currentSlot = key;
+    $scope.clearSlot = function() {
+      console.log('current slot', Storage.currentSlot);
       $scope.assessments[Storage.currentSlot] = null;
       Storage.clearSlot();
     };
@@ -95,16 +95,17 @@ angular.module('rcaApp')
       return hasCompleteSection;
     };
 
-    $scope.customiseAssessment = function($event) {
+    $scope.showDeleteConfirmDialog = function($event, $key) {
 
-      console.log($event);
+      //if ($event.type === 'touchend') {
+      //  console.log('touched');
+      $("#confirmDelete").modal("show");
+      //}
 
-      if ($event.type === 'touchend') {
-        console.log('touched');
-      $("#customiseAssessment").modal("show");
-      }
+      console.log('current slot', $key);
 
-      Assessment.load();
+      Storage.currentSlot = $key;
+
     };
 
     $scope.loadAssessment = function() {

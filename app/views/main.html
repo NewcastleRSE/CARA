@@ -45,7 +45,7 @@
           <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="assessment !== null">
 
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" ng-click="clearSlot(key)">
+              <button type="button" class="btn btn-default" ng-click="showDeleteConfirmDialog($event, key)">
                 <i class="glyphicon glyphicon-trash"></i> Remove
               </button>
             </div>
@@ -63,21 +63,19 @@
 
   <!-- Assessment Customise Modal -->
 
-  <div id="customiseAssessment" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
+  <div id="confirmDelete" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Customise Assessment</h4>
+          <h4 class="modal-title">Delete?</h4>
         </div>
         <div class="modal-body">
-          <div ng-repeat="set in questions">
-            <label><input bs-switch data-size="small" ng-model="set.selected" type="checkbox" switch-label="" switch-on-text="Include" switch-off-text="Exclude"> {{set.name}}</label>
-          </div>
+          <p>Are you sure you wish to delete this assessment?</p>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveSetup()">OK</button>
+          <button type="button" class="btn btn-default btn-danger" data-dismiss="modal" ng-click="clearSlot()">Permanently Delete Assessment</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
