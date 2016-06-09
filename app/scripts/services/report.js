@@ -479,7 +479,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         }
 
-        if(assessment.questions['singleWord-part-2'].completed) {
+        if(assessment.questions['sentence-part-2'].completed) {
 
             doc.text(20, 30, 'Sentence Comprehension: Part 2');
 
