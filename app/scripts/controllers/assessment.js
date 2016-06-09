@@ -45,7 +45,7 @@ angular.module('rcaApp')
 
         // Check if this a question for a paragraph and we have another question
         if ($scope.paragraphQIndex !== undefined && $scope.paragraphQIndex !== false && $scope.questions[$stateParams.section].items[$scope.currentItemIndex].questions[$scope.paragraphQIndex + 1]) {
-          $state.go('assessmentQuestions.paragraph', {"paragraphQIndex" : ($scope.paragraphQIndex + 1)})
+          $state.go('assessmentQuestions.paragraph', {'paragraphQIndex' : ($scope.paragraphQIndex + 1)});
         }
         // check we have another question
         else if ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1]) {
@@ -55,10 +55,10 @@ angular.module('rcaApp')
 
           if (finishingPractice) {
             // Show Start test screen
-            $state.go('assessment.begin',{slotId:$scope.currentSlot, section: $scope.currentSection})
+            $state.go('assessment.begin',{slotId:$scope.currentSlot, section: $scope.currentSection});
           } else {
             //Show next question
-            $state.go('assessmentQuestions',{slotId:$scope.currentSlot, section: $scope.currentSection, itemIndex: $scope.currentItemIndex+1})
+            $state.go('assessmentQuestions',{slotId:$scope.currentSlot, section: $scope.currentSection, itemIndex: $scope.currentItemIndex+1});
           }
 
         } else {
@@ -88,7 +88,7 @@ angular.module('rcaApp')
     };
 
     $scope.isParagraph = function() {
-      return $stateParams.section === 'paragraph' && $state.current.name === "assessmentQuestions"
+      return $stateParams.section === 'paragraph' && $state.current.name === 'assessmentQuestions';
     };
 
     $scope.acceptParagraph = function($item){
@@ -97,7 +97,7 @@ angular.module('rcaApp')
       $item.finished = $item.finished.toString();
       $item.started = $item.started.toString();
 
-      $state.go('assessmentQuestions.paragraph', {"paragraphQIndex" : 0});
+      $state.go('assessmentQuestions.paragraph', {'paragraphQIndex' : 0});
 
     };
 

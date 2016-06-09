@@ -87,7 +87,7 @@ angular.module('rcaApp')
       var hasCompleteSection = false;
 
       angular.forEach(assessment.questions, function(item){
-        if (item.completed == true) {
+        if (item.completed === true) {
           hasCompleteSection = true;
         }
       });
@@ -99,7 +99,7 @@ angular.module('rcaApp')
 
       //if ($event.type === 'touchend') {
       //  console.log('touched');
-      $("#confirmDelete").modal("show");
+      $window.$('#confirmDelete').modal('show');
       //}
 
       console.log('current slot', $key);
@@ -120,7 +120,7 @@ angular.module('rcaApp')
 
     $scope.viewReport = function($index, assessment) {
 
-        Report(assessment);
+        new Report(assessment);
 
         //console.log($index, assessment);
     };
@@ -135,7 +135,7 @@ angular.module('rcaApp').filter('orderObjectBy', function() {
     filtered.sort(function (a, b) {
       return (a === null ? 1 : (a[field] > b[field] ? 1 : -1));
     });
-    if(reverse) filtered.reverse();
+    if(reverse) {filtered.reverse();}
     return filtered;
   };
 });
