@@ -9,7 +9,7 @@
  */
 angular.module('rcaApp').service('Sentence2', function ($window) {
 
-    var sentence = {
+    var sentenceSetup = {
         summaryColumns: [
             {title: '', dataKey: 'type'},
             {title: 'Non-Reversible', dataKey: 'nonReversible'},
@@ -64,11 +64,11 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
         complex: {
             correct: {
                 time: null,
-                    count: null
+                count: null
             },
             incorrect: {
                 time: null,
-                    count: null
+                count: null
             }
         },
         nonReversiblePhrases: {
@@ -130,8 +130,12 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
                 time: null,
                 count: null
             }
-        },
-        calculate: function(data){
+        }
+    };
+
+        this.calculate = function(data){
+
+            var sentence = sentenceSetup;
 
             //Data for colour coded response time table
             data.forEach(function (response, index) {
@@ -144,7 +148,7 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
                     distractor2: 'C',
                     distractor3: 'D',
                     time: response.timeTaken / 1000,
-                    answer: response.answers[response.answerPosition].image.split(' ')[1].substring(response.answers[response.answerPosition].image.split(' ')[1].length - 1).toUpperCase(),
+                    answer: response.answers[response.answerPosition - 1],
                     type: response.type,
                     reversibility: response.reversibility
                 });
@@ -291,17 +295,14 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
 
             sentence.reversibleTotal.incorrect.count = $window._(sentence.incorrectAnswers).filter({reversibility: true}).value().length;
 
-
-
-
             sentence.timeRank = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(sentence.rows), function(row){
                 return row.time !== '';
             }, 'time'), 'time'));
 
             sentence.colours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(sentence.timeRank.length);
 
-        }
+            return sentence;
     };
 
-    return sentence;
+
 });

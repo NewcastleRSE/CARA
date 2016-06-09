@@ -9,7 +9,7 @@
  */
 angular.module('rcaApp').service('SingleWord1', function ($window) {
 
-    var singleWord = {
+    var singleWordSetup = {
         summaryColumns: [
             {title: 'Concrete', dataKey: 'concreteLabel'},
             {title: '', dataKey: 'concreteValue'},
@@ -50,7 +50,7 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
                 count: null
             },
             incorrect: {
-                time:null,
+                time: null,
                 count: null
             }
         },
@@ -103,8 +103,12 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
                 time: null,
                 count: null
             }
-        },
-        calculate: function(data){
+        }
+    };
+
+    this.calculate = function(data){
+
+        var singleWord = singleWordSetup;
 
             //Data for colour coded response time table
             data.forEach(function (response, index) {
@@ -271,9 +275,6 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
 
             singleWord.colours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(singleWord.timeRank.length);
 
-        }
-    };
-
-    return singleWord;
-
+            return singleWord;
+        };
 });

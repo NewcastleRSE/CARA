@@ -9,7 +9,7 @@
  */
 angular.module('rcaApp').service('Paragraph', function ($window) {
 
-    var paragraph = {
+    var paragraphSetup = {
         summaryColumns: [
             {title: 'Length', dataKey: 'length'},
             {title: 'Paragraphs', dataKey: 'paragraphs'},
@@ -83,10 +83,12 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 time: null,
                 count: null
             }
-        },
-        calculate: function(data){
+        }
+    };
 
-            console.log(data);
+        this.calculate = function(data){
+
+            var paragraph = paragraphSetup;
 
             var rowCounter = 1;
 
@@ -270,8 +272,8 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
 
             paragraph.readingColours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraph.readingTimeRank.length);
 
-        }
+            return paragraph;
     };
 
-    return paragraph;
+
 });
