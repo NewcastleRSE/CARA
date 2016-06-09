@@ -9,7 +9,7 @@
  */
 angular.module('rcaApp').service('Sentence1', function ($window) {
 
-    var sentence = {
+    var sentenceSetup = {
         summaryColumns: [
             {title: '', dataKey: 'type'},
             {title: 'Non-Reversible', dataKey: 'nonReversible'},
@@ -130,8 +130,14 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
                 time: null,
                 count: null
             }
-        },
-        calculate: function(data){
+        }
+    };
+
+        this.calculate = function(data) {
+
+            var sentence = sentenceSetup;
+
+            console.log(data);
 
             //Data for colour coded response time table
             data.forEach(function (response, index) {
@@ -251,7 +257,7 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
             }, 0);
 
             sentence.nonReversibleTotal.incorrect.count = $window._(sentence.incorrectAnswers).filter({reversibility: false}).value().length;
-            
+
             //Reversible Simple
             sentence.reversibleSimple.correct.time = $window._(sentence.correctAnswers).filter({type: 'simple'}).filter({reversibility: true}).reduce(function (a, m, i, p) {
                 return a + m.time / p.length;
@@ -292,15 +298,15 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
             sentence.reversibleTotal.incorrect.count = $window._(sentence.incorrectAnswers).filter({reversibility: true}).value().length;
 
 
-            sentence.timeRank = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(sentence.rows), function(row){
+            sentence.timeRank = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(sentence.rows), function (row) {
                 return row.time !== '';
             }, 'time'), 'time'));
 
             //Setting up color scale for use in ranking repsonse times
             sentence.colours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(sentence.timeRank.length);
 
-        }
-    };
 
-    return sentence;
+            return sentence;
+
+        };
 });

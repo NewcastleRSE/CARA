@@ -10,28 +10,31 @@
 angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentence1, Sentence2, SingleWord1, SingleWord2) {
 
     return function(assessment) {
-
-        //console.log(assessment);
+        
+        var singleWord1 = null,
+            singleWord2 = null,
+            sentence1 = null,
+            sentence2 = null,
+            paragraph = null;
 
         if(assessment.questions['singleWord-part-1'].completed){
-            SingleWord1.calculate($window._.filter(assessment.questions['singleWord-part-1'].items, {practice: false}));
+            singleWord1 = SingleWord1.calculate($window._.filter(assessment.questions['singleWord-part-1'].items, {practice: false}));
         }
 
         if(assessment.questions['singleWord-part-2'].completed){
-            SingleWord2.calculate($window._.filter(assessment.questions['singleWord-part-2'].items, {practice: false}));
+            singleWord2 = SingleWord2.calculate($window._.filter(assessment.questions['singleWord-part-2'].items, {practice: false}));
         }
 
         if(assessment.questions['sentence-part-1'].completed){
-            Sentence1.calculate(assessment.questions['sentence-part-1'].items);
+            sentence1 = Sentence1.calculate($window._.filter(assessment.questions['sentence-part-1'].items, {practice: false}));
         }
 
         if(assessment.questions['sentence-part-2'].completed){
-            Sentence2.calculate(assessment.questions['sentence-part-2'].items);
+            sentence2 = Sentence2.calculate($window._.filter(assessment.questions['sentence-part-2'].items, {practice: false}));
         }
 
         if(assessment.questions['paragraph'].completed) {
-            Paragraph.calculate($window._.filter(assessment.questions['paragraph'].items, {practice: false}));
-            console.log(Paragraph);
+            paragraph = Paragraph.calculate($window._.filter(assessment.questions['paragraph'].items, {practice: false}));
         }
 
         /*var singleWord1ResponseTimes = new CanvasJS.Chart('singleWord1BarChart', {
@@ -53,13 +56,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     color: '#66BD7D',
                     name: 'Correct',
                     dataPoints: [
-                        { label: 'Total', y: SingleWord1.total.correct.time },
-                        { label: 'Nouns', y: SingleWord1.nouns.correct.time },
-                        { label: 'Verbs', y: SingleWord1.verbs.correct.time },
-                        { label: 'Abstract Nouns', y: SingleWord1.abstractNouns.correct.time },
-                        { label: 'Concrete Nouns', y: SingleWord1.concreteNouns.correct.time },
-                        { label: 'Abstract Verbs', y: SingleWord1.abstractVerbs.correct.time },
-                        { label: 'Concrete Verbs', y: SingleWord1.concreteVerbs.correct.time }
+                        { label: 'Total', y: singleWord1.total.correct.time },
+                        { label: 'Nouns', y: singleWord1.nouns.correct.time },
+                        { label: 'Verbs', y: singleWord1.verbs.correct.time },
+                        { label: 'Abstract Nouns', y: singleWord1.abstractNouns.correct.time },
+                        { label: 'Concrete Nouns', y: singleWord1.concreteNouns.correct.time },
+                        { label: 'Abstract Verbs', y: singleWord1.abstractVerbs.correct.time },
+                        { label: 'Concrete Verbs', y: singleWord1.concreteVerbs.correct.time }
                     ]
                 },
                 {
@@ -67,13 +70,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     color: '#f7686c',
                     name: 'Incorrect',
                     dataPoints: [
-                        { label: 'Total', y: SingleWord1.total.incorrect.time },
-                        { label: 'Nouns', y: SingleWord1.nouns.incorrect.time },
-                        { label: 'Verbs', y: SingleWord1.verbs.incorrect.time },
-                        { label: 'Abstract Nouns', y: SingleWord1.abstractNouns.incorrect.time },
-                        { label: 'Concrete Nouns', y: SingleWord1.concreteNouns.incorrect.time },
-                        { label: 'Abstract Verbs', y: SingleWord1.abstractVerbs.incorrect.time },
-                        { label: 'Concrete Verbs', y: SingleWord1.concreteVerbs.incorrect.time }
+                        { label: 'Total', y: singleWord1.total.incorrect.time },
+                        { label: 'Nouns', y: singleWord1.nouns.incorrect.time },
+                        { label: 'Verbs', y: singleWord1.verbs.incorrect.time },
+                        { label: 'Abstract Nouns', y: singleWord1.abstractNouns.incorrect.time },
+                        { label: 'Concrete Nouns', y: singleWord1.concreteNouns.incorrect.time },
+                        { label: 'Abstract Verbs', y: singleWord1.abstractVerbs.incorrect.time },
+                        { label: 'Concrete Verbs', y: singleWord1.concreteVerbs.incorrect.time }
                     ]
                 }
             ]
@@ -98,13 +101,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     color: '#66BD7D',
                     name: 'Correct',
                     dataPoints: [
-                        { label: 'Total', y: SingleWord2.total.correct.time },
-                        { label: 'Nouns', y: SingleWord2.nouns.correct.time },
-                        { label: 'Verbs', y: SingleWord2.verbs.correct.time },
-                        { label: 'Abstract Nouns', y: SingleWord2.abstractNouns.correct.time },
-                        { label: 'Concrete Nouns', y: SingleWord2.concreteNouns.correct.time },
-                        { label: 'Abstract Verbs', y: SingleWord2.abstractVerbs.correct.time },
-                        { label: 'Concrete Verbs', y: SingleWord2.concreteVerbs.correct.time }
+                        { label: 'Total', y: singleWord2.total.correct.time },
+                        { label: 'Nouns', y: singleWord2.nouns.correct.time },
+                        { label: 'Verbs', y: singleWord2.verbs.correct.time },
+                        { label: 'Abstract Nouns', y: singleWord2.abstractNouns.correct.time },
+                        { label: 'Concrete Nouns', y: singleWord2.concreteNouns.correct.time },
+                        { label: 'Abstract Verbs', y: singleWord2.abstractVerbs.correct.time },
+                        { label: 'Concrete Verbs', y: singleWord2.concreteVerbs.correct.time }
                     ]
                 },
                 {
@@ -112,13 +115,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     color: '#f7686c',
                     name: 'Incorrect',
                     dataPoints: [
-                        { label: 'Total', y: SingleWord2.total.incorrect.time },
-                        { label: 'Nouns', y: SingleWord2.nouns.incorrect.time },
-                        { label: 'Verbs', y: SingleWord2.verbs.incorrect.time },
-                        { label: 'Abstract Nouns', y: SingleWord2.abstractNouns.incorrect.time },
-                        { label: 'Concrete Nouns', y: SingleWord2.concreteNouns.incorrect.time },
-                        { label: 'Abstract Verbs', y: SingleWord2.abstractVerbs.incorrect.time },
-                        { label: 'Concrete Verbs', y: SingleWord2.concreteVerbs.incorrect.time }
+                        { label: 'Total', y: singleWord2.total.incorrect.time },
+                        { label: 'Nouns', y: singleWord2.nouns.incorrect.time },
+                        { label: 'Verbs', y: singleWord2.verbs.incorrect.time },
+                        { label: 'Abstract Nouns', y: singleWord2.abstractNouns.incorrect.time },
+                        { label: 'Concrete Nouns', y: singleWord2.concreteNouns.incorrect.time },
+                        { label: 'Abstract Verbs', y: singleWord2.abstractVerbs.incorrect.time },
+                        { label: 'Concrete Verbs', y: singleWord2.concreteVerbs.incorrect.time }
                     ]
                 }
             ]
@@ -132,28 +135,28 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         var sentenceSummaryTotals = [];
 
-        if(assessment.questions['sentence-part-1'].completed || assessment.questions['sentence-part-2'].completed) {
+        if(assessment.questions['sentence-part-1'].completed && assessment.questions['sentence-part-2'].completed) {
             sentenceSummaryTotals = [{
                 type: 'Phrases',
-                nonReversible: Sentence1.nonReversiblePhrases.correct.count + Sentence2.nonReversiblePhrases.correct.count + ' / 6',
+                nonReversible: sentence1.nonReversiblePhrases.correct.count + sentence2.nonReversiblePhrases.correct.count + ' / 6',
                 reversible: '',
-                total: Sentence1.phrases.correct.count + Sentence2.phrases.correct.count + ' / 6'
+                total: sentence1.phrases.correct.count + sentence2.phrases.correct.count + ' / 6'
             },{
                 type: 'Simple',
-                nonReversible: Sentence1.nonReversibleSimple.correct.count + Sentence2.nonReversibleSimple.correct.count + ' / 28',
-                reversible: Sentence1.phrases.correct.count + Sentence2.phrases.correct.count + ' / 9',
-                total: Sentence1.reversibleSimple.correct.count + Sentence2.reversibleSimple.correct.count + ' / 37'
+                nonReversible: sentence1.nonReversibleSimple.correct.count + sentence2.nonReversibleSimple.correct.count + ' / 28',
+                reversible: sentence1.phrases.correct.count + sentence2.phrases.correct.count + ' / 9',
+                total: sentence1.reversibleSimple.correct.count + sentence2.reversibleSimple.correct.count + ' / 37'
             },{
                 type: 'Complex',
                 nonReversible: '',
                 nonReversibleScore: '',
-                reversible: Sentence1.reversibleComplex.correct.count + Sentence2.reversibleComplex.correct.count + ' / 14',
-                total: Sentence1.complex.correct.count + Sentence2.complex.correct.count + ' / 14'
+                reversible: sentence1.reversibleComplex.correct.count + sentence2.reversibleComplex.correct.count + ' / 14',
+                total: sentence1.complex.correct.count + sentence2.complex.correct.count + ' / 14'
             },{
                 type: 'Total',
-                nonReversible: Sentence1.nonReversibleTotal.correct.count + Sentence2.nonReversibleTotal.correct.count + ' / 34',
-                reversible: Sentence1.reversibleTotal.correct.count + Sentence2.reversibleTotal.correct.count + ' / 23',
-                total: Sentence1.total.correct.count + Sentence2.total.correct.count + ' / 57'
+                nonReversible: sentence1.nonReversibleTotal.correct.count + sentence2.nonReversibleTotal.correct.count + ' / 34',
+                reversible: sentence1.reversibleTotal.correct.count + sentence2.reversibleTotal.correct.count + ' / 23',
+                total: sentence1.total.correct.count + sentence2.total.correct.count + ' / 57'
             }];
         }
 
@@ -197,7 +200,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
             if(assessment.questions['singleWord-part-1'].completed) {
                 doc.text(50, 135, 'Unrelated Distractors');
-                doc.autoTable(SingleWord1.summaryColumns, SingleWord1.summaryRows, {
+                doc.autoTable(singleWord1.summaryColumns, singleWord1.summaryRows, {
                     theme: 'grid',
                     margin: [150, 50, 50, 50],
                     styles: {
@@ -215,7 +218,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
             if(assessment.questions['singleWord-part-2'].completed) {
                 doc.text(50, 285, 'Related Distractors');
-                doc.autoTable(SingleWord2.summaryColumns, SingleWord2.summaryRows, {
+                doc.autoTable(singleWord2.summaryColumns, singleWord2.summaryRows, {
                     theme: 'grid',
                     margin: [300, 50, 50, 50],
                     styles: {
@@ -241,7 +244,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             doc.text(50, 75, '2. Sentence Comprehension');
             doc.setFontSize(12);
 
-            doc.autoTable(Sentence1.summaryColumns, sentenceSummaryTotals, {
+            doc.autoTable(sentence1.summaryColumns, sentenceSummaryTotals, {
                 theme: 'grid',
                 margin: [100, 50, 50, 50],
                 styles: {
@@ -262,10 +265,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         if(assessment.questions['paragraph'].completed) {
             doc.setFontSize(16);
-            doc.text(50, 75, '3. Paragraph Comprehension');
+            doc.text(50, 75, '3. paragraph Comprehension');
             doc.setFontSize(12);
 
-            doc.autoTable(Paragraph.summaryColumns, Paragraph.summaryRows, {
+            doc.autoTable(paragraph.summaryColumns, paragraph.summaryRows, {
                 theme: 'grid',
                 margin: [100, 50, 50, 50],
                 styles: {
@@ -291,7 +294,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             doc.rect(50, 65, 495, 2, 'F');
             doc.setFontSize(12);
 
-            doc.autoTable(SingleWord1.columns, SingleWord1.rows, {
+            doc.autoTable(singleWord1.columns, singleWord1.rows, {
                 theme: 'grid',
                 margin: [100, 50, 50, 50],
                 styles: {
@@ -332,7 +335,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         case 'time':
 
                             if (cell.raw !== '') {
-                                cell.styles.fillColor = $window.chroma.hex(SingleWord1.colours[SingleWord1.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                                cell.styles.fillColor = $window.chroma.hex(singleWord1.colours[singleWord1.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
                                 cell.styles.textColor = [0, 0, 0];
                             }
 
@@ -356,7 +359,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
             doc.text(20, 30, 'Single Word Comprehension: Part 2');
 
-            doc.autoTable(SingleWord2.columns, SingleWord2.rows, {
+            doc.autoTable(singleWord2.columns, singleWord2.rows, {
                 theme: 'grid',
                 styles: {
                     halign: 'center',
@@ -396,7 +399,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         case 'time':
 
                             if (cell.raw !== '') {
-                                cell.styles.fillColor = $window.chroma.hex(SingleWord2.colours[SingleWord2.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                                cell.styles.fillColor = $window.chroma.hex(singleWord2.colours[singleWord2.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
                                 cell.styles.textColor = [0, 0, 0];
                             }
 
@@ -419,7 +422,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
             doc.text(20, 30, 'Sentence Comprehension: Part 1');
 
-            doc.autoTable(Sentence1.columns, Sentence1.rows, {
+            doc.autoTable(sentence1.columns, sentence1.rows, {
                 theme: 'grid',
                 styles: {
                     halign: 'center',
@@ -461,7 +464,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         case 'time':
 
                             if (cell.raw !== '') {
-                                cell.styles.fillColor = $window.chroma.hex(Sentence1.colours[Sentence1.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                                cell.styles.fillColor = $window.chroma.hex(sentence1.colours[sentence1.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
                                 cell.styles.textColor = [0, 0, 0];
                             }
                             break;
@@ -480,7 +483,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
             doc.text(20, 30, 'Sentence Comprehension: Part 2');
 
-            doc.autoTable(Sentence2.columns, Sentence2.rows, {
+            doc.autoTable(sentence2.columns, sentence2.rows, {
                 theme: 'grid',
                 styles: {
                     halign: 'center',
@@ -522,7 +525,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         case 'time':
 
                             if (cell.raw !== '') {
-                                cell.styles.fillColor = $window.chroma.hex(Sentence2.colours[Sentence2.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                                cell.styles.fillColor = $window.chroma.hex(sentence2.colours[sentence2.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
                                 cell.styles.textColor = [0, 0, 0];
                             }
 
@@ -539,9 +542,9 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         if(assessment.questions['paragraph'].completed) {
 
-            doc.text(20, 30, 'Paragraph Comprehension: Part 2');
+            doc.text(20, 30, 'paragraph Comprehension: Part 2');
 
-            doc.autoTable(Paragraph.columns, Paragraph.rows, {
+            doc.autoTable(paragraph.columns, paragraph.rows, {
                 theme: 'grid',
                 styles: {
                     halign: 'center',
@@ -577,7 +580,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         case 'time':
 
                             if (cell.raw !== '') {
-                                cell.styles.fillColor = $window.chroma.hex(Paragraph.colours[Paragraph.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                                cell.styles.fillColor = $window.chroma.hex(paragraph.colours[paragraph.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
                                 cell.styles.textColor = [0, 0, 0];
                             }
 
@@ -585,7 +588,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         case 'readingTime':
 
                             if (cell.raw !== '') {
-                                cell.styles.fillColor = $window.chroma.hex(Paragraph.readingColours[Paragraph.readingTimeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                                cell.styles.fillColor = $window.chroma.hex(paragraph.readingColours[paragraph.readingTimeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
                                 cell.styles.textColor = [0, 0, 0];
                             }
 
