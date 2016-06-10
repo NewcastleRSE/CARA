@@ -15,8 +15,7 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
             {title: '', dataKey: 'concreteValue'},
             {title: 'Abstract', dataKey: 'abstractLabel'},
             {title: '', dataKey: 'abstractValue'},
-            {title: '', dataKey: 'totalLabel'},
-            {title: '', dataKey: 'totalValue'}
+            {title: 'Total', dataKey: 'total'}
         ],
         columns: [
             {title: '', dataKey: 'rowNumber'},
@@ -146,7 +145,7 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
                 return a + m.time / p.length;
             }, 0);
 
-            singleWord.total.correct.count = singleWord.incorrectAnswers.length;
+            singleWord.total.correct.count = singleWord.correctAnswers.length;
 
             singleWord.total.incorrect.time = $window._(singleWord.incorrectAnswers).reduce(function (a, m, i, p) {
                 return a + m.time / p.length;
@@ -241,29 +240,26 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
 
             singleWord.summaryRows.push({
                 concreteLabel: 'Nouns',
-                concreteValue: singleWord.concreteNouns.correct.count,
+                concreteValue: singleWord.concreteNouns.correct.count + ' / 5',
                 abstractLabel: 'Nouns',
-                abstractValue: singleWord.abstractNouns.correct.count,
-                totalLabel: 'Total Nouns/10',
-                totalValue: singleWord.nouns.correct.count
+                abstractValue: singleWord.abstractNouns.correct.count + ' / 5',
+                total: singleWord.nouns.correct.count + ' / 10'
             });
 
             singleWord.summaryRows.push({
                 concreteLabel: 'Verbs',
-                concreteValue: singleWord.concreteVerbs.correct.count,
+                concreteValue: singleWord.concreteVerbs.correct.count + ' / 5',
                 abstractLabel: 'Verbs',
-                abstractValue: singleWord.abstractVerbs.correct.count,
-                totalLabel: 'Total Verbs/10',
-                totalValue: singleWord.verbs.correct.count
+                abstractValue: singleWord.abstractVerbs.correct.count + ' / 5',
+                total: singleWord.verbs.correct.count + ' / 10'
             });
 
             singleWord.summaryRows.push({
-                concreteLabel: 'Total',
-                concreteValue: singleWord.concreteNouns.correct.count + singleWord.concreteVerbs.correct.count,
-                abstractLabel: 'Total',
-                abstractValue: singleWord.abstractNouns.correct.count + singleWord.abstractVerbs.correct.count,
-                totalLabel: 'Total/20',
-                totalValue: singleWord.total.correct.count
+                concreteLabel: 'Concrete Total',
+                concreteValue: singleWord.concreteNouns.correct.count + singleWord.concreteVerbs.correct.count + ' / 10',
+                abstractLabel: 'Abstract Total',
+                abstractValue: singleWord.abstractNouns.correct.count + singleWord.abstractVerbs.correct.count + ' / 10',
+                total: singleWord.total.correct.count + ' / 20'
             });
 
 

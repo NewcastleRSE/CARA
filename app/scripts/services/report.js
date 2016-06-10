@@ -11,6 +11,8 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
     return function(assessment) {
         
+        console.log(assessment);
+
         var singleWord1 = null,
             singleWord2 = null,
             sentence1 = null,
