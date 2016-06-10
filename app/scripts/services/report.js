@@ -243,7 +243,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         if(assessment.questions['sentence-part-1'].completed || assessment.questions['sentence-part-2'].completed) {
             doc.setFontSize(16);
-            doc.text(50, 75, '2. Sentence Comprehension');
+
+            if(assessment.questions['singleWord-part-1'].completed || assessment.questions['singleWord-part-2'].completed) {
+                doc.text(50, 100, '2. Sentence Comprehension');
+            }
+            else {
+                doc.text(50, 75, '2. Sentence Comprehension');
+            }
+
             doc.setFontSize(12);
 
             doc.autoTable(sentence1.summaryColumns, sentenceSummaryTotals, {
@@ -267,7 +274,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         if(assessment.questions['paragraph'].completed) {
             doc.setFontSize(16);
-            doc.text(50, 75, '3. paragraph Comprehension');
+
+            if(assessment.questions['sentence-part-1'].completed || assessment.questions['sentence-part-2'].completed || assessment.questions['singleWord-part-1'].completed || assessment.questions['singleWord-part-2'].completed) {
+                doc.text(50, 100, '3. Paragraph Comprehension');
+            }
+            else {
+                doc.text(50, 75, '3. Paragraph Comprehension');
+            }
+
             doc.setFontSize(12);
 
             doc.autoTable(paragraph.summaryColumns, paragraph.summaryRows, {
