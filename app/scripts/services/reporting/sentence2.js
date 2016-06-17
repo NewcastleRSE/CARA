@@ -137,6 +137,8 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
 
             var sentence = sentenceSetup;
 
+            console.log(data);
+
             //Data for colour coded response time table
             data.forEach(function (response, index) {
 
@@ -148,7 +150,7 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
                     distractor2: 'C',
                     distractor3: 'D',
                     time: response.timeTaken / 1000,
-                    answer: response.answers[response.answerPosition - 1],
+                    answer: response.answers[response.answerPosition].image.split(' ')[1].substring(response.answers[response.answerPosition].image.split(' ')[1].length - 1).toUpperCase(),
                     type: response.type,
                     reversibility: response.reversibility
                 });

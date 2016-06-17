@@ -216,7 +216,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 });
             }
 
-            doc.addImage(document.getElementById('singleWordSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 480, 512, 340);
+            doc.addImage(document.getElementById('singleWordSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 460, 512, 340);
 
         footer();
         doc.addPage();
