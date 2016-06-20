@@ -390,4 +390,22 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   }
 }
 
+.fullscreen-controls {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+body.not-fullscreen {
+  padding-top: 30px;
+}
+
+body.splash .fullscreen-controls {
+  display: none;
+}
+
+body.home .fullscreen-controls .home-btn {
+  display: none;
+}
+
 

@@ -16,10 +16,15 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-controller="AppCtrl as app" ng-class = "{home : doc.location.hash == '#/'}">
+  <body ng-controller="AppCtrl as app" ng-class = "{splash : doc.location.hash == '#/', home : doc.location.hash == '#/home', fullscreen : isFullScreen, 'not-fullscreen' : ! isFullScreen}">
+
+  <div class="fullscreen-controls ng-cloak" ng-show="isFullScreen === false">
+    <button class="btn btn-default btn-info" ng-click="goFullScreen()"><i class="glyphicon glyphicon-fullscreen"></i>  Full Screen</button>
+    <a class="home-btn btn btn-default btn-info" ui-sref="home"><i class="glyphicon glyphicon-home"></i>  Home</a>
+  </div>
 
     <div class="header">
-      <div ng-show="navBarVis" class="navbar navbar-default" role="navigation" ng-cloak>
+      <div ng-show="navBarVis" class="navbar navbar-default ng-cloak" role="navigation" ng-cloak>
         <div id="main-contain" class="container-fluid">
           <div class="navbar-header">
 

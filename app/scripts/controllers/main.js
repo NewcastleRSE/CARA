@@ -29,19 +29,6 @@ angular.module('rcaApp')
       $rootScope.assessmentLoaded = true;
     });
 
-    $scope.goFullScreen = function() {
-      var elem = document.getElementById('main-contain');
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen();
-      } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen();
-      }
-    };
-
     $scope.createIndex = function() {
       var section;
 
