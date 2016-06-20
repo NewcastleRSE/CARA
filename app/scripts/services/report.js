@@ -68,79 +68,81 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             }];
         }
 
-        console.log(sentenceSummaryTotals);
+        if(singleWord1 && singleWord2){
+            var singleWordSummary = new CanvasJS.Chart('singleWordSummary', {
+                title:{
+                    text: 'Single Word Summary',
+                    fontSize: 16
+                },
+                axisX: {
+                    labelAngle: 135
+                },
+                axisY:{
+                    title: '',
+                    titleFontSize: 14,
+                    margin: 5,
+                    minimum: 0,
+                    maximum: 1
+                },
+                data: [
+                    {
+                        type: 'column',
+                        color: '#66BD7D',
+                        name: 'Correct',
+                        dataPoints: [
+                            { label: 'Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) },
+                            { label: 'Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) },
+                            { label: 'Pt 1 - Nouns', y: singleWord1.nouns.correct.count / (singleWord1.nouns.correct.count + singleWord1.nouns.incorrect.count) },
+                            { label: 'Pt 1 - Verbs', y: singleWord1.verbs.correct.count / (singleWord1.verbs.correct.count + singleWord1.verbs.incorrect.count) },
+                            { label: 'Pt 1 - Concrete', y: (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count) / (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count + singleWord1.concreteNouns.incorrect.count + singleWord1.concreteVerbs.incorrect.count) },
+                            { label: 'Pt 1 - Abstract', y: (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count) / (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count + singleWord1.abstractNouns.incorrect.count + singleWord1.abstractVerbs.incorrect.count) },
+                            { label: 'Pt 2 - Nouns', y: singleWord2.nouns.correct.count / (singleWord2.nouns.correct.count + singleWord2.nouns.incorrect.count) },
+                            { label: 'Pt 2 - Verbs', y: singleWord2.verbs.correct.count / (singleWord2.verbs.correct.count + singleWord2.verbs.incorrect.count) },
+                            { label: 'Pt 2 - Concrete', y: (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count) / (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count + singleWord2.concreteNouns.incorrect.count + singleWord2.concreteVerbs.incorrect.count) },
+                            { label: 'Pt 2 - Abstract', y: (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count) / (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count + singleWord2.abstractNouns.incorrect.count + singleWord2.abstractVerbs.incorrect.count) },
+                        ]
+                    }
+                ]
+            });
 
-        var singleWordSummary = new CanvasJS.Chart('singleWordSummary', {
-            title:{
-                text: 'Single Word Summary',
-                fontSize: 16
-            },
-            axisX: {
-                labelAngle: 135
-            },
-            axisY:{
-                title: '',
-                titleFontSize: 14,
-                margin: 5,
-                minimum: 0,
-                maximum: 1
-            },
-            data: [
-                {
-                    type: 'column',
-                    color: '#66BD7D',
-                    name: 'Correct',
-                    dataPoints: [
-                        { label: 'Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) },
-                        { label: 'Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) },
-                        { label: 'Pt 1 - Nouns', y: singleWord1.nouns.correct.count / (singleWord1.nouns.correct.count + singleWord1.nouns.incorrect.count) },
-                        { label: 'Pt 1 - Verbs', y: singleWord1.verbs.correct.count / (singleWord1.verbs.correct.count + singleWord1.verbs.incorrect.count) },
-                        { label: 'Pt 1 - Concrete', y: (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count) / (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count + singleWord1.concreteNouns.incorrect.count + singleWord1.concreteVerbs.incorrect.count) },
-                        { label: 'Pt 1 - Abstract', y: (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count) / (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count + singleWord1.abstractNouns.incorrect.count + singleWord1.abstractVerbs.incorrect.count) },
-                        { label: 'Pt 2 - Nouns', y: singleWord2.nouns.correct.count / (singleWord2.nouns.correct.count + singleWord2.nouns.incorrect.count) },
-                        { label: 'Pt 2 - Verbs', y: singleWord2.verbs.correct.count / (singleWord2.verbs.correct.count + singleWord2.verbs.incorrect.count) },
-                        { label: 'Pt 2 - Concrete', y: (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count) / (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count + singleWord2.concreteNouns.incorrect.count + singleWord2.concreteVerbs.incorrect.count) },
-                        { label: 'Pt 2 - Abstract', y: (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count) / (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count + singleWord2.abstractNouns.incorrect.count + singleWord2.abstractVerbs.incorrect.count) },
-                    ]
-                }
-            ]
-        });
+            singleWordSummary.render();
+        }
 
-        singleWordSummary.render();
+        if(sentence1 && sentence2){
+            var sentenceSummary = new CanvasJS.Chart('sentenceSummary', {
+                title:{
+                    text: 'Sentence Summary',
+                    fontSize: 16
+                },
+                axisX: {
+                    labelAngle: 135
+                },
+                axisY:{
+                    title: '',
+                    titleFontSize: 14,
+                    margin: 5,
+                    minimum: 0,
+                    maximum: 1
+                },
+                data: [
+                    {
+                        type: 'column',
+                        color: '#66BD7D',
+                        name: 'Correct',
+                        dataPoints: [
+                            { label: 'Total', y: (sentence1.correctAnswers.length + sentence2.correctAnswers.length) / (sentence1.correctAnswers.length + sentence1.incorrectAnswers.length + sentence2.correctAnswers.length + sentence2.incorrectAnswers.length) },
+                            { label: 'Non-reversible', y: ((sentence1.nonReversibleTotal.correct.count + sentence2.nonReversibleTotal.correct.count)/34) },
+                            { label: 'Reversible', y: ((sentence1.reversibleTotal.correct.count + sentence2.reversibleTotal.correct.count)/23) },
+                            { label: 'Phrase', y: (sentence1.phrases.correct.count + sentence2.phrases.correct.count) / (sentence1.phrases.correct.count + sentence2.phrases.correct.count + sentence1.phrases.incorrect.count + sentence2.phrases.incorrect.count) },
+                            { label: 'Simple', y: (sentence1.simple.correct.count + sentence2.simple.correct.count) / (sentence1.simple.correct.count + sentence2.simple.correct.count + sentence1.simple.incorrect.count + sentence2.simple.incorrect.count) },
+                            { label: 'Complex', y: (sentence1.complex.correct.count + sentence2.complex.correct.count) / (sentence1.complex.correct.count + sentence2.complex.correct.count + sentence1.complex.incorrect.count + sentence2.complex.incorrect.count) }
+                        ]
+                    }
+                ]
+            });
 
-        var sentenceSummary = new CanvasJS.Chart('sentenceSummary', {
-            title:{
-                text: 'Sentence Summary',
-                fontSize: 16
-            },
-            axisX: {
-                labelAngle: 135
-            },
-            axisY:{
-                title: '',
-                titleFontSize: 14,
-                margin: 5,
-                minimum: 0,
-                maximum: 1
-            },
-            data: [
-                {
-                    type: 'column',
-                    color: '#66BD7D',
-                    name: 'Correct',
-                    dataPoints: [
-                        { label: 'Total', y: (sentence1.correctAnswers.length + sentence2.correctAnswers.length) / (sentence1.correctAnswers.length + sentence1.incorrectAnswers.length + sentence2.correctAnswers.length + sentence2.incorrectAnswers.length) },
-                        { label: 'Non-reversible', y: ((sentence1.nonReversibleTotal.correct.count + sentence2.nonReversibleTotal.correct.count)/34) },
-                        { label: 'Reversible', y: ((sentence1.reversibleTotal.correct.count + sentence2.reversibleTotal.correct.count)/23) },
-                        { label: 'Phrase', y: (sentence1.phrases.correct.count + sentence2.phrases.correct.count) / (sentence1.phrases.correct.count + sentence2.phrases.correct.count + sentence1.phrases.incorrect.count + sentence2.phrases.incorrect.count) },
-                        { label: 'Simple', y: (sentence1.simple.correct.count + sentence2.simple.correct.count) / (sentence1.simple.correct.count + sentence2.simple.correct.count + sentence1.simple.incorrect.count + sentence2.simple.incorrect.count) },
-                        { label: 'Complex', y: (sentence1.complex.correct.count + sentence2.complex.correct.count) / (sentence1.complex.correct.count + sentence2.complex.correct.count + sentence1.complex.incorrect.count + sentence2.complex.incorrect.count) }
-                    ]
-                }
-            ]
-        });
-
-        sentenceSummary.render();
+            sentenceSummary.render();
+        }
 
         // Only pt supported (not mm or in)
         var doc = new $window.jsPDF('p', 'pt');
