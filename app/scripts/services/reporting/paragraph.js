@@ -83,6 +83,16 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 time: null,
                 count: null
             }
+        },
+        gist: {
+            correct: {
+                time: null,
+                count: null
+            },
+            incorrect: {
+                time: null,
+                count: null
+            }
         }
     };
 
@@ -197,6 +207,18 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
 
             paragraph.detailsImplied.incorrect.count = $window._.filter(paragraph.incorrectAnswers, {type: 'DI'}).length;
 
+            //Gist Performance
+            paragraph.gist.correct.time = $window._(paragraph.correctAnswers).filter({type: 'G'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.gist.correct.count = $window._.filter(paragraph.correctAnswers, {type: 'G'}).length;
+
+            paragraph.gist.incorrect.time = $window._(paragraph.incorrectAnswers).filter({type: 'G'}).reduce(function (a, m, i, p) {
+                return a + m.time / p.length;
+            }, 0);
+
+            paragraph.gist.incorrect.count = $window._.filter(paragraph.incorrectAnswers, {type: 'G'}).length;
 
             paragraph.summaryRows.push({
                 length: '< 40 Words',
@@ -245,8 +267,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                     return data.answer === data.target && (data.item === 'P15');
                 }).length + ' / 4',
                 questionType: 'Gist',
-                lengthType: '/9',
-                typeScore: 0
+                typeScore: 0 + ' / 9'
             });
 
             paragraph.summaryRows.push({
