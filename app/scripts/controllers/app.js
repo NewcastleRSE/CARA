@@ -27,6 +27,11 @@ angular.module('rcaApp')
       }
     };
 
+    $scope.confirmAssessmentExit = function() {
+      console.log($state.current.name);
+      $window.$('#confirmExit').modal('show');
+    };
+
     $window.$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(event){
 
       $timeout(function(){
