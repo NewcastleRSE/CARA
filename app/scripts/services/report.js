@@ -144,6 +144,76 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             sentenceSummary.render();
         }
 
+        if(paragraph){
+            var paragraphSummary = new CanvasJS.Chart('paragraphSummary', {
+                title:{
+                    text: 'Paragraph Summary',
+                    fontSize: 16
+                },
+                axisX: {
+                    labelAngle: 135
+                },
+                axisY:{
+                    title: '',
+                    titleFontSize: 14,
+                    margin: 5,
+                    minimum: 0,
+                    maximum: 1
+                },
+                data: [
+                    {
+                        type: 'column',
+                        color: '#66BD7D',
+                        name: 'Correct',
+                        dataPoints: [
+                            { label: 'Total', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) },
+                            { label: 'Main Ideas Stated', y: paragraph.mainIdeasStated.correct.count / (paragraph.mainIdeasStated.correct.count + paragraph.mainIdeasStated.incorrect.count) },
+                            { label: 'Main Ideas Implied', y: paragraph.mainIdeasImplied.correct.count / (paragraph.mainIdeasImplied.correct.count + paragraph.mainIdeasImplied.incorrect.count) },
+                            { label: 'Details Stated', y: paragraph.detailsStated.correct.count / (paragraph.detailsStated.correct.count + paragraph.detailsStated.incorrect.count) },
+                            { label: 'Details Implied', y: paragraph.detailsImplied.correct.count / (paragraph.detailsImplied.correct.count + paragraph.detailsImplied.incorrect.count) },
+                            { label: 'Gist', y: paragraph.gist.correct.count / (paragraph.gist.correct.count + paragraph.gist.incorrect.count) }
+                        ]
+                    }
+                ]
+            });
+
+            paragraphSummary.render();
+        }
+
+        if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph){
+            var overallSummary = new CanvasJS.Chart('overallSummary', {
+                title:{
+                    text: 'Overall Summary',
+                    fontSize: 16
+                },
+                axisX: {
+                    labelAngle: 135
+                },
+                axisY:{
+                    title: '',
+                    titleFontSize: 14,
+                    margin: 5,
+                    minimum: 0,
+                    maximum: 1
+                },
+                data: [
+                    {
+                        type: 'column',
+                        color: '#66BD7D',
+                        name: 'Correct',
+                        dataPoints: [
+                            { label: 'Single Word: Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) },
+                            { label: 'Single Word: Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) },
+                            { label: 'Sentence', y: (sentence1.correctAnswers.length + sentence2.correctAnswers.length) / (sentence1.correctAnswers.length + sentence1.incorrectAnswers.length + sentence2.correctAnswers.length + sentence2.incorrectAnswers.length) },
+                            { label: 'Paragraph', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) }
+                        ]
+                    }
+                ]
+            });
+
+            overallSummary.render();
+        }
+
         // Only pt supported (not mm or in)
         var doc = new $window.jsPDF('p', 'pt');
         doc.page = 1;
@@ -285,6 +355,19 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 }
             });
 
+            doc.addImage(document.getElementById('paragraphSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 260, 512, 340);
+
+            footer();
+            doc.addPage();
+        }
+
+        if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph){
+            doc.setFontSize(16);
+            doc.text(50, 75, '4. Overall Summary');
+            doc.setFontSize(12);
+
+            doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 100, 512, 340);
+
             footer();
             doc.addPage();
         }
@@ -352,11 +435,6 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             doc.addPage();
         }
 
-        //doc.addImage(document.getElementById('singleWord1BarChart').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 480, 512, 340);
-
-        //footer();
-        //doc.addPage();
-
         if(assessment.questions['singleWord-part-2'].completed) {
 
             doc.text(20, 30, 'Single Word Comprehension: Part 2');
@@ -412,13 +490,9 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 }
             });
 
-            //doc.addImage(document.getElementById('singleWord2BarChart').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 480, 512, 340);
-
             footer();
             doc.addPage();
         }
-
-
 
         if(assessment.questions['sentence-part-1'].completed) {
 
