@@ -277,7 +277,8 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
+              //js: ['concat', 'uglifyjs'],
+              js: ['concat'],
               css: ['cssmin']
             },
             post: {}
@@ -412,6 +413,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '*.html',
+            'views/*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -495,13 +497,13 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'postcss',
-    'ngtemplates',
+    //'ngtemplates',
     'concat',
     'ngAnnotate',
     'copy:dist',
     //'cdnify',
     'cssmin',
-    'uglify',
+    //'uglify',
     'filerev',
     'usemin',
     'htmlmin'

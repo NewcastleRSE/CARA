@@ -20,7 +20,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'frapontillo.bootstrap-switch',
-    'angularMoment'
+    'angularMoment',
+    'ngRaven'
   ]).config( [
   '$compileProvider',
   function( $compileProvider )

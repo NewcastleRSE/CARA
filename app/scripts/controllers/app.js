@@ -29,6 +29,9 @@ angular.module('rcaApp')
 
     $scope.confirmAssessmentExit = function() {
       console.log($state.current.name);
+
+      $scope.progressLost = $state.current.name === 'assessmentQuestions';
+
       $window.$('#confirmExit').modal('show');
     };
 

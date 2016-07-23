@@ -43,6 +43,8 @@ module.exports = function(config) {
       'bower_components/moment/moment.js',
       'bower_components/moment/locale/en-gb.js',
       'bower_components/angular-moment/angular-moment.js',
+      'bower_components/raven-js/dist/raven.js',
+      'bower_components/raven-js/dist/plugins/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
