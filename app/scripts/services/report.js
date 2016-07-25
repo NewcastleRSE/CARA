@@ -181,6 +181,22 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         }
 
         if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph){
+
+            var dataPoints = [];
+
+            if(singleWord1){
+                dataPoints.push({ label: 'Single Word: Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) });
+            }
+            if(singleWord2){
+                dataPoints.push({ label: 'Single Word: Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
+            }
+            if(sentence1 && sentence2){
+                dataPoints.push({ label: 'Sentence', y: (sentence1.correctAnswers.length + sentence2.correctAnswers.length) / (sentence1.correctAnswers.length + sentence1.incorrectAnswers.length + sentence2.correctAnswers.length + sentence2.incorrectAnswers.length) });
+            }
+            if(paragraph){
+                dataPoints.push({ label: 'Paragraph', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) });
+            }
+
             var overallSummary = new CanvasJS.Chart('overallSummary', {
                 title:{
                     text: 'Overall Summary',
@@ -201,12 +217,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         type: 'column',
                         color: '#66BD7D',
                         name: 'Correct',
-                        dataPoints: [
-                            { label: 'Single Word: Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) },
-                            { label: 'Single Word: Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) },
-                            { label: 'Sentence', y: (sentence1.correctAnswers.length + sentence2.correctAnswers.length) / (sentence1.correctAnswers.length + sentence1.incorrectAnswers.length + sentence2.correctAnswers.length + sentence2.incorrectAnswers.length) },
-                            { label: 'Paragraph', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) }
-                        ]
+                        dataPoints: dataPoints
                     }
                 ]
             });
