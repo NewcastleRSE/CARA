@@ -27,6 +27,14 @@ angular.module('rcaApp')
       }
     };
 
+    $scope.confirmAssessmentExit = function() {
+      console.log($state.current.name);
+
+      $scope.progressLost = $state.current.name === 'assessmentQuestions';
+
+      $window.$('#confirmExit').modal('show');
+    };
+
     $window.$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(event){
 
       $timeout(function(){
