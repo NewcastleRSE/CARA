@@ -17,7 +17,11 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             singleWord2 = null,
             sentence1 = null,
             sentence2 = null,
+            sentenceSummaryTotals = null,
             paragraph = null;
+
+
+        /****** Override to merge Sentence Scores *******/
 
         if(assessment.questions['singleWord-part-1'].completed){
             singleWord1 = SingleWord1.calculate($window._.filter(assessment.questions['singleWord-part-1'].items, {practice: false}));
@@ -43,32 +47,60 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         var sentenceSummaryTotals = [];
 
-        if(assessment.questions['sentence-part-1'].completed && assessment.questions['sentence-part-2'].completed) {
+        if(assessment.questions['sentence-part-1'].completed || assessment.questions['sentence-part-2'].completed) {
+
             sentenceSummaryTotals = [{
                 type: 'Phrases',
-                nonReversible: sentence1.nonReversiblePhrases.correct.count + sentence2.nonReversiblePhrases.correct.count + ' / 6',
+                nonReversible: (((sentence1) ? sentence1.nonReversiblePhrases.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.correct.count : 0 )) + ' / ' + (((sentence1) ? sentence1.nonReversiblePhrases.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.questionCount : 0 )),
                 reversible: '',
-                total: sentence1.phrases.correct.count + sentence2.phrases.correct.count + ' / 6'
+                total: ((sentence1) ? sentence1.nonReversiblePhrases.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.nonReversiblePhrases.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.questionCount : 0 ))
             },{
                 type: 'Simple',
-                nonReversible: sentence1.nonReversibleSimple.correct.count + sentence2.nonReversibleSimple.correct.count + ' / 28',
-                reversible: sentence1.reversibleSimple.correct.count + sentence2.reversibleSimple.correct.count + ' / 9',
-                total: sentence1.nonReversibleSimple.correct.count + sentence2.nonReversibleSimple.correct.count + sentence1.reversibleSimple.correct.count + sentence2.reversibleSimple.correct.count + ' / 37'
+                nonReversible: ((sentence1) ? sentence1.nonReversibleSimple.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversibleSimple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.nonReversibleSimple.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversibleSimple.questionCount : 0 )),
+                reversible: ((sentence1) ? sentence1.reversibleSimple.correct.count : 0 ) + ((sentence2) ? sentence2.reversibleSimple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.reversibleSimple.questionCount : 0 ) + ((sentence2) ? sentence2.reversibleSimple.questionCount : 0 )),
+                total: ((sentence1) ? sentence1.simple.correct.count : 0 ) + ((sentence2) ? sentence2.simple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.simple.questionCount : 0 ) + ((sentence2) ? sentence2.simple.questionCount : 0 ))
             },{
                 type: 'Complex',
                 nonReversible: '',
                 nonReversibleScore: '',
-                reversible: sentence1.reversibleComplex.correct.count + sentence2.reversibleComplex.correct.count + ' / 14',
-                total: sentence1.complex.correct.count + sentence2.complex.correct.count + ' / 14'
+                reversible: ((sentence1) ? sentence1.reversibleComplex.correct.count : 0 ) + ((sentence2) ? sentence2.reversibleComplex.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.reversibleComplex.questionCount : 0 ) + ((sentence2) ? sentence2.reversibleComplex.questionCount : 0 )),
+                total: ((sentence1) ? sentence1.complex.correct.count : 0 ) + ((sentence2) ? sentence2.complex.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.complex.questionCount : 0 ) + ((sentence2) ? sentence2.complex.questionCount : 0 ))
             },{
                 type: 'Total',
-                nonReversible: sentence1.nonReversibleTotal.correct.count + sentence2.nonReversibleTotal.correct.count + ' / 34',
-                reversible: sentence1.reversibleTotal.correct.count + sentence2.reversibleTotal.correct.count + ' / 23',
-                total: sentence1.total.correct.count + sentence2.total.correct.count + ' / 57'
+                nonReversible: ((sentence1) ? sentence1.nonReversibleTotal.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversibleTotal.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.nonReversibleTotal.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversibleTotal.questionCount : 0 )),
+                reversible: ((sentence1) ? sentence1.reversibleTotal.correct.count : 0 ) + ((sentence2) ? sentence2.reversibleTotal.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.reversibleTotal.questionCount : 0 ) + ((sentence2) ? sentence2.reversibleTotal.questionCount : 0 )),
+                total: ((sentence1) ? sentence1.total.correct.count : 0 ) + ((sentence2) ? sentence2.total.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.total.questionCount : 0 ) + ((sentence2) ? sentence2.total.questionCount : 0 ))
             }];
         }
 
-        if(singleWord1 && singleWord2){
+        if(singleWord1 || singleWord2){
+
+            var chartData = [];
+
+            if(singleWord1){
+                chartData.push({ label: 'Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) });
+            }
+
+            if(singleWord2){
+                chartData.push({ label: 'Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
+            }
+
+            if(singleWord1){
+                chartData.push({ label: 'Pt 1 - Nouns', y: singleWord1.nouns.correct.count / (singleWord1.nouns.correct.count + singleWord1.nouns.incorrect.count) });
+                chartData.push({ label: 'Pt 1 - Verbs', y: singleWord1.verbs.correct.count / (singleWord1.verbs.correct.count + singleWord1.verbs.incorrect.count) });
+                chartData.push({ label: 'Pt 1 - Concrete', y: (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count) / (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count + singleWord1.concreteNouns.incorrect.count + singleWord1.concreteVerbs.incorrect.count) });
+                chartData.push({ label: 'Pt 1 - Abstract', y: (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count) / (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count + singleWord1.abstractNouns.incorrect.count + singleWord1.abstractVerbs.incorrect.count) });
+            }
+
+            if(singleWord2){
+                chartData.push({ label: 'Pt 2 - Nouns', y: singleWord2.nouns.correct.count / (singleWord2.nouns.correct.count + singleWord2.nouns.incorrect.count) });
+                chartData.push({ label: 'Pt 2 - Verbs', y: singleWord2.verbs.correct.count / (singleWord2.verbs.correct.count + singleWord2.verbs.incorrect.count) });
+                chartData.push({ label: 'Pt 2 - Concrete', y: (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count) / (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count + singleWord2.concreteNouns.incorrect.count + singleWord2.concreteVerbs.incorrect.count) });
+                chartData.push({ label: 'Pt 2 - Abstract', y: (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count) / (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count + singleWord2.abstractNouns.incorrect.count + singleWord2.abstractVerbs.incorrect.count) });
+            }
+
+            console.log(chartData);
+
             var singleWordSummary = new CanvasJS.Chart('singleWordSummary', {
                 title:{
                     text: 'Single Word Summary',
@@ -78,31 +110,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     labelAngle: 135
                 },
                 axisY:{
-                    title: '',
+                    title: 'Percentage Correct',
                     titleFontSize: 14,
                     margin: 5,
                     minimum: 0,
                     maximum: 1
                 },
-                data: [
-                    {
-                        type: 'column',
-                        color: '#66BD7D',
-                        name: 'Correct',
-                        dataPoints: [
-                            { label: 'Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) },
-                            { label: 'Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) },
-                            { label: 'Pt 1 - Nouns', y: singleWord1.nouns.correct.count / (singleWord1.nouns.correct.count + singleWord1.nouns.incorrect.count) },
-                            { label: 'Pt 1 - Verbs', y: singleWord1.verbs.correct.count / (singleWord1.verbs.correct.count + singleWord1.verbs.incorrect.count) },
-                            { label: 'Pt 1 - Concrete', y: (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count) / (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count + singleWord1.concreteNouns.incorrect.count + singleWord1.concreteVerbs.incorrect.count) },
-                            { label: 'Pt 1 - Abstract', y: (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count) / (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count + singleWord1.abstractNouns.incorrect.count + singleWord1.abstractVerbs.incorrect.count) },
-                            { label: 'Pt 2 - Nouns', y: singleWord2.nouns.correct.count / (singleWord2.nouns.correct.count + singleWord2.nouns.incorrect.count) },
-                            { label: 'Pt 2 - Verbs', y: singleWord2.verbs.correct.count / (singleWord2.verbs.correct.count + singleWord2.verbs.incorrect.count) },
-                            { label: 'Pt 2 - Concrete', y: (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count) / (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count + singleWord2.concreteNouns.incorrect.count + singleWord2.concreteVerbs.incorrect.count) },
-                            { label: 'Pt 2 - Abstract', y: (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count) / (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count + singleWord2.abstractNouns.incorrect.count + singleWord2.abstractVerbs.incorrect.count) },
-                        ]
-                    }
-                ]
+                data: chartData
             });
 
             singleWordSummary.render();
@@ -242,13 +256,16 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         }
 
         doc.setFontSize(32);
-        doc.text(centeredText('SLT Report ' + assessment.name), 75, 'SLT Report ' + assessment.name);
+        doc.text(centeredText('SLT Report ' + assessment.name), 275, 'SLT Report ' + assessment.name);
         doc.setFontSize(16);
-        doc.text(50, 115, 'Name:');
-        doc.text(50, 145, 'Date of Birth:');
+        doc.text(100, 365, 'Name:');
+        doc.text(100, 415, 'Date of Birth:');
+
+        doc.addPage();
+
         doc.setFontSize(12);
-        doc.text(50, 180, 'Notes');
-        doc.rect(50, 195, 495, 550);
+        doc.text(50, 50, 'Notes');
+        doc.rect(50, 65, 495, 680);
 
         footer();
         doc.addPage();
@@ -333,7 +350,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 }
             });
 
-            doc.addImage(document.getElementById('sentenceSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 280, 512, 340);
+            //doc.addImage(document.getElementById('sentenceSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 280, 512, 340);
 
             footer();
             doc.addPage();
