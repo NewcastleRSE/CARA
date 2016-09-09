@@ -32,6 +32,19 @@ angular.module('rcaApp')
 
         return hasCompleteSection;
       };
+
+      $scope.allSectionsComplete = function(assessment){
+
+        var allComplete = true;
+
+        angular.forEach(assessment.questions, function(item){
+          if (item.completed === false) {
+            allComplete = false;
+          }
+        });
+
+        return allComplete;
+      };
     });
 
 

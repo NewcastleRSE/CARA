@@ -38,12 +38,18 @@ angular
   $stateProvider
     .state('welcome', {
       url: '/',
-      templateUrl: 'views/welcome.html'
+      templateUrl: 'views/welcome.html',
+      controller: 'WelcomeCtrl'
     })
     .state('home', {
       url: '/home',
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
+    })
+    .state('instructions', {
+      url: '/instructions',
+      templateUrl: 'views/instructions.html',
+      controller: 'WelcomeCtrl'
     })
     .state('about', {
       url: '/about',

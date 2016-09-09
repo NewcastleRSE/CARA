@@ -1,4 +1,12 @@
 <div class="section-complete">
+  <div ng-hide="allSectionsComplete(assessment)">
+    <h2>You have completed this sub-test</h2>
+    <h4>You can either continue the test or stop and resume later.</h4>
+  </div>
+  <div ng-show="allSectionsComplete(assessment)">
+    <h2>All sub-tests completed</h2>
+    <h4>Click "View report" to download a report.</h4>
+  </div>
   <div class="save-slot panel panel-info">
     <div class="panel-heading">
       <h4 ng-if="assessment === null" class="panel-title">Empty</h4>
@@ -28,7 +36,7 @@
       <div class="btn-group btn-group-justified ng-cloak" role="group" aria-label="..." ng-if="questions !== null">
 
         <div class="btn-group" role="group">
-          <button ng-click="document.webkitCancelFullScreen()" class="btn btn-default" ui-sref="home"><i class="glyphicon glyphicon-home"></i> Home</button>
+          <button ng-click="document.webkitCancelFullScreen()" class="btn btn-default" ui-sref="home"><i class="glyphicon glyphicon-stop"></i>&nbsp; Stop test &amp; resume later</button>
         </div>
 
         <div class="btn-group" role="group">

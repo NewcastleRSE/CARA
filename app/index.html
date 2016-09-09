@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-controller="AppCtrl as app" ng-class = "{splash : doc.location.hash == '#/', home : doc.location.hash == '#/home', fullscreen : isFullScreen, 'not-fullscreen' : ! isFullScreen}">
+  <body ng-controller="AppCtrl as app" class="" ng-class="[currentStateName, {home : doc.location.hash == '#/home'}, {splash : doc.location.hash == '#/'}, {fullscreen : isFullScreen}, {'not-fullscreen' : ! isFullScreen}]">
 
   <div class="fullscreen-controls ng-cloak" ng-show="isFullScreen === false">
-    <button class="btn btn-default btn-info" ng-click="goFullScreen()"><i class="glyphicon glyphicon-fullscreen"></i>  Full Screen</button>
+    <button class="btn btn-default btn-info" ng-click="goFullScreen()"><i class="glyphicon glyphicon-fullscreen"></i>&nbsp;&nbsp;Full Screen</button>
     <a class="home-btn btn btn-default btn-info" ng-click="confirmAssessmentExit()"><i class="glyphicon glyphicon-log-out"></i>  Exit Assessment</a>
+    <a class="btn btn-default btn-info" data-toggle="modal" data-target="#instructionsModal"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;Instructions</a>
   </div>
 
     <div class="header">
@@ -72,9 +73,11 @@
         <div class="modal-body">
           <p>Are you sure you wish to exit this assessment?</p>
           <p ng-if="progressLost">Current Progress will be lost.</p>
+          <p ng-if="! progressLost">Current Progress has been saved.</p>
 
         </div>
         <div class="modal-footer">
+
           <a ng-if="progressLost" class="btn btn-default btn-danger" ui-sref="home" data-dismiss="modal">Discard progress and exit</a>
           <a ng-if="! progressLost" class="btn btn-default btn-danger" ui-sref="home" data-dismiss="modal">Exit this assessment</a>
         </div>
@@ -82,6 +85,28 @@
     </div><!-- /.modal-dialog -->
   </div>
 
+  <!-- Instructions Modal -->
+
+  <div id="instructionsModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Instructions</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="content">
+            <ng-include src="'/views/instructions-text.html'"></ng-include>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-default btn-primary" data-dismiss="modal">OK</a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -141,6 +166,7 @@
         <script src="scripts/services/storage.js"></script>
         <script src="scripts/controllers/section-intro.js"></script>
         <script src="scripts/controllers/slot-summary.js"></script>
+        <script src="scripts/controllers/welcome.js"></script>
         <!-- endbuild -->
 
     <!--<script type="text/javascript" src="https://digitalinstitute.atlassian.net/s/5a69cd8b8f20a02917cfdd6c717fc8a7-T/-p6lx3i/72002/6a2ac7610a2d01a048aed7ccf1208eeb/2.0.14/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=8f965d01"></script>-->
