@@ -99,8 +99,6 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 chartData.push({ label: 'Pt 2 - Abstract', y: (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count) / (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count + singleWord2.abstractNouns.incorrect.count + singleWord2.abstractVerbs.incorrect.count) });
             }
 
-            console.log(chartData);
-
             var singleWordSummary = new CanvasJS.Chart('singleWordSummary', {
                 title:{
                     text: 'Single Word Summary',
@@ -110,19 +108,63 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     labelAngle: 135
                 },
                 axisY:{
-                    title: 'Percentage Correct',
+                    title: 'Correct',
                     titleFontSize: 14,
                     margin: 5,
                     minimum: 0,
                     maximum: 1
                 },
-                data: chartData
+                data: [
+                    {
+                        type: 'column',
+                        color: '#66BD7D',
+                        name: 'Correct',
+                        dataPoints: chartData
+                    }
+                ]
             });
 
             singleWordSummary.render();
         }
 
-        if(sentence1 && sentence2){
+        if(sentence1 || sentence2){
+            
+            chartData = [];
+            
+            if(sentence1 && sentence2) {
+                chartData = [
+                    { label: 'Total', y: ((sentence1.total.correct.count + sentence2.total.correct.count) / (sentence1.total.questionCount + sentence2.total.questionCount)) },
+                    { label: 'Non-reversible', y: ((sentence1.nonReversibleTotal.correct.count + sentence2.nonReversibleTotal.correct.count)/34) },
+                    { label: 'Reversible', y: ((sentence1.reversibleTotal.correct.count + sentence2.reversibleTotal.correct.count)/23) },
+                    { label: 'Phrase', y: (sentence1.phrases.correct.count + sentence2.phrases.correct.count) / (sentence1.phrases.correct.count + sentence2.phrases.correct.count + sentence1.phrases.incorrect.count + sentence2.phrases.incorrect.count) },
+                    { label: 'Simple', y: (sentence1.simple.correct.count + sentence2.simple.correct.count) / (sentence1.simple.correct.count + sentence2.simple.correct.count + sentence1.simple.incorrect.count + sentence2.simple.incorrect.count) },
+                    { label: 'Complex', y: (sentence1.complex.correct.count + sentence2.complex.correct.count) / (sentence1.complex.correct.count + sentence2.complex.correct.count + sentence1.complex.incorrect.count + sentence2.complex.incorrect.count) }
+                ]
+            }
+            else if(sentence1 && !sentence2) {
+
+                console.log(sentence1);
+
+                chartData = [
+                    { label: 'Total', y: (sentence1.total.correct.count / sentence1.total.questionCount) },
+                    { label: 'Non-reversible', y: (sentence1.nonReversibleTotal.correct.count/ sentence1.nonReversibleTotal.questionCount) },
+                    { label: 'Reversible', y: (sentence1.reversibleTotal.correct.count / sentence1.reversibleTotal.questionCount) },
+                    { label: 'Phrase', y: (sentence1.phrases.correct.count / sentence1.phrases.questionCount) },
+                    { label: 'Simple', y: (sentence1.simple.correct.count / sentence1.simple.questionCount) },
+                    { label: 'Complex', y: (sentence1.complex.correct.count / sentence1.complex.questionCount) }
+                ]
+            }
+            else {
+                chartData = [
+                    { label: 'Total', y: (sentence2.total.correct.count / sentence2.total.questionCount) },
+                    { label: 'Non-reversible', y: (sentence2.nonReversibleTotal.correct.count/ sentence2.nonReversibleTotal.questionCount) },
+                    { label: 'Reversible', y: (sentence2.reversibleTotal.correct.count / sentence2.reversibleTotal.questionCount) },
+                    { label: 'Phrase', y: (sentence2.phrases.correct.count / sentence2.phrases.questionCount) },
+                    { label: 'Simple', y: (sentence2.simple.correct.count / sentence2.simple.questionCount) },
+                    { label: 'Complex', y: (sentence2.complex.correct.count / sentence2.complex.questionCount) }
+                ]
+            }
+            
             var sentenceSummary = new CanvasJS.Chart('sentenceSummary', {
                 title:{
                     text: 'Sentence Summary',
@@ -143,14 +185,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         type: 'column',
                         color: '#66BD7D',
                         name: 'Correct',
-                        dataPoints: [
-                            { label: 'Total', y: (sentence1.correctAnswers.length + sentence2.correctAnswers.length) / (sentence1.correctAnswers.length + sentence1.incorrectAnswers.length + sentence2.correctAnswers.length + sentence2.incorrectAnswers.length) },
-                            { label: 'Non-reversible', y: ((sentence1.nonReversibleTotal.correct.count + sentence2.nonReversibleTotal.correct.count)/34) },
-                            { label: 'Reversible', y: ((sentence1.reversibleTotal.correct.count + sentence2.reversibleTotal.correct.count)/23) },
-                            { label: 'Phrase', y: (sentence1.phrases.correct.count + sentence2.phrases.correct.count) / (sentence1.phrases.correct.count + sentence2.phrases.correct.count + sentence1.phrases.incorrect.count + sentence2.phrases.incorrect.count) },
-                            { label: 'Simple', y: (sentence1.simple.correct.count + sentence2.simple.correct.count) / (sentence1.simple.correct.count + sentence2.simple.correct.count + sentence1.simple.incorrect.count + sentence2.simple.incorrect.count) },
-                            { label: 'Complex', y: (sentence1.complex.correct.count + sentence2.complex.correct.count) / (sentence1.complex.correct.count + sentence2.complex.correct.count + sentence1.complex.incorrect.count + sentence2.complex.incorrect.count) }
-                        ]
+                        dataPoints: chartData
                     }
                 ]
             });
@@ -194,7 +229,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             paragraphSummary.render();
         }
 
-        if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph){
+        if(singleWord1 || singleWord2 || sentence1 || sentence2 || paragraph){
 
             var dataPoints = [];
 
@@ -205,7 +240,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 dataPoints.push({ label: 'Single Word: Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
             }
             if(sentence1 && sentence2){
-                dataPoints.push({ label: 'Sentence', y: (sentence1.correctAnswers.length + sentence2.correctAnswers.length) / (sentence1.correctAnswers.length + sentence1.incorrectAnswers.length + sentence2.correctAnswers.length + sentence2.incorrectAnswers.length) });
+                dataPoints.push({ label: 'Sentence', y: ((sentence1.total.correct.count + sentence2.total.correct.count) / (sentence1.total.questionCount + sentence2.total.questionCount)) });
+            }
+            if(sentence1 && !sentence2){
+                dataPoints.push({ label: 'Sentence', y: (sentence1.total.correct.count / sentence1.total.questionCount) });
+            }
+            if(!sentence1 && sentence2){
+                dataPoints.push({ label: 'Sentence', y: (sentence2.total.correct.count / sentence2.total.questionCount) });
             }
             if(paragraph){
                 dataPoints.push({ label: 'Paragraph', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) });
@@ -264,7 +305,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         doc.addPage();
 
         doc.setFontSize(12);
-        doc.text(50, 50, 'Notes');
+        doc.text(50, 50, 'For Clinician Notes');
         doc.rect(50, 65, 495, 680);
 
         footer();
@@ -274,13 +315,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         doc.text(50, 50, 'Summary of Results');
         doc.rect(50, 65, 495, 2, 'F');
 
-        if(assessment.questions['singleWord-part-1'].completed || assessment.questions['singleWord-part-2'].completed) {
+        if(singleWord1 || singleWord2) {
             doc.setFontSize(16);
             doc.text(50, 100, '1. Single Word Distractors');
             doc.setFontSize(12);
 
 
-            if(assessment.questions['singleWord-part-1'].completed) {
+            if(singleWord1) {
                 doc.text(50, 135, 'Unrelated Distractors');
                 doc.autoTable(singleWord1.summaryColumns, singleWord1.summaryRows, {
                     theme: 'grid',
@@ -298,7 +339,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 });
             }
 
-            if(assessment.questions['singleWord-part-2'].completed) {
+            if(singleWord2) {
                 doc.text(50, 285, 'Related Distractors');
                 doc.autoTable(singleWord2.summaryColumns, singleWord2.summaryRows, {
                     theme: 'grid',
@@ -316,7 +357,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 });
             }
 
-            doc.addImage(document.getElementById('singleWordSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 460, 512, 340);
+            if(singleWord1 && singleWord2){
+                doc.addImage(document.getElementById('singleWordSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 460, 512, 340);
+            }
+            else if((singleWord1 && !singleWord2) || (!singleWord1 && singleWord2)){
+                doc.addImage(document.getElementById('singleWordSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 285, 512, 340);
+            }
+
 
         footer();
         doc.addPage();
@@ -350,7 +397,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 }
             });
 
-            //doc.addImage(document.getElementById('sentenceSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 280, 512, 340);
+            doc.addImage(document.getElementById('sentenceSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 280, 512, 340);
 
             footer();
             doc.addPage();
