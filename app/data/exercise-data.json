@@ -2,78 +2,8 @@
   "singleWord-part-1": {
     "name": "Single Word Part 1",
     "assessmentType": "single",
-    "completed": false,
     "items": [
       {
-        "practice": true,
-        "question": "shoe",
-        "answers": [
-          "foot",
-          "tomato",
-          "kite"
-        ],
-        "correctAnswer": "shoe",
-        "part": "",
-        "type": "",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null
-      },
-      {
-        "practice": true,
-        "question": "key",
-        "answers": [
-          "door",
-          "milk",
-          "owl"
-        ],
-        "correctAnswer": "key",
-        "part": "",
-        "type": "",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null
-      },
-      {
-        "practice": true,
-        "question": "paper",
-        "answers": [
-          "pen",
-          "finger",
-          "chair"
-        ],
-        "correctAnswer": "paper",
-        "part": "",
-        "type": "",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null
-      },
-      {
-        "practice": true,
-        "question": "smile",
-        "answers": [
-          "frown",
-          "itch",
-          "splash"
-        ],
-        "correctAnswer": "smaile",
-        "part": "",
-        "type": "",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null
-      },
-      {
-        "practice": false,
         "question": "door",
         "answers": [
           "window",
@@ -90,7 +20,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "street",
         "answers": [
           "road",
@@ -107,7 +36,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "book",
         "answers": [
           "page",
@@ -124,7 +52,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "light",
         "answers": [
           "lamp",
@@ -141,7 +68,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "chair",
         "answers": [
           "seat",
@@ -158,7 +84,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "anger",
         "answers": [
           "temper",
@@ -175,7 +100,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "kindness",
         "answers": [
           "goodness",
@@ -192,7 +116,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "translation",
         "answers": [
           "text",
@@ -209,7 +132,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "task",
         "answers": [
           "duty",
@@ -226,7 +148,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "power",
         "answers": [
           "strength",
@@ -243,7 +164,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "swim",
         "answers": [
           "float",
@@ -260,7 +180,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "write",
         "answers": [
           "read",
@@ -277,7 +196,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "hide",
         "answers": [
           "cover",
@@ -294,7 +212,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "paint",
         "answers": [
           "draw",
@@ -311,7 +228,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "clean",
         "answers": [
           "wash",
@@ -328,7 +244,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "hope",
         "answers": [
           "wish",
@@ -345,7 +260,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "scare",
         "answers": [
           "startle",
@@ -362,7 +276,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "need",
         "answers": [
           "want",
@@ -379,7 +292,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "fill",
         "answers": [
           "pour",
@@ -396,7 +308,6 @@
         "answerPosition": null
       },
       {
-        "practice": false,
         "question": "buy",
         "answers": [
           "sell",
@@ -417,10 +328,8 @@
   "singleWord-part-2": {
     "name": "Single Word Part 2",
     "assessmentType": "single",
-    "completed": false,
     "items": [
       {
-        "practice": false,
         "question": "apple",
         "answers": [
           "pear",
@@ -439,7 +348,6 @@
         "unrelatedDistractor": "coin"
       },
       {
-        "practice": false,
         "question": "flower",
         "answers": [
           "petal",
@@ -458,7 +366,6 @@
         "unrelatedDistractor": "mouse"
       },
       {
-        "practice": false,
         "question": "wall",
         "answers": [
           "brick",
@@ -477,7 +384,6 @@
         "unrelatedDistractor": "track"
       },
       {
-        "practice": false,
         "question": "carpet",
         "answers": [
           "floor",
@@ -496,7 +402,6 @@
         "unrelatedDistractor": "tea"
       },
       {
-        "practice": false,
         "question": "forest",
         "answers": [
           "wood",
@@ -515,7 +420,6 @@
         "unrelatedDistractor": "doll"
       },
       {
-        "practice": false,
         "question": "news",
         "answers": [
           "information",
@@ -534,7 +438,6 @@
         "unrelatedDistractor": "patience"
       },
       {
-        "practice": false,
         "question": "disaster",
         "answers": [
           "destruction",
@@ -553,7 +456,6 @@
         "unrelatedDistractor": "route"
       },
       {
-        "practice": false,
         "question": "deceit",
         "answers": [
           "falsehood",
@@ -572,7 +474,6 @@
         "unrelatedDistractor": "conclusion"
       },
       {
-        "practice": false,
         "question": "hazard",
         "answers": [
           "danger",
@@ -591,7 +492,6 @@
         "unrelatedDistractor": "memory"
       },
       {
-        "practice": false,
         "question": "bravery",
         "answers": [
           "courage",
@@ -610,7 +510,6 @@
         "unrelatedDistractor": "abundance"
       },
       {
-        "practice": false,
         "question": "walk",
         "answers": [
           "run",
@@ -629,7 +528,6 @@
         "unrelatedDistractor": "build"
       },
       {
-        "practice": false,
         "question": "cook",
         "answers": [
           "bake",
@@ -648,7 +546,6 @@
         "unrelatedDistractor": "hunt"
       },
       {
-        "practice": false,
         "question": "speak",
         "answers": [
           "talk",
@@ -667,7 +564,6 @@
         "unrelatedDistractor": "cast"
       },
       {
-        "practice": false,
         "question": "bite",
         "answers": [
           "eat",
@@ -686,7 +582,6 @@
         "unrelatedDistractor": "blush"
       },
       {
-        "practice": false,
         "question": "slap",
         "answers": [
           "smack",
@@ -705,7 +600,6 @@
         "unrelatedDistractor": "burn"
       },
       {
-        "practice": false,
         "question": "select",
         "answers": [
           "choose",
@@ -724,7 +618,6 @@
         "unrelatedDistractor": "clear"
       },
       {
-        "practice": false,
         "question": "think",
         "answers": [
           "consider",
@@ -743,7 +636,6 @@
         "unrelatedDistractor": "condemn"
       },
       {
-        "practice": false,
         "question": "flee",
         "answers": [
           "escape",
@@ -762,7 +654,6 @@
         "unrelatedDistractor": "cheer"
       },
       {
-        "practice": false,
         "question": "torment",
         "answers": [
           "hurt",
@@ -781,7 +672,6 @@
         "unrelatedDistractor": "claim"
       },
       {
-        "practice": false,
         "question": "know",
         "answers": [
           "learn",
@@ -804,82 +694,8 @@
   "sentence-part-1": {
     "name": "Sentence Part 1",
     "assessmentType": "sentence",
-    "completed": false,
     "items": [
       {
-        "practice": true,
-        "question": "the shoes are clean",
-        "pictures": [
-          "ai 4d the clean shoes.jpg",
-          "ai 4a the dirty boots.jpg",
-          "ai 4b the clean boots.jpg",
-          "ai 4c the dirty shoes.jpg"
-        ],
-        "answers": [
-          "the clean shoes",
-          "the dirty boots",
-          "the clean boots",
-          "the dirty shoes"
-        ],
-        "correctAnswer": "the shoes are clean",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": ""
-      },
-      {
-        "practice": true,
-        "question": "The boy is not eating",
-        "pictures": [
-          "ci 17d the boy is not eating.jpg",
-          "ci 17a the girl is eating.jpg",
-          "ci 17b the girl is drinking.jpg",
-          "ci 17c the boy is eating.jpg"
-        ],
-        "answers": [
-          "boy is not eating",
-          "the girl is eating",
-          "the girl is drinking",
-          "the boy is eating"
-        ],
-        "correctAnswer": "The boy is not eating",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": ""
-      },
-      {
-        "practice": true,
-        "question": "The children are playing the piano",
-        "pictures": [
-          "e 33d the children are playing the piano.jpg",
-          "e 33a the girl is playing cards.jpg",
-          "e 33b the girl is playing the piano.jpg",
-          "e 33c the children are playing cards.jpg"
-        ],
-        "answers": [
-          "the children are playing the piano",
-          "the girl is playing cards",
-          "the girl is playing the piano",
-          "the children are playing cards"
-        ],
-        "correctAnswer": "the children are playing the piano",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": ""
-      },
-      {
-        "practice": false,
         "question": "the blue van",
         "pictures": [
           "ai 2a the blue van.jpg",
@@ -893,17 +709,14 @@
           "the blue car",
           "the red car"
         ],
-        "correctAnswer": "the blue van",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "phrase"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the dirty boots",
         "pictures": [
           "ai 4a the dirty boots.jpg",
@@ -917,17 +730,14 @@
           "the dirty shoes",
           "the clean shoes"
         ],
-        "correctAnswer": "the dirty boots",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "phrase"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the thin boy",
         "pictures": [
           "ai 5a the thin boy.jpg",
@@ -941,17 +751,14 @@
           "the thin girl",
           "the fat girl"
         ],
-        "correctAnswer": "the thin boy",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "phrase"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the rabbit is not white (the rabbit is black)",
         "pictures": [
           "aii 7a the rabbit is not white.jpg",
@@ -965,17 +772,14 @@
           "the cat is not white (the cat is black)",
           "the cat is white"
         ],
-        "correctAnswer": "the rabbit is not white (the rabbit is black)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the bag is not large (the bag is small)",
         "pictures": [
           "aii 8a the bag is not large.jpg",
@@ -989,17 +793,14 @@
           "the box is not large (the box is small)",
           "the box is large"
         ],
-        "correctAnswer": "the bag is not large (the bag is small)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the man is not young (the man is old)",
         "pictures": [
           "aii 9a the man is not young.jpg",
@@ -1013,17 +814,14 @@
           "the woman is not young (the woman is old)",
           "the woman is young"
         ],
-        "correctAnswer": "the man is not young (the man is old)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "grate the cheese",
         "pictures": [
           "b 11a grate the cheese.jpg",
@@ -1037,17 +835,14 @@
           "grate the carrot",
           "slice the carrot"
         ],
-        "correctAnswer": "grate the cheese",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "phrase"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "cut the paper",
         "pictures": [
           "b 14a cut the paper.jpg",
@@ -1061,17 +856,14 @@
           "cut the fabric",
           "fold the fabric"
         ],
-        "correctAnswer": "cut the paper",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "phrase"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "peel the potato",
         "pictures": [
           "b 15a peel the potato.jpg",
@@ -1085,17 +877,14 @@
           "peel the banana",
           "cut the banana"
         ],
-        "correctAnswer": "peel the potato",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "phrase"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the grandmother is knitting",
         "pictures": [
           "ci 18a the grandmother is knitting.jpg",
@@ -1109,17 +898,14 @@
           "the boy is knitting",
           "the boy is sewing"
         ],
-        "correctAnswer": "the grandmother is knitting",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the children are painting",
         "pictures": [
           "ci 19a the children are painting.jpg",
@@ -1133,17 +919,14 @@
           "the girl is painting",
           "the girl is drawing"
         ],
-        "correctAnswer": "the children are painting",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the boy is running",
         "pictures": [
           "ci 20a the boy is running.jpg",
@@ -1157,17 +940,14 @@
           "the boys are running",
           "the boys are jumping"
         ],
-        "correctAnswer": "the boy is running",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The judge is not writing (the judge is reading)",
         "pictures": [
           "cii 22a the judge is not writing.jpg",
@@ -1181,17 +961,14 @@
           "The judge is writing",
           "The doctor is writing"
         ],
-        "correctAnswer": "The judge is not writing (the judge is reading)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the girl is not drinking (the girl is eating)",
         "pictures": [
           "cii 23a the girl is not drinking.jpg",
@@ -1205,17 +982,14 @@
           "the girl is drinking",
           "the boy is drinking"
         ],
-        "correctAnswer": "the girl is not drinking (the girl is eating)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The cat is not sleeping (the cat is sitting)",
         "pictures": [
           "cii 24a the cat is not sleeping.jpg",
@@ -1229,17 +1003,14 @@
           "The cat is sleeping",
           "the dog is sleeping"
         ],
-        "correctAnswer": "The cat is not sleeping (the cat is sitting)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the child is climbing the ladder",
         "pictures": [
           "d 25a the child is climbing the ladder.jpg",
@@ -1253,17 +1024,14 @@
           "the fireman is climbing the ladder",
           "the fireman is climbing the tree"
         ],
-        "correctAnswer": "the child is climbing the ladder",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the children are washing the car",
         "pictures": [
           "d 27a the children are washing the car.jpg",
@@ -1277,17 +1045,14 @@
           "the girl is washing the car",
           "the girl is washing the boat"
         ],
-        "correctAnswer": "the children are washing the car",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the boy is riding the bike",
         "pictures": [
           "d 29a the boy is riding the bike.jpg",
@@ -1301,17 +1066,14 @@
           "the boys are riding the bike",
           "the boys are riding the horse"
         ],
-        "correctAnswer": "the boy is riding the bike",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "she (the girl) is writing the letter",
         "pictures": [
           "e 31a she is writing the letter.jpg",
@@ -1325,17 +1087,14 @@
           "he (the man) is writing the letter",
           "he (the man) is writing the card"
         ],
-        "correctAnswer": "she (the girl) is writing the letter",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "they (the boys) are washing their faces",
         "pictures": [
           "e 32a they are washing their faces.jpg",
@@ -1349,17 +1108,14 @@
           "he (the boy) is washing his hands",
           "he (the boy) is washing his face"
         ],
-        "correctAnswer": "they (the boys) are washing their faces",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "she (the girl) is playing cards",
         "pictures": [
           "e 33a she is playing cards.jpg",
@@ -1373,17 +1129,14 @@
           "they (the children) are playing cards",
           "they (the children) are playing the piano"
         ],
-        "correctAnswer": "she (the girl) is playing cards",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the car is hitting him (the policeman)",
         "pictures": [
           "f 34a the car is hitting him.jpg",
@@ -1397,17 +1150,14 @@
           "the car is hitting her (the girl)",
           "the ball is hitting her (the girl)"
         ],
-        "correctAnswer": "the car is hitting him (the policeman)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the snake is biting her (the woman)",
         "pictures": [
           "f 35a the snake is biting her.jpg",
@@ -1421,17 +1171,14 @@
           "the snake is biting him (the boy)",
           "the shark is biting him (the boy)"
         ],
-        "correctAnswer": "the snake is biting her (the woman)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the lion is chasing them (the children)",
         "pictures": [
           "f 36a the lion is chasing them.jpg",
@@ -1445,17 +1192,14 @@
           "the lion is chasing him (the boy)",
           "the dog is chasing him (the boy)"
         ],
-        "correctAnswer": "the lion is chasing them (the children)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "he is drying the dishes",
         "pictures": [
           "g 37a he is drying the dishes.jpg",
@@ -1469,17 +1213,14 @@
           "they are drying the dishes",
           "they are washing the dishes"
         ],
-        "correctAnswer": "he is drying the dishes",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "he is kicking the ball",
         "pictures": [
           "g 38a he is kicking the ball.jpg",
@@ -1493,17 +1234,14 @@
           "she is kicking the ball",
           "she is catching the ball"
         ],
-        "correctAnswer": "he is kicking the ball",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "they are washing their hands",
         "pictures": [
           "g 39a they are washing their hands.jpg",
@@ -1517,17 +1255,14 @@
           "she is washing her hands",
           "she is clapping her hands"
         ],
-        "correctAnswer": "they are washing their hands",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the dog is licking her (the woman)",
         "pictures": [
           "h 40a the dog is licking her.jpg",
@@ -1541,17 +1276,14 @@
           "the dog is licking him (the man)",
           "the dog is biting him (the man)"
         ],
-        "correctAnswer": "the dog is licking her (the woman)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the man is hitting them (the children)",
         "pictures": [
           "h 41a the man is hitting them.jpg",
@@ -1565,17 +1297,14 @@
           "the man is hitting her (the girl)",
           "the man is hugging her (the girl)"
         ],
-        "correctAnswer": "the man is hitting them (the children)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the monkey is chasing him (the man)",
         "pictures": [
           "h 42a the monkey is chasing him.jpg",
@@ -1589,17 +1318,14 @@
           "the monkey is chasing them (the couple)",
           "the monkey is watching them (the couple)"
         ],
-        "correctAnswer": "the monkey is chasing him (the man)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the boy is giving the flowers to the girl",
         "pictures": [
           "i 43a the boy is giving the flowers to the girl.jpg",
@@ -1613,17 +1339,14 @@
           "the boy is giving the flowers to the man",
           "the boy is giving the gift to the man"
         ],
-        "correctAnswer": "the boy is giving the flowers to the girl",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the girl is throwing the ball to the boy",
         "pictures": [
           "i 44a the girl is throwing the ball to the boy.jpg",
@@ -1637,17 +1360,14 @@
           "the girl is giving the ball to the boy",
           "the man is giving the ball to the boy"
         ],
-        "correctAnswer": "the girl is throwing the ball to the boy",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the girl is putting the book on the shelf",
         "pictures": [
           "i 45a the girl is putting the book on the shelf.jpg",
@@ -1661,17 +1381,14 @@
           "the girl is putting the book on the table",
           "the girl is putting the cup on the table"
         ],
-        "correctAnswer": "the girl is putting the book on the shelf",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "the woman is cutting the wood with a saw",
         "pictures": [
           "i 47a the woman is cutting the wood with a saw.jpg",
@@ -1685,96 +1402,20 @@
           "the woman is cutting the wood with an axe",
           "the man is cutting the wood with an axe"
         ],
-        "correctAnswer": "the woman is cutting the wood with a saw",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": "simple"
+        "answerPosition": null
       }
     ]
   },
   "sentence-part-2": {
     "name": "Sentence Part 2",
     "assessmentType": "sentence",
-    "completed": false,
     "items": [
       {
-        "practice": true,
-        "question": "The woman is kissing the man",
-        "pictures": [
-          "o 59a the woman is kissing the man.jpg",
-          "o 59b the man is kissing the woman.jpg",
-          "o 59c the woman is hugging the man.jpg",
-          "o 59d the man is hugging the woman.jpg"
-        ],
-        "answers": [
-          "the woman is kissing the man",
-          "the man is kissing the woman",
-          "the woman is hugging the man",
-          "the man is hugging the woman"
-        ],
-        "correctAnswer": "the woman is kissing the man",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": ""
-      },
-      {
-        "practice": true,
-        "question": "The soldiers are measuring the nurses",
-        "pictures": [
-          "l 50d the soldiers are measuring the nurses.jpg",
-          "l 50a the nurses are weighing the soldiers.jpg",
-          "l 50b the soldiers are weighing the nurses.jpg",
-          "l 50c the nurses are measuring the soldiers.jpg"
-        ],
-        "answers": [
-          "the children are playing the piano",
-          "the girl is playing cards",
-          "the girl is playing the piano",
-          "the children are playing cards"
-        ],
-        "correctAnswer": "the children are playing the piano",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": ""
-      },
-      {
-        "practice": true,
-        "question": "The child who the lady dries is reading the book",
-        "pictures": [
-          "r 67b the lady is drying the child who reads a book.jpg",
-          "r 67a the lady who dries the child is reading a book.jpg",
-          "r 67c the child who dries the lady is reading a book.jpg ",
-          "r 67d child is drying the lady who reads a book.jpg"
-        ],
-        "answers": [
-          "the lady is drying the child who reads a book",
-          "the lady who dries the child is reading a book",
-          "the child who dries the lady is reading a book ",
-          "child is drying the lady who reads a book"
-        ],
-        "correctAnswer": "the lady is drying the child who reads a book",
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": false,
-        "type": ""
-      },
-      {
-        "practice": false,
         "question": "The woman is drawing the child",
         "pictures": [
           "L 49a the woman is drawing the child.jpg",
@@ -1788,17 +1429,14 @@
           "The child is drawing the woman",
           "The child is painting the woman"
         ],
-        "correctAnswer": "The woman is drawing the child",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The nurses are weighing the soldiers",
         "pictures": [
           "L 50a The nurses are weighing the soldiers.jpg",
@@ -1812,17 +1450,14 @@
           "The soldiers are weighing the nurses",
           "The soldiers are measuring the nurses"
         ],
-        "correctAnswer": "The nurses are weighing the soldiers",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The singer is hitting the chil",
         "pictures": [
           "L 51a the singer is hitting the child.jpg",
@@ -1836,17 +1471,14 @@
           "The child is hitting the singer",
           "The child is touching the singer"
         ],
-        "correctAnswer": "The singer is hitting the chil",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "They (the children) are applauding the teacher",
         "pictures": [
           "m 52a they are applauding the teacher.jpg",
@@ -1860,17 +1492,14 @@
           "The teacher is applauding them (the children)",
           "The teacher is applauding him (the boy)"
         ],
-        "correctAnswer": "They (the children) are applauding the teacher",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "He (the boy) is watching the woman (woman)",
         "pictures": [
           "M 53a He is watching the woman.jpg",
@@ -1884,17 +1513,14 @@
           "The woman (woman) is watching him (the boy)",
           "The woman (woman)  is watching her (the girl)"
         ],
-        "correctAnswer": "He (the boy) is watching the woman (woman)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "She (the girl) is pushing the teacher",
         "pictures": [
           "m 54a she is pushing the teacher.jpg",
@@ -1908,17 +1534,14 @@
           "The teacher is pushing her (the girl)",
           "The teacher is pushing them (the boys)"
         ],
-        "correctAnswer": "She (the girl) is pushing the teacher",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The teacher is pulling her (the girl)",
         "pictures": [
           "n 55a the teacher is pulling her.jpg",
@@ -1932,17 +1555,14 @@
           "She (the girl) is pulling the teacher",
           "They (the children) are pulling the teacher"
         ],
-        "correctAnswer": "The teacher is pulling her (the girl)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The grandmother is dressing him (the boy)",
         "pictures": [
           "n 56a the grandmother is dressing him.jpg",
@@ -1956,17 +1576,14 @@
           "He (the boy) is dressing the grandmother",
           "She (the girl) is dressing the grandmother"
         ],
-        "correctAnswer": "The grandmother is dressing him (the boy)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The grandfather is helping them (the children)",
         "pictures": [
           "n 57a the grandfather is helping them.jpg",
@@ -1980,17 +1597,14 @@
           "They (the children) are helping the grandfather",
           "He (the boy) is helping the grandfather"
         ],
-        "correctAnswer": "The grandfather is helping them (the children)",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "simple"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The player was pushed by the referee",
         "pictures": [
           "o 58a the player was pushed by the referee.jpg",
@@ -2004,17 +1618,14 @@
           "The referee was pushed by the player",
           "The referee was pulled by the player"
         ],
-        "correctAnswer": "The player was pushed by the referee",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The girl was weighed by the boy",
         "pictures": [
           "o 60a the girl was weighed by the boy.jpg",
@@ -2028,17 +1639,14 @@
           "The boy was weighed by the girl",
           "The boy was measured by the girl"
         ],
-        "correctAnswer": "The girl was weighed by the boy",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The policeman was kicked by the driver",
         "pictures": [
           "p 62a the policeman was kicked.jpg",
@@ -2052,17 +1660,14 @@
           "The driver was kicked by the policeman",
           "The driver was hit by the policeman"
         ],
-        "correctAnswer": "The policeman was kicked by the driver",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The runner was pushed by the spectator",
         "pictures": [
           "p 63a the runner was pushed.jpg",
@@ -2076,17 +1681,14 @@
           "The spectator was pushed by the runner",
           "d.The spectator was pulled by the runner"
         ],
-        "correctAnswer": "The runner was pushed by the spectator",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The boy is kissing the athlete who wears a medal",
         "pictures": [
           "Q 64a The boy is kissing the athlete who wears a medal.jpg",
@@ -2100,17 +1702,14 @@
           "The athlete is kissing the boy who wears a medal",
           "The athlete who wears the medal is kissing the boy"
         ],
-        "correctAnswer": "The boy is kissing the athlete who wears a medal",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The fireman is pushing the boy who rides the motorbike",
         "pictures": [
           "Q 65a The fireman is pushing the boy who rides the motorbike.jpg",
@@ -2124,17 +1723,14 @@
           "The boy is pushing the fireman who rides the motorbike",
           "The boy who rides the motorbike is pushing the fireman"
         ],
-        "correctAnswer": "The fireman is pushing the boy who rides the motorbike",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The player who kicks the referee is hearing the music",
         "pictures": [
           "R 68a The player who kicks the referee is hearing the music.jpg",
@@ -2148,17 +1744,14 @@
           "The player is kicking the referee who hears the music",
           "The referee who kicks the player is hearing the music"
         ],
-        "correctAnswer": "The player who kicks the referee is hearing the music",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The woman who kisses the man is tall",
         "pictures": [
           "R 69a The woman who kisses the man is tall.jpg",
@@ -2172,17 +1765,14 @@
           "The woman is kissing the man who is tall",
           "The man who kisses the woman is tall"
         ],
-        "correctAnswer": "The woman who kisses the man is tall",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The ladies who the man draws are baking a cake",
         "pictures": [
           "S 71a The ladies who the man draws are baking a cake.jpg",
@@ -2196,17 +1786,14 @@
           "The ladies who draw the man are baking a cake",
           "The man who draws the ladies is baking a cake"
         ],
-        "correctAnswer": "The ladies who the man draws are baking a cake",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The runners who the assistant watches are drinking water",
         "pictures": [
           "S 72a The runners who the assistant watches are drinking water.jpg",
@@ -2220,17 +1807,14 @@
           "The runners who watch the assistant are drinking water",
           "The assistant who watches the runners is drinking water"
         ],
-        "correctAnswer": "The runners who the assistant watches are drinking water",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The fireman who she is calling is carrying a ladder",
         "pictures": [
           "T 73a The fireman who she is calling is carrying a ladder.jpg",
@@ -2244,17 +1828,14 @@
           "The fireman who is calling her is carrying a ladder",
           "The woman who is calling him is carrying the ladder"
         ],
-        "correctAnswer": "The fireman who she is calling is carrying a ladder",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The teacher who he is hitting is holding a book",
         "pictures": [
           "T 75a The teacher who he is hitting is holding a book.jpg",
@@ -2268,17 +1849,14 @@
           "The teacher who is hitting him is holding a book",
           "The man who is hitting her is holding a book"
         ],
-        "correctAnswer": "The teacher who he is hitting is holding a book",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The policeman who Queen Elizabeth is visiting has a big hat",
         "pictures": [
           "U 76a The policeman who Queen Elizabeth is visiting has a big hat.jpg",
@@ -2292,17 +1870,14 @@
           "The policeman who is visiting Queen Elizabeth has a big hat",
           "Queen Elizabeth who is visiting the policeman has a big hat"
         ],
-        "correctAnswer": "The policeman who Queen Elizabeth is visiting has a big hat",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       },
       {
-        "practice": false,
         "question": "The guard who John Lennon is chasing has a black jacket",
         "pictures": [
           "U 77a The guard who John Lennon is chasing has a black jacket.jpg",
@@ -2316,64 +1891,21 @@
           "The guard who is chasing John Lennon has a black jacket",
           "John Lennon who is chasing the guard has a black jacket"
         ],
-        "correctAnswer": "The guard who John Lennon is chasing has a black jacket",
+        "correctAnswer": 0,
         "started": null,
         "finished": null,
         "timeTaken": null,
         "answerGiven": null,
-        "answerPosition": null,
-        "reversibility": true,
-        "type": "complex"
+        "answerPosition": null
       }
     ]
   },
   "paragraph": {
     "name": "Paragraph",
     "assessmentType": "paragraph",
-    "completed": false,
     "items": [
       {
-        "practice": true,
-        "paragraph": "It was bonfire night. The children were excited.  There were going to a fireworks display. The fireworks were very loud. The children had to cover their ears.",
-        "questions": [
-          {
-            "question": "The children went to a",
-            "answers": [
-              "fireworks display",
-              "birthday party",
-              "school disco"
-            ],
-            "correctAnswer": "fireworks display",
-            "started": null,
-            "finished": null,
-            "timeTaken": null,
-            "answerGiven": null,
-            "answerPosition": null,
-            "type": ""
-          },
-          {
-            "question": "The fireworks were",
-            "answers": [
-              "noisy",
-              "dazzling",
-              "quiet"
-            ],
-            "correctAnswer": "noisy",
-            "started": null,
-            "finished": null,
-            "timeTaken": null,
-            "answerGiven": null,
-            "answerPosition": null,
-            "type": ""
-          }
-        ],
-        "started": null,
-        "finished": null,
-        "timeTaken": null
-      },
-      {
         "paragraph": "Sarah and Adam packed their suitcases. The taxi took them to the airport. They had plenty of time. They went to check in. The person said they were really early. Their flight was the next day!",
-        "practice": false,
         "questions": [
           {
             "question": "Sarah and Adam were",
@@ -2387,8 +1919,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "They went to the airport by",
@@ -2402,8 +1933,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -2412,7 +1942,6 @@
       },
       {
         "paragraph": "Aisha and Mary arrived at the pub. They booked into their room. It was lovely. They went down to have a meal. The pub had finished serving meals. They went to bed hungry.",
-        "practice": false,
         "questions": [
           {
             "question": "The room was",
@@ -2426,8 +1955,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "Aisha and Mary had",
@@ -2441,8 +1969,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -2451,7 +1978,6 @@
       },
       {
         "paragraph": "As Aisha and Mary climbed the hill, the mist began to surround them. They were fed up. They were looking forward to the great views and now they would not be able to see anything. As they reached the top, the mist disappeared just for a moment. It was beautiful. It had been worth the effort.",
-        "practice": false,
         "questions": [
           {
             "question": "Aisha and Mary went walking in the",
@@ -2465,8 +1991,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "The walk was",
@@ -2480,8 +2005,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           },
           {
             "question": "At the start, they were",
@@ -2495,8 +2019,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "At the top they saw",
@@ -2510,8 +2033,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -2519,8 +2041,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Sarah needed to do some shopping. She made a long list. She did not want to go on her own. She asked Adam if he would come. They set off together. They shopped for two hours but there was still a lot to buy. It was busy and tiring. They went to a cafè. They were feeling hungry.",
-        "practice": false,
+        "paragraph": "Sarah needed to do some shopping. She made a long list. She did not want to go on her own. She asked Adam if he would come. They set off together. They shopped for two hours but there was still a lot to buy. It was busy and tiring. They went to a caf�. They were feeling hungry.",
         "questions": [
           {
             "question": "Sarah and Adam went",
@@ -2534,8 +2055,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "They shopped",
@@ -2549,8 +2069,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "They stopped to get",
@@ -2564,8 +2083,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           },
           {
             "question": "Sarah needed to buy",
@@ -2579,8 +2097,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -2589,7 +2106,6 @@
       },
       {
         "paragraph": "Aisha and Mary walked along a path. They smiled because the sun was shining and they were near a beautiful waterfall. Just then there was a hole in the path. Aisha tripped. She fell awkwardly and hurt her ankle. It had all been too good to be true.",
-        "practice": false,
         "questions": [
           {
             "question": "Aisha and Mary went for a",
@@ -2603,8 +2119,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "They were",
@@ -2618,8 +2133,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "The path was",
@@ -2633,8 +2147,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           },
           {
             "question": "Aisha hurt her",
@@ -2648,8 +2161,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -2658,7 +2170,6 @@
       },
       {
         "paragraph": "Sarah and Adam enjoyed their weekends away and since they were always organised, they had booked in advance. When they arrived, no record of their booking had been made and therefore there was no room. They drove for two hours searching for an alternative hotel, eventually finding a small cheap bed and breakfast.",
-        "practice": false,
         "questions": [
           {
             "question": "The hotel was",
@@ -2672,8 +2183,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "Sarah and Adam",
@@ -2687,8 +2197,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "They had to stay in a",
@@ -2702,8 +2211,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "They travelled by",
@@ -2717,18 +2225,8 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
-          }
-        ],
-        "started": null,
-        "finished": null,
-        "timeTaken": null
-      },
-      {
-        "paragraph": "Aisha and Mary often visited Scotland. They liked the scenery, walking and the tranquillity. This year they booked for a fortnight in a small cottage. It was beautiful. They had a great holiday. They came back relaxed and happy. They immediately booked again for next year.",
-        "practice": false,
-        "questions": [
+            "answerPosition": null
+          },
           {
             "question": "Aisha and Mary went away for",
             "answers": [
@@ -2741,8 +2239,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "They enjoyed",
@@ -2756,8 +2253,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "Their holiday was",
@@ -2771,8 +2267,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "Next year they will go to",
@@ -2786,8 +2281,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -2795,8 +2289,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "The children ran ahead as Sarah and Adam followed, carrying the shopping. They had been out all day and had lots of bags. They had got all the food shopping and now wanted to get home. One of the children started to shout. As they reached the car, they could see it had been broken into. The window was smashed and the door damaged. They were very shocked and called the police.",
-        "practice": false,
+        "paragraph": "Aisha and Mary often visited Scotland. They liked the scenery, walking and the tranquillity. This year they booked for a fortnight in a small cottage. It was beautiful. They had a great holiday. They came back relaxed and happy. They immediately booked again for next year.",
         "questions": [
           {
             "question": "Sarah and Adam had been shopping for",
@@ -2810,8 +2303,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "They had bought",
@@ -2825,8 +2317,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "They had been out",
@@ -2840,8 +2331,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           },
           {
             "question": "The car had been",
@@ -2855,8 +2345,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -2864,8 +2353,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "As they left the house on their trip away, Mary checked with Aisha that they had everything with them. They set off, looking forward to a weekend away. When they unpacked, everything was there except the maps, compass and boots. Mary laughed. They would have to buy another map of the area. This would be their third. They forgot it every time.",
-        "practice": false,
+        "paragraph": "The children ran ahead as Sarah and Adam followed, carrying the shopping. They had been out all day and had lots of bags. They had got all the food shopping and now wanted to get home. One of the children started to shout. As they reached the car, they could see it had been broken into. The window was smashed and the door damaged. They were very shocked and called the police.",
         "questions": [
           {
             "question": "Aisha and Mary were",
@@ -2879,8 +2367,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "They had forgotten the",
@@ -2894,8 +2381,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "When they get home, they will have",
@@ -2909,8 +2395,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "Mary thought the incident  was",
@@ -2924,8 +2409,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -2933,8 +2417,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Adam smiled as the children ran ahead. They loved going to the park. They played on the swings and the slide. They noticed a new roundabout. They both jumped on. Adam sat and watched. Suddenly, there was a cry. George had slipped off and was crying. Adam ran and picked him up. It was mostly shock. After a few minutes, he started playing again. They enjoyed their trip to the park.",
-        "practice": false,
+        "paragraph": "As they left the house on their trip away, Mary checked with Aisha that they had everything with them. They set off, looking forward to a weekend away. When they unpacked, everything was there except the maps, compass and boots. Mary laughed. They would have to buy another map of the area. This would be their third. They forgot it every time!",
         "questions": [
           {
             "question": "Adam and the children went to the",
@@ -2948,8 +2431,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "The park had a new",
@@ -2963,8 +2445,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "The children were",
@@ -2978,8 +2459,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "At the end George was",
@@ -2993,8 +2473,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -3002,11 +2481,10 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Aisha and Mary looked out of the window and saw the rain coming down persistently. They were hoping that the weather would change. Mary checked the forecast which said that the weather would break tomorrow. Tomorrow came and went but the rain was unrelenting. After five days they were despondent. It was intolerable to be stuck in the middle of nowhere for so long with such rain. They packed up and went home.",
-        "practice": false,
+        "paragraph": "Adam smiled as the children ran ahead. They loved going to the park. They played on the swings and the slide. They noticed a new roundabout. They both jumped on. Adam sat and watched. Suddenly, there was a cry. George had slipped off and was crying. Adam ran and picked him up. It was mostly shock. After a few minutes, he started playing again. They enjoyed their trip to the park.",
         "questions": [
           {
-            "question": "Aisha and Mary's trip was",
+            "question": "Aisha and Mary�s trip was",
             "answers": [
               "ruined",
               "successful",
@@ -3017,8 +2495,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "They went home after",
@@ -3032,8 +2509,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "The weather forecast was",
@@ -3047,8 +2523,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           },
           {
             "question": "The weather was",
@@ -3062,8 +2537,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -3071,8 +2545,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "After a long walk, Aisha and Mary returned muddy and cold but they had enjoyed their day in fantastic scenery, with hills cloaked deep with snow, and plenty of wildlife to see. As Mary started running a bath to wash the day away, they realised the water was stone cold. Aisha boiled some pans of water so she could have a quick wash. It all added to the sense of adventure!",
-        "practice": false,
+        "paragraph": "Aisha and Mary looked out of the window and saw the rain coming down persistently. They were hoping that the weather would change. Mary checked the forecast which said that the weather would break tomorrow. Tomorrow came and went but the rain was unrelenting. After five days they were despondent. It was intolerable to be stuck in the middle of nowhere for so long with such rain. They packed up and went home.",
         "questions": [
           {
             "question": "It was",
@@ -3086,8 +2559,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "Aisha and Mary returned from their walk",
@@ -3101,8 +2573,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "They wanted a",
@@ -3116,8 +2587,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "The boiler was",
@@ -3131,8 +2601,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -3140,11 +2609,10 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Sarah and Adam had had an extremely busy week, with both working long hours, and it was time for a break. Sarah wanted to do some shopping, so she could leave behind her busy life. Adam wanted nothing more than to laze in a relaxing hotel, perhaps having a sauna or a swim. A friend suggested a fantastic location at the coast; the hotel was modern with excellent facilities and quaint shops on the doorstep. They booked it immediately.",
-        "practice": false,
+        "paragraph": "After a long walk, Aisha and Mary returned muddy and cold but they had enjoyed their day in fantastic scenery, with hills cloaked deep with snow, and plenty of wildlife to see. As Mary started running a bath to wash the day away, they realised the water was stone cold. Aisha boiled some pans of water so she could have a quick wash. It all added to the sense of adventure!",
         "questions": [
           {
-            "question": "Sarah and Adam week had been",
+            "question": "Sarah and Adam� week had been",
             "answers": [
               "busy",
               "boring",
@@ -3155,8 +2623,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "They were going away for a",
@@ -3170,8 +2637,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           },
           {
             "question": "The hotel was",
@@ -3185,8 +2651,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "They wanted to do",
@@ -3200,8 +2665,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -3209,8 +2673,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "The street was bustling with people, all keen to do their Christmas shopping. Sarah and Adam each took out their list of presents and made a plan for which shops to go to. They liked to be organised and buy their presents in advance, making sure they got some bargains. After two hours they met up again. Adam was staggering with the number of bags he had, but was puzzled why Sarah had nothing. Sarah laughed. She said the shops had been far too busy, so she had found a computer, sat and had a coffee and ordered all her gifts on the internet!",
-        "practice": false,
+        "paragraph": "Sarah and Adam had had an extremely busy week, with both working long hours, and it was time for a break. Sarah wanted to do some shopping, so she could leave behind her busy life. Adam wanted nothing more than to laze in a relaxing hotel, perhaps having a sauna or a swim. A friend suggested a fantastic location at the coast; the hotel was modern with excellent facilities and quaint shops on the doorstep. They booked it immediately.",
         "questions": [
           {
             "question": "Sarah and Adam were shopping for",
@@ -3224,8 +2687,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "It was",
@@ -3239,8 +2701,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "Sarah bought her presents",
@@ -3254,8 +2715,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "Adam bought",
@@ -3269,8 +2729,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           }
         ],
         "started": null,
@@ -3278,8 +2737,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "The weather was beautiful. Aisha and Mary decided to go away. They thought camping was a good idea. They found their tent and packed the car. The car was very full. They took chairs, a table, pillows, a quilt as well as all their food and clothes. They booked a campsite they had used before. It was scenic and well kept. When they arrived they chose where to pitch. They had a lovely view. They were hungry and so went to the café. They sat and talked and enjoyed being away. By the time they got back it was dusk. They began to put up the tent. They laughed as they tried to do it. They could only just remember how it all worked. Eventually it was up and they admired their hard work. It had become windy as they worked. They decided to put guy ropes on. Aisha searched for the ropes. Mary searched for the tent pegs. They emptied everything in the boot. The ropes and pegs were not there. The tent was blowing in the wind now. Aisha and Mary were not sure if it would stay up. They sat down disheartened. Just then, a man came across. He said he realised their problem. He asked them if they would like to borrow some ropes and pegs. They were grateful and relieved. They fixed their tent and had a well-earned rest. The next day they met the man again and took him to the café to say thank you.",
-        "practice": false,
+        "paragraph": "The street was bustling with people, all keen to do their Christmas shopping. Sarah and Adam each took out their list of presents and made a plan for which shops to go to. They liked to be organised and buy their presents in advance, making sure they got some bargains. After two hours they met up again. Adam was staggering with the number of bags he had, but was puzzled why Sarah had nothing. Sarah laughed. She said the shops had been far too busy, so she had found a computer, sat and had a coffee and ordered all her gifts on the internet!",
         "questions": [
           {
             "question": "Aisha and Mary were going",
@@ -3293,8 +2751,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MIS"
+            "answerPosition": null
           },
           {
             "question": "The campsite was",
@@ -3308,8 +2765,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DS"
+            "answerPosition": null
           },
           {
             "question": "They were",
@@ -3323,8 +2779,7 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "MII"
+            "answerPosition": null
           },
           {
             "question": "They thanked the man and bought him",
@@ -3338,13 +2793,169 @@
             "finished": null,
             "timeTaken": null,
             "answerGiven": null,
-            "answerPosition": null,
-            "type": "DI"
+            "answerPosition": null
           }
         ],
         "started": null,
         "finished": null,
         "timeTaken": null
+      },
+      {
+        "paragraph": "The weather was beautiful. Aisha and Mary decided to go away. They thought camping was a good idea. They found their tent and packed the car. The car was very full. They took chairs, a table, pillows, a quilt as well as all their food and clothes. They booked a campsite they had used before. It was scenic and well kept. When they arrived they chose where to pitch. They had a lovely view. They were hungry and so went to the caf�. They sat and talked and enjoyed being away. By the time they got back it was dusk. They began to put up the tent. They laughed as they tried to do it. They could only just remember how it all worked. Eventually it was up and they admired their hard work. It had become windy as they worked. They decided to put guy ropes on. Aisha searched for the ropes. Mary searched for the tent pegs. They emptied everything in the boot. The ropes and pegs were not there. The tent was blowing in the wind now. Aisha and Mary were not sure if it would stay up. They sat down disheartened. Just then, a man came across. He said he realised their problem. He asked them if they would like to borrow some ropes and pegs. They were grateful and relieved. They fixed their tent and had a well-earned rest. The next day they met the man again and took him to the caf� to say thank you.",
+        "questions": [],
+        "started": null,
+        "finished": null,
+        "timeTaken": null
+      }
+    ]
+  },
+  "paragraph-2": {
+    "name": "Paragraph Part 2",
+    "assessmentType": "single",
+    "items": [
+      {
+        "question": "They like walking in the countryside",
+        "answers": [
+          "Aisha and Mary",
+          "Sarah and Adam",
+          "Both"
+        ],
+        "correctAnswer": "Aisha and Mary",
+        "part": "Noun",
+        "type": "Concrete",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
+      },
+      {
+        "question": "They often go shopping",
+        "answers": [
+          "Sarah and Adam",
+          "Aisha and Mary",
+          "Both"
+        ],
+        "correctAnswer": "Sarah and Adam",
+        "part": "Noun",
+        "type": "Concrete",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
+      },
+      {
+        "question": "They like holidays",
+        "answers": [
+          "Both",
+          "Sarah and Adam",
+          "Aisha and Mary"
+        ],
+        "correctAnswer": "Both",
+        "part": "Noun",
+        "type": "Concrete",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
+      },
+      {
+        "question": "They have children",
+        "answers": [
+          "Sarah and Adam",
+          "Aisha and Mary",
+          "Both"
+        ],
+        "correctAnswer": "Sarah and Adam",
+        "part": "Noun",
+        "type": "Concrete",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
+      },
+      {
+        "question": "They are very organised",
+        "answers": [
+          "Sarah and Adam",
+          "Aisha and Mary",
+          "Both"
+        ],
+        "correctAnswer": "Sarah and Adam",
+        "part": "Noun",
+        "type": "Concrete",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
+      },
+      {
+        "question": "They are forgetful",
+        "answers": [
+          "Aisha and Mary",
+          "Sarah and Adam",
+          "Both"
+        ],
+        "correctAnswer": "Aisha and Mary",
+        "part": "Noun",
+        "type": "Abstract",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
+      },
+      {
+        "question": "They like eating out",
+        "answers": [
+          "Both",
+          "Sarah and Adam",
+          "Aisha and Mary"
+        ],
+        "correctAnswer": "Both",
+        "part": "Noun",
+        "type": "Abstract",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
+      },
+      {
+        "question": "They like the outdoors",
+        "answers": [
+          "Aisha and Mary",
+          "Sarah and Adam",
+          "Both"
+        ],
+        "correctAnswer": "Aisha and Mary",
+        "part": "Noun",
+        "type": "Abstract",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
+      },
+      {
+        "question": "They get on well",
+        "answers": [
+          "Both",
+          "Sarah and Adam",
+          "Aisha and Mary"
+        ],
+        "correctAnswer": "Both",
+        "part": "Noun",
+        "type": "Abstract",
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null,
+        "answerPosition": null
       }
     ]
   }

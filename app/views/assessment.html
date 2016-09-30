@@ -10,7 +10,10 @@
               <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
             <div class="row">
-              <div class="col-md-2 col-md-offset-5">
+              <div ng-if="currentSection === 'paragraph-2'" class="col-md-12">
+                <p class="btn btn-block question-text">{{item.question}}</p>
+              </div>
+              <div ng-if="currentSection !== 'paragraph-2'"class="col-md-2 col-md-offset-5">
                 <p class="btn btn-block question-text">{{item.question}}</p>
               </div>
             </div>

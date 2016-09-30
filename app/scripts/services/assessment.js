@@ -19,7 +19,7 @@ angular.module('rcaApp')
 
     Assessment.questionType = null;
 
-    Assessment.sections = ['singleWord-part-1', 'singleWord-part-2', 'sentence-part-1', 'sentence-part-2', 'paragraph'];
+    Assessment.sections = ['singleWord-part-1', 'singleWord-part-2', 'sentence-part-1', 'sentence-part-2', 'paragraph', 'paragraph-2'];
 
     Assessment.questions = {
 
