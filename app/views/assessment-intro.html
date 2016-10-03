@@ -5,12 +5,20 @@
 
   <p ng-show="currentSection === 'sentence-part-1' || currentSection === 'sentence-part-2'">Select the image that is described by the sentence.</p>
   <p ng-show="currentSection === 'paragraph'">Read the following paragraphs. You will be asked questions about the content.</p>
-  <p ng-show="currentSection === 'paragraph-2'">
-    Thinking about the paragraphs you have just read.
-    Which couple would you link the following statements to:
-    Sarah and Adam    Aisha and Mary    both couples
+  <div ng-show="currentSection === 'paragraph-2'">
+    <p>
+      Thinking about the paragraphs you have just read.
+      Which couple would you link the following statements to:
 
-  </p>
+
+    </p>
+
+    <ul>
+      <li>Sarah and Adam</li>
+      <li>Aisha and Mary; or</li>
+      <li>Both couples</li>
+    </ul>
+  </div>
   <!--<p ng-show="newSection && sectionType === 'paragraph-2'">Answer the following question about the paragraph you just read.</p>-->
   <ui-view></ui-view>
 

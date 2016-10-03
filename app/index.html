@@ -26,7 +26,7 @@
 
     <div class="header">
       <div ng-show="navBarVis" class="navbar navbar-default ng-cloak" role="navigation" ng-cloak>
-        <div id="main-contain" class="container-fluid">
+        <div class="container-fluid">
           <div class="navbar-header">
 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="container-fluid">
+    <div id="main-contain" class="container-fluid">
     <div ui-view=""></div>
     </div>
 
@@ -97,7 +97,7 @@
         <div class="modal-body">
 
           <div class="content">
-            <ng-include src="'/views/instructions-text.html'"></ng-include>
+            <ng-include src="'views/instructions-text.html'"></ng-include>
           </div>
 
         </div>
@@ -123,7 +123,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/jspdf/dist/jspdf.min.js"></script>
+    <script src="bower_components/jspdf/dist/jspdf.debug.js"></script>
     <script src="bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/chroma-js/chroma.js"></script>

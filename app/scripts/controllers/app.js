@@ -25,7 +25,8 @@ angular.module('rcaApp')
       console.log('state: ', $scope.currentStateName);
     });
 
-    $scope.isFullScreen = window.innerHeight == screen.height;
+    //$scope.isFullScreen = window.innerHeight == screen.height;
+    $scope.isFullScreen = document.getElementById('main-contain').innerHeight == screen.height;
 
     $scope.goFullScreen = function() {
       var elem = document.getElementById('main-contain');
