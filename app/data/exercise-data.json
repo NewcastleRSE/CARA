@@ -2041,7 +2041,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Sarah needed to do some shopping. She made a long list. She did not want to go on her own. She asked Adam if he would come. They set off together. They shopped for two hours but there was still a lot to buy. It was busy and tiring. They went to a caf�. They were feeling hungry.",
+        "paragraph": "Sarah needed to do some shopping. She made a long list. She did not want to go on her own. She asked Adam if he would come. They set off together. They shopped for two hours but there was still a lot to buy. It was busy and tiring. They went to a caf&eacute;. They were feeling hungry.",
         "questions": [
           {
             "question": "Sarah and Adam went",
@@ -2226,7 +2226,12 @@
             "timeTaken": null,
             "answerGiven": null,
             "answerPosition": null
-          },
+          }
+        ]
+      },
+      {
+        "paragraph": "Aisha and Mary often visited Scotland. They liked the scenery, walking and the tranquillity. This year they booked for a fortnight in a small cottage. It was beautiful. They had a great holiday. They came back relaxed and happy. They immediately booked again for next year.",
+        "questions": [
           {
             "question": "Aisha and Mary went away for",
             "answers": [
@@ -2289,7 +2294,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Aisha and Mary often visited Scotland. They liked the scenery, walking and the tranquillity. This year they booked for a fortnight in a small cottage. It was beautiful. They had a great holiday. They came back relaxed and happy. They immediately booked again for next year.",
+        "paragraph": "The children ran ahead as Sarah and Adam followed, carrying the shopping. They had been out all day and had lots of bags. They had got all the food shopping and now wanted to get home. One of the children started to shout. As they reached the car, they could see it had been broken into. The window was smashed and the door damaged. They were very shocked and called the police.",
         "questions": [
           {
             "question": "Sarah and Adam had been shopping for",
@@ -2353,7 +2358,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "The children ran ahead as Sarah and Adam followed, carrying the shopping. They had been out all day and had lots of bags. They had got all the food shopping and now wanted to get home. One of the children started to shout. As they reached the car, they could see it had been broken into. The window was smashed and the door damaged. They were very shocked and called the police.",
+        "paragraph": "As they left the house on their trip away, Mary checked with Aisha that they had everything with them. They set off, looking forward to a weekend away. When they unpacked, everything was there except the maps, compass and boots. Mary laughed. They would have to buy another map of the area. This would be their third. They forgot it every time!",
         "questions": [
           {
             "question": "Aisha and Mary were",
@@ -2417,7 +2422,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "As they left the house on their trip away, Mary checked with Aisha that they had everything with them. They set off, looking forward to a weekend away. When they unpacked, everything was there except the maps, compass and boots. Mary laughed. They would have to buy another map of the area. This would be their third. They forgot it every time!",
+        "paragraph": "Adam smiled as the children ran ahead. They loved going to the park. They played on the swings and the slide. They noticed a new roundabout. They both jumped on. Adam sat and watched. Suddenly, there was a cry. George had slipped off and was crying. Adam ran and picked him up. It was mostly shock. After a few minutes, he started playing again. They enjoyed their trip to the park.",
         "questions": [
           {
             "question": "Adam and the children went to the",
@@ -2481,10 +2486,10 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Adam smiled as the children ran ahead. They loved going to the park. They played on the swings and the slide. They noticed a new roundabout. They both jumped on. Adam sat and watched. Suddenly, there was a cry. George had slipped off and was crying. Adam ran and picked him up. It was mostly shock. After a few minutes, he started playing again. They enjoyed their trip to the park.",
+        "paragraph": "Aisha and Mary looked out of the window and saw the rain coming down persistently. They were hoping that the weather would change. Mary checked the forecast which said that the weather would break tomorrow. Tomorrow came and went but the rain was unrelenting. After five days they were despondent. It was intolerable to be stuck in the middle of nowhere for so long with such rain. They packed up and went home.",
         "questions": [
           {
-            "question": "Aisha and Mary�s trip was",
+            "question": "Aisha and Mary's trip was",
             "answers": [
               "ruined",
               "successful",
@@ -2545,7 +2550,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Aisha and Mary looked out of the window and saw the rain coming down persistently. They were hoping that the weather would change. Mary checked the forecast which said that the weather would break tomorrow. Tomorrow came and went but the rain was unrelenting. After five days they were despondent. It was intolerable to be stuck in the middle of nowhere for so long with such rain. They packed up and went home.",
+        "paragraph": "After a long walk, Aisha and Mary returned muddy and cold but they had enjoyed their day in fantastic scenery, with hills cloaked deep with snow, and plenty of wildlife to see. As Mary started running a bath to wash the day away, they realised the water was stone cold. Aisha boiled some pans of water so she could have a quick wash. It all added to the sense of adventure!",
         "questions": [
           {
             "question": "It was",
@@ -2609,10 +2614,10 @@
         "timeTaken": null
       },
       {
-        "paragraph": "After a long walk, Aisha and Mary returned muddy and cold but they had enjoyed their day in fantastic scenery, with hills cloaked deep with snow, and plenty of wildlife to see. As Mary started running a bath to wash the day away, they realised the water was stone cold. Aisha boiled some pans of water so she could have a quick wash. It all added to the sense of adventure!",
+        "paragraph": "Sarah and Adam had had an extremely busy week, with both working long hours, and it was time for a break. Sarah wanted to do some shopping, so she could leave behind her busy life. Adam wanted nothing more than to laze in a relaxing hotel, perhaps having a sauna or a swim. A friend suggested a fantastic location at the coast; the hotel was modern with excellent facilities and quaint shops on the doorstep. They booked it immediately.",
         "questions": [
           {
-            "question": "Sarah and Adam� week had been",
+            "question": "Sarah and Adam's week had been",
             "answers": [
               "busy",
               "boring",
@@ -2673,7 +2678,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "Sarah and Adam had had an extremely busy week, with both working long hours, and it was time for a break. Sarah wanted to do some shopping, so she could leave behind her busy life. Adam wanted nothing more than to laze in a relaxing hotel, perhaps having a sauna or a swim. A friend suggested a fantastic location at the coast; the hotel was modern with excellent facilities and quaint shops on the doorstep. They booked it immediately.",
+        "paragraph": "The street was bustling with people, all keen to do their Christmas shopping. Sarah and Adam each took out their list of presents and made a plan for which shops to go to. They liked to be organised and buy their presents in advance, making sure they got some bargains. After two hours they met up again. Adam was staggering with the number of bags he had, but was puzzled why Sarah had nothing. Sarah laughed. She said the shops had been far too busy, so she had found a computer, sat and had a coffee and ordered all her gifts on the internet!",
         "questions": [
           {
             "question": "Sarah and Adam were shopping for",
@@ -2737,7 +2742,7 @@
         "timeTaken": null
       },
       {
-        "paragraph": "The street was bustling with people, all keen to do their Christmas shopping. Sarah and Adam each took out their list of presents and made a plan for which shops to go to. They liked to be organised and buy their presents in advance, making sure they got some bargains. After two hours they met up again. Adam was staggering with the number of bags he had, but was puzzled why Sarah had nothing. Sarah laughed. She said the shops had been far too busy, so she had found a computer, sat and had a coffee and ordered all her gifts on the internet!",
+        "paragraph": "The weather was beautiful. Aisha and Mary decided to go away. They thought camping was a good idea. They found their tent and packed the car. The car was very full. They took chairs, a table, pillows, a quilt as well as all their food and clothes. They booked a campsite they had used before. It was scenic and well kept. When they arrived they chose where to pitch. They had a lovely view. They were hungry and so went to the caf&eacute;. They sat and talked and enjoyed being away. By the time they got back it was dusk. They began to put up the tent. They laughed as they tried to do it. They could only just remember how it all worked. Eventually it was up and they admired their hard work. It had become windy as they worked. They decided to put guy ropes on. Aisha searched for the ropes. Mary searched for the tent pegs. They emptied everything in the boot. The ropes and pegs were not there. The tent was blowing in the wind now. Aisha and Mary were not sure if it would stay up. They sat down disheartened. Just then, a man came across. He said he realised their problem. He asked them if they would like to borrow some ropes and pegs. They were grateful and relieved. They fixed their tent and had a well-earned rest. The next day they met the man again and took him to the caf&eacute; to say thank you.",
         "questions": [
           {
             "question": "Aisha and Mary were going",
@@ -2796,13 +2801,6 @@
             "answerPosition": null
           }
         ],
-        "started": null,
-        "finished": null,
-        "timeTaken": null
-      },
-      {
-        "paragraph": "The weather was beautiful. Aisha and Mary decided to go away. They thought camping was a good idea. They found their tent and packed the car. The car was very full. They took chairs, a table, pillows, a quilt as well as all their food and clothes. They booked a campsite they had used before. It was scenic and well kept. When they arrived they chose where to pitch. They had a lovely view. They were hungry and so went to the caf�. They sat and talked and enjoyed being away. By the time they got back it was dusk. They began to put up the tent. They laughed as they tried to do it. They could only just remember how it all worked. Eventually it was up and they admired their hard work. It had become windy as they worked. They decided to put guy ropes on. Aisha searched for the ropes. Mary searched for the tent pegs. They emptied everything in the boot. The ropes and pegs were not there. The tent was blowing in the wind now. Aisha and Mary were not sure if it would stay up. They sat down disheartened. Just then, a man came across. He said he realised their problem. He asked them if they would like to borrow some ropes and pegs. They were grateful and relieved. They fixed their tent and had a well-earned rest. The next day they met the man again and took him to the caf� to say thank you.",
-        "questions": [],
         "started": null,
         "finished": null,
         "timeTaken": null

@@ -236,7 +236,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 lengthScore: $window._.filter(paragraph.rows, function (data) {
                     return data.answer === data.target && (data.item === 'P3' || data.item === 'P4' || data.item === 'P5' || data.item === 'P6'  || data.item === 'P7');
                 }).length + ' / 20',
-                questionType: 'Main ideas implied',
+                questionType: 'Main ideas inferred',
                 typeScore: paragraph.mainIdeasImplied.correct.count + ' / 13'
             });
 
@@ -256,7 +256,7 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
                 lengthScore: $window._.filter(paragraph.rows, function (data) {
                     return data.answer === data.target && (data.item === 'P14');
                 }).length + ' / 4',
-                questionType: 'Details implied',
+                questionType: 'Details inferred',
                 typeScore: paragraph.detailsImplied.correct.count + ' / 13'
             });
 

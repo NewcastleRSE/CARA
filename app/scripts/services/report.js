@@ -142,9 +142,6 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 ]
             }
             else if(sentence1 && !sentence2) {
-
-                console.log(sentence1);
-
                 chartData = [
                     { label: 'Total', y: (sentence1.total.correct.count / sentence1.total.questionCount) },
                     { label: 'Non-reversible', y: (sentence1.nonReversibleTotal.correct.count/ sentence1.nonReversibleTotal.questionCount) },
@@ -217,9 +214,9 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         dataPoints: [
                             { label: 'Total', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) },
                             { label: 'Main Ideas Stated', y: paragraph.mainIdeasStated.correct.count / (paragraph.mainIdeasStated.correct.count + paragraph.mainIdeasStated.incorrect.count) },
-                            { label: 'Main Ideas Implied', y: paragraph.mainIdeasImplied.correct.count / (paragraph.mainIdeasImplied.correct.count + paragraph.mainIdeasImplied.incorrect.count) },
+                            { label: 'Main Ideas Inferred', y: paragraph.mainIdeasImplied.correct.count / (paragraph.mainIdeasImplied.correct.count + paragraph.mainIdeasImplied.incorrect.count) },
                             { label: 'Details Stated', y: paragraph.detailsStated.correct.count / (paragraph.detailsStated.correct.count + paragraph.detailsStated.incorrect.count) },
-                            { label: 'Details Implied', y: paragraph.detailsImplied.correct.count / (paragraph.detailsImplied.correct.count + paragraph.detailsImplied.incorrect.count) },
+                            { label: 'Details Inferred', y: paragraph.detailsImplied.correct.count / (paragraph.detailsImplied.correct.count + paragraph.detailsImplied.incorrect.count) },
                             { label: 'Gist', y: paragraph.gist.correct.count / (paragraph.gist.correct.count + paragraph.gist.incorrect.count) }
                         ]
                     }
@@ -234,22 +231,19 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             var dataPoints = [];
 
             if(singleWord1){
-                dataPoints.push({ label: 'Single Word: Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) });
+                dataPoints.push({ label: 'Single Words: unrelated distracters', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) });
             }
             if(singleWord2){
-                dataPoints.push({ label: 'Single Word: Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
+                dataPoints.push({ label: 'Single Words: related distracters', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
             }
-            if(sentence1 && sentence2){
-                dataPoints.push({ label: 'Sentence', y: ((sentence1.total.correct.count + sentence2.total.correct.count) / (sentence1.total.questionCount + sentence2.total.questionCount)) });
+            if(sentence1){
+                dataPoints.push({ label: 'Sentences: simple', y: (sentence1.total.correct.count / sentence1.total.questionCount) });
             }
-            if(sentence1 && !sentence2){
-                dataPoints.push({ label: 'Sentence', y: (sentence1.total.correct.count / sentence1.total.questionCount) });
-            }
-            if(!sentence1 && sentence2){
-                dataPoints.push({ label: 'Sentence', y: (sentence2.total.correct.count / sentence2.total.questionCount) });
+            if(sentence2){
+                dataPoints.push({ label: 'Sentences: complex', y: (sentence2.total.correct.count / sentence2.total.questionCount) });
             }
             if(paragraph){
-                dataPoints.push({ label: 'Paragraph', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) });
+                dataPoints.push({ label: 'Paragraphs', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) });
             }
 
             var overallSummary = new CanvasJS.Chart('overallSummary', {
@@ -296,16 +290,20 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             doc.setFontSize(12);
         }
 
-        doc.setFontSize(32);
-        doc.text(centeredText('SLT Report ' + assessment.name), 275, 'SLT Report ' + assessment.name);
+        doc.setFontSize(28);
+        doc.text(centeredText('CARA: Comprehensive Assessment'), 225, 'CARA: Comprehensive Assessment');
+        doc.text(centeredText('of Reading in Aphasia'), 275, 'of Reading in Aphasia');
+        doc.setFontSize(20);
+        doc.text(centeredText('Results Report ' + assessment.name), 350, 'Results Report ' + assessment.name);
         doc.setFontSize(16);
-        doc.text(100, 365, 'Name:');
-        doc.text(100, 415, 'Date of Birth:');
+        doc.text(100, 425, 'Name:');
+        doc.text(100, 475, 'Date of Birth:');
+        doc.text(100, 525, 'Date of Completion:');
 
         doc.addPage();
 
-        doc.setFontSize(12);
-        doc.text(50, 50, 'For Clinician Notes');
+        doc.setFontSize(10);
+        doc.text(50, 50, 'This area is intentionally blank and is for the clinician to record any observations or comments from the client.');
         doc.rect(50, 65, 495, 680);
 
         footer();
@@ -317,12 +315,12 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         if(singleWord1 || singleWord2) {
             doc.setFontSize(16);
-            doc.text(50, 100, '1. Single Word Distractors');
+            doc.text(50, 100, '1. Single Word Distracters');
             doc.setFontSize(12);
 
 
             if(singleWord1) {
-                doc.text(50, 135, 'Unrelated Distractors');
+                doc.text(50, 135, 'Unrelated Distracters');
                 doc.autoTable(singleWord1.summaryColumns, singleWord1.summaryRows, {
                     theme: 'grid',
                     margin: [150, 50, 50, 50],
@@ -335,12 +333,22 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         fillColor: 50,
                         textColor: 50,
                         fillStyle: 'S'
+                    },
+                    createdCell: function (cell, data) {
+                        switch (data.column.dataKey) {
+                            case 'concreteLabel':
+                                cell.styles.fontStyle = 'bold';
+                                break;
+                            case 'abstractLabel':
+                                cell.styles.fontStyle = 'bold';
+                                break;
+                        }
                     }
                 });
             }
 
             if(singleWord2) {
-                doc.text(50, 285, 'Related Distractors');
+                doc.text(50, 285, 'Related Distracters');
                 doc.autoTable(singleWord2.summaryColumns, singleWord2.summaryRows, {
                     theme: 'grid',
                     margin: [300, 50, 50, 50],
@@ -353,6 +361,16 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         fillColor: 50,
                         textColor: 50,
                         fillStyle: 'S'
+                    },
+                    createdCell: function (cell, data) {
+                        switch (data.column.dataKey) {
+                            case 'concreteLabel':
+                                cell.styles.fontStyle = 'bold';
+                                break;
+                            case 'abstractLabel':
+                                cell.styles.fontStyle = 'bold';
+                                break;
+                        }
                     }
                 });
             }
@@ -394,6 +412,16 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     fillColor: 50,
                     textColor: 50,
                     fillStyle: 'S'
+                },
+                createdCell: function (cell, data) {
+
+                    if(data.column.dataKey === 'type'){
+                        cell.styles.fontStyle = 'bold';
+                    }
+
+                    if(cell.text === ''){
+                        cell.styles.fillColor = [153,153,153];
+                    }
                 }
             });
 
@@ -427,6 +455,20 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     fillColor: 50,
                     textColor: 50,
                     fillStyle: 'S'
+                },
+                createdCell: function (cell, data) {
+
+                    switch (data.column.dataKey) {
+                        case 'length':
+                            cell.styles.fontStyle = 'bold';
+                            break;
+                        case 'paragraphs':
+                            cell.styles.fontStyle = 'bold';
+                            break;
+                        case 'questionType':
+                            cell.styles.fontStyle = 'bold';
+                            break;
+                    }
                 }
             });
 
@@ -450,7 +492,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         if(assessment.questions['singleWord-part-1'].completed) {
 
             doc.setFontSize(20);
-            doc.text(50, 50, 'Single Word: Unrelated Distractors');
+            doc.text(50, 50, 'Single Word: Unrelated Distracters');
             doc.rect(50, 65, 495, 2, 'F');
             doc.setFontSize(12);
 
