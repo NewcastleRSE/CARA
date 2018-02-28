@@ -422,7 +422,8 @@ module.exports = function (grunt) {
             'views/*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*',
-            'data/exercise-data.json'
+            'data/exercise-data.json',
+            'scripts/lib/canvasjs/canvasjs.min.js'
           ]
         }, {
           expand: true,
