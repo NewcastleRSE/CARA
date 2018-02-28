@@ -330,9 +330,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         font: 'helvetica'
                     },
                     headerStyles: {
-                        fillColor: 50,
-                        textColor: 50,
-                        fillStyle: 'S'
+                        fillColor: false,
+                        textColor: 0,
+                        lineColor: 200,
+                        lineWidth: 1
                     },
                     createdCell: function (cell, data) {
                         switch (data.column.dataKey) {
@@ -358,9 +359,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                         font: 'helvetica'
                     },
                     headerStyles: {
-                        fillColor: 50,
-                        textColor: 50,
-                        fillStyle: 'S'
+                        fillColor: false,
+                        textColor: 0,
+                        lineColor: 200,
+                        lineWidth: 1
                     },
                     createdCell: function (cell, data) {
                         switch (data.column.dataKey) {
@@ -409,9 +411,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     font: 'helvetica'
                 },
                 headerStyles: {
-                    fillColor: 50,
-                    textColor: 50,
-                    fillStyle: 'S'
+                    fillColor: false,
+                    textColor: 0,
+                    lineColor: 200,
+                    lineWidth: 1
                 },
                 createdCell: function (cell, data) {
 
@@ -452,9 +455,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     font: 'helvetica'
                 },
                 headerStyles: {
-                    fillColor: 50,
-                    textColor: 50,
-                    fillStyle: 'S'
+                    fillColor: false,
+                    textColor: 0,
+                    lineColor: 200,
+                    lineWidth: 1
                 },
                 createdCell: function (cell, data) {
 
@@ -505,9 +509,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     font: 'helvetica'
                 },
                 headerStyles: {
-                    fillColor: 50,
-                    textColor: 50,
-                    fillStyle: 'S'
+                    fillColor: false,
+                    textColor: 0,
+                    lineColor: 200,
+                    lineWidth: 1
                 },
                 createdCell: function (cell, data) {
 
@@ -564,9 +569,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     font: 'helvetica'
                 },
                 headerStyles: {
-                    fillColor: 50,
-                    textColor: 50,
-                    fillStyle: 'S'
+                    fillColor: false,
+                    textColor: 0,
+                    lineColor: 200,
+                    lineWidth: 1
                 },
                 createdCell: function (cell, data) {
 
@@ -623,9 +629,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     font: 'helvetica'
                 },
                 headerStyles: {
-                    fillColor: 50,
-                    textColor: 50,
-                    fillStyle: 'S'
+                    fillColor: false,
+                    textColor: 0,
+                    lineColor: 200,
+                    lineWidth: 1
                 },
                 createdCell: function (cell, data) {
 
@@ -684,9 +691,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     font: 'helvetica'
                 },
                 headerStyles: {
-                    fillColor: 50,
-                    textColor: 50,
-                    fillStyle: 'S'
+                    fillColor: false,
+                    textColor: 0,
+                    lineColor: 200,
+                    lineWidth: 1
                 },
                 createdCell: function (cell, data) {
 
@@ -745,9 +753,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     font: 'helvetica'
                 },
                 headerStyles: {
-                    fillColor: 50,
-                    textColor: 50,
-                    fillStyle: 'S'
+                    fillColor: false,
+                    textColor: 0,
+                    lineColor: 200,
+                    lineWidth: 1
                 },
                 createdCell: function (cell, data) {
 

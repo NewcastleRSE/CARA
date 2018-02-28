@@ -105,7 +105,7 @@ angular.module('rcaApp')
 
         //Setting up color scale for use in ranking repsonse times
         var timeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(rows), function(row){
-            return row.time != ''
+            return row.time !== ''
         }, 'time'), 'time'));
         var colors = chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(timeRanked.length);
 

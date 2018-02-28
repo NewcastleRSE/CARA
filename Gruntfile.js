@@ -422,8 +422,7 @@ module.exports = function (grunt) {
             'views/*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*',
-            'data/exercise-data.json',
-            'scripts/lib/canvasjs/canvasjs.min.js'
+            'data/exercise-data.json'
           ]
         }, {
           expand: true,
@@ -515,7 +514,7 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin',
-    'json-minify'
+
   ]);
 
   grunt.registerTask('default', [
