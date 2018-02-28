@@ -2272,7 +2272,7 @@
     "items": [
       {
         "practice": true,
-        "paragraph": "It was bonfire night. The children were excited.  There were going to a fireworks display. The fireworks were very loud. The children had to cover their ears.",
+        "paragraph": "It was bonfire night. The children were excited. There were going to a fireworks display. The fireworks were very loud. The children had to cover their ears.",
         "questions": [
           {
             "question": "The children went to a",
@@ -3289,6 +3289,7 @@
     "items": [
       {
         "question": "They like walking in the countryside",
+        "practice": false,
         "answers": [
           "Aisha and Mary",
           "Sarah and Adam",
@@ -3305,6 +3306,7 @@
       },
       {
         "question": "They often go shopping",
+        "practice": false,
         "answers": [
           "Sarah and Adam",
           "Aisha and Mary",
@@ -3321,6 +3323,7 @@
       },
       {
         "question": "They like holidays",
+        "practice": false,
         "answers": [
           "Both",
           "Sarah and Adam",
@@ -3337,6 +3340,7 @@
       },
       {
         "question": "They have children",
+        "practice": false,
         "answers": [
           "Sarah and Adam",
           "Aisha and Mary",
@@ -3353,6 +3357,7 @@
       },
       {
         "question": "They are very organised",
+        "practice": false,
         "answers": [
           "Sarah and Adam",
           "Aisha and Mary",
@@ -3369,6 +3374,7 @@
       },
       {
         "question": "They are forgetful",
+        "practice": false,
         "answers": [
           "Aisha and Mary",
           "Sarah and Adam",
@@ -3385,6 +3391,7 @@
       },
       {
         "question": "They like eating out",
+        "practice": false,
         "answers": [
           "Both",
           "Sarah and Adam",
@@ -3401,6 +3408,7 @@
       },
       {
         "question": "They like the outdoors",
+        "practice": false,
         "answers": [
           "Aisha and Mary",
           "Sarah and Adam",
@@ -3417,6 +3425,7 @@
       },
       {
         "question": "They get on well",
+        "practice": false,
         "answers": [
           "Both",
           "Sarah and Adam",
