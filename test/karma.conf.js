@@ -22,7 +22,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
-      'bower_components/jquery/dist/jquery.js',
+      'bower_components/jquery/jquery.js',
       'bower_components/angular/angular.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       'bower_components/angular-animate/angular-animate.js',
@@ -34,7 +34,7 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
-      'bower_components/jspdf/dist/jspdf.min.js',
+      'bower_components/jspdf/dist/jspdf.debug.js',
       'bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js',
       'bower_components/lodash/lodash.js',
       'bower_components/chroma-js/chroma.js',
