@@ -379,7 +379,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 doc.addImage(document.getElementById('singleWordSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 460, 512, 340);
             }
             else if((singleWord1 && !singleWord2) || (!singleWord1 && singleWord2)){
-                doc.addImage(document.getElementById('singleWordSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 285, 512, 340);
+                doc.addImage(document.getElementById('singleWordSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 300, 512, 340);
             }
 
 
