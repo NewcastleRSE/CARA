@@ -518,19 +518,19 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
                     switch (data.column.dataKey) {
                         case 'targetWord':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.targetWord) {
                                 cell.styles.fillColor = [102, 189, 125];
                                 cell.styles.textColor = [36, 73, 0];
                             }
                             break;
                         case 'distractor1':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor1) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
                             break;
                         case 'distractor2':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor2) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
@@ -578,19 +578,19 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
                     switch (data.column.dataKey) {
                         case 'targetWord':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.targetWord) {
                                 cell.styles.fillColor = [102, 189, 125];
                                 cell.styles.textColor = [36, 73, 0];
                             }
                             break;
                         case 'distractor1':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor1) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
                             break;
                         case 'distractor2':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor2) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
@@ -638,25 +638,25 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
                     switch (data.column.dataKey) {
                         case 'targetPicture':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.targetPicture) {
                                 cell.styles.fillColor = [102, 189, 125];
                                 cell.styles.textColor = [36, 73, 0];
                             }
                             break;
                         case 'distractor1':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor1) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
                             break;
                         case 'distractor2':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor2) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
                             break;
                         case 'distractor3':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor3) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
@@ -700,25 +700,25 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
                     switch (data.column.dataKey) {
                         case 'targetPicture':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.targetPicture) {
                                 cell.styles.fillColor = [102, 189, 125];
                                 cell.styles.textColor = [36, 73, 0];
                             }
                             break;
                         case 'distractor1':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor1) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
                             break;
                         case 'distractor2':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor2) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
                             break;
                         case 'distractor3':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor3) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
@@ -762,19 +762,19 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
                     switch (data.column.dataKey) {
                         case 'target':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.target) {
                                 cell.styles.fillColor = [102, 189, 125];
                                 cell.styles.textColor = [36, 73, 0];
                             }
                             break;
                         case 'distractor1':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor1) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
                             break;
                         case 'distractor2':
-                            if (data.row.raw.answer === cell.text) {
+                            if (data.row.raw.answer === data.row.raw.distractor2) {
                                 cell.styles.fillColor = [247, 104, 108];
                                 cell.styles.textColor = [91, 31, 20];
                             }
