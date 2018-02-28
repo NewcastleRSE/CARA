@@ -369,6 +369,12 @@ module.exports = function (grunt) {
       }
     },
 
+    'json-minify': {
+      build: {
+        files: 'dist/**/*.json'
+      }
+    },
+
     ngtemplates: {
       dist: {
         options: {
@@ -415,7 +421,9 @@ module.exports = function (grunt) {
             '*.html',
             'views/*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'data/exercise-data.json',
+            'scripts/lib/canvasjs/canvasjs.min.js'
           ]
         }, {
           expand: true,
@@ -506,7 +514,8 @@ module.exports = function (grunt) {
     //'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'json-minify'
   ]);
 
   grunt.registerTask('default', [

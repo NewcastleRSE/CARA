@@ -876,6 +876,7 @@
         "type": ""
       },
       {
+        "practice": false,
         "question": "the blue van",
         "pictures": [
           "ai 2a the blue van.jpg",
@@ -899,6 +900,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "the dirty boots",
         "pictures": [
           "ai 4a the dirty boots.jpg",
@@ -922,6 +924,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "the thin boy",
         "pictures": [
           "ai 5a the thin boy.jpg",
@@ -945,6 +948,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "the rabbit is not white (the rabbit is black)",
         "pictures": [
           "aii 7a the rabbit is not white.jpg",
@@ -968,6 +972,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the bag is not large (the bag is small)",
         "pictures": [
           "aii 8a the bag is not large.jpg",
@@ -991,6 +996,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the man is not young (the man is old)",
         "pictures": [
           "aii 9a the man is not young.jpg",
@@ -1014,6 +1020,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "grate the cheese",
         "pictures": [
           "b 11a grate the cheese.jpg",
@@ -1037,6 +1044,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "cut the paper",
         "pictures": [
           "b 14a cut the paper.jpg",
@@ -1060,6 +1068,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "peel the potato",
         "pictures": [
           "b 15a peel the potato.jpg",
@@ -1083,6 +1092,7 @@
         "type": "phrase"
       },
       {
+        "practice": false,
         "question": "the grandmother is knitting",
         "pictures": [
           "ci 18a the grandmother is knitting.jpg",
@@ -1106,6 +1116,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the children are painting",
         "pictures": [
           "ci 19a the children are painting.jpg",
@@ -1129,6 +1140,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the boy is running",
         "pictures": [
           "ci 20a the boy is running.jpg",
@@ -1152,6 +1164,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The judge is not writing (the judge is reading)",
         "pictures": [
           "cii 22a the judge is not writing.jpg",
@@ -1175,6 +1188,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the girl is not drinking (the girl is eating)",
         "pictures": [
           "cii 23a the girl is not drinking.jpg",
@@ -1198,6 +1212,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The cat is not sleeping (the cat is sitting)",
         "pictures": [
           "cii 24a the cat is not sleeping.jpg",
@@ -1221,6 +1236,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the child is climbing the ladder",
         "pictures": [
           "d 25a the child is climbing the ladder.jpg",
@@ -1244,6 +1260,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the children are washing the car",
         "pictures": [
           "d 27a the children are washing the car.jpg",
@@ -1267,6 +1284,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the boy is riding the bike",
         "pictures": [
           "d 29a the boy is riding the bike.jpg",
@@ -1290,6 +1308,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "she (the girl) is writing the letter",
         "pictures": [
           "e 31a she is writing the letter.jpg",
@@ -1313,6 +1332,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "they (the boys) are washing their faces",
         "pictures": [
           "e 32a they are washing their faces.jpg",
@@ -1336,6 +1356,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "she (the girl) is playing cards",
         "pictures": [
           "e 33a she is playing cards.jpg",
@@ -1359,6 +1380,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the car is hitting him (the policeman)",
         "pictures": [
           "f 34a the car is hitting him.jpg",
@@ -1382,6 +1404,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the snake is biting her (the woman)",
         "pictures": [
           "f 35a the snake is biting her.jpg",
@@ -1405,6 +1428,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the lion is chasing them (the children)",
         "pictures": [
           "f 36a the lion is chasing them.jpg",
@@ -1428,6 +1452,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "he is drying the dishes",
         "pictures": [
           "g 37a he is drying the dishes.jpg",
@@ -1451,6 +1476,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "he is kicking the ball",
         "pictures": [
           "g 38a he is kicking the ball.jpg",
@@ -1474,6 +1500,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "they are washing their hands",
         "pictures": [
           "g 39a they are washing their hands.jpg",
@@ -1497,6 +1524,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the dog is licking her (the woman)",
         "pictures": [
           "h 40a the dog is licking her.jpg",
@@ -1520,6 +1548,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the man is hitting them (the children)",
         "pictures": [
           "h 41a the man is hitting them.jpg",
@@ -1543,6 +1572,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the monkey is chasing him (the man)",
         "pictures": [
           "h 42a the monkey is chasing him.jpg",
@@ -1566,6 +1596,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the boy is giving the flowers to the girl",
         "pictures": [
           "i 43a the boy is giving the flowers to the girl.jpg",
@@ -1589,6 +1620,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the girl is throwing the ball to the boy",
         "pictures": [
           "i 44a the girl is throwing the ball to the boy.jpg",
@@ -1612,6 +1644,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the girl is putting the book on the shelf",
         "pictures": [
           "i 45a the girl is putting the book on the shelf.jpg",
@@ -1635,6 +1668,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "the woman is cutting the wood with a saw",
         "pictures": [
           "i 47a the woman is cutting the wood with a saw.jpg",
@@ -1691,10 +1725,10 @@
         "practice": true,
         "question": "The soldiers are measuring the nurses",
         "pictures": [
-          "l 50d the soldiers are measuring the nurses.jpg",
-          "l 50a the nurses are weighing the soldiers.jpg",
-          "l 50b the soldiers are weighing the nurses.jpg",
-          "l 50c the nurses are measuring the soldiers.jpg"
+          "L 50d the soldiers are measuring the nurses.jpg",
+          "L 50a the nurses are weighing the soldiers.jpg",
+          "L 50b the soldiers are weighing the nurses.jpg",
+          "L 50c the nurses are measuring the soldiers.jpg"
         ],
         "answers": [
           "the children are playing the piano",
@@ -1715,10 +1749,10 @@
         "practice": true,
         "question": "The child who the lady dries is reading the book",
         "pictures": [
-          "r 67b the lady is drying the child who reads a book.jpg",
-          "r 67a the lady who dries the child is reading a book.jpg",
-          "r 67c the child who dries the lady is reading a book.jpg ",
-          "r 67d child is drying the lady who reads a book.jpg"
+          "R 67a The lady who dries the child is reading a book.jpg",
+          "R 67b The lady is drying the child who reads a book.jpg",
+          "R 67c The child who dries the lady is reading a book.jpg ",
+          "R 67d child is drying the lady who reads a book.jpg"
         ],
         "answers": [
           "the lady is drying the child who reads a book",
@@ -1736,6 +1770,7 @@
         "type": ""
       },
       {
+        "practice": false,
         "question": "The woman is drawing the child",
         "pictures": [
           "L 49a the woman is drawing the child.jpg",
@@ -1759,12 +1794,13 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The nurses are weighing the soldiers",
         "pictures": [
-          "L 50a The nurses are weighing the soldiers.jpg",
+          "L 50a the nurses are weighing the soldiers.jpg",
           "L 50b the soldiers are weighing the nurses.jpg",
-          "L 50c The nurses are measuring the soldiers.jpg",
-          "L 50d The soldiers are measuring the nurses.jpg"
+          "L 50c the nurses are measuring the soldiers.jpg",
+          "L 50d the soldiers are measuring the nurses.jpg"
         ],
         "answers": [
           "The nurses are weighing the soldiers",
@@ -1782,7 +1818,8 @@
         "type": "simple"
       },
       {
-        "question": "The singer is hitting the chil",
+        "practice": false,
+        "question": "The singer is hitting the child",
         "pictures": [
           "L 51a the singer is hitting the child.jpg",
           "L 51b the child is hitting the singer.jpg",
@@ -1790,7 +1827,7 @@
           "L 51d the child is touching the singer.jpg"
         ],
         "answers": [
-          "The singer is hitting the chil",
+          "The singer is hitting the child",
           "The singer is touching the child",
           "The child is hitting the singer",
           "The child is touching the singer"
@@ -1805,6 +1842,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "They (the children) are applauding the teacher",
         "pictures": [
           "m 52a they are applauding the teacher.jpg",
@@ -1828,6 +1866,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "He (the boy) is watching the woman (woman)",
         "pictures": [
           "M 53a He is watching the woman.jpg",
@@ -1851,6 +1890,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "She (the girl) is pushing the teacher",
         "pictures": [
           "m 54a she is pushing the teacher.jpg",
@@ -1874,6 +1914,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The teacher is pulling her (the girl)",
         "pictures": [
           "n 55a the teacher is pulling her.jpg",
@@ -1897,6 +1938,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The grandmother is dressing him (the boy)",
         "pictures": [
           "n 56a the grandmother is dressing him.jpg",
@@ -1920,6 +1962,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The grandfather is helping them (the children)",
         "pictures": [
           "n 57a the grandfather is helping them.jpg",
@@ -1943,6 +1986,7 @@
         "type": "simple"
       },
       {
+        "practice": false,
         "question": "The player was pushed by the referee",
         "pictures": [
           "o 58a the player was pushed by the referee.jpg",
@@ -1966,6 +2010,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The girl was weighed by the boy",
         "pictures": [
           "o 60a the girl was weighed by the boy.jpg",
@@ -1989,6 +2034,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The policeman was kicked by the driver",
         "pictures": [
           "p 62a the policeman was kicked.jpg",
@@ -2012,6 +2058,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The runner was pushed by the spectator",
         "pictures": [
           "p 63a the runner was pushed.jpg",
@@ -2035,6 +2082,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The boy is kissing the athlete who wears a medal",
         "pictures": [
           "Q 64a The boy is kissing the athlete who wears a medal.jpg",
@@ -2058,6 +2106,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The fireman is pushing the boy who rides the motorbike",
         "pictures": [
           "Q 65a The fireman is pushing the boy who rides the motorbike.jpg",
@@ -2081,6 +2130,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The player who kicks the referee is hearing the music",
         "pictures": [
           "R 68a The player who kicks the referee is hearing the music.jpg",
@@ -2104,6 +2154,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The woman who kisses the man is tall",
         "pictures": [
           "R 69a The woman who kisses the man is tall.jpg",
@@ -2127,6 +2178,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The ladies who the man draws are baking a cake",
         "pictures": [
           "S 71a The ladies who the man draws are baking a cake.jpg",
@@ -2150,6 +2202,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The runners who the assistant watches are drinking water",
         "pictures": [
           "S 72a The runners who the assistant watches are drinking water.jpg",
@@ -2173,6 +2226,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The fireman who she is calling is carrying a ladder",
         "pictures": [
           "T 73a The fireman who she is calling is carrying a ladder.jpg",
@@ -2196,6 +2250,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The teacher who he is hitting is holding a book",
         "pictures": [
           "T 75a The teacher who he is hitting is holding a book.jpg",
@@ -2219,6 +2274,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The policeman who Queen Elizabeth is visiting has a big hat",
         "pictures": [
           "U 76a The policeman who Queen Elizabeth is visiting has a big hat.jpg",
@@ -2242,6 +2298,7 @@
         "type": "complex"
       },
       {
+        "practice": false,
         "question": "The guard who John Lennon is chasing has a black jacket",
         "pictures": [
           "U 77a The guard who John Lennon is chasing has a black jacket.jpg",
