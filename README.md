@@ -6,6 +6,10 @@ Download the [latest build](https://bitbucket.org/digitalinstitute/reading-compr
 
 ## Build & development
 
+Install the latest long term support version of node. Using the NVM tool is probably the best way of doing this.
+
+Run `npm install -g grunt-cli bower`
+
 Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
