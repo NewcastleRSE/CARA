@@ -10,6 +10,12 @@ Install the latest long term support version of node. Using the NVM tool is prob
 
 Run `npm install -g grunt-cli bower`
 
+Optional: run `npm install` to download and install all dependencies?
+
+Run `bower install`
+
+Install ruby and compass (http://compass-style.org/install/)
+
 Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
