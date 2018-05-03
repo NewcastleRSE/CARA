@@ -10,7 +10,7 @@
 angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentence1, Sentence2, SingleWord1, SingleWord2) {
 
     return function(assessment) {
-        
+
         console.log(assessment);
 
         var singleWord1 = null,
@@ -128,9 +128,9 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         }
 
         if(sentence1 || sentence2){
-            
+
             chartData = [];
-            
+
             if(sentence1 && sentence2) {
                 chartData = [
                     { label: 'Total', y: ((sentence1.total.correct.count + sentence2.total.correct.count) / (sentence1.total.questionCount + sentence2.total.questionCount)) },
@@ -161,7 +161,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     { label: 'Complex', y: (sentence2.complex.correct.count / sentence2.complex.questionCount) }
                 ]
             }
-            
+
             var sentenceSummary = new CanvasJS.Chart('sentenceSummary', {
                 title:{
                     text: 'Sentence Summary',
@@ -285,21 +285,32 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         function footer() {
             doc.setFontSize(10);
-            doc.text(centeredText('Page ' + doc.page + ' - ' + assessment.name), 820, 'Page ' + doc.page + ' - ' + assessment.name);
+            //doc.text(centeredText('CARA: Comprehensive Assessment of Reading in Aphasia'), 805, 'CARA: Comprehensive Assessment of Reading in Aphasia');
+            doc.text(centeredText('CARA: Comprehensive Assessment of Reading in Aphasia            Page ' + doc.page + ' - ' + assessment.name), 820, 'CARA: Comprehensive Assessment of Reading in Aphasia             Page ' + doc.page + ' - ' + assessment.name);
             doc.page ++;
             doc.setFontSize(12);
         }
 
         doc.setFontSize(28);
-        doc.text(centeredText('CARA: Comprehensive Assessment'), 225, 'CARA: Comprehensive Assessment');
-        doc.text(centeredText('of Reading in Aphasia'), 275, 'of Reading in Aphasia');
-        doc.setFontSize(20);
-        doc.text(centeredText('Results Report ' + assessment.name), 350, 'Results Report ' + assessment.name);
+        doc.text(centeredText('CARA: Comprehensive Assessment'), 135, 'CARA: Comprehensive Assessment');
+        doc.text(centeredText('of Reading in Aphasia'), 175, 'of Reading in Aphasia');
         doc.setFontSize(16);
-        doc.text(100, 425, 'Name:');
-        doc.text(100, 475, 'Date of Birth:');
-        doc.text(100, 525, 'Date of Completion:');
+        doc.text(centeredText('Morris, Webster, Howard and Garraffa'), 210, 'Morris, Webster, Howard and Garraffa');
 
+        doc.setFontSize(20);
+        doc.text(centeredText('Results Report'), 290, 'Results Report');
+        doc.setFontSize(16);
+        doc.text(centeredText('Participant ID: ' + assessment.name), 315, 'Participant ID: ' + assessment.name);
+
+        doc.setFontSize(16);
+        doc.text(centeredText('To be completed by clinician:'), 495, 'To be completed by clinician:' );
+        doc.text(100, 545, 'Name:');
+        doc.text(100, 595, 'Date of Birth:');
+        doc.text(100, 645, 'Date of Completion:');
+        doc.setFontSize(12);
+        doc.text(centeredText('Note: This report is designed to be used in conjunction with the manual.'), 715, 'Note: This report is designed to be used in conjunction with the manual.' );
+
+        footer();
         doc.addPage();
 
         doc.setFontSize(10);
@@ -315,12 +326,12 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         if(singleWord1 || singleWord2) {
             doc.setFontSize(16);
-            doc.text(50, 100, '1. Single Word Distracters');
+            doc.text(50, 100, '1. Single Word Comprehension');
             doc.setFontSize(12);
 
 
             if(singleWord1) {
-                doc.text(50, 135, 'Unrelated Distracters');
+                doc.text(50, 135, 'Part 1 - Unrelated Distracters');
                 doc.autoTable(singleWord1.summaryColumns, singleWord1.summaryRows, {
                     theme: 'grid',
                     margin: [150, 50, 50, 50],
@@ -349,7 +360,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             }
 
             if(singleWord2) {
-                doc.text(50, 285, 'Related Distracters');
+                doc.text(50, 285, 'Part 2 - Related Distracters');
                 doc.autoTable(singleWord2.summaryColumns, singleWord2.summaryRows, {
                     theme: 'grid',
                     margin: [300, 50, 50, 50],
@@ -393,18 +404,31 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         if(assessment.questions['sentence-part-1'].completed || assessment.questions['sentence-part-2'].completed) {
             doc.setFontSize(16);
 
+            var textHeight = 100;
+
             if(assessment.questions['singleWord-part-1'].completed || assessment.questions['singleWord-part-2'].completed) {
-                doc.text(50, 75, '2. Sentence Comprehension');
+                textHeight = 75;
             }
-            else {
-                doc.text(50, 100, '2. Sentence Comprehension');
-            }
+
+            doc.text(50, textHeight, '2. Sentence Comprehension');
 
             doc.setFontSize(12);
 
+            if(assessment.questions['sentence-part-1'].completed && assessment.questions['sentence-part-2'].completed) {
+              doc.text(50, textHeight += 35, 'Parts 1 & 2 (Combined)');
+            }
+            else {
+              if(assessment.questions['sentence-part-1'].completed) {
+                doc.text(50, textHeight += 35, 'Part 1');
+              }
+              else if(assessment.questions['sentence-part-2'].completed) {
+                doc.text(50, textHeight += 35, 'Part 2');
+              }
+            }
+
             doc.autoTable(sentence1.summaryColumns, sentenceSummaryTotals, {
                 theme: 'grid',
-                margin: [100, 50, 50, 50],
+                margin: [textHeight+=15, 50, 50, 50],
                 styles: {
                     halign: 'center',
                     valign: 'middle',
@@ -496,7 +520,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         if(assessment.questions['singleWord-part-1'].completed) {
 
             doc.setFontSize(20);
-            doc.text(50, 50, 'Single Word: Unrelated Distracters');
+            doc.text(50, 50, 'Single Word Comprehension - Part 1: Unrelated Distracters');
             doc.rect(50, 65, 495, 2, 'F');
             doc.setFontSize(12);
 
@@ -559,7 +583,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
         if(assessment.questions['singleWord-part-2'].completed) {
 
-            doc.text(20, 30, 'Single Word Comprehension: Part 2');
+            doc.text(20, 30, 'Single Word Comprehension - Part 2: Related Distracters');
 
             doc.autoTable(singleWord2.columns, singleWord2.rows, {
                 theme: 'grid',
@@ -828,7 +852,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                 }
             });
         }
-        
+
         doc.save('report-' + assessment.name + '.pdf');
 
     };
