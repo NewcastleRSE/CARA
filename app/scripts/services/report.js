@@ -231,16 +231,16 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             var dataPoints = [];
 
             if(singleWord1){
-                dataPoints.push({ label: 'Single Words: unrelated distracters', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) });
+                dataPoints.push({ label: 'Single Words: Unrelated Distracters', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) });
             }
             if(singleWord2){
-                dataPoints.push({ label: 'Single Words: related distracters', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
+                dataPoints.push({ label: 'Single Words: Related Distracters', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
             }
             if(sentence1){
-                dataPoints.push({ label: 'Sentences: simple', y: (sentence1.total.correct.count / sentence1.total.questionCount) });
+                dataPoints.push({ label: 'Sentences: Part 1', y: (sentence1.total.correct.count / sentence1.total.questionCount) });
             }
             if(sentence2){
-                dataPoints.push({ label: 'Sentences: complex', y: (sentence2.total.correct.count / sentence2.total.questionCount) });
+                dataPoints.push({ label: 'Sentences: Part 2', y: (sentence2.total.correct.count / sentence2.total.questionCount) });
             }
             if(paragraph){
                 dataPoints.push({ label: 'Paragraphs', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) });
@@ -444,6 +444,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
                     if(data.column.dataKey === 'type'){
                         cell.styles.fontStyle = 'bold';
+                    }
+
+                    if(cell.text[0] === ""){
+                      cell.text = "--";
                     }
 
                     if(cell.text === ''){
