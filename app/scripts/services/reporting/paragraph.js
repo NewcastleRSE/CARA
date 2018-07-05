@@ -259,8 +259,6 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
 
     paragraph.gist.incorrect.count = $window._.filter(paragraph.incorrectAnswers, {type: 'Gist'}).length;
 
-    console.log(paragraph);
-
     paragraph.summaryRows.push({
       length: '< 40 Words',
       paragraphs: 'Paragraphs 1 & 2',

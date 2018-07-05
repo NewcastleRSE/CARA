@@ -86,7 +86,6 @@ angular.module('rcaApp')
     };
 
     $scope.isCurrentPageIndex = function (index) {
-      console.log(index);
       return $scope.currentIndex === index;
     };
 
