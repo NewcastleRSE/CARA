@@ -12,6 +12,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
     return function(assessment) {
 
         console.log(assessment);
+        console.log($window._.filter(assessment.questions['paragraph'].items, {practice: false}));
 
         var singleWord1 = null,
             singleWord2 = null,

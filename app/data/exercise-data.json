@@ -2301,7 +2301,7 @@
     ]
   },
   "paragraph": {
-    "name": "Paragraphs Part 1",
+    "name": "Paragraphs",
     "assessmentType": "paragraph",
     "items": [
       {
@@ -3318,7 +3318,7 @@
     ]
   },
   "paragraph-2": {
-    "name": "Paragraphs Part 2",
+    "name": "Paragraphs Gist",
     "assessmentType": "single",
     "items": [
       {
