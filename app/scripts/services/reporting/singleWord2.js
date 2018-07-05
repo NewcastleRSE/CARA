@@ -20,12 +20,12 @@ angular.module('rcaApp').service('SingleWord2', function ($window) {
         columns: [
             {title: '', dataKey: 'rowNumber'},
             {title: 'Item', dataKey: 'item'},
+          {title: 'Time', dataKey: 'time'},
             {title: 'Target Word', dataKey: 'targetWord'},
-            {title: 'Distractor 1', dataKey: 'distractor1'},
-            {title: 'Distractor 2', dataKey: 'distractor2'},
+            {title: 'Distracter 1', dataKey: 'distractor1'},
+            {title: 'Distracter 2', dataKey: 'distractor2'},
             {title: 'Noun/Verb', dataKey: 'nounVerb'},
-            {title: 'Concrete/Abstract', dataKey: 'concreteAbstract'},
-            {title: 'Time', dataKey: 'time'}
+            {title: 'Concrete/Abstract', dataKey: 'concreteAbstract'}
         ],
         rows: [],
         summaryRows: [],

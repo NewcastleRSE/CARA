@@ -19,14 +19,20 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
         columns: [
             {title: '', dataKey: 'rowNumber'},
             {title: 'Item', dataKey: 'item'},
+            {title: 'Time', dataKey: 'time'},
             {title: 'Target Picture', dataKey: 'targetPicture'},
-            {title: 'Distractor 1', dataKey: 'distractor1'},
-            {title: 'Distractor 2', dataKey: 'distractor2'},
-            {title: 'Distractor 3', dataKey: 'distractor3'},
-            {title: 'Time', dataKey: 'time'}
+            {title: 'Distracter 1', dataKey: 'distractor1'},
+            {title: 'Distracter 2', dataKey: 'distractor2'},
+            {title: 'Distracter 3', dataKey: 'distractor3'}
         ],
+      keyColumns: [
+        {title: '', dataKey: 'rowNumber'},
+        {title: 'Item', dataKey: 'item'},
+        {title: 'Target Picture', dataKey: 'targetPicture'}
+      ],
         summaryRows: [],
         rows: [],
+        keyRows: [],
         colours: [],
         timeRank: [],
         correctAnswers: [],
@@ -164,6 +170,12 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
                     type: response.type,
                     reversibility: response.reversibility
                 });
+
+              sentence.keyRows.push({
+                rowNumber: index + 1,
+                item: response.pictures[0].split(' ')[0].toUpperCase() + ' ' + response.pictures[0].split(' ')[1].substring(0, response.pictures[0].split(' ')[1].length - 1),
+                targetPicture: response.pictures[0].replace('.jpg', '')
+              });
 
             });
 
