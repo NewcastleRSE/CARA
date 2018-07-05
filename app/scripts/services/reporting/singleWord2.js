@@ -9,23 +9,24 @@
  */
 angular.module('rcaApp').service('SingleWord2', function ($window) {
 
-    var singleWordSetup = {
+    function singleWordSetup() {
+      return {
         summaryColumns: [
-            {title: 'Concrete', dataKey: 'concreteLabel'},
-            {title: '', dataKey: 'concreteValue'},
-            {title: 'Abstract', dataKey: 'abstractLabel'},
-            {title: '', dataKey: 'abstractValue'},
-            {title: 'Total', dataKey: 'total'}
+          {title: 'Concrete', dataKey: 'concreteLabel'},
+          {title: '', dataKey: 'concreteValue'},
+          {title: 'Abstract', dataKey: 'abstractLabel'},
+          {title: '', dataKey: 'abstractValue'},
+          {title: 'Total', dataKey: 'total'}
         ],
         columns: [
-            {title: '', dataKey: 'rowNumber'},
-            {title: 'Item', dataKey: 'item'},
-            {title: 'Target Word', dataKey: 'targetWord'},
-            {title: 'Distractor 1', dataKey: 'distractor1'},
-            {title: 'Distractor 2', dataKey: 'distractor2'},
-            {title: 'Noun/Verb', dataKey: 'nounVerb'},
-            {title: 'Concrete/Abstract', dataKey: 'concreteAbstract'},
-            {title: 'Time', dataKey: 'time'}
+          {title: '', dataKey: 'rowNumber'},
+          {title: 'Item', dataKey: 'item'},
+          {title: 'Time', dataKey: 'time'},
+          {title: 'Target Word', dataKey: 'targetWord'},
+          {title: 'Distracter 1', dataKey: 'distractor1'},
+          {title: 'Distracter 2', dataKey: 'distractor2'},
+          {title: 'Noun/Verb', dataKey: 'nounVerb'},
+          {title: 'Concrete/Abstract', dataKey: 'concreteAbstract'}
         ],
         rows: [],
         summaryRows: [],
@@ -34,80 +35,81 @@ angular.module('rcaApp').service('SingleWord2', function ($window) {
         correctAnswers: [],
         incorrectAnswers: [],
         total: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            }
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          }
         },
         nouns: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            }
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          }
         },
         verbs: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            }
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          }
         },
         abstractNouns: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            }
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          }
         },
         concreteNouns: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            }
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          }
         },
         abstractVerbs: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            }
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          }
         },
         concreteVerbs: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            }
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          }
         }
-    };
+      };
+    }
 
         this.calculate = function(data){
 
-            var singleWord = singleWordSetup;
+            var singleWord = singleWordSetup();
 
             //Data for colour coded response time table
             data.forEach(function (response, index) {
