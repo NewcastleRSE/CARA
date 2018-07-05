@@ -21,7 +21,9 @@ angular
     'ngTouch',
     'frapontillo.bootstrap-switch',
     'angularMoment',
-    'ngRaven'
+    'ngRaven',
+    'dndLists',
+    angularDragula(angular)
   ]).config( [
   '$compileProvider',
   function( $compileProvider )
@@ -97,6 +99,11 @@ angular
       controller: function($scope) {
         $scope.things = ['A', 'Set', 'Of', 'Things'];
       }
+    })
+    .state('card-sorting', {
+      url: '/card-sorting',
+      templateUrl: 'views/card-sorting.html',
+      controller: 'CardSortingCtrl'
     });
 }).run(function($rootScope){
 

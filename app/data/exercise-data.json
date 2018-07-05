@@ -3475,5 +3475,53 @@
         "answerPosition": null
       }
     ]
+  },
+  "card-sorting": {
+    "name": "Card Sorting",
+    "assessmentType": "sorting",
+    "items": [
+      {
+        "title": "Personal Mail",
+        "image": {
+          "src": "personal-mail.png"
+        }
+      },
+      {
+        "title": "Signs",
+        "image": {
+          "src": "signs.png"
+        }
+      },
+      {
+        "title": "Labels",
+        "image": {
+          "src": "labels.png"
+        }
+      },
+      {
+        "title": "Computer",
+        "image": {
+          "src": "computer.png"
+        }
+      },
+      {
+        "title": "Timetables",
+        "image": {
+          "src": "timetables.png"
+        }
+      },
+      {
+        "title": "Instructions",
+        "image": {
+          "src": "instructions.png"
+        }
+      },
+      {
+        "title": "Menus/Shopping Lists",
+        "image": {
+          "src": "menu-shopping-list.png"
+        }
+      }
+    ]
   }
 }
