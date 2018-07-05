@@ -9,106 +9,108 @@
  */
 angular.module('rcaApp').service('Paragraph', function ($window) {
 
-  var paragraphSetup = {
-    summaryColumns: [
-      {title: 'Length', dataKey: 'length'},
-      {title: 'Paragraphs', dataKey: 'paragraphs'},
-      {title: 'Total', dataKey: 'lengthScore'},
-      {title: 'Question Type', dataKey: 'questionType'},
-      {title: 'Total', dataKey: 'typeScore'}
-    ],
-    columns: [
-      {title: '', dataKey: 'rowNumber'},
-      {title: 'Item', dataKey: 'item'},
-      {title: 'Time', dataKey: 'time'},
-      {title: 'Reading Time', dataKey: 'readingTime'},
-      {title: 'Target', dataKey: 'target'},
-      {title: 'Distracter 1', dataKey: 'distractor1'},
-      {title: 'Distracter 2', dataKey: 'distractor2'}
-    ],
-    gistColumns: [
-      {title: '', dataKey: 'rowNumber'},
-      {title: 'Item', dataKey: 'item'},
-      {title: 'Time', dataKey: 'time'},
-      {title: 'Target', dataKey: 'target'},
-      {title: 'Distracter 1', dataKey: 'distractor1'},
-      {title: 'Distracter 2', dataKey: 'distractor2'}
-    ],
-    summaryRows: [],
-    rows: [],
-    gistRows: [],
-    colours: [],
-    timeRank: [],
-    gistTimeRank: [],
-    readingColours: [],
-    readingTimeRank: [],
-    correctAnswers: [],
-    incorrectAnswers: [],
-    total: {
-      correct: {
-        time: null,
-        count: null
+  function paragraphSetup() {
+    return {
+      summaryColumns: [
+        {title: 'Length', dataKey: 'length'},
+        {title: 'Paragraphs', dataKey: 'paragraphs'},
+        {title: 'Total', dataKey: 'lengthScore'},
+        {title: 'Question Type', dataKey: 'questionType'},
+        {title: 'Total', dataKey: 'typeScore'}
+      ],
+      columns: [
+        {title: '', dataKey: 'rowNumber'},
+        {title: 'Item', dataKey: 'item'},
+        {title: 'Time', dataKey: 'time'},
+        {title: 'Reading Time', dataKey: 'readingTime'},
+        {title: 'Target', dataKey: 'target'},
+        {title: 'Distracter 1', dataKey: 'distractor1'},
+        {title: 'Distracter 2', dataKey: 'distractor2'}
+      ],
+      gistColumns: [
+        {title: '', dataKey: 'rowNumber'},
+        {title: 'Item', dataKey: 'item'},
+        {title: 'Time', dataKey: 'time'},
+        {title: 'Target', dataKey: 'target'},
+        {title: 'Distracter 1', dataKey: 'distractor1'},
+        {title: 'Distracter 2', dataKey: 'distractor2'}
+      ],
+      summaryRows: [],
+      rows: [],
+      gistRows: [],
+      colours: [],
+      timeRank: [],
+      gistTimeRank: [],
+      readingColours: [],
+      readingTimeRank: [],
+      correctAnswers: [],
+      incorrectAnswers: [],
+      total: {
+        correct: {
+          time: null,
+          count: null
+        },
+        incorrect: {
+          time: null,
+          count: null
+        }
       },
-      incorrect: {
-        time: null,
-        count: null
-      }
-    },
-    mainIdeasStated: {
-      correct: {
-        time: null,
-        count: null
+      mainIdeasStated: {
+        correct: {
+          time: null,
+          count: null
+        },
+        incorrect: {
+          time: null,
+          count: null
+        }
       },
-      incorrect: {
-        time: null,
-        count: null
-      }
-    },
-    mainIdeasImplied: {
-      correct: {
-        time: null,
-        count: null
+      mainIdeasImplied: {
+        correct: {
+          time: null,
+          count: null
+        },
+        incorrect: {
+          time: null,
+          count: null
+        }
       },
-      incorrect: {
-        time: null,
-        count: null
-      }
-    },
-    detailsStated: {
-      correct: {
-        time: null,
-        count: null
+      detailsStated: {
+        correct: {
+          time: null,
+          count: null
+        },
+        incorrect: {
+          time: null,
+          count: null
+        }
       },
-      incorrect: {
-        time: null,
-        count: null
-      }
-    },
-    detailsImplied: {
-      correct: {
-        time: null,
-        count: null
+      detailsImplied: {
+        correct: {
+          time: null,
+          count: null
+        },
+        incorrect: {
+          time: null,
+          count: null
+        }
       },
-      incorrect: {
-        time: null,
-        count: null
+      gist: {
+        correct: {
+          time: null,
+          count: null
+        },
+        incorrect: {
+          time: null,
+          count: null
+        }
       }
-    },
-    gist: {
-      correct: {
-        time: null,
-        count: null
-      },
-      incorrect: {
-        time: null,
-        count: null
-      }
-    }
-  };
+    };
+  }
 
   this.calculate = function(paragraphs, gists){
 
-    var paragraph = paragraphSetup;
+    var paragraph = paragraphSetup();
 
     var rowCounter = 1;
 
