@@ -65,7 +65,14 @@ angular.module('rcaApp')
           // Section Completed
           $scope.questions[$stateParams.section].completed = true;
           Assessment.save($scope.questions).then(function(){
-            $state.go('slotSummary', {slotId:$scope.currentSlot});
+            
+            // Check if this is the end of paragraphs
+            if ($scope.questions[$stateParams.section].assessmentType === 'paragraph') {
+              $state.go('assessment.begin', {slotId:$scope.currentSlot, section: 'paragraph-2'});
+            } else {
+              $state.go('slotSummary', {slotId:$scope.currentSlot});
+            }
+
           });
 
         }
