@@ -22,7 +22,6 @@ angular
     'frapontillo.bootstrap-switch',
     'angularMoment',
     'ngRaven',
-    'dndLists',
     angularDragula(angular)
   ]).config( [
   '$compileProvider',
