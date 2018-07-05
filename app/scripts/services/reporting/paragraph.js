@@ -102,6 +102,8 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
 
             var rowCounter = 1;
 
+            console.log(data);
+
             //Data for colour coded response time table
             data.forEach(function (response, index) {
 
@@ -289,8 +291,6 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
 
 
             paragraph.colours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraph.timeRank.length);
-
-
             paragraph.readingColours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(paragraph.readingTimeRank.length);
 
             return paragraph;
