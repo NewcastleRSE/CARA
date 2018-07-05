@@ -1749,10 +1749,10 @@
         "practice": true,
         "question": "the child who the lady dries is reading the book",
         "pictures": [
-          "R 67a the lady is drying the child who reads a book",
-          "R 67b the lady who dries the child is reading a book",
-          "R 67c the child who dries the lady is reading a book ",
-          "R 67d child is drying the lady who reads a book"
+          "R 67a The lady who dries the child is reading a book.jpg",
+          "R 67b The lady is drying the child who reads a book.jpg",
+          "R 67c The child who dries the lady is reading a book.jpg ",
+          "R 67d child is drying the lady who reads a book.jpg"
         ],
         "answers": [
           "the lady is drying the child who reads a book",
