@@ -1749,7 +1749,10 @@
         "practice": true,
         "question": "the child who the lady dries is reading the book",
         "pictures": [
-          "R 67d child is drying the lady who reads a book.jpg"
+          "R 67a the lady is drying the child who reads a book",
+          "R 67b the lady who dries the child is reading a book",
+          "R 67c the child who dries the lady is reading a book ",
+          "R 67d child is drying the lady who reads a book"
         ],
         "answers": [
           "the lady is drying the child who reads a book",
@@ -1866,6 +1869,10 @@
         "practice": false,
         "question": "he (the boy) is watching the woman (woman)",
         "pictures": [
+          "M 53a He is watching the woman.jpg",
+          "M 53b The woman is watching him.jpg",
+          "M 53c She is watching the woman.jpg",
+          "M 53d The woman is watching her.jpg"
         ],
         "answers": [
           "he (the boy) is watching the woman (woman)",
@@ -2078,6 +2085,10 @@
         "practice": false,
         "question": "the boy is kissing the athlete who wears a medal",
         "pictures": [
+          "Q 64a The boy is kissing the athlete who wears a medal.jpg",
+          "Q 64b The athlete is kissing the boy who wears a medal.jpg",
+          "Q 64c The boy who wears a medal is kissing the athlete.jpg",
+          "Q 64d The athlete who wears a medal is kissing the boy.jpg"
         ],
         "answers": [
           "the boy is kissing the athlete who wears a medal",
@@ -2098,6 +2109,10 @@
         "practice": false,
         "question": "the fireman is pushing the boy who rides the motorbike",
         "pictures": [
+          "Q 65a The fireman is pushing the boy who rides the motorbike.jpg",
+          "Q 65b The boy is pushing the fireman who rides the motorbike.jpg",
+          "Q 65c The fireman who rides the motorbike is pushing the boy.jpg",
+          "Q 65d The boy who rides the motorbike is pushing the fireman.jpg"
         ],
         "answers": [
           "the fireman is pushing the boy who rides the motorbike",
@@ -2118,6 +2133,10 @@
         "practice": false,
         "question": "the player who kicks the referee is hearing the music",
         "pictures": [
+          "R 68a The player who kicks the referee is hearing the music.jpg",
+          "R 68b The player is kicking the referee who hears the music.jpg",
+          "R 68c The referee is kicking the player who hears the music.jpg",
+          "R 68d The referee who kicks the player is hearing the music.jpg"
         ],
         "answers": [
           "the player who kicks the referee is hearing the music",
@@ -2138,6 +2157,10 @@
         "practice": false,
         "question": "the woman who kisses the man is tall",
         "pictures": [
+          "R 69a The woman who kisses the man is tall.jpg",
+          "R 69b The woman is kissing the man who is tall.jpg",
+          "R 69c The man is kissing the woman who is tall.jpg",
+          "R 69d The man who kisses the woman is tall.jpg"
         ],
         "answers": [
           "the woman who kisses the man is tall",
