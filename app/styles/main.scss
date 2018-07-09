@@ -58,14 +58,10 @@ body.home {
 }
 
 /* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
+.logo-authors {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Supporting marketing content */
@@ -260,10 +256,6 @@ h4.modal-title {
 
     .panel-heading {
       border-color: rgba(221,221,221, 0.5);
-
-      h4 {
-        color: rgba(100,100,100, 0.5);
-      }
     }
   }
 
@@ -417,4 +409,24 @@ body.home .fullscreen-controls .home-btn, body.instructions .fullscreen-controls
   display: none;
 }
 
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+  background-color: #4D2277;
+  border-color: #4D2277;
+  color: white !important;
+}
 
+.btn-info, .btn-info:hover, .btn-info:active, .btn-info:focus {
+  background-color: #9A70AC;
+  border-color: #9A70AC;
+  color: white !important;
+}
+
+.panel-info > .panel-heading {
+  background-color: #4D2277;
+  border-color: #4D2277;
+  color: white !important;
+}
+
+.text-primary {
+  color: #4D2277 !important;
+}
