@@ -32,6 +32,17 @@ body.home {
   padding-right: 15px;
 }
 
+.app-menu {
+
+  position: fixed;
+  top: 10px;
+  left: 10px;
+
+  img {
+    height: 50px;
+  }
+}
+
 /* Custom page header */
 .header {
   //border-bottom: 1px solid #e5e5e5;
@@ -407,6 +418,12 @@ body.splash .fullscreen-controls {
 
 body.home .fullscreen-controls .home-btn, body.instructions .fullscreen-controls .home-btn {
   display: none;
+}
+
+.di-logo {
+  display: block;
+  height: 100px;
+  margin: 50px auto 0;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
