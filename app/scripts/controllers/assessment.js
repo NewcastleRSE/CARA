@@ -98,7 +98,7 @@ angular.module('rcaApp')
     };
 
     $scope.selectReadingScale = function($item, $value) {
-      $item.answer = $value;
+      $item.answerGiven = $value;
 
       document.getElementById("div-1").style.backgroundColor = '';
       document.getElementById("div-2").style.backgroundColor = '';

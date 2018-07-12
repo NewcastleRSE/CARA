@@ -81,11 +81,11 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                <p class="btn btn-block question-text" style="margin-top: 0px; margin-bottom: 50px;">How comfortable are you with<br />{{item.question}}</p>
+                <p class="btn btn-block reading-scale-question-text">How comfortable are you with<br />{{item.question}}</p>
               </div>
             </div>
             <div>
-              <div style="width: 95%; margin: auto;">
+              <div class="reading-scale">
                 <div class="row">
                   <div class="col-md-3">
                     <img src="../images/disagree_colour1.bmp" style="width: 50%; float:left;">
@@ -100,12 +100,12 @@
             </div>
             <div>
               <div class="row">
-                <div class="col-md-10 col-md-offset-1" style="height: 50px; margin-top:50px; margin-bottom:30px; border-top: 6px solid black;"></div>
-                  <div id="div-1" class="col-md-2 col-md-offset-1" style="height: 50px; margin-top:-103px; border-left: 6px solid black; border-right: 3px solid black;" ng-click="selectReadingScale(item, 1)" ng-mouseenter="divMouseEnter(1)" ng-mouseleave="divMouseLeave(1)"></div>
-                  <div id="div-2" class="col-md-2" style="height: 50px; margin-top:-103px; border-left: 3px solid black; border-right: 3px solid black;" ng-click="selectReadingScale(item, 2)" ng-mouseenter="divMouseEnter(2)" ng-mouseleave="divMouseLeave(2)"></div>
-                  <div id="div-3" class="col-md-2" style="height: 50px; margin-top:-103px; border-left: 3px solid black; border-right: 3px solid black;" ng-click="selectReadingScale(item, 3)" ng-mouseenter="divMouseEnter(3)" ng-mouseleave="divMouseLeave(3)"></div>
-                  <div id="div-4" class="col-md-2" style="height: 50px; margin-top:-103px; border-left: 3px solid black; border-right: 3px solid black;" ng-click="selectReadingScale(item, 4)" ng-mouseenter="divMouseEnter(4)" ng-mouseleave="divMouseLeave(4)"></div>
-                  <div id="div-5" class="col-md-2" style="height: 50px; margin-top:-103px; border-left: 3px solid black; border-right: 6px solid black;" ng-click="selectReadingScale(item, 5)" ng-mouseenter="divMouseEnter(5)" ng-mouseleave="divMouseLeave(5)"></div>
+                <div class="col-md-10 col-md-offset-1 reading-scale-main-div"></div>
+                  <div id="div-1" class="col-md-2 col-md-offset-1 reading-scale-div-left" ng-click="selectReadingScale(item, 1)" ng-mouseenter="divMouseEnter(1)" ng-mouseleave="divMouseLeave(1)"></div>
+                  <div id="div-2" class="col-md-2 reading-scale-div"                      ng-click="selectReadingScale(item, 2)" ng-mouseenter="divMouseEnter(2)" ng-mouseleave="divMouseLeave(2)"></div>
+                  <div id="div-3" class="col-md-2 reading-scale-div"                      ng-click="selectReadingScale(item, 3)" ng-mouseenter="divMouseEnter(3)" ng-mouseleave="divMouseLeave(3)"></div>
+                  <div id="div-4" class="col-md-2 reading-scale-div"                      ng-click="selectReadingScale(item, 4)" ng-mouseenter="divMouseEnter(4)" ng-mouseleave="divMouseLeave(4)"></div>
+                  <div id="div-5" class="col-md-2 reading-scale-div-right"                ng-click="selectReadingScale(item, 5)" ng-mouseenter="divMouseEnter(5)" ng-mouseleave="divMouseLeave(5)"></div>
               </div>
             </div>
             <div>
