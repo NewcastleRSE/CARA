@@ -108,7 +108,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
                     labelAngle: 135
                 },
                 axisY:{
-                    title: 'Correct',
+                    title: 'Proportion Correct',
                     titleFontSize: 14,
                     margin: 5,
                     minimum: 0,
