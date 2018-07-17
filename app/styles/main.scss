@@ -459,10 +459,9 @@ body.home .fullscreen-controls .home-btn, body.instructions .fullscreen-controls
   display: none;
 }
 
-.di-logo {
-  display: block;
-  height: 100px;
-  margin: 50px auto 0;
+.group-logos .logo {
+  height: 75px;
+  margin: 15px;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {

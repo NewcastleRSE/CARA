@@ -1036,62 +1036,63 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           }
         }
       });
-    }
 
-    footer();
-    doc.addPage();
+      footer();
+      doc.addPage();
 
-    doc.text(50, 30, 'Paragraph Comprehension - Gists');
+      doc.text(50, 30, 'Paragraph Comprehension - Gists');
 
-    doc.autoTable(paragraph.gistColumns, paragraph.gistRows, {
-      theme: 'grid',
-      styles: {
-        halign: 'center',
-        valign: 'middle',
-        font: 'helvetica'
-      },
-      headerStyles: {
-        fillColor: false,
-        textColor: 0,
-        lineColor: 200,
-        lineWidth: 1
-      },
-      createdCell: function (cell, data) {
+      doc.autoTable(paragraph.gistColumns, paragraph.gistRows, {
+        theme: 'grid',
+        styles: {
+          halign: 'center',
+          valign: 'middle',
+          font: 'helvetica'
+        },
+        headerStyles: {
+          fillColor: false,
+          textColor: 0,
+          lineColor: 200,
+          lineWidth: 1
+        },
+        createdCell: function (cell, data) {
 
-        switch (data.column.dataKey) {
-          case 'target':
-            if (data.row.raw.answer === data.row.raw.target) {
-              cell.styles.fillColor = [102, 189, 125];
-              cell.styles.textColor = [36, 73, 0];
-            }
-            break;
-          case 'distractor1':
-            if (data.row.raw.answer === data.row.raw.distractor1) {
-              cell.styles.fillColor = [247, 104, 108];
-              cell.styles.textColor = [91, 31, 20];
-            }
-            break;
-          case 'distractor2':
-            if (data.row.raw.answer === data.row.raw.distractor2) {
-              cell.styles.fillColor = [247, 104, 108];
-              cell.styles.textColor = [91, 31, 20];
-            }
-            break;
-          case 'time':
+          switch (data.column.dataKey) {
+            case 'target':
+              if (data.row.raw.answer === data.row.raw.target) {
+                cell.styles.fillColor = [102, 189, 125];
+                cell.styles.textColor = [36, 73, 0];
+              }
+              break;
+            case 'distractor1':
+              if (data.row.raw.answer === data.row.raw.distractor1) {
+                cell.styles.fillColor = [247, 104, 108];
+                cell.styles.textColor = [91, 31, 20];
+              }
+              break;
+            case 'distractor2':
+              if (data.row.raw.answer === data.row.raw.distractor2) {
+                cell.styles.fillColor = [247, 104, 108];
+                cell.styles.textColor = [91, 31, 20];
+              }
+              break;
+            case 'time':
 
-            if (cell.raw !== '') {
-              cell.styles.fillColor = $window.chroma.hex(paragraph.gistColours[paragraph.gistTimeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
-              cell.styles.textColor = [0, 0, 0];
-            }
+              if (cell.raw !== '') {
+                cell.styles.fillColor = $window.chroma.hex(paragraph.gistColours[paragraph.gistTimeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                cell.styles.textColor = [0, 0, 0];
+              }
 
-            break;
-          case 'answer':
-            break;
+              break;
+            case 'answer':
+              break;
+          }
         }
-      }
-    });
+      });
 
-    footer();
+      footer();
+
+    }
 
     doc.save('report-' + assessment.name + '.pdf');
 
