@@ -3489,5 +3489,43 @@
         "answerPosition": null
       }
     ]
+  },
+  "reading-scale": {
+    "name": "Reading Comfort",
+    "assessmentType": "reading-scale",
+    "items": [
+      {
+        "question": "reading a newspaper?",
+        "practice": true,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null
+      },
+      {
+        "question": "reading text messages?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null
+      },
+      {
+        "question": "reading signposts?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null
+      },
+      {
+        "question": "reading a newspaper?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": null
+      }
+    ]
   }
 }

@@ -326,6 +326,45 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
     font-size: 3.1em;
   }
 
+  .reading-scale-question-text {
+    font-size: 3.1em;
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+
+  .reading-scale {
+    width: 95%;
+    margin: auto;
+  }
+
+  .reading-scale-main-div {
+    height: 50px;
+    margin-top:50px;
+    margin-bottom:30px;
+    border-top: 6px solid black;
+  }
+
+  .reading-scale-div {
+    height: 50px;
+    margin-top:-103px;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+  }
+
+  .reading-scale-div-left {
+    height: 50px;
+    margin-top:-103px;
+    border-left: 6px solid black;
+    border-right: 3px solid black;
+  }
+
+  .reading-scale-div-right {
+    height: 50px;
+    margin-top:-103px;
+    border-left: 3px solid black;
+    border-right: 6px solid black;
+  }
+
   .answers a.btn {
     font-size: 2.7em;
   }
