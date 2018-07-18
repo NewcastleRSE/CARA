@@ -34,27 +34,16 @@ body.home {
 
 .app-menu {
 
-  position: fixed;
-  top: 10px;
-  left: 10px;
-
   img {
-    height: 50px;
+    height: 80px;
+    margin: 10px;
   }
 }
 
 /* Custom page header */
 .header {
-  //border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
+  height: 100px;
+  position: relative;
 }
 
 /* Custom page footer */
@@ -97,10 +86,7 @@ body.home {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
@@ -372,14 +358,12 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   &.paragraph {
     overflow: auto;
   }
-
-
 }
 
 .practice-marker {
   position: fixed;
-  left: 10px;
-  top: -5px;
+  left: 15px;
+  top: 80px;
   font-size: 4em;
 }
 
@@ -437,9 +421,9 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
 }
 
 .fullscreen-controls {
-  position: fixed;
-  right: 10px;
-  top: 10px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 body.fullscreen #main-contain {
@@ -448,7 +432,7 @@ body.fullscreen #main-contain {
 }
 
 body.not-fullscreen {
-  padding-top: 30px;
+  /*padding-top: 30px;*/
 }
 
 body.splash .fullscreen-controls {
