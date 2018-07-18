@@ -155,6 +155,8 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
 
             var sentence = sentenceSetup();
 
+            console.log(data[0]);
+
             //Data for colour coded response time table
             data.forEach(function (response, index) {
 
@@ -174,7 +176,7 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
                 sentence.keyRows.push({
                   rowNumber: index + 1,
                   item: response.pictures[0].split(' ')[0].toUpperCase() + ' ' + response.pictures[0].split(' ')[1].substring(0, response.pictures[0].split(' ')[1].length - 1),
-                  targetPicture: response.pictures[0].replace('.jpg', '')
+                  targetPicture: response.question
                 });
 
             });
