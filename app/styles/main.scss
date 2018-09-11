@@ -17,6 +17,7 @@ html {
 body {
   padding: 0;
   background-color: #fff;
+  overscroll-behavior: contain;
 }
 
 body.home {
