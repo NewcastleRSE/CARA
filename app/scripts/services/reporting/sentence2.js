@@ -173,7 +173,7 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
               sentence.keyRows.push({
                 rowNumber: index + 1,
                 item: response.pictures[0].split(' ')[0].toUpperCase() + ' ' + response.pictures[0].split(' ')[1].substring(0, response.pictures[0].split(' ')[1].length - 1),
-                targetPicture: response.pictures[0].replace('.jpg', '')
+                targetPicture: response.question
               });
 
             });

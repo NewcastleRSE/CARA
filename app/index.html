@@ -19,37 +19,17 @@
   </head>
   <body ng-controller="AppCtrl as app" class="" ng-class="[currentStateName, {home : doc.location.hash == '#/home'}, {splash : doc.location.hash == '#/'}, {fullscreen : isFullScreen}, {'not-fullscreen' : ! isFullScreen}]">
 
-  <div class="fullscreen-controls ng-cloak">
-    <button class="btn btn-default btn-info" ng-show="isFullScreen === false" ng-click="goFullScreen()"><i class="glyphicon glyphicon-fullscreen"></i>&nbsp;&nbsp;Full Screen</button>
-    <a class="home-btn btn btn-default btn-info" ng-show="assessmentLoaded" ng-click="confirmAssessmentExit()"><i class="glyphicon glyphicon-log-out"></i>  Exit Assessment</a>
-    <a class="btn btn-default btn-info" data-toggle="modal" data-target="#instructionsModal"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;Instructions</a>
-  </div>
-
     <div class="header">
-      <div ng-show="navBarVis" class="navbar navbar-default ng-cloak" role="navigation" ng-cloak>
-        <div class="container-fluid">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">Reading Comprehension</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li data-toggle="modal" ng-show="assessmentLoaded" data-target="#customiseAssessment"><a href="#">Customise Assessment</a></li>
-              <!--<li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>-->
-            </ul>
-          </div>
+        <div class="app-menu ng-cloak">
+            <a ui-sref="home"><img src="images/logo.png" class="logo"></a>
         </div>
-      </div>
+
+        <div class="fullscreen-controls ng-cloak">
+            <button class="btn btn-default btn-info" ng-show="isFullScreen === false" ng-click="goFullScreen()"><i class="glyphicon glyphicon-fullscreen"></i>&nbsp;&nbsp;Full Screen</button>
+            <a class="home-btn btn btn-default btn-info" ng-show="assessmentLoaded" ng-click="confirmAssessmentExit()"><i class="glyphicon glyphicon-log-out"></i>  Exit Assessment</a>
+            <a class="btn btn-default btn-info" data-toggle="modal" data-target="#instructionsModal"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;Instructions</a>
+            <a class="btn btn-default btn-info" ui-sref="about"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;About</a>
+        </div>
     </div>
 
     <div id="main-contain" class="container-fluid">

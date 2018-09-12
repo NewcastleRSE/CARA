@@ -9,5 +9,5 @@
  */
 angular.module('rcaApp')
   .controller('AboutCtrl', function ($scope, $rootScope) {
-    $rootScope.navBarVis = true;
+    $rootScope.navBarVis = false;
   });
