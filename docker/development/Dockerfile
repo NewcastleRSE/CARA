@@ -9,6 +9,6 @@ RUN gem install compass
 
 RUN npm install -g grunt-cli bower
 
-EXPOSE 9000:9000
+EXPOSE 9000
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
