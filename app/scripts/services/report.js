@@ -72,25 +72,25 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       var chartData = [];
 
       if(singleWord1){
-        chartData.push({ label: 'Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) });
+        chartData.push({ label: 'Unrelated', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) * 100 });
       }
 
       if(singleWord2){
-        chartData.push({ label: 'Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
+        chartData.push({ label: 'Related', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) * 100 });
       }
 
       if(singleWord1){
-        chartData.push({ label: 'Pt 1 - Nouns', y: singleWord1.nouns.correct.count / (singleWord1.nouns.correct.count + singleWord1.nouns.incorrect.count) });
-        chartData.push({ label: 'Pt 1 - Verbs', y: singleWord1.verbs.correct.count / (singleWord1.verbs.correct.count + singleWord1.verbs.incorrect.count) });
-        chartData.push({ label: 'Pt 1 - Concrete', y: (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count) / (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count + singleWord1.concreteNouns.incorrect.count + singleWord1.concreteVerbs.incorrect.count) });
-        chartData.push({ label: 'Pt 1 - Abstract', y: (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count) / (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count + singleWord1.abstractNouns.incorrect.count + singleWord1.abstractVerbs.incorrect.count) });
+        chartData.push({ label: 'Pt 1 - Nouns', y: singleWord1.nouns.correct.count / (singleWord1.nouns.correct.count + singleWord1.nouns.incorrect.count) * 100 });
+        chartData.push({ label: 'Pt 1 - Verbs', y: singleWord1.verbs.correct.count / (singleWord1.verbs.correct.count + singleWord1.verbs.incorrect.count) * 100 });
+        chartData.push({ label: 'Pt 1 - Concrete', y: (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count) / (singleWord1.concreteNouns.correct.count + singleWord1.concreteVerbs.correct.count + singleWord1.concreteNouns.incorrect.count + singleWord1.concreteVerbs.incorrect.count) * 100 });
+        chartData.push({ label: 'Pt 1 - Abstract', y: (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count) / (singleWord1.abstractNouns.correct.count + singleWord1.abstractVerbs.correct.count + singleWord1.abstractNouns.incorrect.count + singleWord1.abstractVerbs.incorrect.count) * 100 });
       }
 
       if(singleWord2){
-        chartData.push({ label: 'Pt 2 - Nouns', y: singleWord2.nouns.correct.count / (singleWord2.nouns.correct.count + singleWord2.nouns.incorrect.count) });
-        chartData.push({ label: 'Pt 2 - Verbs', y: singleWord2.verbs.correct.count / (singleWord2.verbs.correct.count + singleWord2.verbs.incorrect.count) });
-        chartData.push({ label: 'Pt 2 - Concrete', y: (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count) / (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count + singleWord2.concreteNouns.incorrect.count + singleWord2.concreteVerbs.incorrect.count) });
-        chartData.push({ label: 'Pt 2 - Abstract', y: (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count) / (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count + singleWord2.abstractNouns.incorrect.count + singleWord2.abstractVerbs.incorrect.count) });
+        chartData.push({ label: 'Pt 2 - Nouns', y: singleWord2.nouns.correct.count / (singleWord2.nouns.correct.count + singleWord2.nouns.incorrect.count) * 100 });
+        chartData.push({ label: 'Pt 2 - Verbs', y: singleWord2.verbs.correct.count / (singleWord2.verbs.correct.count + singleWord2.verbs.incorrect.count) * 100 });
+        chartData.push({ label: 'Pt 2 - Concrete', y: (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count) / (singleWord2.concreteNouns.correct.count + singleWord2.concreteVerbs.correct.count + singleWord2.concreteNouns.incorrect.count + singleWord2.concreteVerbs.incorrect.count) * 100 });
+        chartData.push({ label: 'Pt 2 - Abstract', y: (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count) / (singleWord2.abstractNouns.correct.count + singleWord2.abstractVerbs.correct.count + singleWord2.abstractNouns.incorrect.count + singleWord2.abstractVerbs.incorrect.count) * 100 });
       }
 
       var singleWordSummary = new CanvasJS.Chart('singleWordSummary', {
@@ -108,7 +108,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           tickColor: 'black'
         },
         axisY:{
-          title: 'Proportion Correct',
+          title: 'Correct',
           titleFontSize: 14,
           titleFontColor: 'black',
           labelFontSize: 10,
@@ -121,7 +121,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           tickColor: 'black',
           margin: 5,
           minimum: 0,
-          maximum: 1
+          maximum: 100
         },
         data: [
           {
@@ -142,33 +142,33 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
       if(sentence1 && sentence2) {
         chartData = [
-          { label: 'Total', y: ((sentence1.total.correct.count + sentence2.total.correct.count) / (sentence1.total.questionCount + sentence2.total.questionCount)) },
-          { label: 'Non-reversible', y: ((sentence1.nonReversibleTotal.correct.count + sentence2.nonReversibleTotal.correct.count)/34) },
-          { label: 'Reversible', y: ((sentence1.reversibleTotal.correct.count + sentence2.reversibleTotal.correct.count)/23) },
-          { label: 'Phrase', y: (sentence1.phrases.correct.count + sentence2.phrases.correct.count) / (sentence1.phrases.correct.count + sentence2.phrases.correct.count + sentence1.phrases.incorrect.count + sentence2.phrases.incorrect.count) },
-          { label: 'Simple', y: (sentence1.simple.correct.count + sentence2.simple.correct.count) / (sentence1.simple.correct.count + sentence2.simple.correct.count + sentence1.simple.incorrect.count + sentence2.simple.incorrect.count) },
-          { label: 'Complex', y: (sentence1.complex.correct.count + sentence2.complex.correct.count) / (sentence1.complex.correct.count + sentence2.complex.correct.count + sentence1.complex.incorrect.count + sentence2.complex.incorrect.count) }
+          { label: 'Total', y: ((sentence1.total.correct.count + sentence2.total.correct.count) / (sentence1.total.questionCount + sentence2.total.questionCount)) * 100 },
+          { label: 'Non-reversible', y: ((sentence1.nonReversibleTotal.correct.count + sentence2.nonReversibleTotal.correct.count)/34) * 100 },
+          { label: 'Reversible', y: ((sentence1.reversibleTotal.correct.count + sentence2.reversibleTotal.correct.count)/23) * 100 },
+          { label: 'Phrase', y: (sentence1.phrases.correct.count + sentence2.phrases.correct.count) / (sentence1.phrases.correct.count + sentence2.phrases.correct.count + sentence1.phrases.incorrect.count + sentence2.phrases.incorrect.count) * 100 },
+          { label: 'Simple', y: (sentence1.simple.correct.count + sentence2.simple.correct.count) / (sentence1.simple.correct.count + sentence2.simple.correct.count + sentence1.simple.incorrect.count + sentence2.simple.incorrect.count) * 100 },
+          { label: 'Complex', y: (sentence1.complex.correct.count + sentence2.complex.correct.count) / (sentence1.complex.correct.count + sentence2.complex.correct.count + sentence1.complex.incorrect.count + sentence2.complex.incorrect.count) * 100 }
         ]
       }
       else if(sentence1 && !sentence2) {
         chartData = [
-          { label: 'Total', y: (sentence1.total.correct.count / sentence1.total.questionCount) },
-          { label: 'Non-reversible', y: (sentence1.nonReversibleTotal.correct.count/ sentence1.nonReversibleTotal.questionCount) },
-          { label: 'Reversible', y: (sentence1.reversibleTotal.correct.count / sentence1.reversibleTotal.questionCount) },
-          { label: 'Phrase', y: (sentence1.phrases.correct.count / sentence1.phrases.questionCount) },
-          { label: 'Simple', y: (sentence1.simple.correct.count / sentence1.simple.questionCount) },
-          { label: 'Complex', y: (sentence1.complex.correct.count / sentence1.complex.questionCount) }
-        ]
+          { label: 'Total', y: (sentence1.total.correct.count / sentence1.total.questionCount) * 100 },
+          { label: 'Non-reversible', y: (sentence1.nonReversibleTotal.correct.count/ sentence1.nonReversibleTotal.questionCount) * 100 },
+          { label: 'Reversible', y: (sentence1.reversibleTotal.correct.count / sentence1.reversibleTotal.questionCount) * 100 },
+          { label: 'Phrase', y: (sentence1.phrases.correct.count / sentence1.phrases.questionCount) * 100 },
+          { label: 'Simple', y: (sentence1.simple.correct.count / sentence1.simple.questionCount) * 100 },
+          { label: 'Complex', y: (sentence1.complex.correct.count / sentence1.complex.questionCount) * 100 }
+        ];
       }
       else {
         chartData = [
-          { label: 'Total', y: (sentence2.total.correct.count / sentence2.total.questionCount) },
-          { label: 'Non-reversible', y: (sentence2.nonReversibleTotal.correct.count/ sentence2.nonReversibleTotal.questionCount) },
-          { label: 'Reversible', y: (sentence2.reversibleTotal.correct.count / sentence2.reversibleTotal.questionCount) },
-          { label: 'Phrase', y: (sentence2.phrases.correct.count / sentence2.phrases.questionCount) },
-          { label: 'Simple', y: (sentence2.simple.correct.count / sentence2.simple.questionCount) },
-          { label: 'Complex', y: (sentence2.complex.correct.count / sentence2.complex.questionCount) }
-        ]
+          { label: 'Total', y: (sentence2.total.correct.count / sentence2.total.questionCount) * 100 },
+          { label: 'Non-reversible', y: (sentence2.nonReversibleTotal.correct.count/ sentence2.nonReversibleTotal.questionCount) * 100 },
+          { label: 'Reversible', y: (sentence2.reversibleTotal.correct.count / sentence2.reversibleTotal.questionCount) * 100 },
+          { label: 'Phrase', y: (sentence2.phrases.correct.count / sentence2.phrases.questionCount) * 100 },
+          { label: 'Simple', y: (sentence2.simple.correct.count / sentence2.simple.questionCount) * 100 },
+          { label: 'Complex', y: (sentence2.complex.correct.count / sentence2.complex.questionCount) * 100 }
+        ];
       }
 
       var sentenceSummary = new CanvasJS.Chart('sentenceSummary', {
@@ -186,7 +186,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           labelAngle: 135
         },
         axisY:{
-          title: 'Proportion Correct',
+          title: 'Correct',
           titleFontSize: 14,
           titleFontColor: 'black',
           labelFontSize: 10,
@@ -199,7 +199,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           tickColor: 'black',
           margin: 5,
           minimum: 0,
-          maximum: 1
+          maximum: 100
         },
         data: [
           {
@@ -243,7 +243,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           tickColor: 'black',
           margin: 5,
           minimum: 0,
-          maximum: 1
+          maximum: 100
         },
         data: [
           {
@@ -251,11 +251,11 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             color: '#66BD7D',
             name: 'Correct',
             dataPoints: [
-              { label: 'Total', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) },
-              { label: 'Main Ideas Stated', y: paragraph.mainIdeasStated.correct.count / (paragraph.mainIdeasStated.correct.count + paragraph.mainIdeasStated.incorrect.count) },
-              { label: 'Main Ideas Inferred', y: paragraph.mainIdeasImplied.correct.count / (paragraph.mainIdeasImplied.correct.count + paragraph.mainIdeasImplied.incorrect.count) },
-              { label: 'Details Stated', y: paragraph.detailsStated.correct.count / (paragraph.detailsStated.correct.count + paragraph.detailsStated.incorrect.count) },
-              { label: 'Details Inferred', y: paragraph.detailsImplied.correct.count / (paragraph.detailsImplied.correct.count + paragraph.detailsImplied.incorrect.count) },
+              { label: 'Total', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) * 100 },
+              { label: 'Main Ideas Stated', y: paragraph.mainIdeasStated.correct.count / (paragraph.mainIdeasStated.correct.count + paragraph.mainIdeasStated.incorrect.count) * 100 },
+              { label: 'Main Ideas Inferred', y: paragraph.mainIdeasImplied.correct.count / (paragraph.mainIdeasImplied.correct.count + paragraph.mainIdeasImplied.incorrect.count) * 100 },
+              { label: 'Details Stated', y: paragraph.detailsStated.correct.count / (paragraph.detailsStated.correct.count + paragraph.detailsStated.incorrect.count) * 100 },
+              { label: 'Details Inferred', y: paragraph.detailsImplied.correct.count / (paragraph.detailsImplied.correct.count + paragraph.detailsImplied.incorrect.count) * 100 },
               { label: 'Gist', y: paragraph.gist.correct.count / (paragraph.gist.correct.count + paragraph.gist.incorrect.count) }
             ]
           }
@@ -270,19 +270,19 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       var dataPoints = [];
 
       if(singleWord1){
-        dataPoints.push({ label: 'Single Words: Part 1', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) });
+        dataPoints.push({ label: 'Single Words: Part 1', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) * 100 });
       }
       if(singleWord2){
-        dataPoints.push({ label: 'Single Words: Part 2', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) });
+        dataPoints.push({ label: 'Single Words: Part 2', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) * 100 });
       }
       if(sentence1){
-        dataPoints.push({ label: 'Sentences: Part 1', y: (sentence1.total.correct.count / sentence1.total.questionCount) });
+        dataPoints.push({ label: 'Sentences: Part 1', y: (sentence1.total.correct.count / sentence1.total.questionCount) * 100 });
       }
       if(sentence2){
-        dataPoints.push({ label: 'Sentences: Part 2', y: (sentence2.total.correct.count / sentence2.total.questionCount) });
+        dataPoints.push({ label: 'Sentences: Part 2', y: (sentence2.total.correct.count / sentence2.total.questionCount) * 100 });
       }
       if(paragraph){
-        dataPoints.push({ label: 'Paragraphs', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) });
+        dataPoints.push({ label: 'Paragraphs', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) * 100 });
       }
 
       var overallSummary = new CanvasJS.Chart('overallSummary', {
@@ -300,7 +300,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           labelAngle: 135
         },
         axisY:{
-          title: 'Proportion Correct',
+          title: 'Correct',
           titleFontSize: 14,
           titleFontColor: 'black',
           labelFontSize: 10,
@@ -313,7 +313,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           tickColor: 'black',
           margin: 5,
           minimum: 0,
-          maximum: 1
+          maximum: 100
         },
         data: [
           {
@@ -1041,6 +1041,9 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       doc.addPage();
 
       doc.text(50, 30, 'Paragraph Comprehension - Gists');
+      doc.setFontSize(8);
+      doc.text(50, 50, 'Colour coding takes answer time distribution into account. The colours are not equally spaced, instead the darkest green is the quickest answer and the darkest red is the slowest answer. All other questions are coloured relative to those bounds.');
+      doc.setFontSize(12);
 
       doc.autoTable(paragraph.gistColumns, paragraph.gistRows, {
         theme: 'grid',
