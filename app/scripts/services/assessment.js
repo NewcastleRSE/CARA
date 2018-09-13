@@ -47,8 +47,14 @@ angular.module('rcaApp')
 
       },
 
-      set : function(newQuestions) {
-        Assessment.questions.questions = newQuestions;
+      set : function(newQuestions, key) {
+
+        if (key) {
+          Assessment.questions.questions[key] = newQuestions;
+        } else {
+          Assessment.questions.questions = newQuestions;
+        }
+        
 
         return Assessment.questions;
       },

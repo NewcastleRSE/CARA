@@ -21,7 +21,8 @@ angular
     'ngTouch',
     'frapontillo.bootstrap-switch',
     'angularMoment',
-    'ngRaven'
+    // 'ngRaven',
+    angularDragula(angular)
   ]).config( [
   '$compileProvider',
   function( $compileProvider )
@@ -61,6 +62,11 @@ angular
       templateUrl: 'views/slot-summary.html',
       controller: 'SlotSummaryCtrl'
     })
+    .state('cardSorting', {
+      url: '/:slotId/card-sorting/0',
+      templateUrl: 'views/card-sorting.html',
+      controller: 'CardSortingCtrl'
+    })
     .state('assessment', {
       url: '/:slotId/:section',
       templateUrl: 'views/assessment-intro.html',
@@ -98,11 +104,25 @@ angular
         $scope.things = ['A', 'Set', 'Of', 'Things'];
       }
     });
-}).run(function($rootScope){
+}).run(function($rootScope, $transitions){
+
+  console.log("Add statechange function")
+  console.log($rootScope)
+
+  $transitions.onSuccess({}, function(transition) {
+
+    $rootScope.containerClass = transition.to().name;
+
+    console.log(
+        "Successful Transition from " + transition.from().name +
+        " to " + transition.to().name
+    );
+  });
+  
 
   $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
     $rootScope.containerClass = toState.name;
-    //console.log(toState.name);
+    console.log(toState.name);
   });
 
 });
