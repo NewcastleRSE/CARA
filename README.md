@@ -16,7 +16,7 @@ CARA is developed from a research project, based within Speech and Language Scie
 
 ## Development Build
 
-The application is an AngularJS (Angular 1) web application. It uses NPM & Bower for its package management and Grunt for its build process.
+The application is built on AngularJS (Angular 1). It uses NPM & Bower for its package management and Grunt for its build process.
 
 #### Docker
 
