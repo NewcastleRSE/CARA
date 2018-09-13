@@ -47,5 +47,8 @@
         "dist/plugins/angular.js"
       ]
     }
+  },
+  "resolutions": {
+    "angular": "1.6.9"
   }
 }

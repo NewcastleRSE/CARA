@@ -9,20 +9,12 @@
  */
 angular.module('rcaApp')
   .controller('AppCtrl', function ($scope,$window, $state, $timeout) {
-    console.log($state.current);
     $scope.doc = $window.document;
-
-    console.log($state);
 
     $scope.currentStateName = $state.current.name.replace(/\./g,'-');
 
     $scope.$on('$stateChangeSuccess', function(event, toState){
-      console.log('State changed');
-      console.log(toState.name);
-
       $scope.currentStateName = $state.current.name.replace(/\./g,'-');
-
-      console.log('state: ', $scope.currentStateName);
     });
 
     //$scope.isFullScreen = window.innerHeight == screen.height;

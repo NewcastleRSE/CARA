@@ -58,12 +58,11 @@ angular.module('rcaApp')
       },
 
       setIndex : function() {
-        console.log('All', Assessment.questions.get());
 
         var section;
 
         for(section in Assessment.questions.get()){
-          console.log(Assessment.questions.get(section));
+          //console.log(Assessment.questions.get(section));
         }
       },
 
@@ -250,7 +249,7 @@ angular.module('rcaApp')
     };
 
     Assessment.start = function() {
-      console.log('Starting');
+      //console.log('Starting');
       //$state.go('assessment', {'slotId': Storage.currentSlot});
       //console.log('Poost');
       Assessment.questions.current.reset();
