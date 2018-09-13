@@ -6,6 +6,7 @@ services:
     - ".:/usr/local/app"
     ports:
     - "9000:9000"
+    - "35729:35729"
     networks:
     - public
 networks:

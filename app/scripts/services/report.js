@@ -49,12 +49,12 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         reversible: '',
         total: ((sentence1) ? sentence1.nonReversiblePhrases.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.nonReversiblePhrases.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.questionCount : 0 ))
       },{
-        type: 'Simple',
+        type: 'Simple Sentences',
         nonReversible: ((sentence1) ? sentence1.nonReversibleSimple.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversibleSimple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.nonReversibleSimple.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversibleSimple.questionCount : 0 )),
         reversible: ((sentence1) ? sentence1.reversibleSimple.correct.count : 0 ) + ((sentence2) ? sentence2.reversibleSimple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.reversibleSimple.questionCount : 0 ) + ((sentence2) ? sentence2.reversibleSimple.questionCount : 0 )),
         total: ((sentence1) ? sentence1.simple.correct.count : 0 ) + ((sentence2) ? sentence2.simple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.simple.questionCount : 0 ) + ((sentence2) ? sentence2.simple.questionCount : 0 ))
       },{
-        type: 'Complex',
+        type: 'Complex Sentences',
         nonReversible: '',
         nonReversibleScore: '',
         reversible: ((sentence1) ? sentence1.reversibleComplex.correct.count : 0 ) + ((sentence2) ? sentence2.reversibleComplex.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.reversibleComplex.questionCount : 0 ) + ((sentence2) ? sentence2.reversibleComplex.questionCount : 0 )),
@@ -128,6 +128,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             type: 'column',
             color: '#66BD7D',
             name: 'Correct',
+            indexLabelPlacement: 'outside',
+            indexLabel: "{y}%",
+            indexLabelFontSize: 8,
+            indexLabelFontColor: 'black',
+            indexLabelFormatter: function(event){
+              return event.dataPoint.y.toFixed(0) + '%';
+            },
             dataPoints: chartData
           }
         ]
@@ -206,6 +213,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             type: 'column',
             color: '#66BD7D',
             name: 'Correct',
+            indexLabelPlacement: 'outside',
+            indexLabel: "{y}%",
+            indexLabelFontSize: 8,
+            indexLabelFontColor: 'black',
+            indexLabelFormatter: function(event){
+              return event.dataPoint.y.toFixed(0) + '%';
+            },
             dataPoints: chartData
           }
         ]
@@ -250,6 +264,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             type: 'column',
             color: '#66BD7D',
             name: 'Correct',
+            indexLabelPlacement: 'outside',
+            indexLabel: "{y}%",
+            indexLabelFontSize: 8,
+            indexLabelFontColor: 'black',
+            indexLabelFormatter: function(event){
+              return event.dataPoint.y.toFixed(0) + '%';
+            },
             dataPoints: [
               { label: 'Total', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) * 100 },
               { label: 'Main Ideas Stated', y: paragraph.mainIdeasStated.correct.count / (paragraph.mainIdeasStated.correct.count + paragraph.mainIdeasStated.incorrect.count) * 100 },
@@ -320,6 +341,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             type: 'column',
             color: '#66BD7D',
             name: 'Correct',
+            indexLabelPlacement: 'outside',
+            indexLabel: "{y}%",
+            indexLabelFontSize: 8,
+            indexLabelFontColor: 'black',
+            indexLabelFormatter: function(event){
+              return event.dataPoint.y.toFixed(0) + '%';
+            },
             dataPoints: dataPoints
           }
         ]
@@ -389,13 +417,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           styles: {
             halign: 'center',
             valign: 'middle',
-            font: 'helvetica'
+            font: 'helvetica',
+            lineColor: 100,
+            lineWidth: 1
           },
           headerStyles: {
             fillColor: false,
-            textColor: 0,
-            lineColor: 200,
-            lineWidth: 1
+            textColor: 0
           },
           createdCell: function (cell, data) {
             switch (data.column.dataKey) {
@@ -405,6 +433,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
               case 'abstractLabel':
                 cell.styles.fontStyle = 'bold';
                 break;
+            }
+          },
+          drawRow: function (row) {
+            if(row.index === 2) {
+              Object.keys(row.cells).forEach(function (key) {
+                var cell = row.cells[key];
+                cell.styles.lineWidth = 1.5;
+              });
             }
           }
         });
@@ -418,13 +454,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           styles: {
             halign: 'center',
             valign: 'middle',
-            font: 'helvetica'
+            font: 'helvetica',
+            lineColor: 100,
+            lineWidth: 1
           },
           headerStyles: {
             fillColor: false,
-            textColor: 0,
-            lineColor: 200,
-            lineWidth: 1
+            textColor: 0
           },
           createdCell: function (cell, data) {
             switch (data.column.dataKey) {
@@ -434,6 +470,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
               case 'abstractLabel':
                 cell.styles.fontStyle = 'bold';
                 break;
+            }
+          },
+          drawRow: function (row) {
+            if(row.index === 2) {
+              Object.keys(row.cells).forEach(function (key) {
+                var cell = row.cells[key];
+                cell.styles.lineWidth = 1.5;
+              });
             }
           }
         });
@@ -483,13 +527,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'center',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 
@@ -503,6 +547,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
           if(cell.text === ''){
             cell.styles.fillColor = [153,153,153];
+          }
+        },
+        drawRow: function (row) {
+          if(row.index === 3) {
+            Object.keys(row.cells).forEach(function (key) {
+              var cell = row.cells[key];
+              cell.styles.lineWidth = 1.5;
+            });
           }
         }
       });
@@ -531,13 +583,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'center',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 
@@ -548,8 +600,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
             case 'paragraphs':
               cell.styles.fontStyle = 'bold';
               break;
+            case 'lengthScore':
+              cell.styles.lineWidth = 1.5;
+              break;
             case 'questionType':
               cell.styles.fontStyle = 'bold';
+              break;
+            case 'typeScore':
+              cell.styles.lineWidth = 1.5;
               break;
           }
         }
@@ -586,13 +644,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'left',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 
@@ -646,13 +704,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'center',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 
@@ -706,13 +764,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'left',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         }
       });
 
@@ -726,13 +784,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'center',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 
@@ -788,13 +846,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'left',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         }
       });
 
@@ -808,13 +866,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'center',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 
@@ -873,13 +931,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'center',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 
@@ -959,13 +1017,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'center',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 
@@ -1050,13 +1108,13 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         styles: {
           halign: 'center',
           valign: 'middle',
-          font: 'helvetica'
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
         },
         headerStyles: {
           fillColor: false,
-          textColor: 0,
-          lineColor: 200,
-          lineWidth: 1
+          textColor: 0
         },
         createdCell: function (cell, data) {
 

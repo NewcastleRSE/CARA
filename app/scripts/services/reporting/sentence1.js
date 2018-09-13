@@ -155,8 +155,6 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
 
             var sentence = sentenceSetup();
 
-            console.log(data[0]);
-
             //Data for colour coded response time table
             data.forEach(function (response, index) {
 
