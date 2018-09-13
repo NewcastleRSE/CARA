@@ -467,6 +467,12 @@ body.home .fullscreen-controls .home-btn, body.instructions .fullscreen-controls
   color: white !important;
 }
 
+.btn-primary:disabled, .btn-primary:disabled:hover {
+  background-color: #222222;
+  border-color: #222222;
+  color: white !important;
+}
+
 .btn-info, .btn-info:hover, .btn-info:active, .btn-info:focus {
   background-color: #9A70AC;
   border-color: #9A70AC;
