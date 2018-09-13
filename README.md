@@ -16,7 +16,7 @@ CARA is developed from a research project, based within Speech and Language Scie
 
 ## Development Build
 
-The application is an AngularJS (Angular 1) web application. It uses NPM & Bower for its package management and Grunt for its build process.
+The application is built on AngularJS (Angular 1). It uses NPM & Bower for its package management and Grunt for its build process.
 
 #### Docker
 
@@ -61,20 +61,23 @@ If you wish to not use Docker and run the code on your local environment use the
 2. Install [Ruby](http://www.ruby-lang.org/en/downloads/) and [Compass](http://compass-style.org/install/) for SASS compilation.
 
 3. Install globally required packages. 
-
+    
     ```
     npm install -g grunt-cli bower
     ``` 
-
+    
 4. Download and install all project dependencies.
     
     ```
     npm install
     ``` 
+    
 5. Download and install all browser dependencies.
+    
     ```
     bower install
     ```
+    
 6. Run validatoin tasks and start web server
 
     ```
