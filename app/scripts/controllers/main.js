@@ -74,6 +74,14 @@ angular.module('rcaApp')
       angular.forEach(assessment.questions, function(item){
         if (item.completed === true) {
           hasCompleteSection = true;
+
+          if(item.name === 'Sentences Part 1'){
+            hasCompleteSection = assessment.questions['sentence-part-2'].completed;
+          }
+
+          if(item.name === 'Sentences Part 2'){
+            hasCompleteSection = assessment.questions['sentence-part-1'].completed;
+          }
         }
       });
 

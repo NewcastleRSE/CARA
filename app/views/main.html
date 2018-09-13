@@ -51,7 +51,8 @@
             </div>
 
             <div class="btn-group" role="group">
-              <button ng-disabled="hasCompleteSection(assessment) !== true" class="btn btn-default" ng-click="viewReport($index, assessment)"><i class="glyphicon glyphicon-stats"></i> View Report</button>
+              <button ng-disabled="hasCompleteSection(assessment) !== true" class="btn btn-default" ng-click="hasCompleteSection(assessment)"><i class="glyphicon glyphicon-stats"></i> View Report</button>
+<!--              <button ng-disabled="hasCompleteSection(assessment) !== true" class="btn btn-default" ng-click="viewReport($index, assessment)"><i class="glyphicon glyphicon-stats"></i> View Report</button>-->
             </div>
 
           </div>
