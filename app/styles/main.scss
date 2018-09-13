@@ -417,4 +417,36 @@ body.home .fullscreen-controls .home-btn, body.instructions .fullscreen-controls
   display: none;
 }
 
+.reading-scale {
+  height: 50px;
+  margin-top:50px;
+  margin-bottom:30px;
+  border-top: 6px solid black;
+}
 
+.reading-scale-div {
+  height: 50px;
+  margin-top:-103px;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+}
+
+.left-div {
+  border-left: 6px solid black;
+}
+
+.right-div {
+  border-right: 6px solid black;
+}
+
+.reading-scale-div:hover {
+  background-color: rgba(0,121,211,0.1);
+}
+
+.selected {
+  background-color: rgba(0,121,211,0.5);
+}
+
+.selected:hover {
+  background-color: rgba(0,121,211,0.5);
+}

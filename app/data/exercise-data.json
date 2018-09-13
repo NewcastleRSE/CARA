@@ -3486,7 +3486,31 @@
         "started": null,
         "finished": null,
         "timeTaken": null,
-        "answerGiven": null
+        "answerGiven": 0
+      },
+      {
+        "question": "reading text messages?",
+        "practice": true,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "reading signposts?",
+        "practice": true,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "reading a newspaper?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
       },
       {
         "question": "reading text messages?",
@@ -3494,7 +3518,7 @@
         "started": null,
         "finished": null,
         "timeTaken": null,
-        "answerGiven": null
+        "answerGiven": 0
       },
       {
         "question": "reading signposts?",
@@ -3502,7 +3526,31 @@
         "started": null,
         "finished": null,
         "timeTaken": null,
-        "answerGiven": null
+        "answerGiven": 0
+      },
+      {
+        "question": "reading a book?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "reading maps?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "reading timetables?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
       }
     ]
   }

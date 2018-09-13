@@ -98,35 +98,23 @@ angular.module('rcaApp')
     };
 
     $scope.selectReadingScale = function($item, $value) {
-      $item.answer = $value;
+      $scope.answerPresent = true;
 
-      document.getElementById("div-1").style.backgroundColor = '';
-      document.getElementById("div-2").style.backgroundColor = '';
-      document.getElementById("div-3").style.backgroundColor = '';
-      document.getElementById("div-4").style.backgroundColor = '';
-      document.getElementById("div-5").style.backgroundColor = '';
+      $scope.answerGiven = $value;
+      $item.answerGiven = $value;
 
-      document.getElementById("div-" + $value).style.backgroundColor = 'rgba(0,121,211,0.5)';
+      document.getElementById("div-1").classList.remove("selected");
+      document.getElementById("div-2").classList.remove("selected");
+      document.getElementById("div-3").classList.remove("selected");
+      document.getElementById("div-4").classList.remove("selected");
+      document.getElementById("div-5").classList.remove("selected");
+
+      console.log("div-" + $value + " set selected");
+      console.log(document.getElementById("div-" + $value));
+
+      document.getElementById("div-" + $value).classList.add("selected");
 
       document.getElementById("continue-button").disabled = false;
-
-      $scope.answerPresent = true;
-      $scope.answerGiven = $value;
-    }
-
-    $scope.divMouseEnter = function($value) {
-      if($scope.answerGiven !== $value) {
-        document.getElementById("div-" + $value).style.backgroundColor = 'rgba(0,121,211,0.1)';
-      }
-    }
-
-    $scope.divMouseLeave = function($value) {
-      if($scope.answerGiven === $value) {
-        document.getElementById("div-" + $value).style.backgroundColor = 'rgba(0,121,211,0.5)';
-      }
-      else {
-        document.getElementById("div-" + $value).style.backgroundColor = '';
-      }
     }
 
     $scope.acceptReadingScale = function($item, $index) {
@@ -151,7 +139,6 @@ angular.module('rcaApp')
             itemIndex: $scope.currentItemIndex + 1
           });
         }
-
       } else {
         // Section Completed
         $scope.questions[$stateParams.section].completed = true;
