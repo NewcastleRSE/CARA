@@ -14,6 +14,7 @@ angular.module('rcaApp')
     $scope.currentStateName = $state.current.name.replace(/\./g,'-');
 
     $scope.$on('$stateChangeSuccess', function(event, toState){
+      console.log(toState);
       $scope.currentStateName = $state.current.name.replace(/\./g,'-');
     });
 

@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
+    <link rel="stylesheet" href="bower_components/angularjs-dragula/dist/dragula.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -114,16 +115,17 @@
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/raven-js/dist/raven.js"></script>
     <script src="bower_components/raven-js/dist/plugins/angular.js"></script>
+    <script src="bower_components/angularjs-dragula/dist/angularjs-dragula.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <script src="scripts/lib/canvasjs/canvasjs.min.js"></script>
 
   <script>
-    Raven
-      .config('https://5d8a65e5588b4f52b0e335b21b83f97b@sentry.di-projects.net/7')
-      .addPlugin(Raven.Plugins.Angular)
-      .install();
+    // Raven
+    //   .config('https://5d8a65e5588b4f52b0e335b21b83f97b@sentry.di-projects.net/7')
+    //   .addPlugin(Raven.Plugins.Angular)
+    //   .install();
   </script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -147,6 +149,7 @@
         <script src="scripts/controllers/section-intro.js"></script>
         <script src="scripts/controllers/slot-summary.js"></script>
         <script src="scripts/controllers/welcome.js"></script>
+        <script src="scripts/controllers/card-sorting.js"></script>
         <!-- endbuild -->
 
     <!--<script type="text/javascript" src="https://digitalinstitute.atlassian.net/s/5a69cd8b8f20a02917cfdd6c717fc8a7-T/-p6lx3i/72002/6a2ac7610a2d01a048aed7ccf1208eeb/2.0.14/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=8f965d01"></script>-->
