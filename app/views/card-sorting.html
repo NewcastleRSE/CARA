@@ -136,13 +136,24 @@
 }
 
 </style>
+<!-- <div>
+    {{modelAsJson}}
+</div> -->
 
 <div class="card-sorter">
         <div class="container-fluid">
                 <div class="row">
                     <div ng-repeat="zone in models.dropzones" class="col-md-3">
-                        <div dragula='"bag-one"' class="drop-list ">
-
+                        <div dragula='"bag-one"' class="drop-list" dragula-model="zone.list">
+                                
+                                <div class="item" ng-repeat="item in zone.list">
+            
+                                        <h3>{{item.title}}</h3>
+                                        
+                                        <img ng-src="{{item.image.src}}" />
+                                        
+                
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -152,8 +163,11 @@
             
             <nav class="navbar navbar-default navbar-fixed-bottom">
                 <div class="container">
+                    <div ng-show="assessment.items.length < 1" style="text-align: center;">
+                        <a ng-click="saveAssessment()" class="btn btn-primary">Save and Finish</a>
+                    </div>
                     <div class="row" style="max-height: 290px;">
-                        <div dragula='"bag-one"' class="palette col-md-12">
+                        <div dragula='"bag-one"' class="palette col-md-12" dragula-model="assessment.items">
                             <div class="item" ng-repeat="item in assessment.items">
             
                                     <h3>{{item.title}}</h3>

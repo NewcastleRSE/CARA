@@ -3493,45 +3493,55 @@
   "card-sorting": {
     "name": "Card Sorting",
     "assessmentType": "sorting",
+    "started": null,
+    "finished": null,
+    "duration": null,
     "items": [
       {
         "title": "Personal Mail",
+        "difficulty": null,
         "image": {
           "src": "personal-mail.png"
         }
       },
       {
         "title": "Signs",
+        "difficulty": null,
         "image": {
           "src": "signs.png"
         }
       },
       {
         "title": "Labels",
+        "difficulty": null,
         "image": {
           "src": "labels.png"
         }
       },
       {
         "title": "Computer",
+        "difficulty": null,
         "image": {
           "src": "computer.png"
         }
       },
       {
         "title": "Timetables",
+        "difficulty": null,
         "image": {
           "src": "timetables.png"
         }
       },
       {
         "title": "Instructions",
+        "difficulty": null,
         "image": {
           "src": "instructions.png"
         }
       },
       {
         "title": "Menus/Shopping Lists",
+        "difficulty": null,
         "image": {
           "src": "menu-shopping-list.png"
         }
