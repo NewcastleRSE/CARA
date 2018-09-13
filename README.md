@@ -5,13 +5,13 @@ CARA is developed from a research project, based within Speech and Language Scie
 
 #### Developers
 
-[Mark Turner](https://github.com/markdturner)<br/>
-[Stephen Dowsland](https://github.com/sdowsland)<br/>
+[Mark Turner](https://github.com/markdturner)  
+[Stephen Dowsland](https://github.com/sdowsland)  
 [Mike Simpson](https://github.com/mdsimpson42)
 
 #### Researchers
 
-[Julie Morris](https://www.ncl.ac.uk/ecls/staff/profile/juliemorris.html#background)<br/>
+[Julie Morris](https://www.ncl.ac.uk/ecls/staff/profile/juliemorris.html#background)  
 [Janet Webster](https://www.ncl.ac.uk/ecls/staff/profile/janetwebster.html#background)
 
 ## Development Build
