@@ -61,16 +61,19 @@ If you wish to not use Docker and run the code on your local environment use the
 2. Install [Ruby](http://www.ruby-lang.org/en/downloads/) and [Compass](http://compass-style.org/install/) for SASS compilation.
 
 3. Install globally required packages. 
+    
     ```
     npm install -g grunt-cli bower
     ``` 
     
 4. Download and install all project dependencies.
+    
     ```
     npm install
     ``` 
     
 5. Download and install all browser dependencies.
+    
     ```
     bower install
     ```
