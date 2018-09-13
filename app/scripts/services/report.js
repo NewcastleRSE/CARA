@@ -9,6 +9,30 @@
  */
 angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentence1, Sentence2, SingleWord1, SingleWord2) {
 
+  function msToTime(duration) {
+
+    if(duration && !isNaN(duration)){
+      var milliseconds = parseInt((duration % 1000) / 100),
+        seconds = parseInt((duration / 1000) % 60),
+        minutes = parseInt((duration / (1000 * 60)) % 60),
+        hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+
+      hours = (hours < 10) ? "0" + hours : hours;
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      if(hours === '00'){
+        return minutes + ":" + seconds + "." + milliseconds;
+      }
+      else {
+        return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+      }
+    }
+    else {
+      return '';
+    }
+  }
+
   return function(assessment) {
 
     var singleWord1 = null,
@@ -288,22 +312,52 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
     if(singleWord1 || singleWord2 || sentence1 || sentence2 || paragraph){
 
+      var timeSummary = {
+        columns: [
+          {title: 'Assessment', dataKey: 'assessment'},
+          {title: 'Score', dataKey: 'score'},
+          {title: 'Time Taken', dataKey: 'timeTaken'},
+          {title: 'Average Response', dataKey: 'averageTime'}
+        ],
+        rows: [],
+      };
       var dataPoints = [];
 
       if(singleWord1){
-        dataPoints.push({ label: 'Single Words: Part 1', y: singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) * 100 });
+
+        var singleWord1Score = singleWord1.correctAnswers.length / (singleWord1.correctAnswers.length + singleWord1.incorrectAnswers.length) * 100;
+
+        dataPoints.push({ label: 'Single Words: Part 1', y: singleWord1Score });
+        timeSummary.rows.push({assessment: 'Single Words: Part 1', score: singleWord1Score.toFixed(0) + '%', timeTaken: msToTime(singleWord1.time.duration), averageTime: msToTime(singleWord1.time.average) });
       }
       if(singleWord2){
-        dataPoints.push({ label: 'Single Words: Part 2', y: singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) * 100 });
+        var singleWord2Score = singleWord2.correctAnswers.length / (singleWord2.correctAnswers.length + singleWord2.incorrectAnswers.length) * 100;
+        dataPoints.push({ label: 'Single Words: Part 2', y: singleWord2Score });
+
+        timeSummary.rows.push({assessment: 'Single Words: Part 2', score: singleWord2Score.toFixed(0) + '%', timeTaken: msToTime(singleWord2.time.duration), averageTime: msToTime(singleWord1.time.average) });
       }
       if(sentence1){
-        dataPoints.push({ label: 'Sentences: Part 1', y: (sentence1.total.correct.count / sentence1.total.questionCount) * 100 });
-      }
+        var sentence1Score = (sentence1.total.correct.count / sentence1.total.questionCount) * 100;
+
+        dataPoints.push({ label: 'Sentences: Part 1', y: sentence1Score });
+
+        timeSummary.rows.push({assessment: 'Sentences: Part 1', score: sentence1Score.toFixed(0) + '%', timeTaken: msToTime(sentence1.time.duration), averageTime: msToTime(sentence1.time.average) });
+        }
       if(sentence2){
-        dataPoints.push({ label: 'Sentences: Part 2', y: (sentence2.total.correct.count / sentence2.total.questionCount) * 100 });
+
+        var sentence2Score = (sentence2.total.correct.count / sentence2.total.questionCount) * 100;
+
+        dataPoints.push({ label: 'Sentences: Part 2', y: sentence2Score });
+
+        timeSummary.rows.push({assessment: 'Sentences: Part 2', score: sentence2Score.toFixed(0) + '%', timeTaken: msToTime(sentence2.time.duration), averageTime: msToTime(sentence2.time.average) });
       }
       if(paragraph){
-        dataPoints.push({ label: 'Paragraphs', y: paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) * 100 });
+
+        var paragraphScore = paragraph.correctAnswers.length / (paragraph.correctAnswers.length + paragraph.incorrectAnswers.length) * 100;
+
+        dataPoints.push({ label: 'Paragraphs', y: paragraphScore });
+
+        timeSummary.rows.push({assessment: 'Paragraphs', score: paragraphScore.toFixed(0) + '%', timeTaken: msToTime(paragraph.time.duration), averageTime: msToTime(paragraph.time.average) });
       }
 
       var overallSummary = new CanvasJS.Chart('overallSummary', {
@@ -624,7 +678,41 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       doc.text(50, 75, '4. Overall Summary');
       doc.setFontSize(12);
 
-      doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 100, 512, 340);
+      doc.autoTable(timeSummary.columns, timeSummary.rows, {
+        theme: 'grid',
+        margin: [100, 50, 50, 50],
+        styles: {
+          halign: 'center',
+          valign: 'middle',
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
+        },
+        headerStyles: {
+          fillColor: false,
+          textColor: 0
+        },
+        createdCell: function (cell, data) {
+          switch (data.column.dataKey) {
+            case 'concreteLabel':
+              cell.styles.fontStyle = 'bold';
+              break;
+            case 'abstractLabel':
+              cell.styles.fontStyle = 'bold';
+              break;
+          }
+        },
+        drawRow: function (row) {
+          if(row.index === 2) {
+            Object.keys(row.cells).forEach(function (key) {
+              var cell = row.cells[key];
+              cell.styles.lineWidth = 1.5;
+            });
+          }
+        }
+      });
+
+      doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 300, 512, 340);
 
       footer();
       doc.addPage();

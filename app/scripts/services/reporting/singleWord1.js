@@ -11,6 +11,11 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
 
     function singleWordSetup() {
       return {
+        time: {
+          startTime: null,
+          endTime: null,
+          duration: null
+        },
         summaryColumns: [
           {title: 'Concrete', dataKey: 'concreteLabel'},
           {title: '', dataKey: 'concreteValue'},
@@ -110,6 +115,11 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
     this.calculate = function(data){
 
         var singleWord = singleWordSetup();
+
+        singleWord.time.startTime = new Date(data[0].started);
+        singleWord.time.endTime = new Date(data[data.length - 1].finished);
+        singleWord.time.duration = singleWord.time.endTime - singleWord.time.startTime;
+        singleWord.time.average = $window._.meanBy(data, 'timeTaken');
 
             //Data for colour coded response time table
             data.forEach(function (response, index) {

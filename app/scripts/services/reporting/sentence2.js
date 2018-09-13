@@ -11,6 +11,11 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
 
     function sentenceSetup() {
       return {
+        time: {
+          startTime: null,
+          endTime: null,
+          duration: null
+        },
         summaryColumns: [
           {title: '', dataKey: 'type'},
           {title: 'Non-Reversible', dataKey: 'nonReversible'},
@@ -153,6 +158,11 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
         this.calculate = function(data){
 
             var sentence = sentenceSetup();
+
+          sentence.time.startTime = new Date(data[0].started);
+          sentence.time.endTime = new Date(data[data.length - 1].finished);
+          sentence.time.duration = sentence.time.endTime - sentence.time.startTime;
+          sentence.time.average = $window._.meanBy(data, 'timeTaken');
 
             //Data for colour coded response time table
             data.forEach(function (response, index) {

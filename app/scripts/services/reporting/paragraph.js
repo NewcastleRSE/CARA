@@ -11,6 +11,11 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
 
   function paragraphSetup() {
     return {
+      time: {
+        startTime: null,
+        endTime: null,
+        duration: null
+      },
       summaryColumns: [
         {title: 'Length', dataKey: 'length'},
         {title: 'Paragraphs', dataKey: 'paragraphs'},
@@ -111,6 +116,11 @@ angular.module('rcaApp').service('Paragraph', function ($window) {
   this.calculate = function(paragraphs, gists){
 
     var paragraph = paragraphSetup();
+
+    paragraph.time.startTime = new Date(paragraphs[0].started);
+    paragraph.time.endTime = new Date(paragraphs[paragraphs.length - 1].finished);
+    paragraph.time.duration = paragraph.time.endTime - paragraph.time.startTime;
+    paragraph.time.average = $window._.meanBy(paragraphs, 'timeTaken');
 
     var rowCounter = 1;
 
