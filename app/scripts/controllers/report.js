@@ -86,8 +86,6 @@ angular.module('rcaApp')
 
         var ctx = document.getElementById('chart').getContext("2d");
 
-        console.log(ctx);
-
         var myBarChart = new $window.Chart(ctx, {
             type: 'bar',
             data: data,
@@ -98,10 +96,8 @@ angular.module('rcaApp')
         }, {});
 
         myBarChart.onComplete = function() {
-            console.log('animation complete');
+            //console.log('animation complete');
         };
-
-        console.log(myBarChart.toBase64Image("image/png", 1.0));
 
         //Setting up color scale for use in ranking repsonse times
         var timeRanked = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(rows), function(row){
@@ -156,6 +152,4 @@ angular.module('rcaApp')
         });
         doc.addImage(myBarChart.toBase64Image("image/png", 1.0), 'PNG', 40, 160, 515 ,257);
         doc.save('table.pdf');
-
-        console.log(doc);
     });

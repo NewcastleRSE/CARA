@@ -65,13 +65,17 @@ angular.module('rcaApp')
           // Section Completed
           $scope.questions[$stateParams.section].completed = true;
           Assessment.save($scope.questions).then(function(){
-            $state.go('slotSummary', {slotId:$scope.currentSlot});
+            
+            // Check if this is the end of paragraphs
+            if ($scope.questions[$stateParams.section].assessmentType === 'paragraph') {
+              $state.go('assessment.begin', {slotId:$scope.currentSlot, section: 'paragraph-2'});
+            } else {
+              $state.go('slotSummary', {slotId:$scope.currentSlot});
+            }
+
           });
-
         }
-
       };
-
     }
 
     $scope.setCurrentPageIndex = function (index) {
@@ -79,7 +83,6 @@ angular.module('rcaApp')
     };
 
     $scope.isCurrentPageIndex = function (index) {
-      console.log(index);
       return $scope.currentIndex === index;
     };
 
@@ -98,9 +101,71 @@ angular.module('rcaApp')
       $item.started = $item.started.toString();
 
       $state.go('assessmentQuestions.paragraph', {'paragraphQIndex' : 0});
-
     };
 
+    $scope.selectReadingScale = function($item, $value) {
+      $item.answerGiven = $value;
+
+      document.getElementById("div-1").style.backgroundColor = '';
+      document.getElementById("div-2").style.backgroundColor = '';
+      document.getElementById("div-3").style.backgroundColor = '';
+      document.getElementById("div-4").style.backgroundColor = '';
+      document.getElementById("div-5").style.backgroundColor = '';
+
+      document.getElementById("div-" + $value).style.backgroundColor = 'rgba(0,121,211,0.5)';
+
+      document.getElementById("continue-button").disabled = false;
+
+      $scope.answerPresent = true;
+      $scope.answerGiven = $value;
+    }
+
+    $scope.divMouseEnter = function($value) {
+      if($scope.answerGiven !== $value) {
+        document.getElementById("div-" + $value).style.backgroundColor = 'rgba(0,121,211,0.1)';
+      }
+    }
+
+    $scope.divMouseLeave = function($value) {
+      if($scope.answerGiven === $value) {
+        document.getElementById("div-" + $value).style.backgroundColor = 'rgba(0,121,211,0.5)';
+      }
+      else {
+        document.getElementById("div-" + $value).style.backgroundColor = '';
+      }
+    }
+
+    $scope.acceptReadingScale = function($item, $index) {
+      $item.finished = new Date();
+      $item.timeTaken = $item.finished - $item.started;
+      $item.finished = $item.finished.toString();
+      $item.started = $item.started.toString();
+
+      if ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1]) {
+
+        // check if we are finishing the practice section
+        var finishingPractice = ($scope.questions[$stateParams.section].items[$scope.currentItemIndex].practice === true && ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === false || $scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === undefined));
+
+        if (finishingPractice) {
+          // Show Start test screen
+          $state.go('assessment.begin', {slotId: $scope.currentSlot, section: $scope.currentSection});
+        } else {
+          //Show next question
+          $state.go('assessmentQuestions', {
+            slotId: $scope.currentSlot,
+            section: $scope.currentSection,
+            itemIndex: $scope.currentItemIndex + 1
+          });
+        }
+
+      } else {
+        // Section Completed
+        $scope.questions[$stateParams.section].completed = true;
+        Assessment.save($scope.questions).then(function () {
+          $state.go('slotSummary', {slotId: $scope.currentSlot});
+        })
+      }
+    }
   });
 
 angular.module('rcaApp').filter('removeBracketedText', function () {

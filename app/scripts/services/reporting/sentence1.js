@@ -9,143 +9,161 @@
  */
 angular.module('rcaApp').service('Sentence1', function ($window) {
 
-    var sentenceSetup = {
+    function sentenceSetup() {
+      return {
+        time: {
+          startTime: null,
+          endTime: null,
+          duration: null
+        },
         summaryColumns: [
-            {title: '', dataKey: 'type'},
-            {title: 'Non-Reversible', dataKey: 'nonReversible'},
-            {title: 'Reversible', dataKey: 'reversible'},
-            {title: 'Total', dataKey: 'total'}
+          {title: '', dataKey: 'type'},
+          {title: 'Non-Reversible', dataKey: 'nonReversible'},
+          {title: 'Reversible', dataKey: 'reversible'},
+          {title: 'Total', dataKey: 'total'}
         ],
         columns: [
-            {title: '', dataKey: 'rowNumber'},
-            {title: 'Item', dataKey: 'item'},
-            {title: 'Target Picture', dataKey: 'targetPicture'},
-            {title: 'Distractor 1', dataKey: 'distractor1'},
-            {title: 'Distractor 2', dataKey: 'distractor2'},
-            {title: 'Distractor 3', dataKey: 'distractor3'},
-            {title: 'Time', dataKey: 'time'}
+          {title: '', dataKey: 'rowNumber'},
+          {title: 'Item', dataKey: 'item'},
+          {title: 'Time', dataKey: 'time'},
+          {title: 'Target Picture', dataKey: 'targetPicture'},
+          {title: 'Distracter 1', dataKey: 'distractor1'},
+          {title: 'Distracter 2', dataKey: 'distractor2'},
+          {title: 'Distracter 3', dataKey: 'distractor3'}
+        ],
+        keyColumns: [
+          {title: '', dataKey: 'rowNumber'},
+          {title: 'Item', dataKey: 'item'},
+          {title: 'Target Picture', dataKey: 'targetPicture'}
         ],
         summaryRows: [],
         rows: [],
+        keyRows: [],
         colours: [],
         timeRank: [],
         correctAnswers: [],
         incorrectAnswers: [],
         total: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         phrases: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         simple: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         complex: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         nonReversiblePhrases: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         nonReversibleSimple: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         nonReversibleTotal: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         reversibleSimple: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         reversibleComplex: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         },
         reversibleTotal: {
-            correct: {
-                time: null,
-                count: null
-            },
-            incorrect: {
-                time: null,
-                count: null
-            },
-            questionCount: null
+          correct: {
+            time: null,
+            count: null
+          },
+          incorrect: {
+            time: null,
+            count: null
+          },
+          questionCount: null
         }
-    };
+      };
+    }
 
         this.calculate = function(data) {
 
-            var sentence = sentenceSetup;
+            var sentence = sentenceSetup();
+
+          sentence.time.startTime = new Date(data[0].started);
+          sentence.time.endTime = new Date(data[data.length - 1].finished);
+          sentence.time.duration = sentence.time.endTime - sentence.time.startTime;
+          sentence.time.average = $window._.meanBy(data, 'timeTaken');
 
             //Data for colour coded response time table
             data.forEach(function (response, index) {
@@ -161,6 +179,12 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
                     answer: response.answers[response.answerPosition].image.split(' ')[1].substring(response.answers[response.answerPosition].image.split(' ')[1].length - 1).toUpperCase(),
                     type: response.type,
                     reversibility: response.reversibility
+                });
+
+                sentence.keyRows.push({
+                  rowNumber: index + 1,
+                  item: response.pictures[0].split(' ')[0].toUpperCase() + ' ' + response.pictures[0].split(' ')[1].substring(0, response.pictures[0].split(' ')[1].length - 1),
+                  targetPicture: response.question
                 });
 
             });

@@ -32,18 +32,18 @@ body.home {
   padding-right: 15px;
 }
 
+.app-menu {
+
+  img {
+    height: 80px;
+    margin: 10px;
+  }
+}
+
 /* Custom page header */
 .header {
-  //border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
+  height: 100px;
+  position: relative;
 }
 
 /* Custom page footer */
@@ -58,14 +58,10 @@ body.home {
 }
 
 /* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
+.logo-authors {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Supporting marketing content */
@@ -90,10 +86,7 @@ body.home {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
@@ -260,10 +253,6 @@ h4.modal-title {
 
     .panel-heading {
       border-color: rgba(221,221,221, 0.5);
-
-      h4 {
-        color: rgba(100,100,100, 0.5);
-      }
     }
   }
 
@@ -323,6 +312,45 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
     font-size: 3.1em;
   }
 
+  .reading-scale-question-text {
+    font-size: 3.1em;
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+
+  .reading-scale {
+    width: 95%;
+    margin: auto;
+  }
+
+  .reading-scale-main-div {
+    height: 50px;
+    margin-top:50px;
+    margin-bottom:30px;
+    border-top: 6px solid black;
+  }
+
+  .reading-scale-div {
+    height: 50px;
+    margin-top:-103px;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+  }
+
+  .reading-scale-div-left {
+    height: 50px;
+    margin-top:-103px;
+    border-left: 6px solid black;
+    border-right: 3px solid black;
+  }
+
+  .reading-scale-div-right {
+    height: 50px;
+    margin-top:-103px;
+    border-left: 3px solid black;
+    border-right: 6px solid black;
+  }
+
   .answers a.btn {
     font-size: 2.7em;
   }
@@ -330,14 +358,12 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   &.paragraph {
     overflow: auto;
   }
-
-
 }
 
 .practice-marker {
   position: fixed;
-  left: 10px;
-  top: -5px;
+  left: 15px;
+  top: 80px;
   font-size: 4em;
 }
 
@@ -395,9 +421,9 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
 }
 
 .fullscreen-controls {
-  position: fixed;
-  right: 10px;
-  top: 10px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 body.fullscreen #main-contain {
@@ -406,7 +432,7 @@ body.fullscreen #main-contain {
 }
 
 body.not-fullscreen {
-  padding-top: 30px;
+  /*padding-top: 30px;*/
 }
 
 body.splash .fullscreen-controls {
@@ -417,4 +443,29 @@ body.home .fullscreen-controls .home-btn, body.instructions .fullscreen-controls
   display: none;
 }
 
+.group-logos .logo {
+  height: 75px;
+  margin: 15px;
+}
 
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+  background-color: #4D2277;
+  border-color: #4D2277;
+  color: white !important;
+}
+
+.btn-info, .btn-info:hover, .btn-info:active, .btn-info:focus {
+  background-color: #9A70AC;
+  border-color: #9A70AC;
+  color: white !important;
+}
+
+.panel-info > .panel-heading {
+  background-color: #4D2277;
+  border-color: #4D2277;
+  color: white !important;
+}
+
+.text-primary {
+  color: #4D2277 !important;
+}

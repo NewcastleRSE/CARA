@@ -58,8 +58,6 @@ angular.module('rcaApp')
 
               savedItem = angular.extend(savedItem, meta);
 
-              console.log('saving',Storage.currentSlot);
-
               localStorage.setItem(Storage.currentSlot, JSON.stringify(savedItem));
 
               if (localStorage.getItem(Storage.currentSlot) === JSON.stringify(savedItem)) {

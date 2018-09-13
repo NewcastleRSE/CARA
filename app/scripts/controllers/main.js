@@ -25,7 +25,6 @@ angular.module('rcaApp')
 
     $rootScope.$on('assessment-loaded', function(){
       $scope.questions = Assessment.questions.get();
-      console.log($scope.questions);
       $rootScope.assessmentLoaded = true;
     });
 
@@ -34,9 +33,9 @@ angular.module('rcaApp')
 
       for(section in $scope.questions) {
         if ($scope.questions[section].selected){
-          console.log(section);
-          console.log($scope.questions[section].assessmentType);
-          console.log($scope.questions[section].items.$index);
+          //console.log(section);
+          //console.log($scope.questions[section].assessmentType);
+          //console.log($scope.questions[section].items.$index);
         }
       }
     };
@@ -55,18 +54,16 @@ angular.module('rcaApp')
     };
 
     $scope.clearSlot = function() {
-      console.log('current slot', Storage.currentSlot);
       $scope.assessments[Storage.currentSlot] = null;
       Storage.clearSlot();
     };
 
     $scope.createAssessment = function(key) {
       Storage.currentSlot = key;
-      console.log('currentkey', key);
       Assessment.createAssessment().then(function(){
         Assessment.load();
       },function(response){
-        console.log(response);
+        //console.log(response);
       });
     };
 
@@ -77,6 +74,14 @@ angular.module('rcaApp')
       angular.forEach(assessment.questions, function(item){
         if (item.completed === true) {
           hasCompleteSection = true;
+
+          if(item.name === 'Sentences Part 1'){
+            hasCompleteSection = assessment.questions['sentence-part-2'].completed;
+          }
+
+          if(item.name === 'Sentences Part 2'){
+            hasCompleteSection = assessment.questions['sentence-part-1'].completed;
+          }
         }
       });
 
@@ -90,8 +95,6 @@ angular.module('rcaApp')
       $window.$('#confirmDelete').modal('show');
       //}
 
-      console.log('current slot', $key);
-
       Storage.currentSlot = $key;
 
     };
@@ -102,7 +105,6 @@ angular.module('rcaApp')
 
     $scope.saveSetup = function(){
       //Storage.save($scope.questions, {name: Assessment.name, status: 'Not Started'});
-      console.log($scope.questions);
       Assessment.save($scope.questions);
     };
 

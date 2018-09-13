@@ -1,0 +1,13 @@
+version: "3"
+services:
+  client:
+    image: cara:latest
+    volumes:
+    - ".:/usr/local/app"
+    ports:
+    - "9000:9000"
+    - "35729:35729"
+    networks:
+    - public
+networks:
+  public:

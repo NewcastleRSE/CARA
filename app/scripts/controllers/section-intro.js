@@ -25,7 +25,6 @@ angular.module('rcaApp')
           firstIndex++;
         });
 
-        console.log(firstIndex);
         return firstIndex;
       }
 

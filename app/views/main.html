@@ -13,19 +13,18 @@
           <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | date : 'dd/MM/yyyy HH:mm'}}</p>
 
           <div class="list-group">
-            <span class="list-group-item" ng-repeat="(sectionKey, section) in assessment.questions">
+            <span ng-if="sectionKey !== 'paragraph-2'" class="list-group-item" ng-repeat="(sectionKey, section) in assessment.questions">
               <span ng-if="section.completed" class=""><i class="glyphicon glyphicon-ok text-success pull-right"></i></span>
 
               <span ng-click="" ng-if="(sectionKey !== 'singleWord-part-2' && sectionKey !== 'paragraph-2')  && section.completed !== true"><a class="btn-block" ui-sref="assessment.practice({slotId: key, section: sectionKey})">{{section.name}}</a></span>
               <span ng-click="" ng-if="(sectionKey === 'singleWord-part-2' || sectionKey === 'paragraph-2') && section.completed !== true"><a class="btn-block" ui-sref="assessment.begin({slotId: key, section: sectionKey})">{{section.name}}</a></span>
               <span ng-click="" ng-if="section.completed"><span class="btn-block">{{section.name}}</span></span>
-
             </span>
           </div>
 
           <div ng-if="assessment === null" class="create-slot">
             <i ng-click="createAssessment(key)" class="glyphicon glyphicon-plus-sign"></i>
-            <p>Add new</p>
+            <p>Add Participant</p>
           </div>
 
         </div>
