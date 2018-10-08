@@ -144,6 +144,7 @@
         <div class="container-fluid">
                 <div class="row">
                     <div ng-repeat="zone in models.dropzones" class="col-md-3">
+                        <h4 class="text-center">{{zone.name}}</h4>
                         <div dragula='"bag-one"' class="drop-list" dragula-model="zone.list">
                                 
                                 <div class="item" ng-repeat="item in zone.list">

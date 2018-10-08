@@ -15,31 +15,31 @@ angular.module('rcaApp')
     $scope.currentSlot = $stateParams.slotId;
 
     Assessment.load($stateParams.slotId).then(function(questions){
-        console.log(questions)
+        console.log(questions);
         Assessment.questions.shuffle();
         $scope.assessment = Assessment.questions.get('card-sorting');
 
-        $scope.assessment.started = new Date()
+        $scope.assessment.started = new Date();
 
         $scope.assessment.items.map(function(it){
             // it.type = "item";
-            it.image.src = "/images/sort-images/" + it.image.src
+            it.image.src = "/images/sort-images/" + it.image.src;
             return it;
-        })
+        });
     
     $scope.saveAssessment = function(){
 
-        console.log("Saving report")
+        console.log("Saving report");
 
-        $scope.assessment.items = []
+        $scope.assessment.items = [];
 
         $scope.models.dropzones.forEach(function(dz, index){
             dz.list = dz.list.map(function(listItem){
                 listItem.difficulty = index + 1;
                 return listItem;
-            })
+            });
             $scope.assessment.items = $scope.assessment.items.concat(dz.list)
-        })
+        });
 
         $scope.assessment.completed = true;
         $scope.assessment.finished = new Date();
@@ -48,8 +48,8 @@ angular.module('rcaApp')
         Assessment.questions.set($scope.assessment, 'card-sorting');
         Assessment.save(Assessment.questions.get()).then(function () {
             $state.go('slotSummary', {slotId: $scope.currentSlot});
-          })
-    }
+          });
+    };
 
     $scope.$on('bag-one.over', function (e, el) {
       el.addClass('over');
@@ -59,7 +59,7 @@ angular.module('rcaApp')
       el.removeClass('over');
     });
 
-        console.log($scope.assessment.items)
+        console.log($scope.assessment.items);
 
         $scope.models = {
             selected: null,
@@ -70,22 +70,22 @@ angular.module('rcaApp')
             dropzones: [
                 {
                     "list": [],
-                    "name": "1 - Easy",
+                    "name": "Impossible or avoid",
                     "difficulty": 1
                 },
                 {
                     "list": [],
-                    "name": "2",
+                    "name": "Trying to read but difficult",
                     "difficulty": 2
                 },
                 {
                     "list": [],
-                    "name": "3",
+                    "name": "Trying to read and ok",
                     "difficulty": 3
                 },
                 {
                     "list": [],
-                    "name": "4 - Difficult",
+                    "name": "No problem",
                     "difficulty": 4
                 }
             ]
