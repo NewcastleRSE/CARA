@@ -106,46 +106,12 @@ angular
       }
     });
 }).run(function($rootScope, $transitions){
-
-  console.log("Add statechange function")
-  console.log($rootScope)
-
   $transitions.onSuccess({}, function(transition) {
-
     $rootScope.containerClass = transition.to().name;
-
-    console.log(
-        "Successful Transition from " + transition.from().name +
-        " to " + transition.to().name
-    );
   });
-  
 
   $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
     $rootScope.containerClass = toState.name;
     console.log(toState.name);
   });
-
 });
-
-  /*.config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .when('/setup', {
-        templateUrl: 'views/setup.html',
-        controller: 'SetupCtrl',
-        controllerAs: 'setup'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });*/

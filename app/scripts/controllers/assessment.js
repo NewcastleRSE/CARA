@@ -65,11 +65,15 @@ angular.module('rcaApp')
           // Section Completed
           $scope.questions[$stateParams.section].completed = true;
           Assessment.save($scope.questions).then(function(){
-            
-            // Check if this is the end of paragraphs
+
+            // Check if this is the end of paragraphs or questionnaire
             if ($scope.questions[$stateParams.section].assessmentType === 'paragraph') {
               $state.go('assessment.begin', {slotId:$scope.currentSlot, section: 'paragraph-2'});
-            } else {
+            }
+            else if ($stateParams.section === 'reading-scale') {
+              $state.go('assessment.begin', {slotId: $scope.currentSlot, section: 'reading-scale-2'});
+            }
+            else {
               $state.go('slotSummary', {slotId:$scope.currentSlot});
             }
 
@@ -103,48 +107,46 @@ angular.module('rcaApp')
       $state.go('assessmentQuestions.paragraph', {'paragraphQIndex' : 0});
     };
 
-    $scope.selectReadingScale = function($item, $value) {
-      $scope.answerPresent = true;
-      $scope.answerGiven = $value;
-      $item.answerGiven = $value;
-    };
-
-    $scope.notApplicableReadingScale = function($item, $index) {
-      $scope.answerGiven = 0;
-      $item.answerGiven = 0;
-      $scope.acceptReadingScale($item, $index);
-    };
-
-    $scope.acceptReadingScale = function($item, $index) {
-      $item.finished = new Date();
-      $item.timeTaken = $item.finished - $item.started;
-      $item.finished = $item.finished.toString();
-      $item.started = $item.started.toString();
-
-      if ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1]) {
-
-        // check if we are finishing the practice section
-        var finishingPractice = ($scope.questions[$stateParams.section].items[$scope.currentItemIndex].practice === true && ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === false || $scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === undefined));
-
-        if (finishingPractice) {
-          // Show Start test screen
-          $state.go('assessment.begin', {slotId: $scope.currentSlot, section: $scope.currentSection});
-        } else {
-          //Show next question
-          $state.go('assessmentQuestions', {
-            slotId: $scope.currentSlot,
-            section: $scope.currentSection,
-            itemIndex: $scope.currentItemIndex + 1
-          });
-        }
-      } else {
-        // Section Completed
-        $scope.questions[$stateParams.section].completed = true;
-        Assessment.save($scope.questions).then(function () {
-          $state.go('slotSummary', {slotId: $scope.currentSlot});
-        })
-      }
-    }
+    // $scope.selectReadingScale = function($item, $value) {
+    //   $scope.answerPresent = true;
+    //   $scope.answerGiven = $value;
+    //   $item.answerGiven = $value;
+    // };
+    //
+    // $scope.notApplicableReadingScale = function($item, $index) {
+    //   $scope.setAnswer($item, 0, $index);
+    // };
+    //
+    // $scope.acceptReadingScale = function($item, $index) {
+    //   $item.finished = new Date();
+    //   $item.timeTaken = $item.finished - $item.started;
+    //   $item.finished = $item.finished.toString();
+    //   $item.started = $item.started.toString();
+    //
+    //   if ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1]) {
+    //
+    //     // check if we are finishing the practice section
+    //     var finishingPractice = ($scope.questions[$stateParams.section].items[$scope.currentItemIndex].practice === true && ($scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === false || $scope.questions[$stateParams.section].items[$scope.currentItemIndex + 1].practice === undefined));
+    //
+    //     if (finishingPractice) {
+    //       // Show Start test screen
+    //       $state.go('assessment.begin', {slotId: $scope.currentSlot, section: $scope.currentSection});
+    //     } else {
+    //       //Show next question
+    //       $state.go('assessmentQuestions', {
+    //         slotId: $scope.currentSlot,
+    //         section: $scope.currentSection,
+    //         itemIndex: $scope.currentItemIndex + 1
+    //       });
+    //     }
+    //   } else {
+    //     // Section Completed
+    //     $scope.questions[$stateParams.section].completed = true;
+    //     Assessment.save($scope.questions).then(function () {
+    //       $state.go('slotSummary', {slotId: $scope.currentSlot});
+    //     });
+    //   }
+    // }
   });
 
 angular.module('rcaApp').filter('removeBracketedText', function () {
