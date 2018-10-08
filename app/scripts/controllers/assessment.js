@@ -105,23 +105,15 @@ angular.module('rcaApp')
 
     $scope.selectReadingScale = function($item, $value) {
       $scope.answerPresent = true;
-
       $scope.answerGiven = $value;
       $item.answerGiven = $value;
+    };
 
-      document.getElementById("div-1").classList.remove("selected");
-      document.getElementById("div-2").classList.remove("selected");
-      document.getElementById("div-3").classList.remove("selected");
-      document.getElementById("div-4").classList.remove("selected");
-      document.getElementById("div-5").classList.remove("selected");
-
-      console.log("div-" + $value + " set selected");
-      console.log(document.getElementById("div-" + $value));
-
-      document.getElementById("div-" + $value).classList.add("selected");
-
-      document.getElementById("continue-button").disabled = false;
-    }
+    $scope.notApplicableReadingScale = function($item, $index) {
+      $scope.answerGiven = 0;
+      $item.answerGiven = 0;
+      $scope.acceptReadingScale($item, $index);
+    };
 
     $scope.acceptReadingScale = function($item, $index) {
       $item.finished = new Date();

@@ -306,63 +306,85 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   max-height: calc(100% - 100px);
   max-width: 1200px;
 
-  .question-text.btn.btn-block {
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 250px;
-    font-size: 3.1em;
+  .reading-scale-question {
+
+    margin-top: 60px;
+
+    .question-lead {
+      font-size: 2em;
+    }
+
+    .question-text {
+      text-align: center;
+      font-size: 2em;
+      margin: 60px 0;
+    }
   }
 
-  .reading-scale-question-text {
-    font-size: 3.1em;
-    margin-top: 0px;
-    margin-bottom: 50px;
+  .scale-wrapper {
+    height: 80px;
+    margin-top: 90px;
+
+    .scale-line-wrapper {
+
+      position: relative;
+      height: 80px;
+
+      .scale-line {
+        height: 4px;
+        background-color: #000;
+        top: 38px;
+        left: 7%;
+        right: 8%;
+        position: absolute;
+      }
+    }
+
+    .reading-scale {
+
+      margin-top: -80px;
+
+      div {
+        height: 80px;
+        width: 11%;
+        float: left;
+        position: relative;
+        outline: none !important;
+
+        &.selected {
+          background-color: rgba(0,121,211,0.5);
+        }
+
+        &.selected:hover {
+          background-color: rgba(0,121,211,0.5);
+        }
+
+        &:nth-child(odd):before {
+          content: '';
+          height: 80px;
+          width: 4px;
+          background-color: #000;
+          position: absolute;
+          left: 50%;
+          margin-left: -2px;
+        }
+      }
+    }
   }
 
-  .reading-scale {
-    width: 95%;
-    margin: auto;
-  }
+  .scale-emoticons {
+    img {
+      width: 75px;
+      margin: 25px 0;
 
-  .reading-scale-main-div {
-    height: 50px;
-    margin-top:50px;
-    margin-bottom:30px;
-    border-top: 6px solid black;
-  }
+      &.disagree {
+        float: left;
+      }
 
-  .reading-scale {
-    height: 50px;
-    margin-top:50px;
-    margin-bottom:30px;
-    border-top: 6px solid black;
-  }
-
-  .reading-scale-div {
-    height: 50px;
-    margin-top: -103px;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-  }
-
-  .left-div {
-    border-left: 6px solid black;
-  }
-
-  .right-div {
-    border-right: 6px solid black;
-  }
-
-  .reading-scale-div:hover {
-    background-color: rgba(0,121,211,0.1);
-  }
-
-  .selected {
-    background-color: rgba(0,121,211,0.5);
-  }
-
-  .selected:hover {
-    background-color: rgba(0,121,211,0.5);
+      &.agree {
+        float: right;
+      }
+    }
   }
 
   .answers a.btn {

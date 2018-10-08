@@ -80,36 +80,42 @@
               <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
             <div class="row">
-              <div class="col-md-12">
-                <p class="btn btn-block question-text" style="margin-top: 0px; margin-bottom: 50px;">How comfortable are you with<br />{{item.question}}</p>
+              <div class="col-md-12 reading-scale-question">
+                <p class="question-lead">At the moment, how difficult do you find……</p>
+                <p class="question-text" btf-markdown="item.question"></p>
               </div>
             </div>
-            <div>
-              <div style="width: 95%; margin: auto;">
-                <div class="row">
-                  <div class="col-md-3">
-                    <img src="../images/disagree_colour1.bmp" style="width: 50%; float:left;">
-                  </div>
-                  <div class="col-md-3"></div>
-                  <div class="col-md-3"></div>
-                  <div class="col-md-3">
-                    <img src="../images/agree_colour1.bmp" style="width: 50%; float:right;">
-                  </div>
-                </div>
+            <div class="row scale-wrapper">
+              <div class="col-md-12 scale-line-wrapper">
+                <div class="scale-line"></div>
+              </div>
+              <div class="reading-scale col-md-12">
+                <div class="scale-point" ng-class="({'selected': answerGiven === 1})" ng-click="selectReadingScale(item, 1)"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 1.5})" ng-click="selectReadingScale(item, 1.5)"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 2})" ng-click="selectReadingScale(item, 2)"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 2.5})" ng-click="selectReadingScale(item, 2.5)"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 3})" ng-click="selectReadingScale(item, 3)"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 3.5})" ng-click="selectReadingScale(item, 3.5)"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 4})" ng-click="selectReadingScale(item, 4)"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 4.5})" ng-click="selectReadingScale(item, 4.5)"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 5})" ng-click="selectReadingScale(item, 5)"></div>
               </div>
             </div>
-            <div>
-              <div class="row">
-                <div class="reading-scale col-md-10 col-md-offset-1"></div>
-                  <div id="div-1" class="reading-scale-div left-div col-md-2 col-md-offset-1" ng-click="selectReadingScale(item, 1)"></div>
-                  <div id="div-2" class="reading-scale-div col-md-2" ng-click="selectReadingScale(item, 2)"></div>
-                  <div id="div-3" class="reading-scale-div col-md-2" ng-click="selectReadingScale(item, 3)"></div>
-                  <div id="div-4" class="reading-scale-div col-md-2" ng-click="selectReadingScale(item, 4)"></div>
-                  <div id="div-5" class="reading-scale-div right-div col-md-2" ng-click="selectReadingScale(item, 5)"></div>
+            <div class="row scale-emoticons">
+              <div class="col-md-6">
+                <img class="disagree" src="../images/disagree_colour1.bmp">
+              </div>
+              <div class="col-md-6">
+                <img class="agree" src="../images/agree_colour1.bmp">
               </div>
             </div>
-            <div>
-                <p id="continue-button" class="text-center"><button class="btn btn-default btn-primary" ng-click="acceptReadingScale(item, $index)" ng-disabled="!answerPresent">Continue</button></p>
+            <div class="row">
+              <div class="col-md-3 col-md-offset-3 text-center">
+                <button class="btn btn-default" ng-click="notApplicableReadingScale(item, $index)">Not Applicable</button>
+              </div>
+              <div class="col-md-3 text-center">
+                <button class="btn btn-default btn-primary" ng-click="acceptReadingScale(item, $index)" ng-disabled="!answerPresent">Continue</button>
+              </div>
             </div>
           </div>
         </div>

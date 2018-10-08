@@ -46,6 +46,8 @@ module.exports = function(config) {
       'bower_components/raven-js/dist/raven.js',
       'bower_components/raven-js/dist/plugins/angular.js',
       'bower_components/angularjs-dragula/dist/angularjs-dragula.js',
+      'bower_components/showdown/src/showdown.js',
+      'bower_components/angular-markdown-directive/markdown.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

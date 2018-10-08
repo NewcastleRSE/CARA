@@ -21,6 +21,7 @@ angular
     'ngTouch',
     'frapontillo.bootstrap-switch',
     'angularMoment',
+    'btford.markdown',
     // 'ngRaven',
     angularDragula(angular)
   ]).config( [
