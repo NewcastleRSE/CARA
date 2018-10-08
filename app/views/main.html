@@ -13,7 +13,7 @@
           <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | date : 'dd/MM/yyyy HH:mm'}}</p>
 
           <div class="list-group">
-            <span ng-if="sectionKey !== 'paragraph-2'" class="list-group-item" ng-repeat="(sectionKey, section) in assessment.questions">
+            <span ng-if="sectionKey !== 'paragraph-2' && sectionKey !== 'reading-scale-2'" class="list-group-item" ng-repeat="(sectionKey, section) in assessment.questions">
               <span ng-if="section.completed" class=""><i class="glyphicon glyphicon-ok text-success pull-right"></i></span>
 
               <span ng-click="" ng-if="(sectionKey !== 'singleWord-part-2' && sectionKey !== 'paragraph-2' && sectionKey !== 'card-sorting')  && section.completed !== true"><a class="btn-block" ui-sref="assessment.practice({slotId: key, section: sectionKey})">{{section.name}}</a></span>

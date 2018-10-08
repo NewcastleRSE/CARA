@@ -18,7 +18,7 @@
       <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | amCalendar}}</p>
 
       <div class="list-group">
-        <button class="list-group-item" ng-if="sectionKey !== 'paragraph-2'" ng-repeat="(sectionKey, section) in assessment.questions">
+        <button class="list-group-item" ng-if="sectionKey !== 'paragraph-2' && sectionKey !== 'reading-scale-2'" ng-repeat="(sectionKey, section) in assessment.questions">
           <span ng-if="section.completed" class=""><i class="glyphicon glyphicon-ok text-success pull-right"></i></span>
           <span ng-if="sectionKey !== 'singleWord-part-2' && section.completed !== true"><a class="btn-block" ui-sref="assessment.practice({slotId: slotId, section: sectionKey})">{{section.name}}</a></span>
           <span ng-if="sectionKey === 'singleWord-part-2' && section.completed !== true"><a class="btn-block" ui-sref="assessment.begin({slotId: slotId, section: sectionKey})">{{section.name}}</a></span>
