@@ -522,37 +522,60 @@ body.gu-unselectable {
         left: 10px;
       }
 
-      h3 {
+      h4 {
         margin: 20px 20px 20px 60px;
       }
     }
+
+    &.not-applicable {
+      background-color: #f6f6f6;
+      border: 4px solid #ababab;
+      border-style: dashed;
+    }
   }
 
-  .palette > div {
-    box-shadow: 0 0 5px #ccc;
-    height: 250px;
-    width: 250px;
-    background-color: #fff;
-    overflow: hidden;
-    margin-bottom: 20px;
+  .palette {
+    margin: -20px auto 0;
 
+    & > div {
+      box-shadow: 0 0 5px #ccc;
+      height: 240px;
+      width: 240px;
+      background-color: #fff;
+      overflow: hidden;
+      margin: 0 auto 20px;
+    }
+
+    & > div img {
+      width: 200px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    & > div h4 {
+      margin-top: 0;
+      text-align: center;
+      padding: 15px 15px 0 15px;
+    }
   }
 
-  .palette > div img {
-    width: 200px;
-    margin-left: 25px;
-  }
-
-  .palette > div h3 {
-    margin-top: 20px;
-    text-align: center;
-    padding: 15px 15px 0 15px;
+  .card-deck-menu {
+    background-color: #f0f0f0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 250px;
   }
 }
 
 .group-logos .logo {
   height: 75px;
   margin: 15px;
+}
+
+.submit-cards {
+  margin-top: 108px;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
