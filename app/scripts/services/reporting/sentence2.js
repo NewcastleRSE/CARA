@@ -24,7 +24,6 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
         ],
         columns: [
           {title: '', dataKey: 'rowNumber'},
-          {title: 'Item', dataKey: 'item'},
           {title: 'Time', dataKey: 'time'},
           {title: 'Target Picture', dataKey: 'targetPicture'},
           {title: 'Distracter 1', dataKey: 'distractor1'},
@@ -33,7 +32,6 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
         ],
         keyColumns: [
           {title: '', dataKey: 'rowNumber'},
-          {title: 'Item', dataKey: 'item'},
           {title: 'Target Picture', dataKey: 'targetPicture'}
         ],
         summaryRows: [],

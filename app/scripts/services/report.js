@@ -469,24 +469,6 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         headerStyles: {
           fillColor: false,
           textColor: 0
-        },
-        createdCell: function (cell, data) {
-          switch (data.column.dataKey) {
-            case 'concreteLabel':
-              cell.styles.fontStyle = 'bold';
-              break;
-            case 'abstractLabel':
-              cell.styles.fontStyle = 'bold';
-              break;
-          }
-        },
-        drawRow: function (row) {
-          if(row.index === 2) {
-            Object.keys(row.cells).forEach(function (key) {
-              var cell = row.cells[key];
-              cell.styles.lineWidth = 1.5;
-            });
-          }
         }
       });
 
@@ -635,7 +617,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           }
 
           if(cell.text[0] === ""){
-            cell.text = "--";
+            cell.text = "N/A";
           }
 
           if(cell.text === ''){
@@ -703,6 +685,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
               cell.styles.lineWidth = 1.5;
               break;
           }
+        },
+        drawRow: function (row) {
+          if(row.index === 5) {
+            Object.keys(row.cells).forEach(function (key) {
+              var cell = row.cells[key];
+              cell.styles.lineWidth = 1.5;
+            });
+          }
         }
       });
 
@@ -719,10 +709,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       doc.rect(50, 65, 495, 2, 'F');
       doc.setFontSize(12);
       doc.text(50, 90, 'Single Word Comprehension - Part 1: Unrelated Distracters');
+      doc.setFontSize(8);
+      doc.text(50, 110, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual.');
+      doc.text(50, 120, 'Please see the manual for detail.');
+      doc.setFontSize(12);
 
       doc.autoTable(singleWord1.columns, singleWord1.rows, {
         theme: 'grid',
-        margin: [100, 50, 50, 50],
+        margin: [140, 50, 50, 50],
         styles: {
           halign: 'left',
           valign: 'middle',
@@ -780,6 +774,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
     if(assessment.questions['singleWord-part-2'].completed) {
 
       doc.text(50, 30, 'Single Word Comprehension - Part 2: Related Distracters');
+      doc.setFontSize(8);
+      doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual.');
+      doc.text(50, 60, 'Please see the manual for detail.');
+      doc.setFontSize(12);
 
       doc.autoTable(singleWord2.columns, singleWord2.rows, {
         theme: 'grid',
@@ -790,6 +788,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           lineColor: 100,
           lineWidth: 1
         },
+        margin: { top: 80 },
         headerStyles: {
           fillColor: false,
           textColor: 0
@@ -860,6 +859,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       doc.addPage();
 
       doc.text(50, 30, 'Sentence Comprehension: Part 1 - Results');
+      doc.setFontSize(8);
+      doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual.');
+      doc.text(50, 60, 'Please see the manual for detail.');
+      doc.setFontSize(12);
 
       doc.autoTable(sentence1.columns, sentence1.rows, {
         theme: 'grid',
@@ -870,6 +873,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           lineColor: 100,
           lineWidth: 1
         },
+        margin: {top: 80},
         headerStyles: {
           fillColor: false,
           textColor: 0
@@ -942,6 +946,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       doc.addPage();
 
       doc.text(50, 30, 'Sentence Comprehension: Part 2 - Results');
+      doc.setFontSize(8);
+      doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual.');
+      doc.text(50, 60, 'Please see the manual for detail.');
+      doc.setFontSize(12);
 
       doc.autoTable(sentence2.columns, sentence2.rows, {
         theme: 'grid',
@@ -952,6 +960,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           lineColor: 100,
           lineWidth: 1
         },
+        margin: {top: 80},
         headerStyles: {
           fillColor: false,
           textColor: 0
@@ -1005,6 +1014,11 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
       doc.text(50, 30, 'Paragraph Comprehension');
 
+      doc.setFontSize(8);
+      doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual.');
+      doc.text(50, 60, 'Please see the manual for detail.');
+      doc.setFontSize(12);
+
       var paragraphPage1Rows = paragraph.rows.slice(0,32);
       var paragraphPage2Rows = paragraph.rows.slice(32);
 
@@ -1017,6 +1031,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           lineColor: 100,
           lineWidth: 1
         },
+        margin: {top: 80},
         headerStyles: {
           fillColor: false,
           textColor: 0
@@ -1182,7 +1197,8 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
       doc.text(50, 30, 'Paragraph Comprehension - Gists');
       doc.setFontSize(8);
-      doc.text(50, 50, 'Colour coding takes answer time distribution into account. The colours are not equally spaced, instead the darkest green is the quickest answer and the darkest red is the slowest answer. All other questions are coloured relative to those bounds.');
+      doc.text(50, 50, 'Colour coding takes answer time distribution into account. The colours are not equally spaced, instead the darkest green is the quickest answer');
+      doc.text(50, 60, 'and the darkest red is the slowest answer. All other questions are coloured relative to those bounds.');
       doc.setFontSize(12);
 
       doc.autoTable(paragraph.gistColumns, paragraph.gistRows, {
@@ -1194,6 +1210,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
           lineColor: 100,
           lineWidth: 1
         },
+        margin: {top: 80},
         headerStyles: {
           fillColor: false,
           textColor: 0

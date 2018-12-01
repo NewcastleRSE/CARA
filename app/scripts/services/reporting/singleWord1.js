@@ -28,8 +28,8 @@ angular.module('rcaApp').service('SingleWord1', function ($window) {
           {title: 'Item', dataKey: 'item'},
           {title: 'Time', dataKey: 'time'},
           {title: 'Target Word', dataKey: 'targetWord'},
-          {title: 'Unrelated Distracter', dataKey: 'distractor1'},
-          {title: 'Unrelated Distracter', dataKey: 'distractor2'},
+          {title: 'Distracter 1', dataKey: 'distractor1'},
+          {title: 'Distracter 2', dataKey: 'distractor2'},
           {title: 'Noun/Verb', dataKey: 'nounVerb'},
           {title: 'Concrete/Abstract', dataKey: 'concreteAbstract'}
         ],
