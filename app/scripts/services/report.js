@@ -150,7 +150,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         data: [
           {
             type: 'column',
-            color: '#66BD7D',
+            color: '#4D2277',
             name: 'Correct',
             indexLabelPlacement: 'outside',
             indexLabel: "{y}%",
@@ -235,7 +235,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         data: [
           {
             type: 'column',
-            color: '#66BD7D',
+            color: '#4D2277',
             name: 'Correct',
             indexLabelPlacement: 'outside',
             indexLabel: "{y}%",
@@ -286,7 +286,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         data: [
           {
             type: 'column',
-            color: '#66BD7D',
+            color: '#4D2277',
             name: 'Correct',
             indexLabelPlacement: 'outside',
             indexLabel: "{y}%",
@@ -393,7 +393,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         data: [
           {
             type: 'column',
-            color: '#66BD7D',
+            color: '#4D2277',
             name: 'Correct',
             indexLabelPlacement: 'outside',
             indexLabel: "{y}%",
@@ -451,9 +451,54 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
     doc.text(50, 50, 'Summary of Results');
     doc.rect(50, 65, 495, 2, 'F');
 
+    if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph){
+      doc.setFontSize(16);
+      doc.text(50, 100, '1. Overall Summary');
+      doc.setFontSize(12);
+
+      doc.autoTable(timeSummary.columns, timeSummary.rows, {
+        theme: 'grid',
+        margin: [150, 50, 50, 50],
+        styles: {
+          halign: 'center',
+          valign: 'middle',
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
+        },
+        headerStyles: {
+          fillColor: false,
+          textColor: 0
+        },
+        createdCell: function (cell, data) {
+          switch (data.column.dataKey) {
+            case 'concreteLabel':
+              cell.styles.fontStyle = 'bold';
+              break;
+            case 'abstractLabel':
+              cell.styles.fontStyle = 'bold';
+              break;
+          }
+        },
+        drawRow: function (row) {
+          if(row.index === 2) {
+            Object.keys(row.cells).forEach(function (key) {
+              var cell = row.cells[key];
+              cell.styles.lineWidth = 1.5;
+            });
+          }
+        }
+      });
+
+      doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 300, 512, 340);
+
+      footer();
+      doc.addPage();
+    }
+
     if(singleWord1 || singleWord2) {
       doc.setFontSize(16);
-      doc.text(50, 100, '1. Single Word Comprehension');
+      doc.text(50, 75, '2. Single Word Comprehension');
       doc.setFontSize(12);
 
 
@@ -461,7 +506,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         doc.text(50, 135, 'Part 1 - Unrelated Distracters');
         doc.autoTable(singleWord1.summaryColumns, singleWord1.summaryRows, {
           theme: 'grid',
-          margin: [150, 50, 50, 50],
+          margin: [100, 50, 50, 50],
           styles: {
             halign: 'center',
             valign: 'middle',
@@ -553,7 +598,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         textHeight = 75;
       }
 
-      doc.text(50, textHeight, '2. Sentence Comprehension');
+      doc.text(50, textHeight, '3. Sentence Comprehension');
 
       doc.setFontSize(12);
 
@@ -617,10 +662,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       doc.setFontSize(16);
 
       if(assessment.questions['sentence-part-1'].completed || assessment.questions['sentence-part-2'].completed || assessment.questions['singleWord-part-1'].completed || assessment.questions['singleWord-part-2'].completed) {
-        doc.text(50, 75, '3. Paragraph Comprehension');
+        doc.text(50, 75, '4. Paragraph Comprehension');
       }
       else {
-        doc.text(50, 100, '3. Paragraph Comprehension');
+        doc.text(50, 100, '4. Paragraph Comprehension');
       }
 
       doc.setFontSize(12);
@@ -662,51 +707,6 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       });
 
       doc.addImage(document.getElementById('paragraphSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 260, 512, 340);
-
-      footer();
-      doc.addPage();
-    }
-
-    if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph){
-      doc.setFontSize(16);
-      doc.text(50, 75, '4. Overall Summary');
-      doc.setFontSize(12);
-
-      doc.autoTable(timeSummary.columns, timeSummary.rows, {
-        theme: 'grid',
-        margin: [100, 50, 50, 50],
-        styles: {
-          halign: 'center',
-          valign: 'middle',
-          font: 'helvetica',
-          lineColor: 100,
-          lineWidth: 1
-        },
-        headerStyles: {
-          fillColor: false,
-          textColor: 0
-        },
-        createdCell: function (cell, data) {
-          switch (data.column.dataKey) {
-            case 'concreteLabel':
-              cell.styles.fontStyle = 'bold';
-              break;
-            case 'abstractLabel':
-              cell.styles.fontStyle = 'bold';
-              break;
-          }
-        },
-        drawRow: function (row) {
-          if(row.index === 2) {
-            Object.keys(row.cells).forEach(function (key) {
-              var cell = row.cells[key];
-              cell.styles.lineWidth = 1.5;
-            });
-          }
-        }
-      });
-
-      doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 300, 512, 340);
 
       footer();
       doc.addPage();
