@@ -3490,8 +3490,132 @@
       }
     ]
   },
+  "reading-scale": {
+    "name": "Questionnaire",
+    "assessmentType": "reading-scale",
+    "items": [
+      {
+        "question": "reading and understanding __single words__",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "reading and understanding __short sentences__",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "reading and understanding __paragraphs__",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "reading and understanding a __book__",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "__reading aloud__",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "__concentrating__ on reading",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "__remembering__ what you have read",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      }
+    ]
+  },
+  "reading-scale-2": {
+    "name": "Questionnaire",
+    "assessmentType": "reading-scale",
+    "items": [
+      {
+        "question": "At the moment, are you happy with the __speed__ of your reading?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "At the moment, do you find reading __enjoyable__?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "At the moment, do you find reading __easy__?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "At the moment, do you feel __confident__, when reading?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "At the moment, do you feel __happy to try__ to read?  ",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "At the moment, do you feel __motivated__ to read?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "At the moment, is reading __important__ to you?",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      }
+    ]
+  },
   "card-sorting": {
-    "name": "Card Sorting",
+    "name": "Reading Comfort",
     "assessmentType": "sorting",
     "started": null,
     "finished": null,
@@ -3545,84 +3669,6 @@
         "image": {
           "src": "menu-shopping-list.png"
         }
-      }
-    ]
-  },
-  "reading-scale": {
-    "name": "Reading Comfort",
-    "assessmentType": "reading-scale",
-    "items": [
-      {
-        "question": "reading a newspaper?",
-        "practice": true,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
-      },
-      {
-        "question": "reading text messages?",
-        "practice": true,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
-      },
-      {
-        "question": "reading signposts?",
-        "practice": true,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
-      },
-      {
-        "question": "reading a newspaper?",
-        "practice": false,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
-      },
-      {
-        "question": "reading text messages?",
-        "practice": false,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
-      },
-      {
-        "question": "reading signposts?",
-        "practice": false,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
-      },
-      {
-        "question": "reading a book?",
-        "practice": false,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
-      },
-      {
-        "question": "reading maps?",
-        "practice": false,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
-      },
-      {
-        "question": "reading timetables?",
-        "practice": false,
-        "started": null,
-        "finished": null,
-        "timeTaken": null,
-        "answerGiven": 0
       }
     ]
   }
