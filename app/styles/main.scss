@@ -306,6 +306,13 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
   max-height: calc(100% - 100px);
   max-width: 1200px;
 
+  .question-text {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 250px;
+    font-size: 3.1em;
+  }
+
   .reading-scale-question {
 
     margin-top: 60px;
