@@ -444,13 +444,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
     doc.text(centeredText('Note: This report is designed to be used in conjunction with the manual.'), 715, 'Note: This report is designed to be used in conjunction with the manual.' );
 
     footer();
-    doc.addPage();
-
-    doc.setFontSize(10);
-    doc.text(50, 50, 'This area is intentionally blank and is for the clinician to record any observations or comments from the client.');
-    doc.rect(50, 65, 495, 680);
-
-    footer();
+    
     doc.addPage();
 
     doc.setFontSize(20);
@@ -1242,6 +1236,14 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       footer();
 
     }
+
+    doc.addPage();
+
+    doc.setFontSize(10);
+    doc.text(50, 50, 'This area is intentionally blank and is for the clinician to record any observations or comments from the client.');
+    doc.rect(50, 65, 495, 680);
+
+    footer();
 
     doc.save('report-' + assessment.name + '.pdf');
 
