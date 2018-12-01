@@ -8,7 +8,7 @@
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('AppCtrl', function ($scope,$window, $state, $timeout) {
+  .controller('AppCtrl', function ($scope, $window, $state, $timeout) {
     $scope.doc = $window.document;
 
     $scope.currentStateName = $state.current.name.replace(/\./g,'-');
@@ -19,7 +19,7 @@ angular.module('rcaApp')
     });
 
     //$scope.isFullScreen = window.innerHeight == screen.height;
-    $scope.isFullScreen = document.getElementById('main-contain').innerHeight == screen.height;
+    $scope.isFullScreen = document.getElementById('main-contain').innerHeight === screen.height;
 
     $scope.goFullScreen = function() {
       var elem = document.getElementById('main-contain');
@@ -42,7 +42,7 @@ angular.module('rcaApp')
       $window.$('#confirmExit').modal('show');
     };
 
-    $window.$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(event){
+    $window.$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(){
 
       $timeout(function(){
         if (document.fullscreenElement || document.webkitFullscreenElement ) {

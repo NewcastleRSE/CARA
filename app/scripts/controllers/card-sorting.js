@@ -8,13 +8,13 @@
  * Controller of the rcaApp
  */
 angular.module('rcaApp')
-  .controller('CardSortingCtrl', function ($scope, $rootScope, Assessment, $stateParams, $state, dragulaService) {
+  .controller('CardSortingCtrl', function ($scope, $rootScope, Assessment, $stateParams, $state) {
     $rootScope.navBarVis = false;
 
     $scope.debug = localStorage.getItem('rca-debug');
     $scope.currentSlot = $stateParams.slotId;
 
-    Assessment.load($stateParams.slotId).then(function(questions){
+    Assessment.load($stateParams.slotId).then(function(){
       Assessment.questions.shuffle();
       $scope.assessment = Assessment.questions.get('card-sorting');
 
@@ -35,7 +35,7 @@ angular.module('rcaApp')
             listItem.difficulty = index + 1;
             return listItem;
           });
-          $scope.assessment.items = $scope.assessment.items.concat(dz.list)
+          $scope.assessment.items = $scope.assessment.items.concat(dz.list);
         });
 
         $scope.assessment.completed = true;

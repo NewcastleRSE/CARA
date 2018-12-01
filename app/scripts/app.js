@@ -21,9 +21,7 @@ angular
     'ngTouch',
     'frapontillo.bootstrap-switch',
     'angularMoment',
-    'btford.markdown',
-    // 'ngRaven',
-    angularDragula(angular)
+    'btford.markdown'
   ]).config( [
   '$compileProvider',
   function( $compileProvider )
@@ -76,12 +74,12 @@ angular
     .state('assessment.practice', {
       url: '/practice',
       templateUrl: 'views/assessment-practice-intro.html',
-      controller: function($scope) {}
+      controller: function() {}
     })
     .state('assessment.begin', {
       url: '/begin',
       templateUrl: 'views/assessment-begin-test.html',
-      controller: function($scope) {}
+      controller: function() {}
     })
     .state('assessmentQuestions', {
       url: '/:slotId/:section/{itemIndex:int}',
@@ -110,8 +108,7 @@ angular
     $rootScope.containerClass = transition.to().name;
   });
 
-  $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
+  $rootScope.$on('$stateChangeSuccess',function(event, toState){
     $rootScope.containerClass = toState.name;
-    console.log(toState.name);
   });
 });
