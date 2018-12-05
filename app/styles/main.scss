@@ -573,6 +573,7 @@ body.gu-unselectable {
       background-color: #fff;
       overflow: hidden;
       margin: 0 auto 20px;
+      touch-action: none;
     }
 
     & > div img {
