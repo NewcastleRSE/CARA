@@ -21,7 +21,8 @@ angular
     'ngTouch',
     'frapontillo.bootstrap-switch',
     'angularMoment',
-    'btford.markdown'
+    'btford.markdown',
+    angularDragula(angular)
   ]).config( [
   '$compileProvider',
   function( $compileProvider )
