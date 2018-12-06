@@ -3,6 +3,7 @@
 /.tmp
 /.sass-cache
 /bower_components
+**/.DS_Store
 ### Node template
 # Logs
 logs
