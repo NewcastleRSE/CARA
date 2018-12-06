@@ -7,7 +7,7 @@
  * # assessment
  * Service in the rcaApp.
  */
-angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentence1, Sentence2, SingleWord1, SingleWord2) {
+angular.module('rcaApp').service('Report', function ($window, Sorting, Questionnaire, Paragraph, Sentence1, Sentence2, SingleWord1, SingleWord2) {
 
   function msToTime(duration) {
 
@@ -39,7 +39,10 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       singleWord2 = null,
       sentence1 = null,
       sentence2 = null,
-      paragraph = null;
+      paragraph = null,
+      reading1 = null,
+      reading2 = null,
+      sorting = null;
 
     if(assessment.questions['singleWord-part-1'].completed){
       singleWord1 = SingleWord1.calculate($window._.filter(assessment.questions['singleWord-part-1'].items, {practice: false}));
@@ -59,6 +62,18 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
 
     if(assessment.questions['paragraph'].completed) {
       paragraph = Paragraph.calculate($window._.filter(assessment.questions['paragraph'].items, {practice: false}), $window._.filter(assessment.questions['paragraph-2'].items, {practice: false}));
+    }
+
+    if(assessment.questions['reading-scale'].completed) {
+      reading1 = Questionnaire.calculate($window._.filter(assessment.questions['reading-scale'].items, {practice: false}));
+    }
+
+    if(assessment.questions['reading-scale-2'].completed) {
+      reading2 = Questionnaire.calculate($window._.filter(assessment.questions['reading-scale-2'].items, {practice: false}));
+    }
+
+    if(assessment.questions['card-sorting'].completed) {
+      sorting = Sorting.calculate(assessment.questions['card-sorting']);
     }
 
     /****** Override to merge Sentence Scores *******/
@@ -310,7 +325,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       paragraphSummary.render();
     }
 
-    if(singleWord1 || singleWord2 || sentence1 || sentence2 || paragraph){
+    if(singleWord1 || singleWord2 || sentence1 || sentence2 || paragraph || reading1 || reading2 || sorting){
 
       var timeSummary = {
         columns: [
@@ -358,6 +373,15 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         dataPoints.push({ label: 'Paragraphs', y: paragraphScore });
 
         timeSummary.rows.push({assessment: 'Paragraphs', score: paragraphScore.toFixed(0) + '%', timeTaken: msToTime(paragraph.time.duration), averageTime: msToTime(paragraph.time.average) });
+      }
+      if(reading1){
+        timeSummary.rows.push({assessment: 'Reading 1', score: 'N/A', timeTaken: msToTime(reading1.time.duration), averageTime: 'N/A' });
+      }
+      if(reading2){
+        timeSummary.rows.push({assessment: 'Reading 2', score: 'N/A', timeTaken: msToTime(reading2.time.duration), averageTime: 'N/A' });
+      }
+      if(sorting){
+        timeSummary.rows.push({assessment: 'Card Sorting', score: 'N/A', timeTaken: msToTime(sorting.time.duration), averageTime: 'N/A' });
       }
 
       var overallSummary = new CanvasJS.Chart('overallSummary', {
@@ -472,7 +496,7 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
         }
       });
 
-      doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 300, 512, 340);
+      doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 400, 512, 340);
 
       footer();
       doc.addPage();
@@ -1251,7 +1275,86 @@ angular.module('rcaApp').service('Report', function ($window, Paragraph, Sentenc
       });
 
       footer();
+      doc.addPage();
+    }
 
+    if(assessment.questions['reading-scale'].completed) {
+
+      doc.text(50, 30, 'Reading Scale Part 1');
+      doc.setFontSize(8);
+      doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
+      doc.text(50, 60, 'manual for more detail.');
+      doc.setFontSize(12);
+
+      doc.autoTable(reading1.columns, reading1.rows, {
+        theme: 'grid',
+        margin: [80, 50, 50, 50],
+        styles: {
+          halign: 'left',
+          valign: 'middle',
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
+        },
+        headerStyles: {
+          fillColor: false,
+          textColor: 0
+        }
+      });
+
+      footer();
+      doc.addPage();
+    }
+
+    if(assessment.questions['reading-scale-2'].completed) {
+
+      doc.text(50, 30, 'Reading Scale Part 2');
+      doc.setFontSize(8);
+      doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
+      doc.text(50, 60, 'manual for more detail.');
+      doc.setFontSize(12);
+
+      doc.autoTable(reading2.columns, reading2.rows, {
+        theme: 'grid',
+        margin: [80, 50, 50, 50],
+        styles: {
+          halign: 'left',
+          valign: 'middle',
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
+        },
+        headerStyles: {
+          fillColor: false,
+          textColor: 0
+        }
+      });
+
+      footer();
+      doc.addPage();
+    }
+
+    if(assessment.questions['card-sorting'].completed) {
+
+      doc.text(50, 30, 'Reading Activities Sorting');
+
+      doc.autoTable(sorting.columns, sorting.rows, {
+        theme: 'grid',
+        margin: [60, 50, 50, 50],
+        styles: {
+          halign: 'left',
+          valign: 'middle',
+          font: 'helvetica',
+          lineColor: 100,
+          lineWidth: 1
+        },
+        headerStyles: {
+          fillColor: false,
+          textColor: 0
+        }
+      });
+
+      footer();
     }
 
     doc.addPage();
