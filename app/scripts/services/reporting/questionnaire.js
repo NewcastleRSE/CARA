@@ -17,11 +17,10 @@ angular.module('rcaApp').service('Questionnaire', function ($window) {
           duration: null
         },
         columns: [
-          {title: 'Impossible or avoid', dataKey: 'impossible'},
-          {title: 'Trying to read but difficult', dataKey: 'difficult'},
-          {title: 'Trying to read but OK', dataKey: 'ok'},
-          {title: 'No problem', dataKey: 'noProblem'},
-          {title: 'Not applicable', dataKey: 'notApplicable'}
+          {title: '', dataKey: 'rowNumber'},
+          {title: 'Time', dataKey: 'time'},
+          {title: 'Question', dataKey: 'question'},
+          {title: 'Answer', dataKey: 'answer'},
         ],
         rows: [],
         colours: [],
@@ -38,22 +37,26 @@ angular.module('rcaApp').service('Questionnaire', function ($window) {
         questionnaire.time.duration = questionnaire.time.endTime - questionnaire.time.startTime;
         questionnaire.time.average = $window._.meanBy(data, 'timeTaken');
 
-        var cols = $window._.groupBy(data, 'difficulty');
-
         //Data for colour coded response time table
         data.forEach(function (response, index) {
 
-            // var distractors = $window._.remove(response.answers, function (answer) {
-            //     return answer !== response.correctAnswer;
-            // });
-
-            // questionnaire.rows.push({
-            //   impossible: '',
-            //   difficult: ''
-            // });
+            questionnaire.rows.push({
+              rowNumber: index + 1,
+              question: response.question.replace(/[_]/g, ''),
+              answer: response.answerGiven + '/5',
+              time: response.timeTaken / 1000
+            });
 
         });
+
+        questionnaire.timeRank = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(questionnaire.rows), function(row){
+          return row.time !== '';
+        }, 'time'), 'time'));
+
+        questionnaire.colours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(questionnaire.timeRank.length);
         
+        console.log(questionnaire);
+
         return questionnaire;
     };
 });

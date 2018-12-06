@@ -1278,8 +1278,7 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
       doc.addPage();
     }
 
-    if(assessment.questions['reading-scale'].completed) {
-
+    if(assessment.questions['reading-scale'].completed && assessment.questions['reading-scale-2'].completed) {
       doc.text(50, 30, 'Reading Scale Part 1');
       doc.setFontSize(8);
       doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
@@ -1299,24 +1298,35 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
         headerStyles: {
           fillColor: false,
           textColor: 0
+        },
+        createdCell: function (cell, data) {
+          switch (data.column.dataKey) {
+            case 'time':
+
+              if (cell.raw !== '') {
+                cell.styles.fillColor = $window.chroma.hex(reading1.colours[reading1.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                cell.styles.textColor = [0, 0, 0];
+              }
+              break;
+            case 'rowNumber':
+              break;
+            case 'question':
+              break;
+            case 'answer':
+              break;
+          }
         }
       });
 
-      footer();
-      doc.addPage();
-    }
-
-    if(assessment.questions['reading-scale-2'].completed) {
-
-      doc.text(50, 30, 'Reading Scale Part 2');
+      doc.text(50, 280, 'Reading Scale Part 2');
       doc.setFontSize(8);
-      doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
-      doc.text(50, 60, 'manual for more detail.');
+      doc.text(50, 300, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
+      doc.text(50, 310, 'manual for more detail.');
       doc.setFontSize(12);
 
       doc.autoTable(reading2.columns, reading2.rows, {
         theme: 'grid',
-        margin: [80, 50, 50, 50],
+        margin: [330, 50, 50, 50],
         styles: {
           halign: 'left',
           valign: 'middle',
@@ -1327,6 +1337,23 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
         headerStyles: {
           fillColor: false,
           textColor: 0
+        },
+        createdCell: function (cell, data) {
+          switch (data.column.dataKey) {
+            case 'time':
+
+              if (cell.raw !== '') {
+                cell.styles.fillColor = $window.chroma.hex(reading2.colours[reading2.timeRank.indexOf(cell.raw)]).alpha(0.5).rgb();
+                cell.styles.textColor = [0, 0, 0];
+              }
+              break;
+            case 'rowNumber':
+              break;
+            case 'question':
+              break;
+            case 'answer':
+              break;
+          }
         }
       });
 

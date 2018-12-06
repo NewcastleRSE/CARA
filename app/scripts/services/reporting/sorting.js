@@ -58,8 +58,6 @@ angular.module('rcaApp').service('Sorting', function ($window) {
             noProblem: row[4],
           });
         });
-
-        console.log(sorting.rows);
         
         return sorting;
     };
