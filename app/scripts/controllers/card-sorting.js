@@ -22,7 +22,7 @@ angular.module('rcaApp')
 
       $scope.assessment.items.map(function(it){
         // it.type = "item";
-        it.image.src = "/images/sort-images/" + it.image.src;
+        it.image.src = "./images/sort-images/" + it.image.src;
         return it;
       });
 
