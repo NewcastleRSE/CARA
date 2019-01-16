@@ -1318,15 +1318,15 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
         }
       });
 
-      doc.text(50, 280, 'Reading Scale Part 2');
+      doc.text(50, 300, 'Reading Scale Part 2');
       doc.setFontSize(8);
-      doc.text(50, 300, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
-      doc.text(50, 310, 'manual for more detail.');
+      doc.text(50, 320, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
+      doc.text(50, 330, 'manual for more detail.');
       doc.setFontSize(12);
 
       doc.autoTable(reading2.columns, reading2.rows, {
         theme: 'grid',
-        margin: [330, 50, 50, 50],
+        margin: [350, 50, 50, 50],
         styles: {
           halign: 'left',
           valign: 'middle',

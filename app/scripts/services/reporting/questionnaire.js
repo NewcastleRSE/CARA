@@ -37,8 +37,12 @@ angular.module('rcaApp').service('Questionnaire', function ($window) {
         questionnaire.time.duration = questionnaire.time.endTime - questionnaire.time.startTime;
         questionnaire.time.average = $window._.meanBy(data, 'timeTaken');
 
+        var total = 0;
+
         //Data for colour coded response time table
         data.forEach(function (response, index) {
+
+            total = total + response.answerGiven;
 
             questionnaire.rows.push({
               rowNumber: index + 1,
@@ -46,7 +50,13 @@ angular.module('rcaApp').service('Questionnaire', function ($window) {
               answer: response.answerGiven + '/5',
               time: response.timeTaken / 1000
             });
+        });
 
+        questionnaire.rows.push({
+          rowNumber: '',
+          question: 'Total',
+          answer: total + '/35',
+          time: ''
         });
 
         questionnaire.timeRank = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(questionnaire.rows), function(row){
