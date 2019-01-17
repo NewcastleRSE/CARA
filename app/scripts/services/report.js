@@ -78,32 +78,87 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
 
     /****** Override to merge Sentence Scores *******/
 
-    var sentenceSummaryTotals = [];
+    var sentenceSummaryTotals = [{
+      type: 'Phrases',
+      nonReversible: [0,0],
+      reversible: '',
+      total: [0,0],
+    },{
+      type: 'Simple Sentences',
+      nonReversible: [0,0],
+      reversible: [0,0],
+      total: [0,0],
+    },{
+      type: 'Complex Sentences',
+      nonReversible: '',
+      reversible: [0,0],
+      total: [0,0]
+    },{
+      type: 'Total',
+      nonReversible: [0,0],
+      reversible: [0,0],
+      total: [0,0]
+    }];
 
     if(assessment.questions['sentence-part-1'].completed || assessment.questions['sentence-part-2'].completed) {
 
-      sentenceSummaryTotals = [{
-        type: 'Phrases',
-        nonReversible: (((sentence1) ? sentence1.nonReversiblePhrases.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.correct.count : 0 )) + ' / ' + (((sentence1) ? sentence1.nonReversiblePhrases.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.questionCount : 0 )),
-        reversible: '',
-        total: ((sentence1) ? sentence1.nonReversiblePhrases.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.nonReversiblePhrases.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversiblePhrases.questionCount : 0 ))
-      },{
-        type: 'Simple Sentences',
-        nonReversible: ((sentence1) ? sentence1.nonReversibleSimple.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversibleSimple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.nonReversibleSimple.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversibleSimple.questionCount : 0 )),
-        reversible: ((sentence1) ? sentence1.reversibleSimple.correct.count : 0 ) + ((sentence2) ? sentence2.reversibleSimple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.reversibleSimple.questionCount : 0 ) + ((sentence2) ? sentence2.reversibleSimple.questionCount : 0 )),
-        total: ((sentence1) ? sentence1.simple.correct.count : 0 ) + ((sentence2) ? sentence2.simple.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.simple.questionCount : 0 ) + ((sentence2) ? sentence2.simple.questionCount : 0 ))
-      },{
-        type: 'Complex Sentences',
-        nonReversible: '',
-        nonReversibleScore: '',
-        reversible: ((sentence1) ? sentence1.reversibleComplex.correct.count : 0 ) + ((sentence2) ? sentence2.reversibleComplex.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.reversibleComplex.questionCount : 0 ) + ((sentence2) ? sentence2.reversibleComplex.questionCount : 0 )),
-        total: ((sentence1) ? sentence1.complex.correct.count : 0 ) + ((sentence2) ? sentence2.complex.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.complex.questionCount : 0 ) + ((sentence2) ? sentence2.complex.questionCount : 0 ))
-      },{
-        type: 'Total',
-        nonReversible: ((sentence1) ? sentence1.nonReversibleTotal.correct.count : 0 ) + ((sentence2) ? sentence2.nonReversibleTotal.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.nonReversibleTotal.questionCount : 0 ) + ((sentence2) ? sentence2.nonReversibleTotal.questionCount : 0 )),
-        reversible: ((sentence1) ? sentence1.reversibleTotal.correct.count : 0 ) + ((sentence2) ? sentence2.reversibleTotal.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.reversibleTotal.questionCount : 0 ) + ((sentence2) ? sentence2.reversibleTotal.questionCount : 0 )),
-        total: ((sentence1) ? sentence1.total.correct.count : 0 ) + ((sentence2) ? sentence2.total.correct.count : 0 ) + ' / ' + (((sentence1) ? sentence1.total.questionCount : 0 ) + ((sentence2) ? sentence2.total.questionCount : 0 ))
-      }];
+      if(assessment.questions['sentence-part-1'].completed){
+          sentenceSummaryTotals[0].nonReversible[0] += sentence1.nonReversiblePhrases.correct.count;
+          sentenceSummaryTotals[0].nonReversible[1] += sentence1.nonReversiblePhrases.questionCount;
+          sentenceSummaryTotals[0].total[0] += sentence1.nonReversiblePhrases.correct.count;
+          sentenceSummaryTotals[0].total[1] += sentence1.nonReversiblePhrases.questionCount;
+          
+          sentenceSummaryTotals[1].nonReversible[0] += sentence1.nonReversibleSimple.correct.count;
+          sentenceSummaryTotals[1].nonReversible[1] += sentence1.nonReversibleSimple.questionCount;
+          sentenceSummaryTotals[1].reversible[0] += sentence1.reversibleSimple.correct.count;
+          sentenceSummaryTotals[1].reversible[1] += sentence1.reversibleSimple.questionCount;
+          sentenceSummaryTotals[1].total[0] += sentence1.nonReversibleSimple.correct.count + sentence1.reversibleSimple.correct.count;
+          sentenceSummaryTotals[1].total[1] += sentence1.nonReversibleSimple.questionCount + sentence1.reversibleSimple.questionCount;
+
+          sentenceSummaryTotals[2].reversible[0] += sentence1.reversibleComplex.correct.count;
+          sentenceSummaryTotals[2].reversible[1] += sentence1.reversibleComplex.questionCount;
+          sentenceSummaryTotals[2].total[0] += sentence1.reversibleComplex.correct.count;
+          sentenceSummaryTotals[2].total[1] += sentence1.reversibleComplex.questionCount;
+
+          sentenceSummaryTotals[3].nonReversible[0] += sentence1.nonReversiblePhrases.correct.count + sentence1.nonReversibleSimple.correct.count;
+          sentenceSummaryTotals[3].nonReversible[1] += sentence1.nonReversiblePhrases.questionCount + sentence1.nonReversibleSimple.questionCount;
+          sentenceSummaryTotals[3].reversible[0] += sentence1.reversibleSimple.correct.count + sentence1.reversibleComplex.correct.count;
+          sentenceSummaryTotals[3].reversible[1] += sentence1.reversibleSimple.questionCount + sentence1.reversibleComplex.questionCount;
+          sentenceSummaryTotals[3].total[0] += sentence1.nonReversiblePhrases.correct.count + sentence1.nonReversibleSimple.correct.count + sentence1.reversibleSimple.correct.count + sentence1.reversibleComplex.correct.count;
+          sentenceSummaryTotals[3].total[1] += sentence1.nonReversiblePhrases.questionCount + sentence1.nonReversibleSimple.questionCount + sentence1.reversibleSimple.questionCount + sentence1.reversibleComplex.questionCount;
+      }
+
+      if(assessment.questions['sentence-part-2'].completed){
+          sentenceSummaryTotals[0].nonReversible[0] += sentence2.nonReversiblePhrases.correct.count;
+          sentenceSummaryTotals[0].nonReversible[1] += sentence2.nonReversiblePhrases.questionCount;
+          sentenceSummaryTotals[0].total[0] += sentence2.nonReversiblePhrases.correct.count;
+          sentenceSummaryTotals[0].total[1] += sentence2.nonReversiblePhrases.questionCount;
+          
+          sentenceSummaryTotals[1].nonReversible[0] += sentence2.nonReversibleSimple.correct.count;
+          sentenceSummaryTotals[1].nonReversible[1] += sentence2.nonReversibleSimple.questionCount;
+          sentenceSummaryTotals[1].reversible[0] += sentence2.reversibleSimple.correct.count;
+          sentenceSummaryTotals[1].reversible[1] += sentence2.reversibleSimple.questionCount;
+          sentenceSummaryTotals[1].total[0] += sentence2.nonReversibleSimple.correct.count + sentence2.reversibleSimple.correct.count;
+          sentenceSummaryTotals[1].total[1] += sentence2.nonReversibleSimple.questionCount + sentence2.reversibleSimple.questionCount;
+
+          sentenceSummaryTotals[2].reversible[0] += sentence2.reversibleComplex.correct.count;
+          sentenceSummaryTotals[2].reversible[1] += sentence2.reversibleComplex.questionCount;
+          sentenceSummaryTotals[2].total[0] += sentence2.reversibleComplex.correct.count;
+          sentenceSummaryTotals[2].total[1] += sentence2.reversibleComplex.questionCount;
+
+          sentenceSummaryTotals[3].nonReversible[0] += sentence2.nonReversiblePhrases.correct.count + sentence2.nonReversibleSimple.correct.count;
+          sentenceSummaryTotals[3].nonReversible[1] += sentence2.nonReversiblePhrases.questionCount + sentence2.nonReversibleSimple.questionCount;
+          sentenceSummaryTotals[3].reversible[0] += sentence2.reversibleSimple.correct.count + sentence2.reversibleComplex.correct.count;
+          sentenceSummaryTotals[3].reversible[1] += sentence2.reversibleSimple.questionCount + sentence2.reversibleComplex.questionCount;
+          sentenceSummaryTotals[3].total[0] += sentence2.nonReversiblePhrases.correct.count + sentence2.nonReversibleSimple.correct.count + sentence2.reversibleSimple.correct.count + sentence2.reversibleComplex.correct.count;
+          sentenceSummaryTotals[3].total[1] += sentence2.nonReversiblePhrases.questionCount + sentence2.nonReversibleSimple.questionCount + sentence2.reversibleSimple.questionCount + sentence2.reversibleComplex.questionCount;
+      }
+
+      sentenceSummaryTotals.forEach(function(type){
+        type.nonReversible = Array.isArray(type.nonReversible) ? type.nonReversible[0] + '/' + type.nonReversible[1] : '';
+        type.reversible = Array.isArray(type.reversible) ? type.reversible[0] + '/' + type.reversible[1] : '';
+        type.total = type.total[0] + '/' + type.total[1];
+      });
     }
 
     if(singleWord1 || singleWord2){
