@@ -1,3 +1,9 @@
-<p>The following questions are practice questions.</p><p>You will be told when the test will begin.</p>
-
-<a class="btn btn-default btn-primary continue-button" ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: 0})">Start Practice Questions</a>
+<div ng-if="currentSection !== 'reading-scale'">
+    <p>The following questions are practice questions.</p>
+    <p>You will be told when the test will begin.</p>
+    <a class="btn btn-default btn-primary continue-button" ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: 0})">Start Practice Questions</a>    
+</div>
+<div ng-if="currentSection === 'reading-scale'">
+        <p>The following question is an example.</p>
+    <a class="btn btn-default btn-primary continue-button" ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: 0})">Continue</a>    
+</div>

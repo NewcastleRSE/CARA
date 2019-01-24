@@ -15,7 +15,7 @@
     </div>
     <div class="panel-body">
       <!--<textarea name="" id="" cols="30" rows="10">{{assessment}}</textarea>-->
-      <p ng-if="assessment !== null">Last Modifed: {{assessment.modified | amCalendar}}</p>
+      <p ng-if="assessment !== null">Last Modified: {{assessment.modified | amCalendar}}</p>
 
       <div class="list-group">
         <button class="list-group-item" ng-if="sectionKey !== 'paragraph-2' && sectionKey !== 'reading-scale-2'" ng-repeat="(sectionKey, section) in assessment.questions">

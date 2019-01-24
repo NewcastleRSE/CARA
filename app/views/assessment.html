@@ -80,17 +80,20 @@
               <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
             <div class="row">
-              <div class="col-md-12 reading-scale-question">
+              <div class="col-md-12 reading-scale-question" ng-if="section.name === 'Questionnaire: Section A'">
                 <p class="question-lead">At the moment, how difficult do you find……</p>
                 <p class="question-text" btf-markdown="item.question"></p>
               </div>
+              <div class="col-md-12 reading-scale-question" ng-if="section.name === 'Questionnaire: Section B'">
+                  <p class="question-lead" btf-markdown="item.question"></p>
+                </div>
             </div>
             <div class="row scale-labels">
               <div class="col-md-6">
-                <strong>Impossible</strong>
+                <strong>No</strong>
               </div>
               <div class="col-md-6 text-right">
-                <strong>No Problem</strong>
+                <strong>Yes</strong>
               </div>
             </div>
             <div class="row scale-wrapper">
@@ -118,10 +121,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-3 col-md-offset-3 text-center">
-                <button class="btn btn-default" ng-click="setAnswer(item, 0, $index)">Not Applicable</button>
-              </div>
-              <div class="col-md-3 text-center">
+              <div class="col-md-4 col-md-offset-4 text-center">
                 <button class="btn btn-default btn-primary" ng-click="setAnswer(item, answerGiven, $index)" ng-disabled="!answerGiven">Continue</button>
               </div>
             </div>

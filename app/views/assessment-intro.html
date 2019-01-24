@@ -19,7 +19,15 @@
     </ul>
   </div>
 
-  <p ng-show="currentSection === 'reading-scale'">Use the scale to indicate how comfortable you are with each reading activity.</p>
+  <div ng-if="currentSection === 'reading-scale'">
+    <p>This questionnaire is about your reading sdfsfg.</p>
+    <p>We are going to look at how easy or difficult your reading is and how you feel about reading.</p>
+    <p>There are no correct or incorrect answers.</p>
+  </div>
+
+  <div ng-if="currentSection === 'card-sorting'">
+      <p>We are going to look at what you are reading and what you are trying to read.</p>
+  </div>
 
   <!--<p ng-show="newSection && sectionType === 'paragraph-2'">Answer the following question about the paragraph you just read.</p>-->
   <ui-view></ui-view>

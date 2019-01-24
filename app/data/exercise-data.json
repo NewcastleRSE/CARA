@@ -3491,9 +3491,25 @@
     ]
   },
   "reading-scale": {
-    "name": "Questionnaire",
+    "name": "Questionnaire: Section A",
     "assessmentType": "reading-scale",
     "items": [
+      {
+        "question": "making a cup of __tea__ or __coffee__",
+        "practice": true,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
+      {
+        "question": "reading and understanding __single words__",
+        "practice": false,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
       {
         "question": "reading and understanding __single words__",
         "practice": false,
@@ -3553,9 +3569,17 @@
     ]
   },
   "reading-scale-2": {
-    "name": "Questionnaire",
+    "name": "Questionnaire: Section B",
     "assessmentType": "reading-scale",
     "items": [
+      {
+        "question": "At the moment, do you find making __tea__ or __coffee__ easy?",
+        "practice": true,
+        "started": null,
+        "finished": null,
+        "timeTaken": null,
+        "answerGiven": 0
+      },
       {
         "question": "At the moment, are you happy with the __speed__ of your reading?",
         "practice": false,
@@ -3615,7 +3639,7 @@
     ]
   },
   "card-sorting": {
-    "name": "Reading Activity",
+    "name": "Reading Activities",
     "assessmentType": "sorting",
     "started": null,
     "finished": null,
