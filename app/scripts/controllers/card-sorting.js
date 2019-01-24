@@ -15,7 +15,7 @@ angular.module('rcaApp')
     $scope.currentSlot = $stateParams.slotId;
 
     Assessment.load($stateParams.slotId).then(function(){
-      Assessment.questions.shuffle();
+      //Assessment.questions.shuffle();
       $scope.assessment = Assessment.questions.get('card-sorting');
 
       $scope.assessment.started = new Date();

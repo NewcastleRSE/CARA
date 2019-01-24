@@ -430,10 +430,10 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
         timeSummary.rows.push({assessment: 'Paragraphs', score: paragraphScore.toFixed(0) + '%', timeTaken: msToTime(paragraph.time.duration), averageTime: msToTime(paragraph.time.average) });
       }
       if(reading1){
-        timeSummary.rows.push({assessment: 'Reading 1', score: 'N/A', timeTaken: msToTime(reading1.time.duration), averageTime: 'N/A' });
+        timeSummary.rows.push({assessment: 'Reading Questionnaire: Section A', score: 'N/A', timeTaken: msToTime(reading1.time.duration), averageTime: 'N/A' });
       }
       if(reading2){
-        timeSummary.rows.push({assessment: 'Reading 2', score: 'N/A', timeTaken: msToTime(reading2.time.duration), averageTime: 'N/A' });
+        timeSummary.rows.push({assessment: 'Reading Questionnaire: Section B', score: 'N/A', timeTaken: msToTime(reading2.time.duration), averageTime: 'N/A' });
       }
       if(sorting){
         timeSummary.rows.push({assessment: 'Card Sorting', score: 'N/A', timeTaken: msToTime(sorting.time.duration), averageTime: 'N/A' });
@@ -1334,7 +1334,7 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
     }
 
     if(assessment.questions['reading-scale'].completed && assessment.questions['reading-scale-2'].completed) {
-      doc.text(50, 30, 'Reading Scale Part 1');
+      doc.text(50, 30, 'Reading Questionnaire: Section A');
       doc.setFontSize(8);
       doc.text(50, 50, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
       doc.text(50, 60, 'manual for more detail.');
@@ -1373,7 +1373,7 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
         }
       });
 
-      doc.text(50, 300, 'Reading Scale Part 2');
+      doc.text(50, 300, 'Reading Questionnaire: Section B');
       doc.setFontSize(8);
       doc.text(50, 320, 'The colour coding in the time column represents relatively slow (dark red) to fast (dark green) responses for this individual. Please see the');
       doc.text(50, 330, 'manual for more detail.');
@@ -1418,7 +1418,7 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
 
     if(assessment.questions['card-sorting'].completed) {
 
-      doc.text(50, 30, 'Reading Activities Sorting');
+      doc.text(50, 30, 'Reading Activities');
 
       doc.autoTable(sorting.columns, sorting.rows, {
         theme: 'grid',

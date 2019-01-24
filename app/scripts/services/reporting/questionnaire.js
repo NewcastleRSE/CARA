@@ -47,7 +47,7 @@ angular.module('rcaApp').service('Questionnaire', function ($window) {
             questionnaire.rows.push({
               rowNumber: index + 1,
               question: response.question.replace(/[_]/g, ''),
-              answer: response.answerGiven + '/5',
+              answer: response.answerGiven.replace('At the moment ') + '/5',
               time: response.timeTaken / 1000
             });
         });
