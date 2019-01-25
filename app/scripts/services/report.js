@@ -530,7 +530,7 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
     doc.text(50, 50, 'Summary of Results');
     doc.rect(50, 65, 495, 2, 'F');
 
-    if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph){
+    if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph || (reading1 && reading2 )|| sorting){
       doc.setFontSize(16);
       doc.text(50, 100, '1. Overall Summary');
       doc.setFontSize(12);
@@ -551,7 +551,9 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
         }
       });
 
-      doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 400, 512, 340);
+      if(singleWord1 || singleWord2 || (sentence1 && sentence2) || paragraph){
+        doc.addImage(document.getElementById('overallSummary').firstChild.firstChild.toDataURL('image/png'), 'PNG', 40, 400, 512, 340);
+      }
 
       footer();
       doc.addPage();
