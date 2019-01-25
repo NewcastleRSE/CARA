@@ -11,9 +11,7 @@ angular.module('rcaApp')
   .controller('SlotSummaryCtrl', function ($scope, Assessment, $stateParams, $rootScope, Report, Storage) {
     Storage.load($stateParams.slotId).then(function(assessment){
       $scope.slotId = $stateParams.slotId;
-
       $scope.assessment = assessment;
-
       $scope.viewReport = function($index, assessment) {
 
         new Report(assessment);

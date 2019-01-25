@@ -53,4 +53,9 @@ angular.module('rcaApp')
       }, 0);
 
     });
+  })
+  .filter('questionniare', function () {
+    return function (input) {
+        return input.replace(': Section A', '');
+    };
   });
