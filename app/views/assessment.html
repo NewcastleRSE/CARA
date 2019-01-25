@@ -81,11 +81,11 @@
             </div>
             <div class="row">
               <div class="col-md-12 reading-scale-question" ng-if="section.name === 'Questionnaire: Section A'">
-                <p class="question-lead">At the moment, how difficult do you find……</p>
-                <p class="question-text" btf-markdown="item.question"></p>
+                  <p class="question-lead">At the moment, how difficult do you find……</p>
+                  <p class="question-text" btf-markdown="item.question"></p>
               </div>
               <div class="col-md-12 reading-scale-question" ng-if="section.name === 'Questionnaire: Section B'">
-                  <p class="question-lead" btf-markdown="item.question"></p>
+                  <p class="question-lead">At the moment, <span btf-markdown="item.question" class="btf-markdown"></span></p>
                 </div>
             </div>
             <div class="row scale-labels">

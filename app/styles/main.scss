@@ -326,6 +326,10 @@ html.assessmentQuestions body div.container-fluid div[ui-view]{
       font-size: 2em;
       margin: 60px 0;
     }
+
+    .btf-markdown p {
+      display: inline;
+    }
   }
 
   .scale-labels {

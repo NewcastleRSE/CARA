@@ -3565,7 +3565,7 @@
     "assessmentType": "reading-scale",
     "items": [
       {
-        "question": "At the moment, do you find making __tea__ or __coffee__ easy?",
+        "question": "do you find making __tea__ or __coffee__ easy?",
         "practice": true,
         "started": null,
         "finished": null,
@@ -3573,7 +3573,7 @@
         "answerGiven": 0
       },
       {
-        "question": "At the moment, are you happy with the __speed__ of your reading?",
+        "question": "are you happy with the __speed__ of your reading?",
         "practice": false,
         "started": null,
         "finished": null,
@@ -3581,7 +3581,7 @@
         "answerGiven": 0
       },
       {
-        "question": "At the moment, do you find reading __enjoyable__?",
+        "question": "do you find reading __enjoyable__?",
         "practice": false,
         "started": null,
         "finished": null,
@@ -3589,7 +3589,7 @@
         "answerGiven": 0
       },
       {
-        "question": "At the moment, do you find reading __easy__?",
+        "question": "do you find reading __easy__?",
         "practice": false,
         "started": null,
         "finished": null,
@@ -3597,7 +3597,7 @@
         "answerGiven": 0
       },
       {
-        "question": "At the moment, do you feel __confident__, when reading?",
+        "question": "do you feel __confident__, when reading?",
         "practice": false,
         "started": null,
         "finished": null,
@@ -3605,7 +3605,7 @@
         "answerGiven": 0
       },
       {
-        "question": "At the moment, do you feel __happy to try__ to read?  ",
+        "question": "do you feel __happy to try__ to read?  ",
         "practice": false,
         "started": null,
         "finished": null,
@@ -3613,7 +3613,7 @@
         "answerGiven": 0
       },
       {
-        "question": "At the moment, do you feel __motivated__ to read?",
+        "question": "do you feel __motivated__ to read?",
         "practice": false,
         "started": null,
         "finished": null,
@@ -3621,7 +3621,7 @@
         "answerGiven": 0
       },
       {
-        "question": "At the moment, is reading __important__ to you?",
+        "question": "is reading __important__ to you?",
         "practice": false,
         "started": null,
         "finished": null,
