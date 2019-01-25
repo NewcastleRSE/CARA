@@ -90,10 +90,12 @@
             </div>
             <div class="row scale-labels">
               <div class="col-md-6">
-                <strong>No</strong>
+                <strong ng-if="section.name === 'Questionnaire: Section A'">Impossible</strong>
+                <strong ng-if="section.name === 'Questionnaire: Section B'">No</strong>
               </div>
               <div class="col-md-6 text-right">
-                <strong>Yes</strong>
+                <strong ng-if="section.name === 'Questionnaire: Section A'">No Problem</strong>
+                <strong ng-if="section.name === 'Questionnaire: Section B'">Yes</strong>
               </div>
             </div>
             <div class="row scale-wrapper">
