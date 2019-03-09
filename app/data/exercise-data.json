@@ -3638,10 +3638,10 @@
     "duration": null,
     "items": [
       {
-        "title": "Personal Mail",
+        "title": "Labels",
         "difficulty": null,
         "image": {
-          "src": "personal-mail.png"
+          "src": "labels.png"
         }
       },
       {
@@ -3652,24 +3652,17 @@
         }
       },
       {
-        "title": "Labels",
+        "title": "Menus/Shopping Lists",
         "difficulty": null,
         "image": {
-          "src": "labels.png"
+          "src": "menu-shopping-list.png"
         }
       },
       {
-        "title": "Internet",
+        "title": "Adverts/Leaflets",
         "difficulty": null,
         "image": {
-          "src": "computer.png"
-        }
-      },
-      {
-        "title": "Timetables",
-        "difficulty": null,
-        "image": {
-          "src": "timetables.png"
+          "src": "adverts-leaflets.png"
         }
       },
       {
@@ -3680,10 +3673,80 @@
         }
       },
       {
-        "title": "Menus/Shopping Lists",
+        "title": "Timetables",
         "difficulty": null,
         "image": {
-          "src": "menu-shopping-list.png"
+          "src": "timetables.png"
+        }
+      },
+      {
+        "title": "Text Messages",
+        "difficulty": null,
+        "image": {
+          "src": "text-messages.png"
+        }
+      },
+      {
+        "title": "Internet",
+        "difficulty": null,
+        "image": {
+          "src": "internet.png"
+        }
+      },
+      {
+        "title": "Personal Mail",
+        "difficulty": null,
+        "image": {
+          "src": "personal-mail.png"
+        }
+      },
+      {
+        "title": "Formal Letters",
+        "difficulty": null,
+        "image": {
+          "src": "formal-letters.png"
+        }
+      },
+      {
+        "title": "Newspaper Headlines",
+        "difficulty": null,
+        "image": {
+          "src": "newspaper-headlines.png"
+        }
+      },
+      {
+        "title": "Newspaper Articles",
+        "difficulty": null,
+        "image": {
+          "src": "newspaper-articles.png"
+        }
+      },
+      {
+        "title": "Magazones",
+        "difficulty": null,
+        "image": {
+          "src": "magazines.png"
+        }
+      },
+      {
+        "title": "Simpler Books",
+        "difficulty": null,
+        "image": {
+          "src": "simpler-books.png"
+        }
+      },
+      {
+        "title": "Books",
+        "difficulty": null,
+        "image": {
+          "src": "books.png"
+        }
+      },
+      {
+        "title": "Other",
+        "difficulty": null,
+        "image": {
+          "src": "other.png"
         }
       }
     ]
