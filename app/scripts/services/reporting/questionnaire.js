@@ -16,6 +16,9 @@ angular.module('rcaApp').service('Questionnaire', function ($window) {
           endTime: null,
           duration: null
         },
+        summary: {
+          score: 0
+        },
         columns: [
           {title: '', dataKey: 'rowNumber'},
           {title: 'Time', dataKey: 'time'},
@@ -58,6 +61,8 @@ angular.module('rcaApp').service('Questionnaire', function ($window) {
           answer: total + '/35',
           time: ''
         });
+
+        questionnaire.summary.total = total;
 
         questionnaire.timeRank = $window._.sortBy($window._.map($window._.remove($window._.cloneDeep(questionnaire.rows), function(row){
           return row.time !== '';

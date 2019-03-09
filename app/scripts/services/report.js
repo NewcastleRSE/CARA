@@ -430,10 +430,16 @@ angular.module('rcaApp').service('Report', function ($window, Sorting, Questionn
         timeSummary.rows.push({assessment: 'Paragraphs', score: paragraphScore.toFixed(0) + '%', timeTaken: msToTime(paragraph.time.duration), averageTime: msToTime(paragraph.time.average) });
       }
       if(reading1){
-        timeSummary.rows.push({assessment: 'Reading Questionnaire: Section A', score: 'N/A', timeTaken: msToTime(reading1.time.duration), averageTime: 'N/A' });
+
+        var reading1Score = (reading1.summary.total / 35) * 100;
+
+        timeSummary.rows.push({assessment: 'Reading Questionnaire: Section A', score: reading1Score.toFixed(0) + '%', timeTaken: msToTime(reading1.time.duration), averageTime: msToTime(reading1.time.average) });
       }
       if(reading2){
-        timeSummary.rows.push({assessment: 'Reading Questionnaire: Section B', score: 'N/A', timeTaken: msToTime(reading2.time.duration), averageTime: 'N/A' });
+
+        var reading2Score = (reading2.summary.total / 35) * 100;
+
+        timeSummary.rows.push({assessment: 'Reading Questionnaire: Section B', score: reading2Score.toFixed(0) + '%', timeTaken: msToTime(reading2.time.duration), averageTime: msToTime(reading1.time.average) });
       }
       if(sorting){
         timeSummary.rows.push({assessment: 'Card Sorting', score: 'N/A', timeTaken: msToTime(sorting.time.duration), averageTime: 'N/A' });
