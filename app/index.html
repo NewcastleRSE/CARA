@@ -16,6 +16,15 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135929474-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-135929474-1');
+    </script>
   </head>
   <body ng-controller="AppCtrl as app" class="" ng-class="[currentStateName, {home : doc.location.hash == '#/home'}, {splash : doc.location.hash == '#/'}, {fullscreen : isFullScreen}, {'not-fullscreen' : ! isFullScreen}]">
 
