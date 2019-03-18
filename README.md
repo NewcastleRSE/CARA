@@ -94,4 +94,4 @@ The production build can be done in either Docker or the local environment using
 
 ## Production Environment
 
-TODO: Overhaul and replace with deployment to a container service?
+Once a production build has been completed, copy the contents of the `dist` folder into the git repo at `git@gitlab.ncl.ac.uk:computingwebfarm/cara.git`. Access is controlled by NUIT and can be requested by raising a ticket with NU Service.
