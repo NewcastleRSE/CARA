@@ -37,7 +37,7 @@
             <button class="btn btn-default btn-info" ng-show="isFullScreen === false" ng-click="goFullScreen()"><i class="glyphicon glyphicon-fullscreen"></i>&nbsp;&nbsp;Full Screen</button>
             <a class="home-btn btn btn-default btn-info" ng-show="assessmentLoaded" ng-click="confirmAssessmentExit()"><i class="glyphicon glyphicon-log-out"></i>  Exit Assessment</a>
             <a class="btn btn-default btn-info" data-toggle="modal" data-target="#instructionsModal"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;Instructions</a>
-            <a class="btn btn-default btn-info" ui-sref="about"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;About</a>
+            <a class="btn btn-default btn-info" data-toggle="modal" data-target="#aboutModal"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;About</a>
         </div>
     </div>
 
@@ -88,6 +88,29 @@
 
           <div class="content">
             <ng-include src="'views/instructions-text.html'"></ng-include>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-default btn-primary" data-dismiss="modal">OK</a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+
+  <!-- About Modal -->
+
+  <div id="aboutModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">About</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="content">
+            <ng-include src="'views/about-text.html'"></ng-include>
           </div>
 
         </div>
