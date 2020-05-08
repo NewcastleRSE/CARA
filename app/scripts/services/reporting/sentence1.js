@@ -223,7 +223,7 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
                 return a + m.time / p.length;
             }, 0);
 
-            sentence.phrases.incorrect.count = $window._.filter(sentence.correctAnswers, {type: 'phrase'}).length;
+            sentence.phrases.incorrect.count = $window._.filter(sentence.incorrectAnswers, {type: 'phrase'}).length;
 
             sentence.phrases.questionCount = sentence.phrases.correct.count + sentence.phrases.incorrect.count;
 
@@ -238,7 +238,7 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
                 return a + m.time / p.length;
             }, 0);
 
-            sentence.simple.incorrect.count = $window._.filter(sentence.correctAnswers, {type: 'simple'}).length;
+            sentence.simple.incorrect.count = $window._.filter(sentence.incorrectAnswers, {type: 'simple'}).length;
 
             sentence.simple.questionCount = sentence.simple.correct.count + sentence.simple.incorrect.count;
 
@@ -253,7 +253,7 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
                 return a + m.time / p.length;
             }, 0);
 
-            sentence.complex.incorrect.count = $window._.filter(sentence.correctAnswers, {type: 'complex'}).length;
+            sentence.complex.incorrect.count = $window._.filter(sentence.incorrectAnswers, {type: 'complex'}).length;
 
             sentence.complex.questionCount = sentence.complex.correct.count + sentence.complex.incorrect.count;
 
@@ -354,7 +354,6 @@ angular.module('rcaApp').service('Sentence1', function ($window) {
 
             //Setting up color scale for use in ranking repsonse times
             sentence.colours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(sentence.timeRank.length);
-
 
             return sentence;
 

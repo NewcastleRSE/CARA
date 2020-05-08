@@ -69,8 +69,6 @@ angular.module('rcaApp').service('Questionnaire', function ($window) {
         }, 'time'), 'time'));
 
         questionnaire.colours = $window.chroma.scale(['66bd7d', 'b6d382', 'ffe188', 'fa9c78', 'f7686c']).colors(questionnaire.timeRank.length);
-        
-        console.log(questionnaire);
 
         return questionnaire;
     };

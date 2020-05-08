@@ -222,7 +222,7 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
                 return a + m.time / p.length;
             }, 0);
 
-            sentence.phrases.incorrect.count = $window._.filter(sentence.correctAnswers, {type: 'phrase'}).length;
+            sentence.phrases.incorrect.count = $window._.filter(sentence.incorrectAnswers, {type: 'phrase'}).length;
 
             sentence.phrases.questionCount = sentence.phrases.correct.count + sentence.phrases.incorrect.count;
 
@@ -237,7 +237,7 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
                 return a + m.time / p.length;
             }, 0);
 
-            sentence.simple.incorrect.count = $window._.filter(sentence.correctAnswers, {type: 'simple'}).length;
+            sentence.simple.incorrect.count = $window._.filter(sentence.incorrectAnswers, {type: 'simple'}).length;
 
             sentence.simple.questionCount = sentence.simple.correct.count + sentence.simple.incorrect.count;
 
@@ -252,7 +252,7 @@ angular.module('rcaApp').service('Sentence2', function ($window) {
                 return a + m.time / p.length;
             }, 0);
 
-            sentence.complex.incorrect.count = $window._.filter(sentence.correctAnswers, {type: 'complex'}).length;
+            sentence.complex.incorrect.count = $window._.filter(sentence.incorrectAnswers, {type: 'complex'}).length;
 
             sentence.complex.questionCount = sentence.complex.correct.count + sentence.complex.incorrect.count;
 
