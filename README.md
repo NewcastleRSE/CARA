@@ -84,6 +84,8 @@ If you wish to not use Docker and run the code on your local environment use the
     grunt serve
     ```
 
+7. To seed the applciation with a completed report, copy the JSON from `app/data/example-report.json` into your browser's application storage. Use a key of `rca-assessment-0` and a value of the copied JSON.
+
 ## Production Build
 
 The production build can be done in either Docker or the local environment using the instructions above.
