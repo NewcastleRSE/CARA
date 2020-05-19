@@ -55,7 +55,7 @@ angular.module('rcaApp')
 
           if (finishingPractice) {
             // Show Start test screen
-            $state.go('assessment.begin',{slotId:$scope.currentSlot, section: $scope.currentSection});
+            $state.go('assessmentBegin',{slotId:$scope.currentSlot, section: $scope.currentSection});
           } else {
             //Show next question
             $state.go('assessmentQuestions',{slotId:$scope.currentSlot, section: $scope.currentSection, itemIndex: $scope.currentItemIndex+1});
@@ -68,10 +68,10 @@ angular.module('rcaApp')
 
             // Check if this is the end of paragraphs or questionnaire
             if ($scope.questions[$stateParams.section].assessmentType === 'paragraph') {
-              $state.go('assessment.begin', {slotId:$scope.currentSlot, section: 'paragraph-2'});
+              $state.go('assessmentBegin', {slotId:$scope.currentSlot, section: 'paragraph-2'});
             }
             else if ($stateParams.section === 'reading-scale') {
-              $state.go('assessment.begin', {slotId: $scope.currentSlot, section: 'reading-scale-2'});
+              $state.go('assessmentBegin', {slotId: $scope.currentSlot, section: 'reading-scale-2'});
             }
             else {
               $state.go('slotSummary', {slotId:$scope.currentSlot});
@@ -130,7 +130,7 @@ angular.module('rcaApp')
     //
     //     if (finishingPractice) {
     //       // Show Start test screen
-    //       $state.go('assessment.begin', {slotId: $scope.currentSlot, section: $scope.currentSection});
+    //       $state.go('assessmentBegin', {slotId: $scope.currentSlot, section: $scope.currentSection});
     //     } else {
     //       //Show next question
     //       $state.go('assessmentQuestions', {
