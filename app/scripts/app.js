@@ -96,15 +96,13 @@ angular
       url: '/report',
       templateUrl: 'views/report.html',
       controller: 'ReportCtrl'
-    })
-    .state('state2.list', {
-      url: '/list',
-      templateUrl: 'partials/state2.list.html',
-      controller: function($scope) {
-        $scope.things = ['A', 'Set', 'Of', 'Things'];
-      }
     });
 }).run(function($rootScope, $transitions){
+
+  $rootScope.$on('$stateChangeError', function() {
+    console.error(arguments);
+  });
+
   $transitions.onSuccess({}, function(transition) {
     $rootScope.containerClass = transition.to().name;
   });
