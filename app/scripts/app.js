@@ -67,11 +67,6 @@ angular
       templateUrl: 'views/card-sorting.html',
       controller: 'CardSortingCtrl'
     })
-    .state('assessment', {
-      url: '/:slotId/:section',
-      templateUrl: 'views/assessment-intro.html',
-      controller: 'SectionIntroCtrl'
-    })
     .state('assessmentPractice', {
       url: '/:slotId/:section/practice',
       templateUrl: 'views/assessment-practice-intro.html',

@@ -23,6 +23,8 @@
       <p>This questionnaire is about your reading.</p>
       <p>We are going to look at how easy or difficult your reading is and how you feel about reading.</p>
       <p>There are no correct or incorrect answers.</p>
+      <p>The following question is an example.</p>
+      <a class="btn btn-default btn-primary continue-button" ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: 0})">Continue</a>    
     </div>
   
     <div ng-if="currentSection === 'card-sorting'">
@@ -34,9 +36,5 @@
         <p>The following questions are practice questions.</p>
         <p>You will be told when the test will begin.</p>
         <a class="btn btn-default btn-primary continue-button" ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: 0})">Start Practice Questions</a>    
-    </div>
-    <div ng-if="currentSection === 'reading-scale'">
-            <p>The following question is an example.</p>
-        <a class="btn btn-default btn-primary continue-button" ui-sref="assessmentQuestions({slotId:currentSlot, section: currentSection, itemIndex: 0})">Continue</a>    
     </div>
 </div>

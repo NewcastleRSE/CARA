@@ -255,9 +255,6 @@ angular.module('rcaApp')
     };
 
     Assessment.start = function() {
-      //console.log('Starting');
-      //$state.go('assessment', {'slotId': Storage.currentSlot});
-      //console.log('Poost');
       Assessment.questions.current.reset();
       Assessment.isWaiting = true;
       Assessment.started = true;
