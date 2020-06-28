@@ -12,7 +12,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '8.x'
+          node-version: '12.x'
       - name: Install Global Dependencies
         run: npm install grunt-cli && npm install yarn
       - name: Install Dependencies
