@@ -14,9 +14,9 @@ jobs:
         with:
           node-version: '8.x'
       - name: Install Global Dependencies
-        run: npm install grunt-cli bower
+        run: npm install grunt-cli && npm install yarn
       - name: Install Dependencies
-        run: npm install grunt-cli && npm install bower && npm install && bower install
+        run: yarn
       - name: Run Build
         run: grunt build
       - name: Upload Build
