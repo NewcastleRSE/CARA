@@ -1,0 +1,26 @@
+name: Build & Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '8.x'
+      - name: Install Global Dependencies
+        run: npm install grunt-cli bower
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Build
+        run: grunt build
+      - name: Upload Build
+        uses: actions/upload-artifact@v1
+        with:
+          name: CARA
+          path: ./dist
