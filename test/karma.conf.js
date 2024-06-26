@@ -35,7 +35,6 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/jspdf/dist/jspdf.debug.js',
-      'bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js',
       'bower_components/lodash/lodash.js',
       'bower_components/chroma-js/chroma.js',
       'bower_components/bootstrap-switch/dist/js/bootstrap-switch.js',
@@ -48,6 +47,7 @@ module.exports = function(config) {
       'bower_components/angularjs-dragula/dist/angularjs-dragula.js',
       'bower_components/showdown/src/showdown.js',
       'bower_components/angular-markdown-directive/markdown.js',
+      'bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
