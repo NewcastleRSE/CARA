@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Install Ruby
-        run: apt-get install ruby-full -y
+        run: sudo apt-get install ruby-full -y
       - name: Install Compass
         run: gem install compass
       - name: Install Global Dependencies
