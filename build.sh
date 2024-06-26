@@ -1,1 +1,1 @@
-docker build -t cara -f docker/development/Dockerfile .
+docker build -t cara -f docker/development/Dockerfile --progress=plain . 
