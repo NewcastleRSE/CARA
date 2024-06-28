@@ -1,0 +1,183 @@
+<style>
+  /***************************** Dropzone Styling *****************************/
+
+  /**
+   * The dnd-list should always have a min-height,
+   * otherwise you can't drop to it once it's empty
+   */
+  .nestedDemo .dropzone ul[dnd-list] {
+    margin: 0px;
+    min-height: 150px;
+    padding-left: 0px;
+  }
+
+  .nestedDemo .dropzone li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: block;
+    padding: 0px;
+  }
+
+  /**
+   * Reduce opacity of elements during the drag operation. This allows the user
+   * to see where he is dropping his element, even if the element is huge. The
+   * .dndDragging class is automatically set during the drag operation.
+   */
+  .nestedDemo .dropzone .dndDragging {
+    opacity: 0.7;
+  }
+
+  /**
+   * The dndDraggingSource class will be applied to the source element of a drag
+   * operation. It makes sense to hide it to give the user the feeling that he's
+   * actually moving it. Note that the source element has also .dndDragging class.
+   */
+  .nestedDemo .dropzone .dndDraggingSource {
+    display: none;
+  }
+
+  /**
+   * An element with .dndPlaceholder class will be added as child of the dnd-list
+   * while the user is dragging over it.
+   */
+  .nestedDemo .dropzone .dndPlaceholder {
+    background-color: #ddd;
+    display: block;
+    min-height: 100px;
+  }
+
+  /***************************** Element Selection *****************************/
+
+  .nestedDemo .dropzone .selected .item {
+    color: #3c763d;
+    background-color: #dff0d8;
+  }
+
+  .nestedDemo .dropzone .selected .box {
+    border-color: #d6e9c6;
+  }
+
+  .nestedDemo .dropzone .selected .box > h3 {
+    background-color: #dff0d8;
+    background-image: linear-gradient(to bottom,#dff0d8 0,#d0e9c6 100%);
+    border-color: #d6e9c6;
+    color: #3c763d;
+  }
+
+  /***************************** Element type specific styles *****************************/
+
+  .nestedDemo .dropzone .item {
+    padding: 10px 15px;
+  }
+
+  .nestedDemo .dropzone .item img {
+    max-width: 100%;
+  }
+
+  .nestedDemo .dropzone .container-element {
+    margin: 10px;
+  }
+
+  .nestedDemo .dropzone .container-element .column {
+    float: left;
+    width: 50%;
+  }
+
+  /***************************** Toolbox *****************************/
+
+  .nestedDemo .toolbox ul {
+    cursor: move;
+    list-style: none;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -250px;
+  }
+
+  .nestedDemo .toolbox button {
+    margin: 5px;
+    opacity: 1.0;
+    width: 123px;
+  }
+
+  .nestedDemo .toolbox .dndDragging {
+    opacity: 0.5;
+  }
+
+  .nestedDemo .toolbox .dndDraggingSource {
+    opacity: 1.0;
+  }
+
+  /***************************** Trashcan *****************************/
+
+  .nestedDemo .trashcan ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+
+  .nestedDemo .trashcan img {
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
+  .nestedDemo .trashcan .dndDragover img {
+    width: 100%;
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+  }
+
+  .nestedDemo .trashcan .dndPlaceholder {
+    display: none;
+  }
+
+</style>
+<!-- <div>
+    {{modelAsJson}}
+</div> -->
+
+<div class="card-sorter">
+  <div class="container-fluid">
+    <div class="row">
+      <div ng-repeat="zone in models.dropzones" ng-if="$index > 0" class="col-md-3">
+        <h5 class="text-center">{{zone.name}}</h5>
+        <div dragula='"bag-one"' class="drop-list" dragula-model="zone.list">
+          <div class="item" ng-repeat="item in zone.list">
+            <h4>{{item.title}}</h4>
+            <img ng-src="{{item.image.src}}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid card-deck-menu" style="position: fixed; bottom: 0;">
+    <div class="row">
+      <div class="col-md-3">
+        <h5 class="text-center">{{models.dropzones[0].name}}</h5>
+        <div dragula='"bag-one"' class="drop-list not-applicable" dragula-model="models.dropzones[0].list">
+          <div class="item" ng-repeat="item in models.dropzones[0].list">
+            <h4>{{item.title}}</h4>
+            <img ng-src="{{item.image.src}}" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div dragula='"bag-one"' class="palette" dragula-model="assessment.items">
+          <div class="item" ng-repeat="item in assessment.items">
+            <h4>{{item.title}}</h4>
+            <img ng-src="{{item.image.src}}" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="submit-cards" ng-show="assessment.items.length < 1" style="text-align: center;">
+          <a ng-click="saveAssessment()" class="btn btn-primary">Save and Finish</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
