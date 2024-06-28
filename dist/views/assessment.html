@@ -1,0 +1,135 @@
+<div class="practice-marker text-primary" ng-if="currentItemIsPractice()">P</div>
+<div class="assessment-content" ng-class="{'paragraph' : isParagraph()}">
+  <div ng-repeat="(sectionkey, section) in questions">
+
+    <div ng-if="sectionkey === currentSection">
+
+      <div ng-if="section.assessmentType === 'single'">
+        <div class="" ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
+          <div class="next-screen" ng-hide="item.started">
+            <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
+          </div>
+          <div class="row">
+            <div ng-if="currentSection === 'paragraph-2'" class="col-md-12">
+              <p class="btn btn-block question-text">{{item.question}}</p>
+            </div>
+            <div ng-if="currentSection !== 'paragraph-2'"class="col-md-2 col-md-offset-5">
+              <p class="btn btn-block question-text">{{item.question}}</p>
+            </div>
+          </div>
+          <div class="row answers">
+            <div class="col-md-4" ng-repeat="answer in item.answers">
+              <a class="btn btn-block btn-default" ng-click="setAnswer(item, answer, $index)">{{answer}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="section.assessmentType === 'sentence'">
+
+        <div ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
+          <div class="next-screen" ng-hide="item.started">
+            <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
+          </div>
+          <div class="answers" ng-show="item.started">
+            <div class="row">
+              <div class="col-md-6">
+                <p ng-show="debug === 'yes'">{{item.answers[0].text}}</p>
+                <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[0].image}}" ng-click="setAnswer(item, item.answers[0].text, 0);" />
+              </div>
+              <div class="col-md-6">
+                <p ng-show="debug === 'yes'">{{item.answers[1].text}}</p>
+                <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[1].image}}" ng-click="setAnswer(item, item.answers[1].text, 1);" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 text-center">{{item.question | removeBracketedText}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p ng-show="debug === 'yes'">{{item.answers[2].text}}</p>
+                <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[2].image}}" ng-click="setAnswer(item, item.answers[2].text, 2);" />
+              </div>
+              <div class="col-md-6">
+                <p ng-show="debug === 'yes'">{{item.answers[3].text}}</p>
+                <img class="img-responsive" ng-src="images/assessment-images/{{item.answers[3].image}}" ng-click="setAnswer(item, item.answers[3].text, 3);" />
+              </div>
+            </div>
+            <!--<img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" ng-src="images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text, $index);" />-->
+          </div>
+        </div>
+      </div>
+      <div ng-if="section.assessmentType === 'paragraph'">
+        <div ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
+          <div ng-hide="item.finished" class="paragraphTextContainer">
+            <div class="next-screen" ng-hide="item.started">
+              <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
+            </div>
+            <p class="paragraph-text-small"><strong>{{item.paragraph}}</strong></p>
+            <p class="text-center"><button class="btn btn-default btn-primary continue-button" ng-click="acceptParagraph(item)">Continue</button></p>
+          </div>
+          <div ng-show="item.finished" class="paragraphQuestionsContainer">
+            <ui-view></ui-view>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="section.assessmentType === 'reading-scale'">
+        <div ng-hide="item.finished" class="paragraphTextContainer">
+          <div class="" ng-repeat="item in section.items" ng-show="$index === currentItemIndex">
+            <div class="next-screen" ng-hide="item.started">
+              <button class="btn btn-default" ng-click="item.started = newTimestamp()"><i class="glyphicon glyphicon-arrow-right"></i></button>
+            </div>
+            <div class="row">
+              <div class="col-md-12 reading-scale-question" ng-if="section.name === 'Questionnaire: Section A'">
+                  <p class="question-lead">At the moment, how difficult do you find……</p>
+                  <p class="question-text" btf-markdown="item.question"></p>
+              </div>
+              <div class="col-md-12 reading-scale-question" ng-if="section.name === 'Questionnaire: Section B'">
+                  <p class="question-lead">At the moment, <span btf-markdown="item.question" class="btf-markdown"></span></p>
+                </div>
+            </div>
+            <div class="row scale-labels">
+              <div class="col-md-6">
+                <strong ng-if="section.name === 'Questionnaire: Section A'">Impossible</strong>
+                <strong ng-if="section.name === 'Questionnaire: Section B'">No</strong>
+              </div>
+              <div class="col-md-6 text-right">
+                <strong ng-if="section.name === 'Questionnaire: Section A'">No Problem</strong>
+                <strong ng-if="section.name === 'Questionnaire: Section B'">Yes</strong>
+              </div>
+            </div>
+            <div class="row scale-wrapper">
+              <div class="col-md-12 scale-line-wrapper">
+                <div class="scale-line"></div>
+              </div>
+              <div class="reading-scale col-md-12">
+                <div class="scale-point" ng-class="({'selected': answerGiven === 1})" ng-click="answerGiven = 1"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 1.5})" ng-click="answerGiven = 1.5"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 2})" ng-click="answerGiven = 2"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 2.5})" ng-click="answerGiven = 2.5"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 3})" ng-click="answerGiven = 3"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 3.5})" ng-click="answerGiven = 3.5"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 4})" ng-click="answerGiven = 4"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 4.5})" ng-click="answerGiven = 4.5"></div>
+                <div class="scale-point" ng-class="({'selected': answerGiven === 5})" ng-click="answerGiven = 5"></div>
+              </div>
+            </div>
+            <div class="row scale-emoticons">
+              <div class="col-md-6">
+                <img class="disagree" src="./images/disagree_colour1.jpg">
+              </div>
+              <div class="col-md-6">
+                <img class="agree" src="./images/agree_colour1.jpg">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4 text-center">
+                <button class="btn btn-default btn-primary" ng-click="setAnswer(item, answerGiven, $index)" ng-disabled="!answerGiven">Continue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

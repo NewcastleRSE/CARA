@@ -2,7 +2,7 @@ name: Build & Deploy
 on:
   push:
     branches:
-      - main
+      - dev
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,12 +13,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - name: Install Ruby
+        run: sudo apt-get install ruby-full -y
       - name: Install Compass
-        run: apt-get install ruby-full -y && gem update --system && gem install compass
+        run: sudo gem install compass
       - name: Install Global Dependencies
-        run: npm install grunt-cli && npm install yarn
+        run: npm install grunt-cli && npm install yarn && npm install bower
       - name: Install Dependencies
         run: yarn
+      - name: Install Dependencies
+        run: bower install
       - name: Run Build
         run: grunt build
       - name: Upload Build

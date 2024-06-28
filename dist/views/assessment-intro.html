@@ -1,0 +1,37 @@
+<div class="section-intro">
+
+  <h1>{{questions[currentSection].name}}</h1>
+  <div ng-show="currentSection === 'singleWord-part-1' || currentSection === 'singleWord-part-2'"><p>Read the four words. Try not to read aloud.</p><p>Select the word <u>closest in meaning</u> to the top word.</p></div>
+  <div ng-show="currentSection === 'singleWord-part-2'"><p>Several may be closely related.</p></div>
+
+  <div ng-show="currentSection === 'sentence-part-1' || currentSection === 'sentence-part-2'"><p>Read the sentence. Try not to read aloud.</p><p>Look carefully at all 4 pictures.</p><p>Select the picture that matches the sentence.</p></div>
+  <div ng-show="currentSection === 'paragraph'"><p>Read each paragraph carefully. Try not to read aloud.</p><p>Answer the questions on each paragraph.</p><p>At the end there will be some more questions about the characters in the stories.</p></div>
+  <div ng-show="currentSection === 'paragraph-2'">
+    <p>
+      Think about the paragraphs you have just read.
+      Which couple would you link the following statements to:
+    </p>
+
+    <ul>
+      <li>Sarah and Adam</li>
+      <li>Aisha and Mary</li>
+      <li>Both couples</li>
+    </ul>
+  </div>
+
+  <div ng-if="currentSection === 'reading-scale'">
+    <p>This questionnaire is about your reading.</p>
+    <p>We are going to look at how easy or difficult your reading is and how you feel about reading.</p>
+    <p>There are no correct or incorrect answers.</p>
+  </div>
+
+  <div ng-if="currentSection === 'card-sorting'">
+      <p>You will see a card with a picture of something you might read. Decide where to put it.</p>
+      <p>There are four points: impossible/avoid, trying to read but difficult, trying to read but ok and no problem.</p>
+      <p>If you never read or don’t need to read a particular thing, put the card in not applicable.</p>
+  </div>
+
+  <!--<p ng-show="newSection && sectionType === 'paragraph-2'">Answer the following question about the paragraph you just read.</p>-->
+  <ui-view></ui-view>
+
+</div>
