@@ -1,0 +1,212 @@
+<div class="container">
+  <div ng-show="waiting" class="row" ng-cloak>
+    <div class="col-md-12" style="text-align: center;">
+      <div class="vcenter">
+        <p><button class="ok-ready btn btn-success" ng-click="showNextPage()"><i ng-cloak class="glyphicon glyphicon-ok"></i></button></p>
+        <button ng-hide="nextSectionNew === true" class="save-button btn btn-success" ng-click="saveProgress()">{{savedProgressText}}</button>
+        <button ng-hide="nextSectionNew === true" class="backtohome-button btn btn-success" ui-sref="home">Back to home</button>
+        <form ng-show="debug === 'yes'" action="">
+          <textarea style="width: 800px" name="json" id="json-view" cols="30" rows="10">{{questions | json}}</textarea>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div ng-hide="waiting" class="row">
+    <div ng-repeat="q in questions" id="section-{{$id}}">
+      <div ng-if="q.assessmentType === 'single'">
+        <div class="vcenter" ng-repeat="item in q.items" ng-if="item.answerGiven === null" id="page-{{$id}}" data-selected="{{q.selected}}">
+          <h2 style="text-align: center;margin-bottom: 40px;font-size:7.5em;margin-top: -150px;">{{item.question}}</h2>
+          <nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">
+            <div class="container">
+              <div class="row answers">
+                <div class="col-md-4" ng-repeat="answer in item.answers">
+                  <button class="btn btn-default btn-block answer-option" ng-click="setAnswer(item, answer, $index)">{{answer}}</button>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div ng-if="q.assessmentType === 'sentence'">
+        <div ng-repeat="item in q.items" id="page-{{$id}}" ng-if="item.answerGiven === null" data-selected="{{q.selected}}">
+
+          <div class="answers">
+            <h2>{{item.question}}</h2>
+            <div class="row">
+              <div class="col-md-6" ng-repeat="answer in item.answers">
+                <p ng-show="debug === 'yes'">{{answer.text}}</p>
+                <img class="img-responsive" ng-src="images/assessment-images/{{answer.image}}" ng-click="setAnswer(item, answer.text, $index);" />
+              </div>
+            </div>
+            <!--<img ng-class="{topleft: $index === 0, topright: $index === 1, bottomleft: $index === 2, bottomright: $index === 3}" ng-src="images/assessment-images/{{answer.image}}" ng-repeat="answer in item.answers" ng-click="setAnswer(item, answer.text, $index);" />-->
+          </div>
+        </div>
+      </div>
+      <div ng-if="q.assessmentType === 'paragraph'">
+        <div ng-repeat="item in q.items">
+          <div id="page-{{$id}}" ng-if="item.finished === null" data-selected="{{q.selected}}">
+            <div class="vcenter">
+              <p class="paragraph-text-small"><strong>{{item.paragraph}}</strong></p>
+            </div>
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div style="text-align: center;"><button class="btn btn-primary okbutton btn-lg" ng-click="acceptParagraph(item)">OK</button></div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="questions">
+            <div class="vcenter" ng-repeat="question in item.questions" id="page-{{$id}}" ng-if="question.answerGiven === null"data-selected="{{q.selected}}">
+              <p class="paragraph-text"><strong>{{question.question}}</strong></p>
+              <nav class="navbar navbar-default navbar-fixed-bottom" style="height:120px;padding-top: 20px;">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4" ng-repeat="answer in question.answers">
+                      <button class="btn btn-default btn-block answer-option" ng-click="setAnswer(question, answer, $index)">{{answer}}</button>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div ng-hide="waiting" class="row">
+
+    <!--<div class="col-md-12">
+      <h1>{{questionType}}</h1>
+      <p ng-if="questionType !== 'paragraph'">{{q.q}}</p>
+      <p ng-if="questionType === 'paragraph'">{{q.paragraph}}</p>
+      <p><button ng-show="hasNext" ng-click="getNext()">Next</button></p>
+      <p><button ng-hide="hasNext" >Finish</button></p>
+    </div>-->
+
+
+
+    <div ng-show="complete" style="text-align: center;">
+      <p class="paragraph-text">Thank you for completing the assessment.</p>
+      <button class="btn btn-primary" ui-sref="home">Back to home</button>
+      <textarea ng-hide="true">{{questions | json}}</textarea>
+      <div class="row" ng-show="showAssessmentResults">
+        <div class="col-md-12">
+          <h3>Single Word 1</h3>
+          <table class="table">
+            <tr>
+              <th>Question</th>
+              <th>Correct Answer</th>
+              <th>Answer Given</th>
+              <th>Time taken</th>
+              <th>Answer Position</th>
+            </tr>
+            <tr ng-repeat="item in results['singleWord-part-1'].items">
+              <td>{{item.question}}</td>
+              <td>{{item.correctAnswer}}</td>
+              <td ng-class="{correct : item.correctAnswer === item.answerGiven, incorrect: item.correctAnswer !== item.answerGiven}">{{item.answerGiven}}</td>
+              <td>{{item.timeTaken}}</td>
+              <td>{{item.answerPosition}}</td>
+            </tr>
+          </table>
+
+          <h3>Single Word 2</h3>
+          <table class="table">
+            <tr>
+              <th>Question</th>
+              <th>Correct Answer</th>
+              <th>Answer Given</th>
+              <th>Time taken</th>
+              <th>Answer Position</th>
+            </tr>
+            <tr ng-repeat="item in results['singleWord-part-2'].items">
+              <td>{{item.question}}</td>
+              <td>{{item.correctAnswer}}</td>
+              <td ng-class="{correct : item.correctAnswer === item.answerGiven, incorrect: item.correctAnswer !== item.answerGiven}">{{item.answerGiven}}</td>
+              <td>{{item.timeTaken}}</td>
+              <td>{{item.answerPosition}}</td>
+            </tr>
+          </table>
+
+          <h3>Sentence 1</h3>
+
+          <table class="table">
+            <tr>
+              <th>Question</th>
+              <th>Correct Answer</th>
+              <th>Answer Given</th>
+              <th>Time taken</th>
+              <th>Answer Position</th>
+            </tr>
+            <tr ng-repeat="item in results['sentence-part-1'].items">
+              <td>{{item.question}}</td>
+              <td>{{item.correctAnswer}}</td>
+              <td ng-class="{correct : item.correctAnswer === item.answerGiven, incorrect: item.correctAnswer !== item.answerGiven}">{{item.answerGiven}}</td>
+              <td>{{item.timeTaken}}</td>
+              <td>{{item.answerPosition}}</td>
+            </tr>
+          </table>
+
+          <h3>Sentence 2</h3>
+
+          <table class="table">
+            <tr>
+              <th>Question</th>
+              <th>Correct Answer</th>
+              <th>Answer Given</th>
+              <th>Time taken</th>
+              <th>Answer Position</th>
+            </tr>
+            <tr ng-repeat="item in results['sentence-part-2'].items">
+              <td>{{item.question}}</td>
+              <td>{{item.correctAnswer}}</td>
+              <td  ng-class="{correct : item.correctAnswer === item.answerGiven, incorrect: item.correctAnswer !== item.answerGiven}">{{item.answerGiven}}</td>
+              <td>{{item.timeTaken}}</td>
+              <td>{{item.answerPosition}}</td>
+            </tr>
+          </table>
+
+          <h3>Paragraphs</h3>
+
+          <div ng-repeat="item in results['paragraph'].items">
+
+            <table class="table">
+              <tr>
+                <th>Paragraph</th>
+                <th>Time taken</th>
+              </tr>
+              <tr>
+                <td>{{item.paragraph}}</td>
+                <td>{{item.timeTaken}}</td>
+              </tr>
+            </table>
+
+            <table class="table">
+              <tr>
+                <th>Question</th>
+                <th>Correct Answer</th>
+                <th>Answer Given</th>
+                <th>Time taken</th>
+                <th>Answer Position</th>
+              </tr>
+              <tr ng-repeat="q in item.questions">
+                <td>{{q.question}}</td>
+                <td>{{q.correctAnswer}}</td>
+                <td ng-class="{correct : q.correctAnswer === q.answerGiven, incorrect: q.correctAnswer !== q.answerGiven}">{{q.answerGiven}}</td>
+                <td>{{q.timeTaken}}</td>
+                <td>{{q.answerPosition}}</td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
