@@ -16,5 +16,5 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dsit
+          publish_dir: ./dist
           cname: cara.ncl.ac.uk
